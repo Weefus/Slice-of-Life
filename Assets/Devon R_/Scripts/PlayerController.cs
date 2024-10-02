@@ -4,33 +4,142 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    public float speed;
-    public float jumpForce;
-    //private bool isOnGround = true;
-    private float horizontalInput;
-    private Rigidbody2D playerRb;
-    private Vector2 movement;
-    private Vector2 jump;
+    Rigidbody2D myRB;
+    public int jumpForce = 200;
 
-    // Start is called before the first frame update
+    //move
+    public float maxSpeed;
+    //bool facingleft = true;
+    //SpriteRenderer myRenderer;
+    //Animator mainAnim;
+    //Animator idleAnim;
+    //Animator sideAnim;
+    bool jumped = true;
+    //bool grounded = false;
+
+    public GameObject Charsideprof;
+    public GameObject Characteridle;
+
+
+
+    // Use this for initialization
     void Start()
     {
-        playerRb = GetComponent<Rigidbody2D>();
+        myRB = GetComponent<Rigidbody2D>();
+        // myRenderer = GetComponent<SpriteRenderer>();
+
+        //mainAnim = GetComponent<Animator>();
+        //idleAnim = Characteridle.GetComponent<Animator>();
+        //sideAnim = Charsideprof.GetComponent<Animator>();
+
+
+        //Variables needed for Animator for script to work
+        //Bool Moving
+        //Bool IsGrounded
+
+        Quaternion rotation = Quaternion.Euler(0, 0, 0);
+        Quaternion flipRotation = Quaternion.Euler(0, 180, 0);
+    }
+
+    //you need to add a tag for your ground object for this to work properly
+    void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "Ground" && myRB.velocity.y <= 0)
+        {
+            jumped = false;
+            //Debug.Log("hi!!!! :))");
+        }
     }
 
     // Update is called once per frame
     void Update()
     {
-        horizontalInput = Input.GetAxisRaw("Horizontal");
-
-        movement = new Vector2(horizontalInput, 0);
-        jump = new Vector2(0, jumpForce);
-
-        playerRb.velocity = movement * speed;
-
-        if (Input.GetKeyDown(KeyCode.Space))
+        //just a quick check if you press space and if you're still in the air to prevent multiple jumps
+        if (Input.GetKey(KeyCode.Space) && !jumped)
         {
-            playerRb.AddForce(jump, ForceMode2D.Impulse);
+            gameObject.GetComponent<Rigidbody2D>().AddForce(gameObject.GetComponent<Rigidbody2D>().transform.TransformDirection(Vector3.up) * jumpForce);
+            jumped = true;
         }
+
+        //mainAnim.SetBool("IsGrounded", !jumped);
+        //idleAnim.SetBool("IsGrounded", !jumped);
+        //sideAnim.SetBool("IsGrounded", !jumped);
+
+        float move = Input.GetAxis("Horizontal");
+
+        /*if (move > 0 && !facingleft)
+        {
+            Flip();
+        }
+        else if (move < 0 && facingleft)
+        {
+            Flip();
+        }
+        if (move != 0)
+        {
+            mainAnim.SetBool("Moving", true);
+            idleAnim.SetBool("Moving", true);
+            sideAnim.SetBool("Moving", true);
+
+        }
+        else if (move == 0)
+        {
+            mainAnim.SetBool("Moving", false);
+            idleAnim.SetBool("Moving", false);
+            sideAnim.SetBool("Moving", false);
+
+        }*/
+        myRB.velocity = new Vector2(move * maxSpeed, myRB.velocity.y);
+
+        //mainAnim.SetFloat("MoveSpeed", Mathf.Abs(move));
+
+        //mainAnim.SetFloat("VerticalVelocity", Mathf.Abs(myRB.velocity.y));
+
+        //switchSprite();
+
     }
+    /*void Flip()
+    {
+        if (!facingleft)
+        {
+            transform.Rotate(0, 180, 0);
+        }
+
+        if (facingleft)
+        {
+            transform.Rotate(0, 180, 0);
+        }
+
+        facingleft = !facingleft;
+
+    }*/
+
+    /*void switchSprite()
+    {
+
+        bool isMoving = mainAnim.GetBool("Moving");
+        bool isGrounded = mainAnim.GetBool("IsGrounded");
+
+
+        if (!mainAnim.GetBool("Moving") && mainAnim.GetBool("IsGrounded"))
+        {
+
+            Charsideprof.SetActive(false);
+
+            Characteridle.SetActive(true);
+
+
+        }
+        else
+        {
+
+            Characteridle.SetActive(false);
+
+            Charsideprof.SetActive(true);
+
+        }
+
+    }*/
+
+
 }
