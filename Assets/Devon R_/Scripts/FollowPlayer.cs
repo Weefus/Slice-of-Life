@@ -5,8 +5,8 @@ using UnityEngine;
 public class FollowPlayer : MonoBehaviour
 {
     public GameObject followPlayer;
-    public Vector2 followOffset;
-    public float speed = 3f;
+    public Vector2 followOffset = new Vector2(4f, 0.3f);
+    public float speed = 10f;
     private Vector2 threshold;
     private Rigidbody2D rb;
     

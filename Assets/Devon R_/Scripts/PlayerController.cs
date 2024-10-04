@@ -5,8 +5,8 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     Rigidbody2D myRB;
-    public int jumpForce = 200;
-    public int dashForce = 100;
+    public int jumpForce = 600;
+    public int dashForce = 200;
 
     //move
     public float maxSpeed;
