@@ -4,15 +4,23 @@ using UnityEngine;
 
 public class LightFinisherState : MeleeBaseState
 {
-    // Start is called before the first frame update
-    void Start()
+    public override void OnEnter(StateMachine stateMachine)
     {
-        
-    }
+        base.OnEnter(stateMachine);
 
-    // Update is called once per frame
-    void Update()
+        // attack
+        attackIndex = 1;
+        duration = 0.5f;
+        animator.SetTrigger("Attack" + attackIndex);
+        Debug.Log("Player Attack" + attackIndex + "fired!");
+    }
+    public override void OnUpdate()
     {
-        
+        base.OnUpdate();
+        if (fixedtime >= duration)
+        {
+            stateMachine.SetNextStateToMain();
+        }
+
     }
 }

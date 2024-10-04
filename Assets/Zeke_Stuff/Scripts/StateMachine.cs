@@ -2,18 +2,25 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-static public class StateMachine 
+ public  class StateMachine 
 {
-    State CurrentState;
+    public string customName;
+    private State mainStateType;
+    public State CurrentState {  get; private set; }
+    private State nextState;
 
-    static void Update()
+     void Update()
     {
+        if(nextState != null)
+        {
+            SetState(nextState);
+        }
         if (CurrentState != null)
         {
             CurrentState.OnUpdate();
         }
     }
-    static void SetNextState(State newState)
+     void SetNextState(State newState)
     {
         CurrentState.OnExit();
         CurrentState = newState;

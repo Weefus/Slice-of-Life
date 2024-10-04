@@ -9,5 +9,5 @@ public class State
     //called on every frame to update the state
     virtual void OnUpdate();
     //called at the end to clean up data
-    virtual void OnExit();
+     virtual void OnExit();
 }

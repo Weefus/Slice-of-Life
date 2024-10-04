@@ -4,15 +4,11 @@ using UnityEngine;
 
 public class MeleeEntryState : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public override void OnEnter()
     {
-        
-    }
+        base.OnEnter(stateMachine);
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+        State nextState = (State)new LightEntryState();
+        stateMachine.SetNextState(nextState);
     }
 }
