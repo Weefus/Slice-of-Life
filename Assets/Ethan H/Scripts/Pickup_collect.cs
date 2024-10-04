@@ -3,14 +3,16 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using System;
+using TMPro.Examples;
 
 public class Pickup_collect : MonoBehaviour
 {
+    public TMP_Text uiText;
+    public Player player;
 
-    // Start is called before the first frame update
     void Start()
     {
-        
+        uiText.text = "HP: " + player.hp;
     }
 
     // Update is called once per frame
@@ -24,7 +26,8 @@ public class Pickup_collect : MonoBehaviour
 
         if (collision.CompareTag("Player")) {
             Destroy(gameObject);
-            //collision.hp += 25;
+            player.hp += 25;
+            uiText.text = "HP: " + player.hp;
         }
     }
 }
