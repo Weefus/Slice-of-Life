@@ -6,6 +6,7 @@ public class PlayerController : MonoBehaviour
 {
     Rigidbody2D myRB;
     public int jumpForce = 200;
+    public int dashForce = 100;
 
     //move
     public float maxSpeed;
@@ -14,7 +15,7 @@ public class PlayerController : MonoBehaviour
     //Animator mainAnim;
     //Animator idleAnim;
     //Animator sideAnim;
-    bool jumped = true;
+    public bool jumped = true;
     //bool grounded = false;
 
     public GameObject Charsideprof;
@@ -47,13 +48,14 @@ public class PlayerController : MonoBehaviour
         if (collision.gameObject.tag == "Ground" && myRB.velocity.y <= 0)
         {
             jumped = false;
-            //Debug.Log("hi!!!! :))");
         }
     }
 
     // Update is called once per frame
     void Update()
     {
+        float move = Input.GetAxis("Horizontal");
+
         //just a quick check if you press space and if you're still in the air to prevent multiple jumps
         if (Input.GetKey(KeyCode.Space) && !jumped)
         {
@@ -61,11 +63,23 @@ public class PlayerController : MonoBehaviour
             jumped = true;
         }
 
+        if (Input.GetKey(KeyCode.LeftShift) && move >= 0) 
+        {
+            gameObject.GetComponent<Rigidbody2D>().AddForce(gameObject.GetComponent<Rigidbody2D>().transform.TransformDirection(Vector3.right) * dashForce);
+            Debug.Log("dash right");
+        }
+
+        if (Input.GetKey(KeyCode.LeftShift) && move < 0)
+        {
+            gameObject.GetComponent<Rigidbody2D>().AddForce(gameObject.GetComponent<Rigidbody2D>().transform.TransformDirection(Vector3.left) * dashForce);
+            Debug.Log("dash left");
+        }
+
         //mainAnim.SetBool("IsGrounded", !jumped);
         //idleAnim.SetBool("IsGrounded", !jumped);
         //sideAnim.SetBool("IsGrounded", !jumped);
 
-        float move = Input.GetAxis("Horizontal");
+
 
         /*if (move > 0 && !facingleft)
         {
