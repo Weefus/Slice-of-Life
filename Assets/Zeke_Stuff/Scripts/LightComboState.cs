@@ -25,7 +25,7 @@ public class LightComboState : MeleeBaseState
             }
             else
             {
-                StateMachine.SetNextStateToMain();
+                stateMachine.SetNextStateToMain();
             }
         }
 

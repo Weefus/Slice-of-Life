@@ -18,12 +18,13 @@ public class LightEntryState : MeleeBaseState
      {
                 base.OnUpdate();
             if(fixedtime >= duration) {
-                if(shouldCombo) {
+                if(shouldCombo) 
+                {
                 stateMachine.SetNextState(new LightComboState());
                 }    
                 else
                  {
-                StateMachine.SetNextStateToMain();
+                stateMachine.SetNextStateToMain();
                  }
             }
 

@@ -2,11 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MeleeEntryState : MonoBehaviour
+public class MeleeEntryState : State
 {
-    public override void OnEnter()
+    public override void OnEnter(StateMachine _stateMachine)
     {
-        base.OnEnter(stateMachine);
+        base.OnEnter(_stateMachine);
 
         State nextState = (State)new LightEntryState();
         stateMachine.SetNextState(nextState);
