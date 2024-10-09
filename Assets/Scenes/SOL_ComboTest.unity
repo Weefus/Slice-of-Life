@@ -528,6 +528,8 @@ GameObject:
   - component: {fileID: 786017607}
   - component: {fileID: 786017606}
   - component: {fileID: 786017605}
+  - component: {fileID: 786017609}
+  - component: {fileID: 786017610}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Untagged
@@ -564,7 +566,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -674,6 +676,64 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &786017609
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 786017604}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d2b128cb4b1424b46a1ae93c87dc92e3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _teamIndex: 2
+--- !u!61 &786017610
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 786017604}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1, y: 1}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1}
+  m_EdgeRadius: 0
 --- !u!1 &972398081
 GameObject:
   m_ObjectHideFlags: 0
@@ -685,6 +745,7 @@ GameObject:
   - component: {fileID: 972398082}
   - component: {fileID: 972398083}
   - component: {fileID: 972398084}
+  - component: {fileID: 972398085}
   m_Layer: 0
   m_Name: hitbox
   m_TagString: Untagged
@@ -804,6 +865,19 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &972398085
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 972398081}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d2b128cb4b1424b46a1ae93c87dc92e3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _teamIndex: 3
 --- !u!1 &1768486924
 GameObject:
   m_ObjectHideFlags: 0
@@ -820,6 +894,7 @@ GameObject:
   - component: {fileID: 1768486932}
   - component: {fileID: 1768486931}
   - component: {fileID: 1768486930}
+  - component: {fileID: 1768486933}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -1032,6 +1107,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hitbox: {fileID: 972398084}
   Hiteffect: {fileID: 1808339330}
+--- !u!114 &1768486933
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1768486924}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d2b128cb4b1424b46a1ae93c87dc92e3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _teamIndex: 1
 --- !u!1 &1808339330
 GameObject:
   m_ObjectHideFlags: 0

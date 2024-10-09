@@ -9,7 +9,7 @@ public class LightFinisherState : MeleeBaseState
         base.OnEnter(stateMachine);
 
         // attack
-        attackIndex = 1;
+        attackIndex = 3;
         duration = 0.5f;
         animator.SetTrigger("Attack" + attackIndex);
         Debug.Log("Player Attack" + attackIndex + "fired!");

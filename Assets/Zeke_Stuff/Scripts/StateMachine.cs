@@ -61,7 +61,15 @@ public class StateMachine : MonoBehaviour
 
     private void Awake()
     {
-        SetNextStateToMain();
+        if (mainStateType == null)
+        {
+            if (customName == "Combat")
+            {
+                mainStateType = new IdleCombatState();
+            }
+        }
+    
+    SetNextStateToMain();
 
     }
 

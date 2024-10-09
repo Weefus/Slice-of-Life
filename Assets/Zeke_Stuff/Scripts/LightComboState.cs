@@ -9,7 +9,7 @@ public class LightComboState : MeleeBaseState
         base.OnEnter(stateMachine);
 
         // attack
-        attackIndex = 1;
+        attackIndex = 2;
         duration = 0.5f;
         animator.SetTrigger("Attack" + attackIndex);
         Debug.Log("Player Attack" + attackIndex + "fired!");
