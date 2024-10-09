@@ -237,7 +237,7 @@ GameObject:
   - component: {fileID: 486984824}
   - component: {fileID: 486984823}
   m_Layer: 0
-  m_Name: Square
+  m_Name: Floor
   m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -514,7 +514,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 770370161}
-  - component: {fileID: 1677001264}
   - component: {fileID: 770370159}
   - component: {fileID: 770370160}
   - component: {fileID: 770370162}
@@ -861,6 +860,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 6694527640604214765, guid: 48db00c4bee44d0419b510b6d84b09f2, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1684567714}
+    - targetCorrespondingSourceObject: {fileID: 6694527640604214765, guid: 48db00c4bee44d0419b510b6d84b09f2, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1684567720}
   m_SourcePrefab: {fileID: 100100000, guid: 48db00c4bee44d0419b510b6d84b09f2, type: 3}
 --- !u!1 &1409653653
 GameObject:
@@ -1066,18 +1068,6 @@ Transform:
   - {fileID: 1298191106}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1677001264
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 770370158}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dac95966cd0c8cc4185919fffc17b4f2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1684567708 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6694527640604214765, guid: 48db00c4bee44d0419b510b6d84b09f2, type: 3}
@@ -1099,6 +1089,20 @@ MonoBehaviour:
   ult: 50
   maxHP: 100
   maxUlt: 100
+--- !u!114 &1684567720
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1684567708}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e38634dc940925499822cd64a2bbecd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 1684567714}
+  borderY: -20
 --- !u!1 &1802496987
 GameObject:
   m_ObjectHideFlags: 0

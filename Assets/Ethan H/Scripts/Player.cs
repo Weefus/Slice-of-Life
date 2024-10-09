@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro.Examples;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour
 {
@@ -29,6 +30,13 @@ public class Player : MonoBehaviour
     public void increaseUlt(int u)
     {
         ult += u;
+    }
+
+    public void respawn()
+    {
+        Scene scene = SceneManager.GetActiveScene();
+        SceneManager.LoadScene(scene.name);
+        Debug.Log("Whoops");
     }
 
 }
