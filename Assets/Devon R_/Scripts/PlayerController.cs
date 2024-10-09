@@ -7,7 +7,7 @@ public class PlayerController : MonoBehaviour
 {
     Rigidbody2D myRB;
     public int jumpForce = 600;
-
+    
     //move
     public float maxSpeed;
     //bool facingleft = true;
@@ -15,6 +15,7 @@ public class PlayerController : MonoBehaviour
     //Animator mainAnim;
     //Animator idleAnim;
     //Animator sideAnim;
+
     public bool jumped = false;
     //bool grounded = false;
 
@@ -63,11 +64,12 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
         if (isDashing)
         {
             return;
         }
-
+        
         float move = Input.GetAxis("Horizontal");
 
         //just a quick check if you press space and if you're still in the air to prevent multiple jumps
@@ -81,8 +83,6 @@ public class PlayerController : MonoBehaviour
         {
             StartCoroutine(dashDuration());
         }
-
-        
 
         //mainAnim.SetBool("IsGrounded", !jumped);
         //idleAnim.SetBool("IsGrounded", !jumped);
