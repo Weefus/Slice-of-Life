@@ -15,9 +15,8 @@ public class PlayerController : MonoBehaviour
     //Animator mainAnim;
     //Animator idleAnim;
     //Animator sideAnim;
-
     public bool jumped = false;
-    //bool grounded = false;
+    //bool grounded = true;
 
     public GameObject Charsideprof;
     public GameObject Characteridle;
@@ -25,7 +24,7 @@ public class PlayerController : MonoBehaviour
     public bool canDash = true;
     private bool isDashing;
     public float dashingPower = 24f;
-    private float dashingTime = 0.5f;
+    public float dashingTime = 0.5f;
     private float dashingCooldown = 2f;
 
     // Use this for initialization
@@ -58,11 +57,14 @@ public class PlayerController : MonoBehaviour
 
     void OnCollisionExit2D(Collision2D collision)
     {
-        jumped = true;
+        if(collision.gameObject.tag == "Ground" || collision.gameObject.tag == "Platform")
+        {
+            jumped = true;
+        }
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
 
         if (isDashing)
