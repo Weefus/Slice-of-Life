@@ -10,7 +10,7 @@ public class OneWayPlatform : MonoBehaviour
 
     void Update()
     {
-        if (coll && Input.GetKeyDown(KeyCode.S))
+        if (coll && Input.GetKeyDown(KeyCode.S) && !CompareTag("Ground"))
         {
             platform.surfaceArc = 0f;
 
