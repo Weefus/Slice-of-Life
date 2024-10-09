@@ -1,12 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro.Examples;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
     Rigidbody2D myRB;
     public int jumpForce = 600;
-    public int dashForce = 200;
 
     //move
     public float maxSpeed;
@@ -15,13 +15,17 @@ public class PlayerController : MonoBehaviour
     //Animator mainAnim;
     //Animator idleAnim;
     //Animator sideAnim;
-    public bool jumped = true;
+    public bool jumped = false;
     //bool grounded = false;
 
     public GameObject Charsideprof;
     public GameObject Characteridle;
 
-
+    public bool canDash = true;
+    private bool isDashing;
+    public float dashingPower = 24f;
+    private float dashingTime = 0.5f;
+    private float dashingCooldown = 2f;
 
     // Use this for initialization
     void Start()
@@ -45,15 +49,25 @@ public class PlayerController : MonoBehaviour
     //you need to add a tag for your ground object for this to work properly
     void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.tag == "Ground" && myRB.velocity.y <= 0)
+        if ((collision.gameObject.tag == "Ground" || collision.gameObject.tag == "Platform") && myRB.velocity.y <= 0)
         {
             jumped = false;
         }
     }
 
+    void OnCollisionExit2D(Collision2D collision)
+    {
+        jumped = true;
+    }
+
     // Update is called once per frame
     void Update()
     {
+        if (isDashing)
+        {
+            return;
+        }
+
         float move = Input.GetAxis("Horizontal");
 
         //just a quick check if you press space and if you're still in the air to prevent multiple jumps
@@ -63,17 +77,12 @@ public class PlayerController : MonoBehaviour
             jumped = true;
         }
 
-        if (Input.GetKey(KeyCode.LeftShift) && move >= 0) 
+        if (Input.GetKey(KeyCode.LeftShift) && canDash) 
         {
-            gameObject.GetComponent<Rigidbody2D>().AddForce(gameObject.GetComponent<Rigidbody2D>().transform.TransformDirection(Vector3.right) * dashForce);
-            Debug.Log("dash right");
+            StartCoroutine(dashDuration());
         }
 
-        if (Input.GetKey(KeyCode.LeftShift) && move < 0)
-        {
-            gameObject.GetComponent<Rigidbody2D>().AddForce(gameObject.GetComponent<Rigidbody2D>().transform.TransformDirection(Vector3.left) * dashForce);
-            Debug.Log("dash left");
-        }
+        
 
         //mainAnim.SetBool("IsGrounded", !jumped);
         //idleAnim.SetBool("IsGrounded", !jumped);
@@ -112,6 +121,24 @@ public class PlayerController : MonoBehaviour
         //switchSprite();
 
     }
+
+    public IEnumerator dashDuration()
+    {
+        canDash = false;
+        isDashing = true;
+        float originalGravity = myRB.gravityScale;
+        myRB.gravityScale = 0f;
+        myRB.velocity = new Vector2(transform.localScale.x * dashingPower, 0f);
+        Debug.Log("Started dash");
+        yield return new WaitForSeconds(dashingTime);
+        Debug.Log("Ended dash");
+        myRB.gravityScale = originalGravity;
+        isDashing = false;
+        yield return new WaitForSeconds(dashingCooldown);
+        Debug.Log("off cooldown");
+        canDash = true;
+    }
+
     /*void Flip()
     {
         if (!facingleft)
