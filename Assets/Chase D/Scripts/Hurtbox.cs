@@ -9,16 +9,10 @@ public class Hurtbox : MonoBehaviour
     void Start()
     {
         rb2D = GetComponent<Rigidbody2D>();
-        player = gameObject.GetComponent<Player>();
+        player = GetComponent<Player>();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
-    public void DealDamage(float damageAmt)
+    public void DealDamage(float damageAmt) //deals damage to player
     {
         if (player != null)
         {
