@@ -33,6 +33,7 @@ public class Hitbox : MonoBehaviour
         }
 
         Hurtbox h = col.GetComponent<Hurtbox>();
+        KnockbackController kb = col.GetComponent<KnockbackController>();
 
         if (h != null && h != ignore) //only triggers is a hurtbox exists and does not share the same parent
         {
@@ -40,7 +41,7 @@ public class Hitbox : MonoBehaviour
             direction.y += 1f;
 
             h.DealDamage(damageAmt);
-            h.Knockback(direction * knockbackForce);
+            kb.Knockback(direction * knockbackForce);
         }
     }
 }

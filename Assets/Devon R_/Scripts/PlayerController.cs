@@ -6,6 +6,7 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     Rigidbody2D myRB;
+    KnockbackController kb;
     public int jumpForce = 600;
     
     //move
@@ -26,6 +27,7 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         myRB = GetComponent<Rigidbody2D>();
+        kb = GetComponent<KnockbackController>();
         dash = GetComponent<Dash>();
         // myRenderer = GetComponent<SpriteRenderer>();
 
@@ -62,6 +64,10 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
+        if (kb.knockbackTimer > 0)
+        {
+            return;
+        }
 
         if (dash.isDashing)
         {
