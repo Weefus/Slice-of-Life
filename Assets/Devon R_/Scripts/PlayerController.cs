@@ -65,6 +65,7 @@ public class PlayerController : MonoBehaviour
 
         if (dash.isDashing)
         {
+            Debug.Log("isDashing");
             return;
         }
         
