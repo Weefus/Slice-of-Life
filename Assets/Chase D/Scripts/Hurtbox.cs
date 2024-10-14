@@ -6,9 +6,11 @@ public class Hurtbox : MonoBehaviour
 {
     
     public Player player;
+    public basicZombClass zombClass;
     void Start()
     {
         player = GetComponent<Player>();
+        zombClass = GetComponent<basicZombClass>();
     }
 
     public void DealDamage(float damageAmt) //deals damage to player
@@ -16,6 +18,11 @@ public class Hurtbox : MonoBehaviour
         if (player != null)
         {
             player.hp -= damageAmt;
+        }
+
+        if (zombClass != null)
+        {
+            zombClass.hp -= damageAmt;
         }
     }
 }

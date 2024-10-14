@@ -213,7 +213,7 @@ MonoBehaviour:
   _state: 0
   ignore: {fileID: 0}
   damageAmt: 3
-  knockbackForce: 10
+  knockbackForce: 3
   direction: {x: 0, y: 0, z: 0}
 --- !u!61 &332422455
 BoxCollider2D:
@@ -610,6 +610,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 6694527640604214765, guid: 48db00c4bee44d0419b510b6d84b09f2, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1891471841}
+    - targetCorrespondingSourceObject: {fileID: 6694527640604214765, guid: 48db00c4bee44d0419b510b6d84b09f2, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1891471846}
   m_SourcePrefab: {fileID: 100100000, guid: 48db00c4bee44d0419b510b6d84b09f2, type: 3}
 --- !u!4 &803404193 stripped
 Transform:
@@ -634,6 +637,8 @@ GameObject:
   - component: {fileID: 1129902989}
   - component: {fileID: 1129902988}
   - component: {fileID: 1129902987}
+  - component: {fileID: 1129902992}
+  - component: {fileID: 1129902993}
   m_Layer: 0
   m_Name: TestHurtbox
   m_TagString: Untagged
@@ -725,8 +730,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1b9dca5a78d9dd4bb95ac564e81801f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rb2D: {fileID: 0}
   player: {fileID: 0}
+  zombClass: {fileID: 0}
 --- !u!212 &1129902990
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -788,12 +793,42 @@ Transform:
   m_GameObject: {fileID: 1129902986}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4.76, y: -3.13, z: 0}
+  m_LocalPosition: {x: -0.63, y: -2.74, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1129902992
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1129902986}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ae0c1588dd42d214881b490926f2375e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startTimer: 1
+  knockbackTimer: 0
+--- !u!114 &1129902993
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1129902986}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e8865fe4e84985428b737eee662ad62, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hp: 0
+  atkStartUp: 0
+  atkEnd: 0
+  atkCd: 0
 --- !u!1001 &1179579937
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -859,6 +894,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1891471840}
     m_Modifications:
+    - target: {fileID: 3519521779393122077, guid: 7498db5d04e010d46b2fb3f606085f75, type: 3}
+      propertyPath: knockbackForce
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 4557128134269089870, guid: 7498db5d04e010d46b2fb3f606085f75, type: 3}
       propertyPath: m_Name
       value: Hitbox
@@ -1014,8 +1053,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1b9dca5a78d9dd4bb95ac564e81801f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rb2D: {fileID: 0}
   player: {fileID: 0}
+  zombClass: {fileID: 0}
 --- !u!114 &1891471835
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1049,10 +1088,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5e89bfebc92b71d41bf39d6dd2b0b649, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canDash: 1
+  canDash: 0
   isDashing: 0
   dashingPower: 24
   dashingTime: 0.5
+--- !u!114 &1891471846
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1891471833}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ae0c1588dd42d214881b490926f2375e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startTimer: 0.5
+  knockbackTimer: 0
 --- !u!1 &1905323447
 GameObject:
   m_ObjectHideFlags: 0

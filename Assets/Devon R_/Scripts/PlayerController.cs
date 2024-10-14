@@ -64,7 +64,7 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        if (kb.knockbackTimer > 0)
+        if (kb != null && kb.knockbackTimer > 0)
         {
             return;
         }
