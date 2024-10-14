@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class basicZombClass : MonoBehaviour
 {
-    public int hp;
+    public float hp;
     public float atkStartUp;
     public float atkEnd;
     public float atkCd;
@@ -13,9 +13,5 @@ public class basicZombClass : MonoBehaviour
     void Start()
     {
         
-    }
-
-    void takeDmg(int dmg) {
-        hp = hp - dmg;
     }
 }
