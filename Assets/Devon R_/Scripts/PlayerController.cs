@@ -65,7 +65,6 @@ public class PlayerController : MonoBehaviour
 
         if (dash.isDashing)
         {
-            Debug.Log("isDashing");
             return;
         }
         
@@ -129,8 +128,6 @@ public class PlayerController : MonoBehaviour
         //switchSprite();
 
     }
-
-    
 
     /*void Flip()
     {
