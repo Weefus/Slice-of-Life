@@ -11,6 +11,7 @@ public class Player : MonoBehaviour
     public float ult = 50;
     public float maxHP = 100;
     public float maxUlt = 100;
+    public int levelNum = 1;
     void Start()
     {
         
