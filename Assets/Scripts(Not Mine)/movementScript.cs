@@ -1,37 +1,36 @@
 using System.Collections;
 using System.Collections.Generic;
-using TMPro.Examples;
 using UnityEngine;
 
-public class PlayerController : MonoBehaviour
+public class PlayerPuppetJump : MonoBehaviour
 {
     Rigidbody2D myRB;
-    public int jumpForce = 600;
-    
+    public int jumpForce = 200;
+
     //move
     public float maxSpeed;
-    //bool facingleft = true;
-    //SpriteRenderer myRenderer;
-    //Animator mainAnim;
-    //Animator idleAnim;
-    //Animator sideAnim;
-    public bool jumped = false;
-    //bool grounded = true;
+    bool facingleft = true;
+    SpriteRenderer myRenderer;
+    Animator mainAnim;
+    Animator idleAnim;
+    Animator sideAnim;
+    bool jumped = true;
+    bool grounded = false;
 
     public GameObject Charsideprof;
     public GameObject Characteridle;
-    private Dash dash;
+
+
 
     // Use this for initialization
     void Start()
     {
         myRB = GetComponent<Rigidbody2D>();
-        dash = GetComponent<Dash>();
         // myRenderer = GetComponent<SpriteRenderer>();
 
-        //mainAnim = GetComponent<Animator>();
-        //idleAnim = Characteridle.GetComponent<Animator>();
-        //sideAnim = Charsideprof.GetComponent<Animator>();
+        mainAnim = GetComponent<Animator>();
+        idleAnim = Characteridle.GetComponent<Animator>();
+        sideAnim = Charsideprof.GetComponent<Animator>();
 
 
         //Variables needed for Animator for script to work
@@ -45,32 +44,16 @@ public class PlayerController : MonoBehaviour
     //you need to add a tag for your ground object for this to work properly
     void OnCollisionEnter2D(Collision2D collision)
     {
-        if ((collision.gameObject.tag == "Ground" || collision.gameObject.tag == "Platform") && myRB.velocity.y <= 0)
+        if (collision.gameObject.tag == "Floor" && myRB.velocity.y <= 0)
         {
             jumped = false;
-        }
-    }
-
-    void OnCollisionExit2D(Collision2D collision)
-    {
-        if(collision.gameObject.tag == "Ground" || collision.gameObject.tag == "Platform")
-        {
-            jumped = true;
+            Debug.Log("hi!!!! :))");
         }
     }
 
     // Update is called once per frame
-    void FixedUpdate()
+    void Update()
     {
-
-        if (dash.isDashing)
-        {
-            Debug.Log("isDashing");
-            return;
-        }
-        
-        float move = Input.GetAxis("Horizontal");
-
         //just a quick check if you press space and if you're still in the air to prevent multiple jumps
         if (Input.GetKey(KeyCode.Space) && !jumped)
         {
@@ -78,25 +61,13 @@ public class PlayerController : MonoBehaviour
             jumped = true;
         }
 
-        if (Input.GetKey(KeyCode.LeftShift) && dash.canDash) 
-        {
-            if(move >= 0)
-            {
-                StartCoroutine(dash.dashDuration(1f));
-            }
-            else
-            {
-                StartCoroutine(dash.dashDuration(-1f));
-            }
-        }
+        mainAnim.SetBool("IsGrounded", !jumped);
+        idleAnim.SetBool("IsGrounded", !jumped);
+        sideAnim.SetBool("IsGrounded", !jumped);
 
-        //mainAnim.SetBool("IsGrounded", !jumped);
-        //idleAnim.SetBool("IsGrounded", !jumped);
-        //sideAnim.SetBool("IsGrounded", !jumped);
+        float move = Input.GetAxis("Horizontal");
 
-
-
-        /*if (move > 0 && !facingleft)
+        if (move > 0 && !facingleft)
         {
             Flip();
         }
@@ -117,20 +88,17 @@ public class PlayerController : MonoBehaviour
             idleAnim.SetBool("Moving", false);
             sideAnim.SetBool("Moving", false);
 
-        }*/
+        }
+        myRB.velocity = new Vector2(move * maxSpeed, myRB.velocity.y);
 
-        if(!dash.isDashing)
-            myRB.velocity = new Vector2(move * maxSpeed, myRB.velocity.y);
+        mainAnim.SetFloat("MoveSpeed", Mathf.Abs(move));
 
-        //mainAnim.SetFloat("MoveSpeed", Mathf.Abs(move));
+        mainAnim.SetFloat("VerticalVelocity", Mathf.Abs(myRB.velocity.y));
 
-        //mainAnim.SetFloat("VerticalVelocity", Mathf.Abs(myRB.velocity.y));
-
-        //switchSprite();
+        switchSprite();
 
     }
-
-    /*void Flip()
+    void Flip()
     {
         if (!facingleft)
         {
@@ -144,9 +112,9 @@ public class PlayerController : MonoBehaviour
 
         facingleft = !facingleft;
 
-    }*/
+    }
 
-    /*void switchSprite()
+    void switchSprite()
     {
 
         bool isMoving = mainAnim.GetBool("Moving");
@@ -171,7 +139,7 @@ public class PlayerController : MonoBehaviour
 
         }
 
-    }*/
+    }
 
 
 }
