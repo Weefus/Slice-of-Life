@@ -4,15 +4,18 @@ using UnityEngine;
 
 public class basicZombClass : MonoBehaviour
 {
+    public int hp;
+    public float atkStartUp;
+    public float atkEnd;
+    public float atkCd;
+
     // Start is called before the first frame update
     void Start()
     {
         
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+    void takeDmg(int dmg) {
+        hp = hp - dmg;
     }
 }
