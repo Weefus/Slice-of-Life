@@ -15,23 +15,18 @@ public class PlayerController : MonoBehaviour
     //Animator mainAnim;
     //Animator idleAnim;
     //Animator sideAnim;
-
     public bool jumped = false;
-    //bool grounded = false;
+    //bool grounded = true;
 
     public GameObject Charsideprof;
     public GameObject Characteridle;
-
-    public bool canDash = true;
-    private bool isDashing;
-    public float dashingPower = 24f;
-    private float dashingTime = 0.5f;
-    private float dashingCooldown = 2f;
+    private Dash dash;
 
     // Use this for initialization
     void Start()
     {
         myRB = GetComponent<Rigidbody2D>();
+        dash = GetComponent<Dash>();
         // myRenderer = GetComponent<SpriteRenderer>();
 
         //mainAnim = GetComponent<Animator>();
@@ -58,15 +53,19 @@ public class PlayerController : MonoBehaviour
 
     void OnCollisionExit2D(Collision2D collision)
     {
-        jumped = true;
+        if(collision.gameObject.tag == "Ground" || collision.gameObject.tag == "Platform")
+        {
+            jumped = true;
+        }
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
 
-        if (isDashing)
+        if (dash.isDashing)
         {
+            Debug.Log("isDashing");
             return;
         }
         
@@ -79,9 +78,16 @@ public class PlayerController : MonoBehaviour
             jumped = true;
         }
 
-        if (Input.GetKey(KeyCode.LeftShift) && canDash) 
+        if (Input.GetKey(KeyCode.LeftShift) && dash.canDash) 
         {
-            StartCoroutine(dashDuration());
+            if(move >= 0)
+            {
+                StartCoroutine(dash.dashDuration(1f));
+            }
+            else
+            {
+                StartCoroutine(dash.dashDuration(-1f));
+            }
         }
 
         //mainAnim.SetBool("IsGrounded", !jumped);
@@ -112,7 +118,9 @@ public class PlayerController : MonoBehaviour
             sideAnim.SetBool("Moving", false);
 
         }*/
-        myRB.velocity = new Vector2(move * maxSpeed, myRB.velocity.y);
+
+        if(!dash.isDashing)
+            myRB.velocity = new Vector2(move * maxSpeed, myRB.velocity.y);
 
         //mainAnim.SetFloat("MoveSpeed", Mathf.Abs(move));
 
@@ -120,23 +128,6 @@ public class PlayerController : MonoBehaviour
 
         //switchSprite();
 
-    }
-
-    public IEnumerator dashDuration()
-    {
-        canDash = false;
-        isDashing = true;
-        float originalGravity = myRB.gravityScale;
-        myRB.gravityScale = 0f;
-        myRB.velocity = new Vector2(transform.localScale.x * dashingPower, 0f);
-        Debug.Log("Started dash");
-        yield return new WaitForSeconds(dashingTime);
-        Debug.Log("Ended dash");
-        myRB.gravityScale = originalGravity;
-        isDashing = false;
-        yield return new WaitForSeconds(dashingCooldown);
-        Debug.Log("off cooldown");
-        canDash = true;
     }
 
     /*void Flip()

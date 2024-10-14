@@ -483,6 +483,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 76170355}
     m_Modifications:
+    - target: {fileID: 2103404677354853156, guid: 74f52f6b44da6894981da1269121901e, type: 3}
+      propertyPath: m_Offset.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3047225330665658711, guid: 74f52f6b44da6894981da1269121901e, type: 3}
       propertyPath: m_Name
       value: Floor
@@ -544,6 +548,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Wall
       objectReference: {fileID: 0}
+    - target: {fileID: 3724572726552154566, guid: b77f3fc7f22006d4b9133ed89deb06e8, type: 3}
+      propertyPath: m_TagString
+      value: Wall
+      objectReference: {fileID: 0}
     - target: {fileID: 8581143881531361035, guid: b77f3fc7f22006d4b9133ed89deb06e8, type: 3}
       propertyPath: m_LocalPosition.x
       value: -8
@@ -597,13 +605,21 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 729720947467261156, guid: 48db00c4bee44d0419b510b6d84b09f2, type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 6200000, guid: ca4c0dcdd9a17ac4183bc4f1f425d803, type: 2}
+    - target: {fileID: 729720947467261156, guid: 48db00c4bee44d0419b510b6d84b09f2, type: 3}
+      propertyPath: m_CollisionDetection
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1311719110046904964, guid: 48db00c4bee44d0419b510b6d84b09f2, type: 3}
       propertyPath: m_LocalPosition.x
       value: -5.15
       objectReference: {fileID: 0}
     - target: {fileID: 1311719110046904964, guid: 48db00c4bee44d0419b510b6d84b09f2, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -3.9
+      value: -3.99
       objectReference: {fileID: 0}
     - target: {fileID: 1311719110046904964, guid: 48db00c4bee44d0419b510b6d84b09f2, type: 3}
       propertyPath: m_LocalPosition.z
@@ -641,47 +657,17 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
-    - target: {fileID: 7365905301400111238, guid: 48db00c4bee44d0419b510b6d84b09f2, type: 3}
-      propertyPath: myRB
-      value: 
-      objectReference: {fileID: 5268033979929163628}
-    - target: {fileID: 7365905301400111238, guid: 48db00c4bee44d0419b510b6d84b09f2, type: 3}
-      propertyPath: jumped
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7365905301400111238, guid: 48db00c4bee44d0419b510b6d84b09f2, type: 3}
-      propertyPath: dashForce
-      value: 500
-      objectReference: {fileID: 0}
-    - target: {fileID: 7365905301400111238, guid: 48db00c4bee44d0419b510b6d84b09f2, type: 3}
-      propertyPath: jumpForce
-      value: 500
-      objectReference: {fileID: 0}
-    - target: {fileID: 7365905301400111238, guid: 48db00c4bee44d0419b510b6d84b09f2, type: 3}
-      propertyPath: cooldownTime
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 7365905301400111238, guid: 48db00c4bee44d0419b510b6d84b09f2, type: 3}
-      propertyPath: dashingPower
-      value: 100
-      objectReference: {fileID: 0}
-    - target: {fileID: 7365905301400111238, guid: 48db00c4bee44d0419b510b6d84b09f2, type: 3}
-      propertyPath: cooldown.cooldownTime
-      value: 2
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 6694527640604214765, guid: 48db00c4bee44d0419b510b6d84b09f2, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 5268033979929163633}
   m_SourcePrefab: {fileID: 100100000, guid: 48db00c4bee44d0419b510b6d84b09f2, type: 3}
 --- !u!1 &5268033979929163626 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6694527640604214765, guid: 48db00c4bee44d0419b510b6d84b09f2, type: 3}
-  m_PrefabInstance: {fileID: 5268033979929163625}
-  m_PrefabAsset: {fileID: 0}
---- !u!50 &5268033979929163628 stripped
-Rigidbody2D:
-  m_CorrespondingSourceObject: {fileID: 729720947467261156, guid: 48db00c4bee44d0419b510b6d84b09f2, type: 3}
   m_PrefabInstance: {fileID: 5268033979929163625}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &6708532295286245593
@@ -694,10 +680,6 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1894859629945242317, guid: 70fe58173d1783449abd54a190ccfd19, type: 3}
       propertyPath: m_Name
-      value: Platform
-      objectReference: {fileID: 0}
-    - target: {fileID: 1894859629945242317, guid: 70fe58173d1783449abd54a190ccfd19, type: 3}
-      propertyPath: m_TagString
       value: Platform
       objectReference: {fileID: 0}
     - target: {fileID: 5829480101548650625, guid: 70fe58173d1783449abd54a190ccfd19, type: 3}
