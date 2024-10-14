@@ -130,8 +130,6 @@ public class PlayerController : MonoBehaviour
 
     }
 
-    
-
     /*void Flip()
     {
         if (!facingleft)
