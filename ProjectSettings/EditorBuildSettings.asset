@@ -6,7 +6,7 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/SOL_ComboTest.unity
+    path: Assets/Scenes/SampleScene.unity
     guid: 8c9cfa26abfee488c85f1582747f6a02
   - enabled: 1
     path: Assets/Scenes/Scene_Level_1.unity
@@ -17,4 +17,13 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Scene_Level_3.unity
     guid: 44533e2499c048f42ab84097cd849407
+  - enabled: 1
+    path: Assets/Scenes/SOL_Alpha.unity
+    guid: 69846a44301223244a675f29f06cb32a
+  - enabled: 1
+    path: Assets/Scenes/SOL_Alpha_2.unity
+    guid: a2288579f03c92242bcf05791452c209
+  - enabled: 1
+    path: Assets/Scenes/SOL_Alpha_3.unity
+    guid: 5e72dd6944c01574896c61846a89cf12
   m_configObjects: {}

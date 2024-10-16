@@ -31,7 +31,7 @@ public class zombieMove : MonoBehaviour
         }
 
 
-        transform.localScale = new Vector3(playerDirct, 1, 1);
+        transform.localScale = new Vector3(-playerDirct, 1, 1);
 
         transform.Translate(Vector3.right * speed * Time.deltaTime * playerDirct);
         
