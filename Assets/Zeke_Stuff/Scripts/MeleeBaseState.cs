@@ -47,13 +47,19 @@ public class MeleeBaseState : State
 
         if (Input.GetMouseButtonDown(0) || Input.GetMouseButtonDown(1))
         {
-            AttackPressedTimer = 10;
-        }
+            if (animator.GetFloat("AttackWindow.Open") > 0f && AttackPressedTimer > 0)
+            {
+                shouldCombo = true;
+            }
 
-        if (animator.GetFloat("AttackWindow.Open") > 0f && AttackPressedTimer > 0)
-        {
-            shouldCombo = true;
+            AttackPressedTimer = 5;
+            Debug.Log("They pressed a button");
+     
+
         }
+        
+
+       
     }
 
     public override void OnExit()
