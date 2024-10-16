@@ -21,6 +21,7 @@ public class LightEntryState : MeleeBaseState
                 if(shouldCombo) 
                 {
                 stateMachine.SetNextState(new LightComboState());
+                Debug.Log("Did light folow up");
                 }    
                 else
                  {
