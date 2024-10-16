@@ -1,7 +1,9 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro.Examples;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
 {
@@ -11,6 +13,8 @@ public class PlayerController : MonoBehaviour
     
     //move
     public float maxSpeed;
+    private float speedMulti;
+    private Vector2 direction;
     //bool facingleft = true;
     //SpriteRenderer myRenderer;
     //Animator mainAnim;
@@ -75,26 +79,26 @@ public class PlayerController : MonoBehaviour
             return;
         }
         
-        float move = Input.GetAxis("Horizontal");
+        //float move = Input.GetAxis("Horizontal");
 
-        //just a quick check if you press space and if you're still in the air to prevent multiple jumps
-        if (Input.GetKey(KeyCode.Space) && !jumped)
-        {
-            gameObject.GetComponent<Rigidbody2D>().AddForce(gameObject.GetComponent<Rigidbody2D>().transform.TransformDirection(Vector3.up) * jumpForce);
-            jumped = true;
-        }
+        ////just a quick check if you press space and if you're still in the air to prevent multiple jumps
+        //if (Input.GetKey(KeyCode.Space) && !jumped)
+        //{
+        //    gameObject.GetComponent<Rigidbody2D>().AddForce(gameObject.GetComponent<Rigidbody2D>().transform.TransformDirection(Vector3.up) * jumpForce);
+        //    jumped = true;
+        //}
 
-        if (Input.GetKey(KeyCode.LeftShift) && dash.canDash) 
-        {
-            if(move >= 0)
-            {
-                StartCoroutine(dash.dashDuration(1f));
-            }
-            else
-            {
-                StartCoroutine(dash.dashDuration(-1f));
-            }
-        }
+        //if (Input.GetKey(KeyCode.LeftShift) && dash.canDash) 
+        //{
+        //    if(move >= 0)
+        //    {
+        //        StartCoroutine(dash.dashDuration(1f));
+        //    }
+        //    else
+        //    {
+        //        StartCoroutine(dash.dashDuration(-1f));
+        //    }
+        //}
 
         //mainAnim.SetBool("IsGrounded", !jumped);
         //idleAnim.SetBool("IsGrounded", !jumped);
@@ -126,13 +130,67 @@ public class PlayerController : MonoBehaviour
         }*/
 
         if(!dash.isDashing)
-            myRB.velocity = new Vector2(move * maxSpeed, myRB.velocity.y);
+            myRB.velocity = new Vector2(speedMulti * maxSpeed, myRB.velocity.y);
 
         //mainAnim.SetFloat("MoveSpeed", Mathf.Abs(move));
 
         //mainAnim.SetFloat("VerticalVelocity", Mathf.Abs(myRB.velocity.y));
 
         //switchSprite();
+
+    }
+
+    public void Move(InputAction.CallbackContext value)
+    {
+        direction = value.ReadValue<Vector2>();
+
+        if (value.started)
+        {
+            if(direction.x == 1)
+            {
+                speedMulti = 1f;
+            }
+            else
+            {
+                speedMulti = -1f;
+            }
+        }
+        else if (value.canceled)
+        {
+            speedMulti = 0f;
+        }
+    }
+
+    public void Jump(InputAction.CallbackContext value)
+    {
+        if (value.started)
+        {
+            gameObject.GetComponent<Rigidbody2D>().AddForce(gameObject.GetComponent<Rigidbody2D>().transform.TransformDirection(Vector3.up) * jumpForce);
+            jumped = true;
+        }
+        else if (value.canceled)
+        {
+            
+        }
+    }
+
+    public void Dash(InputAction.CallbackContext value)
+    {
+        if (value.started)
+        {
+            if (direction == null || direction.x == 0)
+            {
+                StartCoroutine(dash.dashDuration(1f));
+            }
+            else
+            {
+                StartCoroutine(dash.dashDuration(direction.x));
+            }
+        }
+        else if (value.canceled)
+        {
+            
+        }
 
     }
 
