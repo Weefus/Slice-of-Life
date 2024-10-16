@@ -22,6 +22,7 @@ public class HeavyComboState : MeleeBaseState
             if (shouldCombo)
             {
                 stateMachine.SetNextState(new HeavyFinisherState());
+                Debug.Log("WAAAAAAAH hevy follow");
             }
             else
             {

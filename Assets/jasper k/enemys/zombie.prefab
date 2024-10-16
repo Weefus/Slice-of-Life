@@ -13,7 +13,9 @@ GameObject:
   - component: {fileID: 9138463496578999074}
   - component: {fileID: 2048005648776568869}
   - component: {fileID: 7245500876580315556}
+
   - component: {fileID: 3396902734536573614}
+
   m_Layer: 0
   m_Name: zombie
   m_TagString: Untagged
@@ -174,6 +176,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   players: []
   playerDirct: 1
+
   speed: 1
   closestPlyr: 0
   dist1: 0
@@ -194,3 +197,4 @@ MonoBehaviour:
   atkStartUp: 0
   atkEnd: 0
   atkCd: 0
+
