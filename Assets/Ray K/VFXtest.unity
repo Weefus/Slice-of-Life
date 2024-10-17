@@ -159,7 +159,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 2
-  m_BackGroundColor: {r: 0.72641504, g: 0.9579772, b: 1, a: 0}
+  m_BackGroundColor: {r: 0.54901963, g: 0.84313726, b: 0.8784314, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -407,6 +407,22 @@ PrefabInstance:
     - target: {fileID: 1274058297942735963, guid: 9553c817f3a09fc47b5867b27969208c, type: 3}
       propertyPath: m_Name
       value: Particle System
+      objectReference: {fileID: 0}
+    - target: {fileID: 6938842529834295794, guid: 9553c817f3a09fc47b5867b27969208c, type: 3}
+      propertyPath: InitialModule.startColor.minColor.b
+      value: 0.68904454
+      objectReference: {fileID: 0}
+    - target: {fileID: 6938842529834295794, guid: 9553c817f3a09fc47b5867b27969208c, type: 3}
+      propertyPath: InitialModule.startColor.minColor.g
+      value: 0.2924527
+      objectReference: {fileID: 0}
+    - target: {fileID: 6938842529834295794, guid: 9553c817f3a09fc47b5867b27969208c, type: 3}
+      propertyPath: InitialModule.startColor.minColor.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6938842529834295794, guid: 9553c817f3a09fc47b5867b27969208c, type: 3}
+      propertyPath: InitialModule.startColor.minMaxState
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
