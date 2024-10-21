@@ -123,6 +123,45 @@
                     "isPartOfComposite": false
                 }
             ]
+        },
+        {
+            "name": "Platform",
+            "id": "ab25acdb-c059-4722-a717-05dfa16486a2",
+            "actions": [
+                {
+                    "name": "Fall",
+                    "type": "Button",
+                    "id": "d3c21ed2-b33a-4df5-8d3b-75d7ed16549a",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "925983af-be3a-45e6-8ebc-a5a280a4f84c",
+                    "path": "<Gamepad>/leftStick/down",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Fall",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "65000c3e-5915-4ce1-bce5-1ccd0be8d19a",
+                    "path": "<Keyboard>/s",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Fall",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
         }
     ],
     "controlSchemes": []

@@ -78,27 +78,6 @@ public class PlayerController : MonoBehaviour
             Debug.Log("isDashing");
             return;
         }
-        
-        //float move = Input.GetAxis("Horizontal");
-
-        ////just a quick check if you press space and if you're still in the air to prevent multiple jumps
-        //if (Input.GetKey(KeyCode.Space) && !jumped)
-        //{
-        //    gameObject.GetComponent<Rigidbody2D>().AddForce(gameObject.GetComponent<Rigidbody2D>().transform.TransformDirection(Vector3.up) * jumpForce);
-        //    jumped = true;
-        //}
-
-        //if (Input.GetKey(KeyCode.LeftShift) && dash.canDash) 
-        //{
-        //    if(move >= 0)
-        //    {
-        //        StartCoroutine(dash.dashDuration(1f));
-        //    }
-        //    else
-        //    {
-        //        StartCoroutine(dash.dashDuration(-1f));
-        //    }
-        //}
 
         //mainAnim.SetBool("IsGrounded", !jumped);
         //idleAnim.SetBool("IsGrounded", !jumped);
