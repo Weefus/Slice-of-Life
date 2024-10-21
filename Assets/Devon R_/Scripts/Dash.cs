@@ -23,7 +23,7 @@ public class Dash : MonoBehaviour
 
         float originalGravity = myRB.gravityScale;
         myRB.gravityScale = 0f;
-        myRB.velocity = new Vector2(myRB.velocity.x, 0f);
+        myRB.velocity = new Vector2(0f, 0f);
         myRB.AddForce(new Vector2(dashingPower * direction, 0f), ForceMode2D.Impulse);
 
         Debug.Log("Started dash");
