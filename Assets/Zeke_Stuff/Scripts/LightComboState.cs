@@ -22,7 +22,7 @@ public class LightComboState : MeleeBaseState
             if (shouldCombo)
             {
                 stateMachine.SetNextState(new LightFinisherState());
-                Debug.Log("Light FOOOLW");
+                
             }
             else
             {

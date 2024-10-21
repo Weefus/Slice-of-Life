@@ -18,10 +18,10 @@ public class LightEntryState : MeleeBaseState
      {
                 base.OnUpdate();
             if(fixedtime >= duration) {
-                if(shouldCombo) 
+                if(shouldCombo ) 
                 {
                 stateMachine.SetNextState(new LightComboState());
-                Debug.Log("Did light folow up");
+               
                 }    
                 else
                  {

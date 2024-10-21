@@ -708,7 +708,8 @@ PrefabInstance:
       propertyPath: m_Color.a
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 1150092369923734611, guid: 91ea121042c61ad4f9206f02319edbf0, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
@@ -721,6 +722,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 3243377380994791291, guid: 91ea121042c61ad4f9206f02319edbf0, type: 3}
       insertIndex: -1
       addedObject: {fileID: 7365905300880132999}
+    - targetCorrespondingSourceObject: {fileID: 3243377380994791291, guid: 91ea121042c61ad4f9206f02319edbf0, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 7365905300880133010}
     - targetCorrespondingSourceObject: {fileID: 7533977361706222053, guid: 91ea121042c61ad4f9206f02319edbf0, type: 3}
       insertIndex: -1
       addedObject: {fileID: 972398086}
@@ -776,6 +780,23 @@ MonoBehaviour:
   maxHP: 100
   maxUlt: 100
   levelNum: 1
+--- !u!114 &7365905300880133010
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6694527641086707439}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 10748f1b9bd6f1143b8ff39433b266cf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  jumpForce: 600
+  maxSpeed: 0
+  jumped: 0
+  Charsideprof: {fileID: 0}
+  Characteridle: {fileID: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

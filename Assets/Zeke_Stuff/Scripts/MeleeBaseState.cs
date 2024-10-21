@@ -37,7 +37,7 @@ public class MeleeBaseState : State
     public override void OnUpdate()
     {
         base.OnUpdate();
-        AttackPressedTimer -= Time.deltaTime;
+        AttackPressedTimer -= Time.deltaTime; 
 
         if (animator.GetFloat("Weapon.Active") > 0f)
         {
@@ -47,17 +47,21 @@ public class MeleeBaseState : State
 
         if (Input.GetMouseButtonDown(0) || Input.GetMouseButtonDown(1))
         {
-            if (animator.GetFloat("AttackWindow.Open") > 0f && AttackPressedTimer > 0)
+            //if (animator.GetFloat("AttackWindow.Open") > 0f && AttackPressedTimer > 0)
+            if(AttackPressedTimer > 0)
             {
                 shouldCombo = true;
             }
 
-            AttackPressedTimer = 5;
-            Debug.Log("They pressed a button");
+            AttackPressedTimer = 1000;
+            
      
 
         }
-        
+        if(AttackPressedTimer == 0)
+        {
+            shouldCombo = false;
+        }
 
        
     }
