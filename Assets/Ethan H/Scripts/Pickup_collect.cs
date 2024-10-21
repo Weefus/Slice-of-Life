@@ -38,7 +38,13 @@ public class Pickup_collect : MonoBehaviour
             Debug.Log("Test");
             ui.updateHP();
         }
-        
+        if (player.hp <= 0)
+        {
+            player.hp = 0;
+            Debug.Log("Test");
+            ui.updateHP();
+        }
+
     }
 
 }
