@@ -22,6 +22,7 @@ public class HeavyEntryState : MeleeBaseState
             if (shouldCombo)
             {
                 stateMachine.SetNextState(new HeavyComboState());
+                Debug.Log("Followed up the heavy opener");
             }
             else
             {
