@@ -142,20 +142,20 @@ public class PlayerController : MonoBehaviour
 
     public void Jump(InputAction.CallbackContext value)
     {
-        if (value.started)
+        if (value.started && !jumped)
         {
             gameObject.GetComponent<Rigidbody2D>().AddForce(gameObject.GetComponent<Rigidbody2D>().transform.TransformDirection(Vector3.up) * jumpForce);
             jumped = true;
         }
         else if (value.canceled)
         {
-            
+
         }
     }
 
     public void Dash(InputAction.CallbackContext value)
     {
-        if (value.started)
+        if (value.started && dash.canDash)
         {
             if (direction == null || direction.x == 0)
             {
