@@ -12,6 +12,8 @@ public class MeleeBaseState : State
     protected bool shouldCombo;
     // The attack index in the sequence of attacks
     protected int attackIndex;
+    // When the player can combo without spamming
+    protected float attackWindow;
 
 
 
@@ -23,7 +25,7 @@ public class MeleeBaseState : State
     private GameObject HitEffectPrefab;
 
     // Input buffer Timer
-    private float AttackPressedTimer = 0;
+    protected float AttackPressedTimer = 0;
 
     public override void OnEnter(StateMachine _stateMachine)
     {
@@ -48,14 +50,14 @@ public class MeleeBaseState : State
         if (Input.GetMouseButtonDown(0) || Input.GetMouseButtonDown(1))
         {
             //if (animator.GetFloat("AttackWindow.Open") > 0f && AttackPressedTimer > 0)
-            if(AttackPressedTimer > 0)
+            if (AttackPressedTimer > 0)
             {
                 shouldCombo = true;
             }
-
             AttackPressedTimer = 1000;
-            
-     
+
+           
+            //  Debug.Log("Clicked");
 
         }
         if(AttackPressedTimer == 0)
@@ -69,6 +71,7 @@ public class MeleeBaseState : State
     public override void OnExit()
     {
         base.OnExit();
+        
     }
 
     protected void Attack()

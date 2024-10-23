@@ -10,15 +10,16 @@ public class LightComboState : MeleeBaseState
 
         // attack
         attackIndex = 2;
-        duration = 0.5f;
+        duration = 1.5f;
         animator.SetTrigger("Attack" + attackIndex);
-        Debug.Log("Player Attack" + attackIndex + "fired!");
+       // Debug.Log("Player Attack" + attackIndex + "fired!");
     }
     public override void OnUpdate()
     {
         base.OnUpdate();
         if (fixedtime >= duration)
         {
+         //   Debug.Log("fixed time" +fixedtime + "should combo" + shouldCombo );
             if (shouldCombo)
             {
                 stateMachine.SetNextState(new LightFinisherState());
@@ -30,5 +31,10 @@ public class LightComboState : MeleeBaseState
             }
         }
 
+    }
+    public override void OnExit()
+    {
+        base.OnExit();
+        AttackPressedTimer = 0;
     }
 }
