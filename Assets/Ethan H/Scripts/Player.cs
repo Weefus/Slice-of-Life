@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using TMPro.Examples;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -12,9 +13,10 @@ public class Player : MonoBehaviour
     public float maxHP = 100;
     public float maxUlt = 100;
     public int levelNum = 1;
+    public UI_Update ui;
     void Start()
     {
-        
+        ui.updateHP();   
     }
 
     void Update()
@@ -26,6 +28,11 @@ public class Player : MonoBehaviour
     public void increaseHP(float h)
     {
         hp += h;
+        if (hp > maxHP)
+        {
+            hp = maxHP;
+        }
+        ui.updateHP();
     }
 
     public void increaseUlt(float u)
@@ -36,6 +43,11 @@ public class Player : MonoBehaviour
     public void decreaseHP(float h)
     {
         hp -= h;
+        if (hp <= 0)
+        {
+            hp = 0;
+        }
+        ui.updateHP();
     }
 
     public void respawn()

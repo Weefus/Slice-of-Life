@@ -7,14 +7,11 @@ using TMPro.Examples;
 
 public class Pickup_collect : MonoBehaviour
 {
-    public TMP_Text uiText;
-    public Player player;
+    Player player;
     public int healingValue = 25;
-    public UI_Update ui;
 
     void Start()
-    {
-        uiText.text = "HP: " + player.hp;
+    {;
     }
 
     // Update is called once per frame
@@ -28,21 +25,11 @@ public class Pickup_collect : MonoBehaviour
 
         if (collision.CompareTag("Player")) {
             Destroy(gameObject);
-            player.increaseHP(healingValue);
-            ui.updateHP();
-        }
-
-        if (player.hp >= player.maxHP)
-        {
-            player.hp = player.maxHP;
-            Debug.Log("Test");
-            ui.updateHP();
-        }
-        if (player.hp <= 0)
-        {
-            player.hp = 0;
-            Debug.Log("Test");
-            ui.updateHP();
+            if(collision.GetComponent("Player") != null)
+            {
+                player = (Player)collision.GetComponent("Player");
+                player.increaseHP(healingValue);
+            }
         }
 
     }
