@@ -23,8 +23,6 @@ public class VendingMachine : MonoBehaviour
         if (collision.CompareTag("Hitbox"))
         {
             Instantiate(pickupPrefab, new Vector3(vx,vy-1,0), Quaternion.identity);
-            Debug.Log(vx);
-            Debug.Log(vy);
         }
     }
 }

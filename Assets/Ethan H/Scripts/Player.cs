@@ -25,6 +25,12 @@ public class Player : MonoBehaviour
     }
 
 
+    public void die()
+    {
+        Destroy(gameObject);
+        Debug.Log("Womp womp");
+    }
+
     public void increaseHP(float h)
     {
         hp += h;
@@ -46,6 +52,7 @@ public class Player : MonoBehaviour
         if (hp <= 0)
         {
             hp = 0;
+            die();
         }
         ui.updateHP();
     }
