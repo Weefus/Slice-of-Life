@@ -9,6 +9,10 @@ public class PlayerController : MonoBehaviour
 {
     Rigidbody2D myRB;
     KnockbackController kb;
+    Dash dash;
+    FollowPlayer fPlayer;
+    public Camera cam;
+
     public int jumpForce = 600;
     
     //move
@@ -25,7 +29,6 @@ public class PlayerController : MonoBehaviour
 
     public GameObject Charsideprof;
     public GameObject Characteridle;
-    private Dash dash;
 
     // Use this for initialization
     void Start()
@@ -33,6 +36,7 @@ public class PlayerController : MonoBehaviour
         myRB = GetComponent<Rigidbody2D>();
         kb = GetComponent<KnockbackController>();
         dash = GetComponent<Dash>();
+        fPlayer = cam.GetComponent<FollowPlayer>();
         // myRenderer = GetComponent<SpriteRenderer>();
 
         //mainAnim = GetComponent<Animator>();
@@ -128,10 +132,12 @@ public class PlayerController : MonoBehaviour
             if(direction.x == 1)
             {
                 speedMulti = 1f;
+                fPlayer.xOffset = 5f;
             }
             else
             {
                 speedMulti = -1f;
+                fPlayer.xOffset = -5f;
             }
         }
         else if (value.canceled)
