@@ -16,7 +16,8 @@ public class Player : MonoBehaviour
     public UI_Update ui;
     void Start()
     {
-        ui.updateHP();   
+        ui.updateHP();
+        ui.updateUlt();
     }
 
     void Update()
@@ -44,6 +45,11 @@ public class Player : MonoBehaviour
     public void increaseUlt(float u)
     {
         ult += u;
+        if (ult > maxUlt) 
+        {
+            ult = maxUlt;
+        }
+        ui.updateUlt();
     }
 
     public void decreaseHP(float h)

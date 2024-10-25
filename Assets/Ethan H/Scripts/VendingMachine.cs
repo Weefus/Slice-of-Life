@@ -4,9 +4,10 @@ using UnityEngine;
 
 public class VendingMachine : MonoBehaviour
 {
-    public GameObject pickupPrefab;
+    public GameObject[] pickupPrefab;
     float vx;
     float vy;
+    int rnd;
     void Start()
     {
         vx = transform.position.x;
@@ -22,7 +23,9 @@ public class VendingMachine : MonoBehaviour
     {
         if (collision.CompareTag("Hitbox"))
         {
-            Instantiate(pickupPrefab, new Vector3(vx,vy-1,0), Quaternion.identity);
+            rnd = Random.Range(0, 2);
+            Debug.Log(rnd);
+            Instantiate(pickupPrefab[rnd], new Vector3(vx, vy - 1, 0), Quaternion.identity);
         }
     }
 }

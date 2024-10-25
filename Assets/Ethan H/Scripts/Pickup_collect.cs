@@ -8,7 +8,8 @@ using TMPro.Examples;
 public class Pickup_collect : MonoBehaviour
 {
     Player player;
-    public int healingValue = 25;
+    public int healingValue;
+    public int ultValue;
 
     void Start()
     {;
@@ -29,6 +30,7 @@ public class Pickup_collect : MonoBehaviour
             {
                 player = (Player)collision.GetComponent("Player");
                 player.increaseHP(healingValue);
+                player.increaseUlt(ultValue);
             }
         }
 
