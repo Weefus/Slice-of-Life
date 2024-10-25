@@ -19,7 +19,7 @@ public class LightEntryState : MeleeBaseState
      {
                 base.OnUpdate();
         attackWindow -= Time.deltaTime;
-        Debug.Log(attackWindow);
+       // Debug.Log(attackWindow);
         if (fixedtime >= duration)
         {
             //Debug.Log(fixedtime);

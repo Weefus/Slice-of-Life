@@ -10,7 +10,7 @@ public class HeavyEntryState : MeleeBaseState
 
         // attack
         attackIndex = 4;
-        duration = 0.5f;
+        duration = 1.5f;
         animator.SetTrigger("Attack" + attackIndex);
         Debug.Log("Player Attack" + attackIndex + "fired!");
     }

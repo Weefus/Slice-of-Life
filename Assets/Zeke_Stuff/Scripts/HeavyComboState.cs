@@ -10,7 +10,7 @@ public class HeavyComboState : MeleeBaseState
 
         // attack
         attackIndex = 5;
-        duration = 0.5f;
+        duration = 1.5f;
         animator.SetTrigger("Attack" + attackIndex);
         Debug.Log("Player Attack" + attackIndex + "fired!");
     }

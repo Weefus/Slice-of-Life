@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.PlasticSCM.Editor.WebApi;
 using UnityEngine;
+using UnityEngine.InputSystem.XR.Haptics;
 
 public class MeleeBaseState : State
 {
@@ -47,17 +49,17 @@ public class MeleeBaseState : State
         }
 
 
-        if (Input.GetMouseButtonDown(0) || Input.GetMouseButtonDown(1))
+        if (GetType() != typeof(IdleCombatState))
         {
             //if (animator.GetFloat("AttackWindow.Open") > 0f && AttackPressedTimer > 0)
             if (AttackPressedTimer > 0)
             {
                 shouldCombo = true;
             }
-            AttackPressedTimer = 1000;
+            AttackPressedTimer = 5;
 
            
-            //  Debug.Log("Clicked");
+             
 
         }
         if(AttackPressedTimer == 0)
