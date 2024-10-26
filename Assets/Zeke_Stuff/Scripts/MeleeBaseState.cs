@@ -49,14 +49,14 @@ public class MeleeBaseState : State
         }
 
 
-        if (GetType() != typeof(IdleCombatState))
+        if (animator.GetFloat("AttackWindow.Open") > 0f && AttackPressedTimer > 0)
         {
             //if (animator.GetFloat("AttackWindow.Open") > 0f && AttackPressedTimer > 0)
             if (AttackPressedTimer > 0)
             {
                 shouldCombo = true;
             }
-            AttackPressedTimer = 5;
+            AttackPressedTimer = 10;
 
            
              

@@ -23,4 +23,9 @@ public class HeavyFinisherState : MeleeBaseState
         }
 
     }
+    public override void OnExit()
+    {
+        base.OnExit();
+        AttackPressedTimer = 0;
+    }
 }

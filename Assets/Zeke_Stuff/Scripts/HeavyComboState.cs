@@ -31,4 +31,9 @@ public class HeavyComboState : MeleeBaseState
         }
 
     }
+    public override void OnExit()
+    {
+        base.OnExit();
+        AttackPressedTimer = 0;
+    }
 }

@@ -18,6 +18,7 @@ public class LightEntryState : MeleeBaseState
      public override void OnUpdate()
      {
                 base.OnUpdate();
+        
         attackWindow -= Time.deltaTime;
        // Debug.Log(attackWindow);
         if (fixedtime >= duration)
@@ -31,7 +32,7 @@ public class LightEntryState : MeleeBaseState
             {
 
            
-                if (shouldCombo )
+                if (shouldCombo)
                 {
                     stateMachine.SetNextState(new LightComboState());
 
@@ -47,6 +48,6 @@ public class LightEntryState : MeleeBaseState
     public override void OnExit()
     {
         base.OnExit();
-        AttackPressedTimer = 0;
+       // AttackPressedTimer = 0;
     }
 }
