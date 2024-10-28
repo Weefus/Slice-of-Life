@@ -152,5 +152,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 2.5
   xOffset: 0
-  yOffset: 2
+  yOffset: 3
   player: {fileID: 1311719110046904964, guid: 48db00c4bee44d0419b510b6d84b09f2, type: 3}
