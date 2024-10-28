@@ -23,14 +23,19 @@ public class Player : MonoBehaviour
     }
 
 
-    public void increaseHP(int h)
+    public void increaseHP(float h)
     {
         hp += h;
     }
 
-    public void increaseUlt(int u)
+    public void increaseUlt(float u)
     {
         ult += u;
+    }
+
+    public void decreaseHP(float h)
+    {
+        hp -= h;
     }
 
     public void respawn()

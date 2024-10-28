@@ -1,16 +1,24 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro.Examples;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
 {
     Rigidbody2D myRB;
     KnockbackController kb;
+    Dash dash;
+    FollowPlayer fPlayer;
+    public Camera cam;
+
     public int jumpForce = 600;
     
     //move
     public float maxSpeed;
+    private float speedMulti;
+    private Vector2 direction;
     //bool facingleft = true;
     //SpriteRenderer myRenderer;
     //Animator mainAnim;
@@ -21,7 +29,6 @@ public class PlayerController : MonoBehaviour
 
     public GameObject Charsideprof;
     public GameObject Characteridle;
-    private Dash dash;
 
     // Use this for initialization
     void Start()
@@ -29,6 +36,7 @@ public class PlayerController : MonoBehaviour
         myRB = GetComponent<Rigidbody2D>();
         kb = GetComponent<KnockbackController>();
         dash = GetComponent<Dash>();
+        fPlayer = cam.GetComponent<FollowPlayer>();
         // myRenderer = GetComponent<SpriteRenderer>();
 
         //mainAnim = GetComponent<Animator>();
@@ -75,27 +83,10 @@ public class PlayerController : MonoBehaviour
             return;
         }
         
-        float move = Input.GetAxis("Horizontal");
-
-        //just a quick check if you press space and if you're still in the air to prevent multiple jumps
-        if (Input.GetKey(KeyCode.Space) && !jumped)
+        if (direction.x != 0)
         {
-            gameObject.GetComponent<Rigidbody2D>().AddForce(gameObject.GetComponent<Rigidbody2D>().transform.TransformDirection(Vector3.up) * jumpForce);
-            jumped = true;
+            myRB.transform.localScale = new Vector3(direction.x, 1, 1); 
         }
-
-        if (Input.GetKey(KeyCode.LeftShift) && dash.canDash) 
-        {
-            if(move >= 0)
-            {
-                StartCoroutine(dash.dashDuration(1f));
-            }
-            else
-            {
-                StartCoroutine(dash.dashDuration(-1f));
-            }
-        }
-
         //mainAnim.SetBool("IsGrounded", !jumped);
         //idleAnim.SetBool("IsGrounded", !jumped);
         //sideAnim.SetBool("IsGrounded", !jumped);
@@ -126,13 +117,69 @@ public class PlayerController : MonoBehaviour
         }*/
 
         if(!dash.isDashing)
-            myRB.velocity = new Vector2(move * maxSpeed, myRB.velocity.y);
+            myRB.velocity = new Vector2(speedMulti * maxSpeed, myRB.velocity.y);
 
         //mainAnim.SetFloat("MoveSpeed", Mathf.Abs(move));
 
         //mainAnim.SetFloat("VerticalVelocity", Mathf.Abs(myRB.velocity.y));
 
         //switchSprite();
+
+    }
+
+    public void Move(InputAction.CallbackContext value)
+    {
+        direction = value.ReadValue<Vector2>();
+
+        if (value.started)
+        {
+            if(direction.x == 1)
+            {
+                speedMulti = 1f;
+                fPlayer.xOffset = 5f;
+            }
+            else
+            {
+                speedMulti = -1f;
+                fPlayer.xOffset = -5f;
+            }
+        }
+        else if (value.canceled)
+        {
+            speedMulti = 0f;
+        }
+    }
+
+    public void Jump(InputAction.CallbackContext value)
+    {
+        if (value.started && !jumped)
+        {
+            gameObject.GetComponent<Rigidbody2D>().AddForce(gameObject.GetComponent<Rigidbody2D>().transform.TransformDirection(Vector3.up) * jumpForce);
+            jumped = true;
+        }
+        else if (value.canceled)
+        {
+
+        }
+    }
+
+    public void Dash(InputAction.CallbackContext value)
+    {
+        if (value.started && dash.canDash)
+        {
+            if (direction == null || direction.x == 0)
+            {
+                StartCoroutine(dash.dashDuration(1f));
+            }
+            else
+            {
+                StartCoroutine(dash.dashDuration(direction.x));
+            }
+        }
+        else if (value.canceled)
+        {
+            
+        }
 
     }
 
@@ -150,7 +197,7 @@ public class PlayerController : MonoBehaviour
 
         facingleft = !facingleft;
 
-    }*/
+    }
 
     /*void switchSprite()
     {

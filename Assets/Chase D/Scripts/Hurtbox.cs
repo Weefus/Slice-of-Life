@@ -7,6 +7,7 @@ public class Hurtbox : MonoBehaviour
     
     public Player player;
     public basicZombClass zombClass;
+    public UI_Update ui;
     void Start()
     {
         player = GetComponent<Player>();
@@ -17,7 +18,8 @@ public class Hurtbox : MonoBehaviour
     {
         if (player != null)
         {
-            player.hp -= damageAmt;
+            player.decreaseHP(damageAmt);
+            ui.updateHP();
         }
 
         if (zombClass != null)
