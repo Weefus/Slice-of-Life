@@ -4,14 +4,20 @@ using UnityEngine;
 
 public class FollowPlayer : MonoBehaviour
 {
+    //speed of the camera follow
     public float speed = 10f;
+    //offest of where the camera is on the x
     public float xOffset = 0f;
+    //offest of where the camera is on the y
     public float yOffset = 0f;
+    //player to follow
     public Transform player;
 
     private void Update()
     {
+        //New Position the camera will move towards
         Vector3 newPos = new Vector3(player.position.x + xOffset, player.position.y + yOffset, -10f);
+        //The camera moving to the new position
         transform.position = Vector3.Slerp(transform.position, newPos, speed * Time.deltaTime);
     }
 
