@@ -82,7 +82,11 @@ public class PlayerController : MonoBehaviour
             Debug.Log("isDashing");
             return;
         }
-
+        
+        if (direction.x != 0)
+        {
+            myRB.transform.localScale = new Vector3(direction.x, 1, 1); 
+        }
         //mainAnim.SetBool("IsGrounded", !jumped);
         //idleAnim.SetBool("IsGrounded", !jumped);
         //sideAnim.SetBool("IsGrounded", !jumped);
@@ -193,7 +197,7 @@ public class PlayerController : MonoBehaviour
 
         facingleft = !facingleft;
 
-    }*/
+    }
 
     /*void switchSprite()
     {
