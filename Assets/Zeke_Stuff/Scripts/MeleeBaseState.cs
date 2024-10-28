@@ -14,9 +14,10 @@ public class MeleeBaseState : State
     protected bool shouldCombo;
     // The attack index in the sequence of attacks
     protected int attackIndex;
-    // When the player can combo without spamming
+    // Make the combo work when input
     protected float attackWindow;
-
+    //Float to stop spamikng
+    protected float multInput;
 
 
     // The cached hit collider component of this attack
@@ -41,32 +42,21 @@ public class MeleeBaseState : State
     public override void OnUpdate()
     {
         base.OnUpdate();
-        AttackPressedTimer -= Time.deltaTime; 
+        AttackPressedTimer -= Time.deltaTime;
+        attackWindow -= Time.deltaTime;
+        // Debug.Log(attackWindow);
+        multInput -= Time.deltaTime;
 
         if (animator.GetFloat("Weapon.Active") > 0f)
         {
             Attack();
         }
 
-
-        if (animator.GetFloat("AttackWindow.Open") > 0f && AttackPressedTimer > 0)
+        if (Input.GetMouseButtonDown(0) || Input.GetMouseButtonDown(1))
         {
-            //if (animator.GetFloat("AttackWindow.Open") > 0f && AttackPressedTimer > 0)
-            if (AttackPressedTimer > 0)
-            {
-                shouldCombo = true;
-            }
-            AttackPressedTimer = 10;
-
-           
-             
-
+            attackWindow += 5;
         }
-        if(AttackPressedTimer == 0)
-        {
-            shouldCombo = false;
-        }
-
+       
        
     }
 

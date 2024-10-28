@@ -22,7 +22,7 @@ public class ComboCharacter : MonoBehaviour
         if (Input.GetMouseButton(0) && meleeStateMachine.CurrentState.GetType() == typeof(IdleCombatState))
         {
             meleeStateMachine.SetNextState(new LightEntryState());
-            
+             
         }
         if (Input.GetMouseButton(1) && meleeStateMachine.CurrentState.GetType() == typeof(IdleCombatState))
         {

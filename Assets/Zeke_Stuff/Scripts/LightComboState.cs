@@ -7,10 +7,11 @@ public class LightComboState : MeleeBaseState
     public override void OnEnter(StateMachine stateMachine)
     {
         base.OnEnter(stateMachine);
-
+        
         // attack
         attackIndex = 2;
-        duration = 1.5f;
+        duration = 1.0f;
+        multInput = duration * 2;
         animator.SetTrigger("Attack" + attackIndex);
        // Debug.Log("Player Attack" + attackIndex + "fired!");
     }
@@ -20,7 +21,7 @@ public class LightComboState : MeleeBaseState
         if (fixedtime >= duration)
         {
          //   Debug.Log("fixed time" +fixedtime + "should combo" + shouldCombo );
-            if (shouldCombo)
+            if (attackWindow > 0)
             {
                 stateMachine.SetNextState(new LightFinisherState());
                 
