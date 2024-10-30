@@ -1,0 +1,79 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+
+public class zombieMove : MonoBehaviour
+{
+    public GameObject[] players;
+    public float playerDirct = 1.0f;
+    public float speedBase;
+    public int closestPlyr = 0;
+    public float dist1;
+    public float dist2;
+    public float time = 0;
+    public float interval;
+    public float greyZone;
+    public float speed;
+    public float speedVariation;
+    private Rigidbody2D rigid;
+
+    // Start is called before the first frame update
+    void Start()
+    {
+        speed = speedBase + Random.Range(-speedVariation, speedVariation);
+        players = GameObject.FindGameObjectsWithTag("Player");
+        closestPlyr = getClosestPlayer();
+        rigid = gameObject.GetComponent<Rigidbody2D>();
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        time = time + Time.deltaTime;
+        closestPlyr = getClosestPlayer();
+
+        if (time > interval) { 
+            if (players[closestPlyr].transform.position.x > transform.position.x)
+            {
+                playerDirct = 1.0f;
+            }
+            else {
+                playerDirct = -1.0f;
+            }
+            time = 0f;
+        }
+
+
+        transform.localScale = new Vector3(-playerDirct, 1, 1);
+
+        if (rigid.velocity == new Vector2(0,0)) {
+            transform.Translate(Vector3.right * speed * Time.deltaTime * playerDirct);
+        }
+        
+    }
+
+    private int getClosestPlayer()
+    {
+        
+
+        if (players.Length <= 1)
+        {
+            return 0;
+        }
+
+        dist1 = Mathf.Abs(players[1].transform.position.x - transform.position.x);
+        dist2 = Mathf.Abs(players[0].transform.position.x - transform.position.x);
+
+        if (Mathf.Abs(dist1 - dist2) > greyZone)
+        {
+            if (dist1 > dist2)
+            {
+                return 0;
+            }
+            else return 1;
+        }
+        else { return closestPlyr; }
+        
+    }
+}
