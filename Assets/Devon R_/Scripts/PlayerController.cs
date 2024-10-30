@@ -142,7 +142,6 @@ public class PlayerController : MonoBehaviour
     {
         //Direction the input has been pressed in
         direction = value.ReadValue<Vector2>();
-        Debug.Log(value);
 
         //Input triggers
         if (value.started)
