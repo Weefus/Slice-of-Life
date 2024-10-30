@@ -42,7 +42,6 @@ public class Hitbox : MonoBehaviour
 
             kb.Knockback(direction * knockbackForce);
             h.DealDamage(damageAmt);
-            
         }
     }
 }
