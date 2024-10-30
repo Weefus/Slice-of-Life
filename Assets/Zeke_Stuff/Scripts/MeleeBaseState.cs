@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.PlasticSCM.Editor.WebApi;
 using UnityEngine;
+using UnityEngine.InputSystem.XR.Haptics;
 
 public class MeleeBaseState : State
 {
@@ -12,7 +14,10 @@ public class MeleeBaseState : State
     protected bool shouldCombo;
     // The attack index in the sequence of attacks
     protected int attackIndex;
-
+    // Make the combo work when input
+    protected float attackWindow;
+    //Float to stop spamikng
+    protected float multInput;
 
 
     // The cached hit collider component of this attack
@@ -23,7 +28,7 @@ public class MeleeBaseState : State
     private GameObject HitEffectPrefab;
 
     // Input buffer Timer
-    private float AttackPressedTimer = 0;
+    protected float AttackPressedTimer = 0;
 
     public override void OnEnter(StateMachine _stateMachine)
     {
@@ -38,33 +43,27 @@ public class MeleeBaseState : State
     {
         base.OnUpdate();
         AttackPressedTimer -= Time.deltaTime;
+        attackWindow -= Time.deltaTime;
+        // Debug.Log(attackWindow);
+        multInput -= Time.deltaTime;
 
         if (animator.GetFloat("Weapon.Active") > 0f)
         {
             Attack();
         }
 
-
         if (Input.GetMouseButtonDown(0) || Input.GetMouseButtonDown(1))
         {
-            if (animator.GetFloat("AttackWindow.Open") > 0f && AttackPressedTimer > 0)
-            {
-                shouldCombo = true;
-            }
-
-            AttackPressedTimer = 5;
-            Debug.Log("They pressed a button");
-     
-
+            attackWindow += 5;
         }
-        
-
+       
        
     }
 
     public override void OnExit()
     {
         base.OnExit();
+        
     }
 
     protected void Attack()

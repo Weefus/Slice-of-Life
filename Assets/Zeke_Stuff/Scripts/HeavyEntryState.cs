@@ -9,26 +9,51 @@ public class HeavyEntryState : MeleeBaseState
         base.OnEnter(stateMachine);
 
         // attack
+        attackWindow = 10;
         attackIndex = 4;
-        duration = 0.5f;
+        duration = 1.5f;
+        multInput = duration;
         animator.SetTrigger("Attack" + attackIndex);
         Debug.Log("Player Attack" + attackIndex + "fired!");
     }
     public override void OnUpdate()
     {
         base.OnUpdate();
-        if (fixedtime >= duration)
+        if (multInput > 0)
         {
-            if (shouldCombo)
-            {
-                stateMachine.SetNextState(new HeavyComboState());
-                Debug.Log("Followed up the heavy opener");
-            }
-            else
+            if (Input.GetMouseButtonDown(1))
             {
                 stateMachine.SetNextStateToMain();
             }
         }
 
+
+        if (fixedtime >= duration && Input.GetMouseButtonDown(1))
+        {
+            //Debug.Log(fixedtime);
+
+
+            if (attackWindow > 0)
+            {
+                stateMachine.SetNextState(new HeavyComboState());
+
+            }
+            else
+            {
+                stateMachine.SetNextStateToMain();
+            }
+
+        }
+        else if (fixedtime > (duration * 3))
+        {
+            stateMachine.SetNextStateToMain();
+        }
+    }
+
+
+    public override void OnExit()
+    {
+        base.OnExit();
+        AttackPressedTimer = 0;
     }
 }

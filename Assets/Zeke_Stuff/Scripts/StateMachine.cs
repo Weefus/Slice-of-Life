@@ -5,7 +5,7 @@ using UnityEngine;
 public class StateMachine : MonoBehaviour
 {
     public string customName;
-
+    
     private State mainStateType;
 
     public State CurrentState { get; private set; }
@@ -32,6 +32,7 @@ public class StateMachine : MonoBehaviour
         }
         CurrentState = _newState;
         CurrentState.OnEnter(this);
+        Debug.Log(CurrentState.ToString());
     }
 
     public void SetNextState(State _newState)
@@ -39,6 +40,7 @@ public class StateMachine : MonoBehaviour
         if (_newState != null)
         {
             nextState = _newState;
+            
         }
     }
 
