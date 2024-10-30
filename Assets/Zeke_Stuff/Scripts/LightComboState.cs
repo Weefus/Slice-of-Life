@@ -18,6 +18,14 @@ public class LightComboState : MeleeBaseState
     public override void OnUpdate()
     {
         base.OnUpdate();
+
+        if (multInput > 0)
+        {
+            if (Input.GetMouseButtonDown(0)) 
+            {
+                stateMachine.SetNextStateToMain();
+            }
+        }
         if (fixedtime >= duration)
         {
          //   Debug.Log("fixed time" +fixedtime + "should combo" + shouldCombo );
@@ -26,10 +34,11 @@ public class LightComboState : MeleeBaseState
                 stateMachine.SetNextState(new LightFinisherState());
                 
             }
-            else
-            {
-                stateMachine.SetNextStateToMain();
-            }
+            
+        }
+        else if(fixedtime > duration * 3) 
+        {
+            stateMachine.SetNextStateToMain();
         }
 
     }

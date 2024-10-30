@@ -551,8 +551,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 10748f1b9bd6f1143b8ff39433b266cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cam: {fileID: 0}
   jumpForce: 600
-  maxSpeed: 0
+  maxSpeed: 10
   jumped: 0
   Charsideprof: {fileID: 0}
   Characteridle: {fileID: 0}

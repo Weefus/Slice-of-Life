@@ -559,10 +559,6 @@ PrefabInstance:
       propertyPath: cam
       value: 
       objectReference: {fileID: 380018085}
-    - target: {fileID: 4730762435024850619, guid: c4bbe6cb242e12c42a01b198462789a3, type: 3}
-      propertyPath: maxSpeed
-      value: 10
-      objectReference: {fileID: 0}
     - target: {fileID: 5184942824323944038, guid: c4bbe6cb242e12c42a01b198462789a3, type: 3}
       propertyPath: m_Name
       value: Player
