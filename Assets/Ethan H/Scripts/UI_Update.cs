@@ -12,7 +12,10 @@ public class UI_Update : MonoBehaviour
     public Player player;
     void Start()
     {
-        
+        player = (Player)FindObjectOfType(typeof(Player));
+        Debug.Log(player.name);
+        updateHP();
+        updateUlt();
     }
 
     // Update is called once per frame

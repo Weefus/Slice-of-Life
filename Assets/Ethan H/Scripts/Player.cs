@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -14,6 +15,8 @@ public class Player : MonoBehaviour
     public float maxUlt = 100;
     public int levelNum = 1;
     public UI_Update ui;
+    public float spawnX = -12.0f;
+    public float spawnY = -3.0f;
     void Start()
     {
         ui.updateHP();
@@ -69,5 +72,4 @@ public class Player : MonoBehaviour
         SceneManager.LoadScene(scene.name);
         Debug.Log("Whoops");
     }
-
 }

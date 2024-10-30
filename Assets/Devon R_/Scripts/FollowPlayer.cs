@@ -7,11 +7,17 @@ public class FollowPlayer : MonoBehaviour
     public float speed = 10f;
     public float xOffset = 0f;
     public float yOffset = 0f;
-    public Transform player;
+    public Player player;
 
-    private void Update()
+
+    private void Start()
     {
-        Vector3 newPos = new Vector3(player.position.x + xOffset, player.position.y + yOffset, -10f);
+        player = (Player)FindObjectOfType(typeof(Player));
+    }
+    private void Update()
+
+    {
+        Vector3 newPos = new Vector3(player.transform.position.x + xOffset, player.transform.position.y + yOffset, -10f);
         transform.position = Vector3.Slerp(transform.position, newPos, speed * Time.deltaTime);
     }
 

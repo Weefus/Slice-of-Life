@@ -28,7 +28,8 @@ public class LevelChange : MonoBehaviour
         if (collision.CompareTag("Player"))
         {
             SceneManager.LoadScene(sceneName);
-            //DontDestroyOnLoad(p);
+            DontDestroyOnLoad(p);
+            p.transform.position = new Vector3(p.spawnX, p.spawnY, 0);
         }
     }
 }
