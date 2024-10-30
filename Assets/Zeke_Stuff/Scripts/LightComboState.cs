@@ -21,7 +21,7 @@ public class LightComboState : MeleeBaseState
 
         if (multInput > 0)
         {
-            if (Input.GetMouseButtonDown(0)) 
+            if (lightAttack) 
             {
                 stateMachine.SetNextStateToMain();
             }

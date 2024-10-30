@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.PlasticSCM.Editor.WebApi;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.XR.Haptics;
 
 public class MeleeBaseState : State
@@ -19,6 +20,8 @@ public class MeleeBaseState : State
     //Float to stop spamikng
     protected float multInput;
 
+    // These Are the variables that are the modern
+   
 
     // The cached hit collider component of this attack
     protected Collider2D hitCollider;
@@ -39,7 +42,7 @@ public class MeleeBaseState : State
         HitEffectPrefab = GetComponent<ComboCharacter>().Hiteffect;
     }
 
-    public override void OnUpdate()
+    public override void OnUpdate(AttackType currentAttack)
     {
         base.OnUpdate();
         AttackPressedTimer -= Time.deltaTime;
@@ -52,7 +55,7 @@ public class MeleeBaseState : State
             Attack();
         }
 
-        if (Input.GetMouseButtonDown(0) || Input.GetMouseButtonDown(1))
+        if (lightAttack || Input.GetMouseButtonDown(1))
         {
             attackWindow += 5;
         }
@@ -87,6 +90,17 @@ public class MeleeBaseState : State
                     collidersDamaged.Add(collidersToDamage[i]);
                 }
             }
+        }
+    }
+    public void LightAttack(InputAction.CallbackContext value)
+    {
+        if (value.started)
+        {
+            lightAttack = true;
+        }
+        else if (value.canceled)
+        {
+            lightAttack = false;
         }
     }
 
