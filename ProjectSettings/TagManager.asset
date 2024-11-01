@@ -8,6 +8,7 @@ TagManager:
   - Platform
   - Wall
   - Hitbox
+  - CameraRadius
   layers:
   - Default
   - TransparentFX

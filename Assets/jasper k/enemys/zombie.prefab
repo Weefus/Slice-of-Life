@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 7245500876580315556}
   - component: {fileID: 3396902734536573614}
   - component: {fileID: 7184376071755631881}
+  - component: {fileID: 4616759610011671101}
   m_Layer: 0
   m_Name: zombie
   m_TagString: Untagged
@@ -211,6 +212,20 @@ MonoBehaviour:
   player: {fileID: 0}
   zombClass: {fileID: 3396902734536573614}
   ui: {fileID: 0}
+--- !u!114 &4616759610011671101
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6836569182353402695}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ae0c1588dd42d214881b490926f2375e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startTimer: 1
+  knockbackTimer: 0
 --- !u!1001 &5012372579413347237
 PrefabInstance:
   m_ObjectHideFlags: 0
