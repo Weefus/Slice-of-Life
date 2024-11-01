@@ -13,6 +13,7 @@ public abstract class State
     public virtual void OnEnter(StateMachine _stateMachine)
     {
         stateMachine = _stateMachine;
+        fixedtime = 0;
     }
 
 
@@ -24,6 +25,7 @@ public abstract class State
     public virtual void OnFixedUpdate()
     {
         fixedtime += Time.deltaTime;
+      //  Debug.Log("Fixed update" + fixedtime);
     }
     public virtual void OnLateUpdate()
     {

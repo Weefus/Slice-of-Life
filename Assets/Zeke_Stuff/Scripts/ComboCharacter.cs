@@ -22,12 +22,12 @@ public class ComboCharacter : MonoBehaviour
         if (Input.GetMouseButton(0) && meleeStateMachine.CurrentState.GetType() == typeof(IdleCombatState))
         {
             meleeStateMachine.SetNextState(new LightEntryState());
-            Debug.Log("did a light attack");
+             
         }
         if (Input.GetMouseButton(1) && meleeStateMachine.CurrentState.GetType() == typeof(IdleCombatState))
         {
             meleeStateMachine.SetNextState(new HeavyEntryState());
-            Debug.Log("Did a heavy attack");
+           
         }
     }
 }
