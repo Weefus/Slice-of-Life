@@ -179,26 +179,21 @@ public class PlayerController : MonoBehaviour
     //Input method for the Jump
     public void Jump(InputAction.CallbackContext value)
     {
-        //Input for jump started
-        if (value.started && !jumped)
+        //Input for jump performed
+        if (value.performed && !jumped)
         {
             //Forces the player up like a jump
             gameObject.GetComponent<Rigidbody2D>().AddForce(gameObject.GetComponent<Rigidbody2D>().transform.TransformDirection(Vector3.up) * jumpForce);
             //Player has now used up their jump
             jumped = true;
         }
-        //Input was let go
-        else if (value.canceled)
-        {
-
-        }
     }
 
     //Input method for the dash
     public void Dash(InputAction.CallbackContext value)
     {
-        //Input for dash started
-        if (value.started && dash.canDash)
+        //Input for dash performed
+        if (value.performed && dash.canDash)
         {
             //Dash to the right if no direction
             if (direction == null || direction.x == 0)
@@ -211,12 +206,6 @@ public class PlayerController : MonoBehaviour
                 StartCoroutine(dash.dashDuration(direction.x));
             }
         }
-        //Input was let go
-        else if (value.canceled)
-        {
-            
-        }
-
     }
 
     /*void Flip()
