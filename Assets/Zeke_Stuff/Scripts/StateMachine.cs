@@ -6,23 +6,29 @@ using UnityEngine.InputSystem;
 public class StateMachine : MonoBehaviour
 {
     public string customName;
-    
+
     private State mainStateType;
 
     public State CurrentState { get; private set; }
     private State nextState;
-  
+    public State.AttackType currentAttack  {get;  set;}
 
+    private void Start()
+    {
+        currentAttack = State.AttackType.none;
+    }
     // Update is called once per frame
     void Update()
     {
+       
         if (nextState != null)
         {
             SetState(nextState);
         }
 
         if (CurrentState != null)
-            CurrentState.OnUpdate();
+           // Debug.Log(currentAttack);
+            CurrentState.OnUpdate(currentAttack);
     }
 
     private void SetState(State _newState)

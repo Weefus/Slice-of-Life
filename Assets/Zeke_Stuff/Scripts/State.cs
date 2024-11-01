@@ -29,6 +29,7 @@ public abstract class State
     public virtual void OnUpdate(AttackType currentAttack)
     {
         time += Time.deltaTime;
+        
     }
 
     public virtual void OnFixedUpdate()

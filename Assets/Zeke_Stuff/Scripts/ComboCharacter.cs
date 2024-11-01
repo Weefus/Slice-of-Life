@@ -6,7 +6,7 @@ using UnityEngine.InputSystem;
 public class ComboCharacter : MonoBehaviour
 {
     // These Are the variables that are the modern
-    public State.AttackType currentAttack;
+    protected State.AttackType currentAttack = State.AttackType.none;
 
     private StateMachine meleeStateMachine;
 
@@ -17,15 +17,18 @@ public class ComboCharacter : MonoBehaviour
     void Start()
     {
         meleeStateMachine = GetComponent<StateMachine>();
+        Debug.Log(currentAttack);
     }
 
     // Update is called once per frame
     void Update()
     {
-       if (lightAttack && meleeStateMachine.CurrentState.GetType() == typeof(IdleCombatState))
+        meleeStateMachine.currentAttack = currentAttack;
+       if (currentAttack == State.AttackType.light && meleeStateMachine.CurrentState.GetType() == typeof(IdleCombatState))
        {
             meleeStateMachine.SetNextState(new LightEntryState());
-             
+            //Debug.Log("Started Combo");
+            
        }
         if (Input.GetMouseButton(1) && meleeStateMachine.CurrentState.GetType() == typeof(IdleCombatState))
         {
@@ -36,13 +39,16 @@ public class ComboCharacter : MonoBehaviour
 
     public void LightAttack(InputAction.CallbackContext value)
     {
-        if (value.started)
+        if (value.performed)
         {
-            cur
+            currentAttack = State.AttackType.light;
+            Debug.Log("Clicked");
+            
         }
         else if (value.canceled)
         {
-            lightAttack = false;
+            currentAttack = State.AttackType.none;
+            Debug.Log("Stopped");
         }
     }
 }

@@ -31,7 +31,7 @@ public class LightEntryState : MeleeBaseState
         }
 
 
-            if (fixedtime >= duration && lightAttack)
+            if (fixedtime >= duration)
             {
             //Debug.Log(fixedtime);
          

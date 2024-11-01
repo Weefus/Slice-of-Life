@@ -21,7 +21,7 @@ public class MeleeBaseState : State
     protected float multInput;
 
     // These Are the variables that are the modern
-   
+   // public AttackType currentAttack = AttackType.none;
 
     // The cached hit collider component of this attack
     protected Collider2D hitCollider;
@@ -44,7 +44,7 @@ public class MeleeBaseState : State
 
     public override void OnUpdate(AttackType currentAttack)
     {
-        base.OnUpdate();
+        base.OnUpdate( currentAttack);
         AttackPressedTimer -= Time.deltaTime;
         attackWindow -= Time.deltaTime;
         // Debug.Log(attackWindow);
@@ -55,9 +55,10 @@ public class MeleeBaseState : State
             Attack();
         }
 
-        if (lightAttack || Input.GetMouseButtonDown(1))
+        if (currentAttack == State.AttackType.light || Input.GetMouseButtonDown(1))
         {
             attackWindow += 5;
+           //Debug.Log("Attacked");
         }
        
        
@@ -92,16 +93,6 @@ public class MeleeBaseState : State
             }
         }
     }
-    public void LightAttack(InputAction.CallbackContext value)
-    {
-        if (value.started)
-        {
-            lightAttack = true;
-        }
-        else if (value.canceled)
-        {
-            lightAttack = false;
-        }
-    }
+
 
 }

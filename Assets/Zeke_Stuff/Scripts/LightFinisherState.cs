@@ -14,9 +14,9 @@ public class LightFinisherState : MeleeBaseState
         animator.SetTrigger("Attack" + attackIndex);
       //  Debug.Log("Player Attack" + attackIndex + "fired!");
     }
-    public override void OnUpdate()
+    public override void OnUpdate(AttackType currentAttack)
     {
-        base.OnUpdate();
+        base.OnUpdate(currentAttack);
         if (fixedtime >= duration)
         {
             //Debug.Log(fixedtime);
