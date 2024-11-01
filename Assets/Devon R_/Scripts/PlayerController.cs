@@ -15,7 +15,8 @@ public class PlayerController : MonoBehaviour
 
     //Amount of force the jump uses
     public int jumpForce = 600;
-    
+    //A public variable to check the dashing state
+    public bool isDashing;
     //Max speed player can go
     public float maxSpeed;
     //Used to get direction of key input, value of -1 or 1
@@ -83,6 +84,8 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
+        isDashing = dash.isDashing;
+
         //Can't move during knockback
         if (kb != null && kb.knockbackTimer > 0)
         {
@@ -90,9 +93,8 @@ public class PlayerController : MonoBehaviour
         }
 
         //Can't move during a dash
-        if (dash.isDashing)
+        if (isDashing)
         {
-            Debug.Log("isDashing");
             return;
         }
         
@@ -126,7 +128,7 @@ public class PlayerController : MonoBehaviour
         }*/
 
         //safety about not moving during dash
-        if(!dash.isDashing)
+        if(!isDashing)
             myRB.velocity = new Vector2(speedMulti * maxSpeed, myRB.velocity.y);
 
         //mainAnim.SetFloat("MoveSpeed", Mathf.Abs(move));
