@@ -90,6 +90,10 @@ public class PlayerController : MonoBehaviour
         //Can't move during knockback
         if (kb != null && kb.knockbackTimer > 0)
         {
+            if (dash.isDashing)
+            {
+                kb.knockbackTimer = 0;
+            }
             return;
         }
 
