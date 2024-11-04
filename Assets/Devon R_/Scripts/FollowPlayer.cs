@@ -13,7 +13,7 @@ public class FollowPlayer : MonoBehaviour
     //player to follow
     public Transform player;
 
-    private void Update()
+    private void LateUpdate()
     {
         //New Position the camera will move towards
         Vector3 newPos = new Vector3(player.position.x + xOffset, player.position.y + yOffset, -10f);

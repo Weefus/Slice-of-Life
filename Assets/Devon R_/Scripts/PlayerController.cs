@@ -86,6 +86,10 @@ public class PlayerController : MonoBehaviour
         //Can't move during knockback
         if (kb != null && kb.knockbackTimer > 0)
         {
+            if (dash.isDashing)
+            {
+                kb.knockbackTimer = 0;
+            }
             return;
         }
 
@@ -142,7 +146,6 @@ public class PlayerController : MonoBehaviour
     {
         //Direction the input has been pressed in
         direction = value.ReadValue<Vector2>();
-        Debug.Log(value);
 
         //Input triggers
         if (value.started)
