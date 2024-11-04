@@ -24,6 +24,8 @@ public class PlayerController : MonoBehaviour
     private float speedMulti;
     //The direct value from the input system
     private Vector2 direction;
+    //if the player is in a boss fight
+    private bool bossCam = false;
 
     //bool facingleft = true;
     //SpriteRenderer myRenderer;
@@ -31,8 +33,8 @@ public class PlayerController : MonoBehaviour
     //Animator idleAnim;
     //Animator sideAnim;
 
-    //Chack to see if player has already used their jump/in-air
-    public bool jumped = false;
+    //Check to see if player has already used their jump/in-air
+    private bool jumped = false;
 
     //bool grounded = true;
 
@@ -46,6 +48,10 @@ public class PlayerController : MonoBehaviour
         kb = GetComponent<KnockbackController>();
         dash = GetComponent<Dash>();
         fPlayer = cam.GetComponent<FollowPlayer>();
+        if (cam.CompareTag("BossCamera"))
+        {
+            bossCam = true;
+        }
         // myRenderer = GetComponent<SpriteRenderer>();
 
         //mainAnim = GetComponent<Animator>();
@@ -159,7 +165,8 @@ public class PlayerController : MonoBehaviour
                 //speed to the right
                 speedMulti = 1f;
                 //camera moves to the right of the player
-                fPlayer.xOffset = 5f;
+                if(!bossCam)
+                    fPlayer.xOffset = 5f;
             }
             //Input to the left
             else
@@ -167,7 +174,8 @@ public class PlayerController : MonoBehaviour
                 //speed to the left
                 speedMulti = -1f;
                 //camera moves to the left of the player
-                fPlayer.xOffset = -5f;
+                if(!bossCam)
+                    fPlayer.xOffset = -5f;
             }
 
             //player flips as the direction changes
