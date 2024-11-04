@@ -17,6 +17,7 @@ public class PlayerController : MonoBehaviour
     public int jumpForce = 600;
     //A public variable to check the dashing state
     private bool isDashing;
+
     //Max speed player can go
     public float maxSpeed;
     //Used to get direction of key input, value of -1 or 1
