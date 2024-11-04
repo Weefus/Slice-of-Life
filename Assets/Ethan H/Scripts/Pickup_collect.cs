@@ -9,6 +9,8 @@ public class Pickup_collect : MonoBehaviour
 {
     public TMP_Text uiText;
     public Player player;
+    public int healingValue = 25;
+    public UI_Update ui;
 
     void Start()
     {
@@ -21,13 +23,28 @@ public class Pickup_collect : MonoBehaviour
         
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    public void OnTriggerEnter2D(Collider2D collision)
     {
 
         if (collision.CompareTag("Player")) {
             Destroy(gameObject);
-            player.hp += 25;
-            uiText.text = "HP: " + player.hp;
+            player.increaseHP(healingValue);
+            ui.updateHP();
         }
+
+        if (player.hp >= player.maxHP)
+        {
+            player.hp = player.maxHP;
+            Debug.Log("Test");
+            ui.updateHP();
+        }
+        if (player.hp <= 0)
+        {
+            player.hp = 0;
+            Debug.Log("Test");
+            ui.updateHP();
+        }
+
     }
+
 }
