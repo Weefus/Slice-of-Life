@@ -19,17 +19,11 @@ public class LightComboState : MeleeBaseState
     {
         base.OnUpdate(currentAttack);
 
-        if (multInput > 0)
-        {
-            if (currentAttack == AttackType.light) 
-            {
-                stateMachine.SetNextStateToMain();
-            }
-        }
+       
         if (fixedtime >= duration)
         {
          //   Debug.Log("fixed time" +fixedtime + "should combo" + shouldCombo );
-            if (attackWindow > 0)
+            if (currentAttack == AttackType.light)
             {
                 stateMachine.SetNextState(new LightFinisherState());
                 

@@ -20,23 +20,23 @@ public class LightEntryState : MeleeBaseState
      {
                 base.OnUpdate(currentAttack);
 
-
+        /*
         //Debug.Log(multInput);
-        if (multInput > 0) 
+       if (multInput > 0) 
         { 
         if (currentAttack == AttackType.light)
             {
                 stateMachine.SetNextStateToMain();
             }
         }
-
-
+     
+        */
             if (fixedtime >= duration)
             {
             //Debug.Log(fixedtime);
          
 
-             if (attackWindow > 0)
+             if (currentAttack == AttackType.light)
                 {
                     stateMachine.SetNextState(new LightComboState());
 

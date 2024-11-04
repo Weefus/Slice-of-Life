@@ -48,7 +48,7 @@ public class StateMachine : MonoBehaviour
         if (_newState != null)
         {
             nextState = _newState;
-            
+            currentAttack = State.AttackType.none;
         }
     }
 
