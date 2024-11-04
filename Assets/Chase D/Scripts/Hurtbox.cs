@@ -19,7 +19,11 @@ public class Hurtbox : MonoBehaviour
         if (player != null)
         {
             player.decreaseHP(damageAmt);
-            ui.updateHP();
+
+            if (ui != null)
+            {
+                ui.updateHP();
+            }
         }
 
         if (zombClass != null)
