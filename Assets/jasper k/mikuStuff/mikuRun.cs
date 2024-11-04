@@ -62,7 +62,7 @@ public class mikuRun : StateMachineBehaviour
             animator.GetComponent<Transform>().Translate(Vector3.right * speed * Time.deltaTime * playerDirct);
         }
 
-        if (Vector2.Distance(players[closestPlyr].transform.position, rigid.position) <= attackRange && players[closestPlyr].transform.position.y < vertBox)
+        if (Vector2.Distance(players[closestPlyr].transform.position, rigid.position) <= attackRange)
         {
             animator.SetTrigger("leakMeleeT");
             lastAtkSec = 0;
