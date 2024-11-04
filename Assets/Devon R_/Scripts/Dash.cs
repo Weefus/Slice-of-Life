@@ -13,7 +13,7 @@ public class Dash : MonoBehaviour
     //time it takes to complete a dash
     public float dashingTime = 0.5f;
     //Time after dash where you can't dash
-    private float dashingCooldown = 2f;
+    public float dashingCooldown = 2f;
     //Player rigidbody
     private Rigidbody2D myRB;
 
@@ -38,7 +38,6 @@ public class Dash : MonoBehaviour
         myRB.velocity = new Vector2(0f, 0f);
         //Pushes the player the distance of the dash in the direction given
         myRB.AddForce(new Vector2(dashingPower * direction, 0f), ForceMode2D.Impulse);
-
         //allows for all of force to continue for all dash
         Debug.Log("Started dash");
         yield return new WaitForSeconds(dashingTime);
