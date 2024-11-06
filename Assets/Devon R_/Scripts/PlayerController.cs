@@ -15,13 +15,17 @@ public class PlayerController : MonoBehaviour
 
     //Amount of force the jump uses
     public int jumpForce = 600;
-    
+    //A public variable to check the dashing state
+    private bool isDashing;
+
     //Max speed player can go
     public float maxSpeed;
     //Used to get direction of key input, value of -1 or 1
     private float speedMulti;
     //The direct value from the input system
     private Vector2 direction;
+    //if the player is in a boss fight
+    private bool bossCam = false;
 
     //bool facingleft = true;
     //SpriteRenderer myRenderer;
@@ -29,8 +33,8 @@ public class PlayerController : MonoBehaviour
     //Animator idleAnim;
     //Animator sideAnim;
 
-    //Chack to see if player has already used their jump/in-air
-    public bool jumped = false;
+    //Check to see if player has already used their jump/in-air
+    private bool jumped = false;
 
     //bool grounded = true;
 
@@ -44,6 +48,10 @@ public class PlayerController : MonoBehaviour
         kb = GetComponent<KnockbackController>();
         dash = GetComponent<Dash>();
         fPlayer = cam.GetComponent<FollowPlayer>();
+        if (cam.CompareTag("BossCamera") || cam == null)
+        {
+            bossCam = true;
+        }
         // myRenderer = GetComponent<SpriteRenderer>();
 
         //mainAnim = GetComponent<Animator>();
@@ -83,16 +91,21 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
+        isDashing = dash.isDashing;
+
         //Can't move during knockback
         if (kb != null && kb.knockbackTimer > 0)
         {
+            if (dash.isDashing)
+            {
+                kb.knockbackTimer = 0;
+            }
             return;
         }
 
         //Can't move during a dash
-        if (dash.isDashing)
+        if (isDashing)
         {
-            Debug.Log("isDashing");
             return;
         }
         
@@ -126,7 +139,7 @@ public class PlayerController : MonoBehaviour
         }*/
 
         //safety about not moving during dash
-        if(!dash.isDashing)
+        if(!isDashing)
             myRB.velocity = new Vector2(speedMulti * maxSpeed, myRB.velocity.y);
 
         //mainAnim.SetFloat("MoveSpeed", Mathf.Abs(move));
@@ -142,7 +155,6 @@ public class PlayerController : MonoBehaviour
     {
         //Direction the input has been pressed in
         direction = value.ReadValue<Vector2>();
-        Debug.Log(value);
 
         //Input triggers
         if (value.started)
@@ -153,7 +165,8 @@ public class PlayerController : MonoBehaviour
                 //speed to the right
                 speedMulti = 1f;
                 //camera moves to the right of the player
-                fPlayer.xOffset = 5f;
+                if(!bossCam)
+                    fPlayer.xOffset = 5f;
             }
             //Input to the left
             else
@@ -161,7 +174,8 @@ public class PlayerController : MonoBehaviour
                 //speed to the left
                 speedMulti = -1f;
                 //camera moves to the left of the player
-                fPlayer.xOffset = -5f;
+                if(!bossCam)
+                    fPlayer.xOffset = -5f;
             }
 
             //player flips as the direction changes
@@ -178,26 +192,21 @@ public class PlayerController : MonoBehaviour
     //Input method for the Jump
     public void Jump(InputAction.CallbackContext value)
     {
-        //Input for jump started
-        if (value.started && !jumped)
+        //Input for jump performed
+        if (value.performed && !jumped)
         {
             //Forces the player up like a jump
             gameObject.GetComponent<Rigidbody2D>().AddForce(gameObject.GetComponent<Rigidbody2D>().transform.TransformDirection(Vector3.up) * jumpForce);
             //Player has now used up their jump
             jumped = true;
         }
-        //Input was let go
-        else if (value.canceled)
-        {
-
-        }
     }
 
     //Input method for the dash
     public void Dash(InputAction.CallbackContext value)
     {
-        //Input for dash started
-        if (value.started && dash.canDash)
+        //Input for dash performed
+        if (value.performed && dash.canDash)
         {
             //Dash to the right if no direction
             if (direction == null || direction.x == 0)
@@ -210,12 +219,6 @@ public class PlayerController : MonoBehaviour
                 StartCoroutine(dash.dashDuration(direction.x));
             }
         }
-        //Input was let go
-        else if (value.canceled)
-        {
-            
-        }
-
     }
 
     /*void Flip()
