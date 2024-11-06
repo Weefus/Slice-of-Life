@@ -11,6 +11,8 @@ public class FollowPlayer : MonoBehaviour
     public float xOffset = 0f;
     //offest of where the camera is on the y
     public float yOffset = 0f;
+    //offest of where the camera is on the z
+    public float zOffset = 0f;
     //player to follow
     public Player player;
 
