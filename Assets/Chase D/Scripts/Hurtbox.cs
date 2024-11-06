@@ -18,6 +18,7 @@ public class Hurtbox : MonoBehaviour
     {
         if (player != null)
         {
+            ui = (UI_Update)FindObjectOfType(typeof(UI_Update));
             player.decreaseHP(damageAmt);
             ui.updateHP();
         }

@@ -12,7 +12,7 @@ public class Pickup_collect : MonoBehaviour
     public int ultValue;
 
     void Start()
-    {;
+    {
     }
 
     // Update is called once per frame

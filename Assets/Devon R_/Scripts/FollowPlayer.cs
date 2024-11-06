@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class FollowPlayer : MonoBehaviour
@@ -11,12 +12,17 @@ public class FollowPlayer : MonoBehaviour
     //offest of where the camera is on the y
     public float yOffset = 0f;
     //player to follow
-    public Transform player;
+    public Player player;
 
+
+    private void Start()
+    {
+        player = (Player)FindObjectOfType(typeof(Player));
+    }
     private void LateUpdate()
     {
         //New Position the camera will move towards
-        Vector3 newPos = new Vector3(player.position.x + xOffset, player.position.y + yOffset, -10f);
+        Vector3 newPos = new Vector3(player.transform.position.x + xOffset, player.transform.position.y + yOffset, -10f);
         //The camera moving to the new position
         transform.position = Vector3.Slerp(transform.position, newPos, speed * Time.deltaTime);
     }

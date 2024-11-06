@@ -11,9 +11,8 @@ public class Player : MonoBehaviour
 
     public float hp = 50;
     public float ult = 50;
-    public float maxHP = 100;
-    public float maxUlt = 100;
-    public int levelNum = 1;
+    protected float maxHP = 100;
+    protected float maxUlt = 100;
     public UI_Update ui;
     public float spawnX = -2.2f;
     public float spawnY = -1.8f;
