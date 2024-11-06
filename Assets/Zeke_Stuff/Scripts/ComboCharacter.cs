@@ -1,11 +1,17 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class ComboCharacter : MonoBehaviour
 {
-
+    // These Are the variables that are the modern
+    protected State.AttackType currentAttack = State.AttackType.none;
+   
     private StateMachine meleeStateMachine;
+
+    private float maxCool = 1.0f;
+    private float counter;
 
     [SerializeField] public Collider2D hitbox;
     [SerializeField] public GameObject Hiteffect;
@@ -14,20 +20,58 @@ public class ComboCharacter : MonoBehaviour
     void Start()
     {
         meleeStateMachine = GetComponent<StateMachine>();
+        Debug.Log(currentAttack);
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetMouseButton(0) && meleeStateMachine.CurrentState.GetType() == typeof(IdleCombatState))
-        {
-            meleeStateMachine.SetNextState(new LightEntryState());
-             
+       // Debug.Log(counter);
+        counter -= Time.deltaTime;
+       // if (counter <= 0)
+        
+            meleeStateMachine.currentAttack = currentAttack;
+            if (currentAttack == State.AttackType.light && meleeStateMachine.CurrentState.GetType() == typeof(IdleCombatState))
+            {
+                meleeStateMachine.SetNextState(new LightEntryState());
+            //Debug.Log("Started Combo");
+            currentAttack = State.AttackType.none;
         }
-        if (Input.GetMouseButton(1) && meleeStateMachine.CurrentState.GetType() == typeof(IdleCombatState))
+            if (currentAttack == State.AttackType.heavy && meleeStateMachine.CurrentState.GetType() == typeof(IdleCombatState))
+            {
+                meleeStateMachine.SetNextState(new HeavyEntryState());
+            currentAttack = State.AttackType.none;
+            }
+        
+    }
+
+    public void LightAttack(InputAction.CallbackContext value)
+    {
+        if (value.phase.Equals(InputActionPhase.Performed))
         {
-            meleeStateMachine.SetNextState(new HeavyEntryState());
-           
+            counter = maxCool;
+            currentAttack = State.AttackType.light;
+            Debug.Log("Clicked");
+        } else if (value.phase.Equals(InputActionPhase.Canceled))
+        {
+            currentAttack = State.AttackType.none;
+            Debug.Log("Stopped");
         }
+        
+    }
+    public void HeavyAttack(InputAction.CallbackContext value)
+    {
+        if (value.phase.Equals(InputActionPhase.Performed))
+        {
+            counter = maxCool;
+            currentAttack = State.AttackType.heavy;
+            Debug.Log("Clicked");
+        }
+        else if (value.phase.Equals(InputActionPhase.Canceled))
+        {
+            currentAttack = State.AttackType.none;
+            Debug.Log("Stopped");
+        }
+
     }
 }

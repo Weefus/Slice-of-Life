@@ -15,31 +15,29 @@ public class LightComboState : MeleeBaseState
         animator.SetTrigger("Attack" + attackIndex);
        // Debug.Log("Player Attack" + attackIndex + "fired!");
     }
-    public override void OnUpdate()
+    public override void OnUpdate(AttackType currentAttack)
     {
-        base.OnUpdate();
+        base.OnUpdate(currentAttack);
 
-        if (multInput > 0)
-        {
-            if (Input.GetMouseButtonDown(0)) 
-            {
-                stateMachine.SetNextStateToMain();
-            }
-        }
+       
         if (fixedtime >= duration)
         {
          //   Debug.Log("fixed time" +fixedtime + "should combo" + shouldCombo );
-            if (attackWindow > 0)
+            if (currentAttack == AttackType.light)
             {
                 stateMachine.SetNextState(new LightFinisherState());
                 
+            } else if (currentAttack == AttackType.heavy)
+            {
+                stateMachine.SetNextState(new  HeavyFinisherState());
             }
-            
+            else if (fixedtime > duration * 2)
+            {
+                stateMachine.SetNextStateToMain();
+            }
+
         }
-        else if(fixedtime > duration * 3) 
-        {
-            stateMachine.SetNextStateToMain();
-        }
+        
 
     }
     public override void OnExit()
