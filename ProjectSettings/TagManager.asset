@@ -7,7 +7,9 @@ TagManager:
   - Ground
   - Platform
   - Wall
-  - BossCamera
+  - Hitbox
+  - CameraRadius
+  - Zombie
   layers:
   - Default
   - TransparentFX
