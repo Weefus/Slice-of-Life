@@ -20,7 +20,7 @@ public class LightEntryState : MeleeBaseState
      {
                 base.OnUpdate(currentAttack);
 
-        /*
+        
         //Debug.Log(multInput);
        if (multInput > 0) 
         { 
@@ -30,7 +30,7 @@ public class LightEntryState : MeleeBaseState
             }
         }
      
-        */
+        
             if (fixedtime >= duration)
             {
             //Debug.Log(fixedtime);
@@ -40,17 +40,15 @@ public class LightEntryState : MeleeBaseState
                 {
                     stateMachine.SetNextState(new LightComboState());
 
-                }
-                else
-                {
-                    stateMachine.SetNextStateToMain();
-                }
-
             }
-            else if (fixedtime > (duration * 3))
+            else if (fixedtime > (duration * 2))
             {
                 stateMachine.SetNextStateToMain();
             }
+
+
+        }
+          
         }
     
     public override void OnExit()

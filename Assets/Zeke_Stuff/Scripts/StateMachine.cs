@@ -67,6 +67,7 @@ public class StateMachine : MonoBehaviour
     public void SetNextStateToMain()
     {
         nextState = mainStateType;
+        currentAttack = State.AttackType.none;
     }
 
     private void Awake()

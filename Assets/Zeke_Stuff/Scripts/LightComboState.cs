@@ -28,12 +28,13 @@ public class LightComboState : MeleeBaseState
                 stateMachine.SetNextState(new LightFinisherState());
                 
             }
-            
+            else if (fixedtime > duration * 2)
+            {
+                stateMachine.SetNextStateToMain();
+            }
+
         }
-        else if(fixedtime > duration * 3) 
-        {
-            stateMachine.SetNextStateToMain();
-        }
+        
 
     }
     public override void OnExit()
