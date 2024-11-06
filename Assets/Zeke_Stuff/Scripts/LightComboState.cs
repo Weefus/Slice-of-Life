@@ -27,6 +27,9 @@ public class LightComboState : MeleeBaseState
             {
                 stateMachine.SetNextState(new LightFinisherState());
                 
+            } else if (currentAttack == AttackType.heavy)
+            {
+                stateMachine.SetNextState(new  HeavyFinisherState());
             }
             else if (fixedtime > duration * 2)
             {

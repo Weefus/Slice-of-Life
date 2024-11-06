@@ -37,10 +37,10 @@ public class ComboCharacter : MonoBehaviour
             //Debug.Log("Started Combo");
             currentAttack = State.AttackType.none;
         }
-            if (Input.GetMouseButton(1) && meleeStateMachine.CurrentState.GetType() == typeof(IdleCombatState))
+            if (currentAttack == State.AttackType.heavy && meleeStateMachine.CurrentState.GetType() == typeof(IdleCombatState))
             {
                 meleeStateMachine.SetNextState(new HeavyEntryState());
-
+            currentAttack = State.AttackType.none;
             }
         
     }
@@ -58,21 +58,20 @@ public class ComboCharacter : MonoBehaviour
             Debug.Log("Stopped");
         }
         
-        /*
-            if (value.performed && flag == true)
-            {
-            flag = false;
-            currentAttack = State.AttackType.light;
-                Debug.Log("Clicked");
-                
-            }
-            else if (value.canceled)
-            {
-                currentAttack = State.AttackType.none;
-                Debug.Log("Stopped");
-                flag = true;
-            }
-        */
-        
+    }
+    public void HeavyAttack(InputAction.CallbackContext value)
+    {
+        if (value.phase.Equals(InputActionPhase.Performed))
+        {
+            counter = maxCool;
+            currentAttack = State.AttackType.heavy;
+            Debug.Log("Clicked");
+        }
+        else if (value.phase.Equals(InputActionPhase.Canceled))
+        {
+            currentAttack = State.AttackType.none;
+            Debug.Log("Stopped");
+        }
+
     }
 }

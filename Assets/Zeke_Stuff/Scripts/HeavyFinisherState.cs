@@ -12,7 +12,7 @@ public class HeavyFinisherState : MeleeBaseState
         attackIndex = 6;
         duration = 1.5f;
         animator.SetTrigger("Attack" + attackIndex);
-        Debug.Log("Player Attack" + attackIndex + "fired!");
+       // Debug.Log("Player Attack" + attackIndex + "fired!");
     }
     public override void OnUpdate(AttackType currentAttack)
     {

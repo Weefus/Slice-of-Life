@@ -40,6 +40,9 @@ public class LightEntryState : MeleeBaseState
                 {
                     stateMachine.SetNextState(new LightComboState());
 
+            } else if (currentAttack == AttackType.heavy)
+            {
+                stateMachine.SetNextState(new HeavyComboState());
             }
             else if (fixedtime > (duration * 2))
             {
