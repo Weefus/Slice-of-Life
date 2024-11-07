@@ -16,9 +16,9 @@ public class Hitbox : MonoBehaviour
     //states for the hitbox
     public enum ColliderState
     {
-        Open,
+        Active,
 
-        Closed
+        Inactive
     }
     void Start()
     {
@@ -27,7 +27,7 @@ public class Hitbox : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D col)
     {
-        if (_state == ColliderState.Closed) //return if hitbox is inactive
+        if (_state == ColliderState.Inactive) //return if hitbox is inactive
         {
             return;
         }
@@ -35,14 +35,16 @@ public class Hitbox : MonoBehaviour
         Hurtbox h = col.GetComponent<Hurtbox>();
         KnockbackController kb = col.GetComponent<KnockbackController>();
 
-        if (h != null && h != ignore) //only triggers is a hurtbox exists and does not share the same parent
+        if (h != null && h != ignore && gameObject.tag != col.tag) //only triggers is a hurtbox exists and does not share the same parent
         {
             direction = (h.transform.position - transform.position).normalized; //sets direction for the knockback based on the positions of the hitbox and colliding hurtbox
             direction.y += 1f;
+
             if (kb != null)
             {
                 kb.Knockback(direction * knockbackForce);
             }
+            
             h.DealDamage(damageAmt);
         }
     }
