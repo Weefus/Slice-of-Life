@@ -8,6 +8,7 @@ TagManager:
   - Platform
   - Wall
   - BossCamera
+  - Miku
   layers:
   - Default
   - TransparentFX

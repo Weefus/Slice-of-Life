@@ -1,10 +1,10 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using static UnityEditor.Experimental.GraphView.GraphView;
+using static UnityEngine.GraphicsBuffer;
 
-public class Projectile : StateMachineBehaviour
+public class Preperation : StateMachineBehaviour
 {
     public GameObject[] players;
     public int closestPlyr = 0;
@@ -20,10 +20,8 @@ public class Projectile : StateMachineBehaviour
     public float lastAtkSec = 0;
     public float vertBox = 1;
 
-    public GameObject note;
     private float side;
-    private float angleOne = Mathf.PI / 6;
-    private float angleTwo = Mathf.PI / 4;
+    private Vector2 target;
 
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
@@ -41,26 +39,28 @@ public class Projectile : StateMachineBehaviour
             side = -1;
         }
 
-        Shotgun();
+        target = new Vector2(9 * -side, -5);
     }
 
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
-    {   
-        rigid.velocity = Vector3.zero;
+    {
+        Vector2 newPos = Vector2.MoveTowards(rigid.position, target, speed * Time.fixedDeltaTime);
+        rigid.MovePosition(newPos);
+
+        if (Mathf.Approximately(Mathf.Round(rigid.position.x), -side * 9))
+        {
+            target.y = rigid.position.y;
+            animator.GetComponent<Transform>().position = target;
+            animator.GetComponent<Transform>().localScale = new Vector3(side, 1, 1);
+            animator.SetTrigger("rangedPT");
+        }
     }
 
     // OnStateExit is called when a transition ends and the state machine finishes evaluating this state
     override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-
-    }
-
-    private void Shotgun()
-    {
-        Instantiate(note, new Vector3(rigid.position.x + (1.5f * side), rigid.position.y, 0), Quaternion.identity);
-        Instantiate(note, new Vector3((rigid.position.x + (Mathf.Cos(angleOne) * 1.5f * side)), Mathf.Sin(angleOne) + rigid.position.y, 0), Quaternion.identity);
-        Instantiate(note, new Vector3((rigid.position.x + (Mathf.Cos(angleTwo) * side)), Mathf.Sin(angleTwo) + rigid.position.y, 0), Quaternion.identity);
+        animator.ResetTrigger("rangedPT");
     }
 
     private int GetClosestPlayer(Animator animator)
