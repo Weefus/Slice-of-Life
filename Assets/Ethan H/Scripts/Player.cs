@@ -18,10 +18,13 @@ public class Player : MonoBehaviour
     public float spawnX = -2.2f;
     public float spawnY = -1.8f;
     public string dieScene;
+    public GameOver g;
+    string currentScene;
     void Start()
     {
         uiSlider.updateHP();
         uiText.updateHP();
+        g.gameObject.SetActive(false);
     }
 
     void Update()
@@ -32,13 +35,14 @@ public class Player : MonoBehaviour
 
     public void die()
     {
-        SceneManager.LoadScene(dieScene);
-        Debug.Log("Womp womp");
+        g.gameObject.SetActive(true);
+        Time.timeScale = 0.0f;
     }
 
     public void increaseHP(float h)
     {
         hp += h;
+        currentScene = SceneManager.GetActiveScene().name;
         if (hp > maxHP)
         {
             hp = maxHP;
@@ -71,8 +75,8 @@ public class Player : MonoBehaviour
 
     public void respawn()
     {
-        Scene scene = SceneManager.GetActiveScene();
-        SceneManager.LoadScene(scene.name);
+        SceneManager.LoadScene(currentScene);
+        DontDestroyOnLoad(gameObject);
         Debug.Log("Whoops");
     }
 }
