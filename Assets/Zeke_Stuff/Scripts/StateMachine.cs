@@ -1,26 +1,34 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class StateMachine : MonoBehaviour
 {
     public string customName;
-    
+
     private State mainStateType;
 
     public State CurrentState { get; private set; }
     private State nextState;
+    public State.AttackType currentAttack  {get;  set;}
 
+    private void Start()
+    {
+        currentAttack = State.AttackType.none;
+    }
     // Update is called once per frame
     void Update()
     {
+       
         if (nextState != null)
         {
             SetState(nextState);
         }
 
         if (CurrentState != null)
-            CurrentState.OnUpdate();
+           // Debug.Log(currentAttack);
+            CurrentState.OnUpdate(currentAttack);
     }
 
     private void SetState(State _newState)
@@ -40,7 +48,7 @@ public class StateMachine : MonoBehaviour
         if (_newState != null)
         {
             nextState = _newState;
-            
+            currentAttack = State.AttackType.none;
         }
     }
 
@@ -59,6 +67,7 @@ public class StateMachine : MonoBehaviour
     public void SetNextStateToMain()
     {
         nextState = mainStateType;
+        currentAttack = State.AttackType.none;
     }
 
     private void Awake()
@@ -86,4 +95,5 @@ public class StateMachine : MonoBehaviour
             }
         }
     }
+    
 }
