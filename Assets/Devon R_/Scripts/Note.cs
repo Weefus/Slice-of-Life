@@ -6,7 +6,6 @@ using UnityEngine;
 public class Note : MonoBehaviour
 {
     Rigidbody2D rigid;
-    GameObject miku;
     public float speed = 10;
     private float speedMulti;
     private float angle;
@@ -15,7 +14,6 @@ public class Note : MonoBehaviour
     void Awake()
     {
         rigid = GetComponent<Rigidbody2D>();
-        miku = GameObject.FindGameObjectWithTag("Miku");
 
         if (rigid.position.x >= 0)
         {
@@ -26,7 +24,7 @@ public class Note : MonoBehaviour
             speedMulti = 1;
         }
 
-        angle = Mathf.Acos((Mathf.Abs(rigid.position.x) - 9) / (Mathf.Abs(speedMulti) * 1.5f));
+        angle = Mathf.Acos((Mathf.Abs(rigid.position.x) - 9) / (speedMulti * 1.5f));
     }
 
     // Update is called once per frame
@@ -38,7 +36,7 @@ public class Note : MonoBehaviour
         }
         else
         {
-            rigid.velocity = new Vector2(speed * speedMulti * -Mathf.Cos(angle), speed * speedMulti * -Mathf.Sin(angle));
+            rigid.velocity = new Vector2(speed * speedMulti * Mathf.Cos(angle), speed * speedMulti * -Mathf.Sin(angle));
         }
         
 
