@@ -886,6 +886,10 @@ PrefabInstance:
       propertyPath: pickupPrefab.Array.data[1]
       value: 
       objectReference: {fileID: 4770495684710922308, guid: 80fe9433519e8f143a690a4a70003e77, type: 3}
+    - target: {fileID: 3726315218911554311, guid: c2834e55546353e45b6f4838a94df760, type: 3}
+      propertyPath: m_SortingOrder
+      value: -1
+      objectReference: {fileID: 0}
     - target: {fileID: 9220183486799679498, guid: c2834e55546353e45b6f4838a94df760, type: 3}
       propertyPath: m_LocalPosition.x
       value: 6
@@ -1075,6 +1079,22 @@ PrefabInstance:
     - target: {fileID: 369727836771586644, guid: f98d9f9fa7bbcc34798edfb5c8fa018b, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1005599839796889759, guid: f98d9f9fa7bbcc34798edfb5c8fa018b, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -402
+      objectReference: {fileID: 0}
+    - target: {fileID: 1005599839796889759, guid: f98d9f9fa7bbcc34798edfb5c8fa018b, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 182
+      objectReference: {fileID: 0}
+    - target: {fileID: 1578927988697855963, guid: f98d9f9fa7bbcc34798edfb5c8fa018b, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -402
+      objectReference: {fileID: 0}
+    - target: {fileID: 1578927988697855963, guid: f98d9f9fa7bbcc34798edfb5c8fa018b, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 129
       objectReference: {fileID: 0}
     - target: {fileID: 3240285830872671399, guid: f98d9f9fa7bbcc34798edfb5c8fa018b, type: 3}
       propertyPath: m_Name
