@@ -16,41 +16,42 @@ public class LightEntryState : MeleeBaseState
         animator.SetTrigger("Attack" + attackIndex);
             //Debug.Log("Player Attack" + attackIndex + "fired!");
     }
-     public override void OnUpdate()
+     public override void OnUpdate(AttackType currentAttack)
      {
-                base.OnUpdate();
+                base.OnUpdate(currentAttack);
 
-
+        
         //Debug.Log(multInput);
-        if (multInput > 0) 
+       if (multInput > 0) 
         { 
-        if (Input.GetMouseButtonDown(0))
+        if (currentAttack == AttackType.light)
             {
                 stateMachine.SetNextStateToMain();
             }
         }
-
-
-            if (fixedtime >= duration && Input.GetMouseButtonDown(0))
+     
+        
+            if (fixedtime >= duration)
             {
             //Debug.Log(fixedtime);
          
 
-             if (attackWindow > 0)
+             if (currentAttack == AttackType.light)
                 {
                     stateMachine.SetNextState(new LightComboState());
 
-                }
-                else
-                {
-                    stateMachine.SetNextStateToMain();
-                }
-
+            } else if (currentAttack == AttackType.heavy)
+            {
+                stateMachine.SetNextState(new HeavyComboState());
             }
-            else if (fixedtime > (duration * 3))
+            else if (fixedtime > (duration * 2))
             {
                 stateMachine.SetNextStateToMain();
             }
+
+
+        }
+          
         }
     
     public override void OnExit()

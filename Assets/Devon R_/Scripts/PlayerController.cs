@@ -48,7 +48,7 @@ public class PlayerController : MonoBehaviour
         kb = GetComponent<KnockbackController>();
         dash = GetComponent<Dash>();
         fPlayer = cam.GetComponent<FollowPlayer>();
-        if (cam.CompareTag("BossCamera"))
+        if (cam.CompareTag("BossCamera") || cam == null)
         {
             bossCam = true;
         }

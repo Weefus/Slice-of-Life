@@ -26,4 +26,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/SOL_Alpha_3.unity
     guid: 092721b0101fa0a448de99033620180b
+  - enabled: 1
+    path: Assets/Scenes/EthanScene2.unity
+    guid: ebf0d28fe0da46c4babaa6453f540cf2
+  - enabled: 1
+    path: Assets/Scenes/EthanScene.unity
+    guid: d9994815f1fd08e419f2b3ae39e2f6f8
   m_configObjects: {}
