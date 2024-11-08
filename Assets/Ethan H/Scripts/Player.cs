@@ -11,15 +11,17 @@ public class Player : MonoBehaviour
 
     public float hp = 50;
     public float ult = 50;
-    protected float maxHP = 100;
-    protected float maxUlt = 100;
-    public UI_Update ui;
+    public float maxHP = 100;
+    public float maxUlt = 100;
+    public UI_Update uiSlider;
+    public UI_Update uiText;
     public float spawnX = -2.2f;
     public float spawnY = -1.8f;
+    public string dieScene;
     void Start()
     {
-        ui.updateHP();
-        ui.updateUlt();
+        uiSlider.updateHP();
+        uiText.updateHP();
     }
 
     void Update()
@@ -30,7 +32,7 @@ public class Player : MonoBehaviour
 
     public void die()
     {
-        Destroy(gameObject);
+        SceneManager.LoadScene(dieScene);
         Debug.Log("Womp womp");
     }
 
@@ -41,10 +43,11 @@ public class Player : MonoBehaviour
         {
             hp = maxHP;
         }
-        ui.updateHP();
+        uiSlider.updateHP();
+        uiText.updateHP();
     }
 
-    public void increaseUlt(float u)
+    /*public void increaseUlt(float u)
     {
         ult += u;
         if (ult > maxUlt) 
@@ -52,7 +55,7 @@ public class Player : MonoBehaviour
             ult = maxUlt;
         }
         ui.updateUlt();
-    }
+    }*/
 
     public void decreaseHP(float h)
     {
@@ -62,7 +65,8 @@ public class Player : MonoBehaviour
             hp = 0;
             die();
         }
-        ui.updateHP();
+        uiSlider.updateHP();
+        uiText.updateHP();
     }
 
     public void respawn()

@@ -9,6 +9,8 @@ TagManager:
   - Wall
   - BossCamera
   - Miku
+  - CameraRadius
+  - Hitbox
   layers:
   - Default
   - TransparentFX
