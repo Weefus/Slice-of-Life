@@ -170,7 +170,7 @@ GameObject:
   - component: {fileID: 6901204650917941617}
   - component: {fileID: 4724588582392796825}
   - component: {fileID: 5531209125877201620}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -331,9 +331,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cam: {fileID: 0}
   jumpForce: 500
-  isDashing: 0
   maxSpeed: 10
-  jumped: 0
   Charsideprof: {fileID: 0}
   Characteridle: {fileID: 0}
 --- !u!114 &7175641286490559602
