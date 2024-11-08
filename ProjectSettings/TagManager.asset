@@ -7,9 +7,8 @@ TagManager:
   - Ground
   - Platform
   - Wall
-  - Hitbox
-  - CameraRadius
-  - Zombie
+  - BossCamera
+  - Miku
   layers:
   - Default
   - TransparentFX
