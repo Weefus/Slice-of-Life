@@ -32,4 +32,5 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/EthanScene.unity
     guid: d9994815f1fd08e419f2b3ae39e2f6f8
-  m_configObjects: {}
+  m_configObjects:
+    com.unity.input.settings: {fileID: 11400000, guid: 78a6b3b77eb75c043bad3983eab1216b, type: 2}

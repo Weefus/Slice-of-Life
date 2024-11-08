@@ -228,6 +228,54 @@
                     "isPartOfComposite": false
                 }
             ]
+        },
+        {
+            "name": "UI",
+            "id": "151584fb-bfa9-4589-b7dd-e8bda9a94a4c",
+            "actions": [
+                {
+                    "name": "Open menu",
+                    "type": "Button",
+                    "id": "b12fe564-74b0-4385-a55c-b61f0abd4471",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Close menu",
+                    "type": "Button",
+                    "id": "cfb96bb6-91bb-4045-9bb3-1f38f948335b",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "2a9090de-7b95-4be4-8d65-55b3c07eb556",
+                    "path": "<Keyboard>/escape",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Open menu",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "78ab43c0-b3aa-4d18-8c76-a0b24f497e64",
+                    "path": "<Keyboard>/escape",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Close menu",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
         }
     ],
     "controlSchemes": []

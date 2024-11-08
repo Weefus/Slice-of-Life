@@ -10,6 +10,9 @@ TagManager:
   - Hitbox
   - CameraRadius
   - Zombie
+  - Start
+  - Settings
+  - Quit
   layers:
   - Default
   - TransparentFX
