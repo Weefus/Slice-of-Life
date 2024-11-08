@@ -13,11 +13,10 @@ public class mikuThrow : StateMachineBehaviour
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         transform = animator.GetComponent<Transform>();
-        loc = new Vector3(transform.position.x, transform.position.y - leakb.GetComponent<leak>().radius, 0);
+        loc = new Vector3(transform.position.x + (transform.localScale.x * 1.5f), transform.position.y, 0);
 
-        if (transform.localScale.x > 0) { Instantiate(leakf, loc, leakb.transform.rotation); }
-        else { Instantiate(leakb, loc, leakb.transform.rotation); }
-        
+        Instantiate(leakf, loc, leakf.transform.rotation);
+
     }
 
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks

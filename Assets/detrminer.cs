@@ -11,11 +11,6 @@ public class detrminer : StateMachineBehaviour
     public float range;
     public Vector3 loc;
     public Collider2D coll;
-
-
-
-
-
     public LayerMask mask;
 
 
@@ -44,8 +39,6 @@ public class detrminer : StateMachineBehaviour
             else {
                 animator.SetTrigger("leakRangedT");
             }
-            
-
         }
     }
 

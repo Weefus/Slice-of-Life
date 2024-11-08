@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro.Examples;
 using UnityEngine;
 
 public class mikuMelee : StateMachineBehaviour
@@ -7,7 +8,6 @@ public class mikuMelee : StateMachineBehaviour
     public float time = 0;
     public float hitTime;
     public float endTime;
-    public float duration;
     private Transform transform;
     public float range;
     public int force;
@@ -15,6 +15,8 @@ public class mikuMelee : StateMachineBehaviour
     public float dmg;
     private Vector3 direction;
     private bool canHit;
+    public LayerMask mask;
+    private Collider2D coll;
 
 
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
@@ -30,26 +32,25 @@ public class mikuMelee : StateMachineBehaviour
 
         time += Time.deltaTime;
         loc = new Vector3(transform.position.x + (transform.localScale.x * range), transform.position.y, transform.position.z);
-        Collider2D coll = Physics2D.OverlapCircle(loc, range);
+        coll = Physics2D.OverlapCircle(loc, range, mask);
 
-        if (coll.tag == "Player" && time >= hitTime && time <= endTime && canHit == true)
+        if (coll != null && time >= hitTime && time <= endTime && canHit == true)
         {
-            coll.GetComponent<Hurtbox>().DealDamage(dmg);
+            Debug.Log("destroy");
+            coll.GetComponent<Player>().hp = coll.GetComponent<Player>().hp -dmg;
             canHit = false;
             direction = (coll.transform.position - transform.position).normalized; //sets direction for the knockback based on the positions of the hitbox and colliding hurtbox
             direction.y += 1f;
             coll.GetComponent<KnockbackController>().Knockback(direction * force);
         }
 
-        if (time >= duration) {
-            animator.SetTrigger("runResum");
-        }
+        
     }
 
     // OnStateExit is called when a transition ends and the state machine finishes evaluating this state
     override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        animator.ResetTrigger("runResum");
-        time = 0f;
+        
+        time = 0;
     }
 }

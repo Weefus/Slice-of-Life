@@ -31,7 +31,7 @@ public class Player : MonoBehaviour
     public void die()
     {
         Destroy(gameObject);
-        Debug.Log("Womp womp");
+        Debug.Log("womp womp");
     }
 
     public void increaseHP(float h)

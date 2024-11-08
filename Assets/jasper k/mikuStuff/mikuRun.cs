@@ -67,7 +67,7 @@ public class mikuRun : StateMachineBehaviour
             animator.SetTrigger("leakMeleeT");
             lastAtkSec = 0;
         }
-        else if (lastAtkSec >= 10.0f) {
+        else if (lastAtkSec >= 5.0f) {
             lastAtkSec = 0;
             animator.SetTrigger("rangedT");
             
