@@ -52,6 +52,7 @@ public class PlayerController : MonoBehaviour
         {
             bossCam = true;
         }
+        
         // myRenderer = GetComponent<SpriteRenderer>();
 
         //mainAnim = GetComponent<Animator>();
