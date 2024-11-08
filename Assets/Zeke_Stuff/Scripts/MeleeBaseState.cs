@@ -1,6 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.PlasticSCM.Editor.WebApi;
 using UnityEngine;
+using UnityEngine.InputSystem;
+using UnityEngine.InputSystem.XR.Haptics;
 
 public class MeleeBaseState : State
 {
@@ -12,8 +15,13 @@ public class MeleeBaseState : State
     protected bool shouldCombo;
     // The attack index in the sequence of attacks
     protected int attackIndex;
+    // Make the combo work when input
+    protected float attackWindow;
+    //Float to stop spamikng
+    protected float multInput;
 
-
+    // These Are the variables that are the modern
+   // public AttackType currentAttack = AttackType.none;
 
     // The cached hit collider component of this attack
     protected Collider2D hitCollider;
@@ -23,7 +31,7 @@ public class MeleeBaseState : State
     private GameObject HitEffectPrefab;
 
     // Input buffer Timer
-    private float AttackPressedTimer = 0;
+    protected float AttackPressedTimer = 0;
 
     public override void OnEnter(StateMachine _stateMachine)
     {
@@ -34,37 +42,32 @@ public class MeleeBaseState : State
         HitEffectPrefab = GetComponent<ComboCharacter>().Hiteffect;
     }
 
-    public override void OnUpdate()
+    public override void OnUpdate(AttackType currentAttack)
     {
-        base.OnUpdate();
+        base.OnUpdate( currentAttack);
         AttackPressedTimer -= Time.deltaTime;
+        attackWindow -= Time.deltaTime;
+        // Debug.Log(attackWindow);
+        multInput -= Time.deltaTime;
 
         if (animator.GetFloat("Weapon.Active") > 0f)
         {
             Attack();
         }
 
-
-        if (Input.GetMouseButtonDown(0) || Input.GetMouseButtonDown(1))
+        if (currentAttack == State.AttackType.light || Input.GetMouseButtonDown(1))
         {
-            if (animator.GetFloat("AttackWindow.Open") > 0f && AttackPressedTimer > 0)
-            {
-                shouldCombo = true;
-            }
-
-            AttackPressedTimer = 5;
-            Debug.Log("They pressed a button");
-     
-
+            attackWindow += 5;
+           //Debug.Log("Attacked");
         }
-        
-
+       
        
     }
 
     public override void OnExit()
     {
         base.OnExit();
+        
     }
 
     protected void Attack()
@@ -90,5 +93,6 @@ public class MeleeBaseState : State
             }
         }
     }
+
 
 }

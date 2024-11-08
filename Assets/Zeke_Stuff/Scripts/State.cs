@@ -7,23 +7,35 @@ public abstract class State
     protected float time { get; set; }
     protected float fixedtime { get; set; }
     protected float latetime { get; set; }
+    public enum AttackType
+    {
+        light,
+        heavy,
+        none
+
+    }
 
     public StateMachine stateMachine;
+
+   
 
     public virtual void OnEnter(StateMachine _stateMachine)
     {
         stateMachine = _stateMachine;
+        fixedtime = 0;
     }
 
 
-    public virtual void OnUpdate()
+    public virtual void OnUpdate(AttackType currentAttack)
     {
         time += Time.deltaTime;
+        
     }
 
     public virtual void OnFixedUpdate()
     {
         fixedtime += Time.deltaTime;
+      //  Debug.Log("Fixed update" + fixedtime);
     }
     public virtual void OnLateUpdate()
     {
@@ -34,7 +46,7 @@ public abstract class State
     {
 
     }
-
+  
     #region Passthrough Methods
 
     /// <summary>

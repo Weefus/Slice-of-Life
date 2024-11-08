@@ -7,27 +7,56 @@ public class LightEntryState : MeleeBaseState
         public override void OnEnter(StateMachine stateMachine)
      {
             base.OnEnter(stateMachine);
-        
-         // attack
+        attackWindow = 10;
+        // attack
+       
         attackIndex = 1;
-        duration = 0.5f;
-            animator.SetTrigger("Attack" + attackIndex);
-            Debug.Log("Player Attack" + attackIndex + "fired!");
+        duration = 1.0f;
+        multInput = duration * 2;
+        animator.SetTrigger("Attack" + attackIndex);
+            //Debug.Log("Player Attack" + attackIndex + "fired!");
     }
-     public override void OnUpdate()
+     public override void OnUpdate(AttackType currentAttack)
      {
-                base.OnUpdate();
-            if(fixedtime >= duration) {
-                if(shouldCombo) 
-                {
-                stateMachine.SetNextState(new LightComboState());
-                Debug.Log("Did light folow up");
-                }    
-                else
-                 {
+                base.OnUpdate(currentAttack);
+
+        
+        //Debug.Log(multInput);
+       if (multInput > 0) 
+        { 
+        if (currentAttack == AttackType.light)
+            {
                 stateMachine.SetNextStateToMain();
-                 }
+            }
+        }
+     
+        
+            if (fixedtime >= duration)
+            {
+            //Debug.Log(fixedtime);
+         
+
+             if (currentAttack == AttackType.light)
+                {
+                    stateMachine.SetNextState(new LightComboState());
+
+            } else if (currentAttack == AttackType.heavy)
+            {
+                stateMachine.SetNextState(new HeavyComboState());
+            }
+            else if (fixedtime > (duration * 2))
+            {
+                stateMachine.SetNextStateToMain();
             }
 
+
+        }
+          
+        }
+    
+    public override void OnExit()
+    {
+        base.OnExit();
+       // AttackPressedTimer = 0;
     }
 }

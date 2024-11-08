@@ -13,18 +13,29 @@ public class PlayerController : MonoBehaviour
     FollowPlayer fPlayer;
     public Camera cam;
 
+    //Amount of force the jump uses
     public int jumpForce = 600;
-    
-    //move
+    //A public variable to check the dashing state
+    private bool isDashing;
+
+    //Max speed player can go
     public float maxSpeed;
+    //Used to get direction of key input, value of -1 or 1
     private float speedMulti;
+    //The direct value from the input system
     private Vector2 direction;
+    //if the player is in a boss fight
+    private bool bossCam = false;
+
     //bool facingleft = true;
     //SpriteRenderer myRenderer;
     //Animator mainAnim;
     //Animator idleAnim;
     //Animator sideAnim;
-    public bool jumped = false;
+
+    //Check to see if player has already used their jump/in-air
+    private bool jumped = false;
+
     //bool grounded = true;
 
     public GameObject Charsideprof;
@@ -37,6 +48,10 @@ public class PlayerController : MonoBehaviour
         kb = GetComponent<KnockbackController>();
         dash = GetComponent<Dash>();
         fPlayer = cam.GetComponent<FollowPlayer>();
+        if (cam.CompareTag("BossCamera") || cam == null)
+        {
+            bossCam = true;
+        }
         // myRenderer = GetComponent<SpriteRenderer>();
 
         //mainAnim = GetComponent<Animator>();
@@ -48,23 +63,27 @@ public class PlayerController : MonoBehaviour
         //Bool Moving
         //Bool IsGrounded
 
-        Quaternion rotation = Quaternion.Euler(0, 0, 0);
-        Quaternion flipRotation = Quaternion.Euler(0, 180, 0);
+        //Quaternion rotation = Quaternion.Euler(0, 0, 0);
+        //Quaternion flipRotation = Quaternion.Euler(0, 180, 0);
     }
 
     //you need to add a tag for your ground object for this to work properly
     void OnCollisionEnter2D(Collision2D collision)
     {
-        if ((collision.gameObject.tag == "Ground" || collision.gameObject.tag == "Platform") && myRB.velocity.y <= 0)
+        //Checks if the player has reached a grounded state to get a jump back
+        if ((collision.gameObject.CompareTag("Ground") || collision.gameObject.CompareTag("Platform")) && myRB.velocity.y <= 0)
         {
+            //Player recovered their jump
             jumped = false;
         }
     }
 
     void OnCollisionExit2D(Collision2D collision)
     {
-        if(collision.gameObject.tag == "Ground" || collision.gameObject.tag == "Platform")
+        //Makes the player not be able to jump mid-air if they didn't already to get mid-air
+        if(collision.gameObject.CompareTag("Ground") || collision.gameObject.CompareTag("Platform"))
         {
+            //Player can't jump now
             jumped = true;
         }
     }
@@ -72,21 +91,24 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
+        isDashing = dash.isDashing;
+
+        //Can't move during knockback
         if (kb != null && kb.knockbackTimer > 0)
         {
+            if (dash.isDashing)
+            {
+                kb.knockbackTimer = 0;
+            }
             return;
         }
 
-        if (dash.isDashing)
+        //Can't move during a dash
+        if (isDashing)
         {
-            Debug.Log("isDashing");
             return;
         }
         
-        if (direction.x != 0)
-        {
-            myRB.transform.localScale = new Vector3(direction.x, 1, 1); 
-        }
         //mainAnim.SetBool("IsGrounded", !jumped);
         //idleAnim.SetBool("IsGrounded", !jumped);
         //sideAnim.SetBool("IsGrounded", !jumped);
@@ -116,7 +138,8 @@ public class PlayerController : MonoBehaviour
 
         }*/
 
-        if(!dash.isDashing)
+        //safety about not moving during dash
+        if(!isDashing)
             myRB.velocity = new Vector2(speedMulti * maxSpeed, myRB.velocity.y);
 
         //mainAnim.SetFloat("MoveSpeed", Mathf.Abs(move));
@@ -127,60 +150,75 @@ public class PlayerController : MonoBehaviour
 
     }
 
+    //Input method for basic movement (asd/arrows/sticks)
     public void Move(InputAction.CallbackContext value)
     {
+        //Direction the input has been pressed in
         direction = value.ReadValue<Vector2>();
 
+        //Input triggers
         if (value.started)
         {
+            //Input to the right
             if(direction.x == 1)
             {
+                //speed to the right
                 speedMulti = 1f;
-                fPlayer.xOffset = 5f;
+                //camera moves to the right of the player
+                if(!bossCam)
+                    fPlayer.xOffset = 5f;
             }
+            //Input to the left
             else
             {
+                //speed to the left
                 speedMulti = -1f;
-                fPlayer.xOffset = -5f;
+                //camera moves to the left of the player
+                if(!bossCam)
+                    fPlayer.xOffset = -5f;
             }
+
+            //player flips as the direction changes
+            myRB.transform.localScale = new Vector3(direction.x, 1, 1);
         }
+        //Input was released
         else if (value.canceled)
         {
+            //player shouldn't move with no input
             speedMulti = 0f;
         }
     }
 
+    //Input method for the Jump
     public void Jump(InputAction.CallbackContext value)
     {
-        if (value.started && !jumped)
+        //Input for jump performed
+        if (value.performed && !jumped)
         {
+            //Forces the player up like a jump
             gameObject.GetComponent<Rigidbody2D>().AddForce(gameObject.GetComponent<Rigidbody2D>().transform.TransformDirection(Vector3.up) * jumpForce);
+            //Player has now used up their jump
             jumped = true;
-        }
-        else if (value.canceled)
-        {
-
         }
     }
 
+    //Input method for the dash
     public void Dash(InputAction.CallbackContext value)
     {
-        if (value.started && dash.canDash)
+        //Input for dash performed
+        if (value.performed && dash.canDash)
         {
+            //Dash to the right if no direction
             if (direction == null || direction.x == 0)
             {
                 StartCoroutine(dash.dashDuration(1f));
             }
+            //Dashes in the direction of input otherwise
             else
             {
                 StartCoroutine(dash.dashDuration(direction.x));
             }
         }
-        else if (value.canceled)
-        {
-            
-        }
-
     }
 
     /*void Flip()

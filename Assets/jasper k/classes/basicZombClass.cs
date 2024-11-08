@@ -17,4 +17,12 @@ public class basicZombClass : MonoBehaviour
         
     }
 
+    private void Update()
+    {
+        if (hp <= 0)
+        {
+            Destroy(gameObject);
+        }
+    }
+
 }

@@ -24,6 +24,7 @@ public class KnockbackController : MonoBehaviour
     public void Knockback(Vector3 force)
     {
         knockbackTimer = startTimer;
+        rb2D.velocity = new Vector2(0f, 0f);
         rb2D.velocity = force;
     }
 }

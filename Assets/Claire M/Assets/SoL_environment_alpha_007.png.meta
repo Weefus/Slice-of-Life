@@ -1,0 +1,708 @@
+fileFormatVersion: 2
+guid: 8e14f6fd0322fdd46b714b93ca034e25
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 0
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: SoL_environment_alpha_007_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 12857.143
+        width: 2142.75
+        height: 2142.8572
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bee78bd449203554d8913c84361caab1
+      internalID: -454200983
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SoL_environment_alpha_007_1
+      rect:
+        serializedVersion: 2
+        x: 2142
+        y: 12857.143
+        width: 2142.75
+        height: 2142.8572
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ba87be8fc63ef7c46b2fd8e99cb7ca80
+      internalID: 650211156
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SoL_environment_alpha_007_2
+      rect:
+        serializedVersion: 2
+        x: 4284
+        y: 12857.143
+        width: 2142.75
+        height: 2142.8572
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 44bd0a577ccd8fd448256ea00e6fe702
+      internalID: 1048599191
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SoL_environment_alpha_007_3
+      rect:
+        serializedVersion: 2
+        x: 6426
+        y: 12857.143
+        width: 2142.75
+        height: 2142.8572
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6f66156192816e941924d9b976f04360
+      internalID: -898556075
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SoL_environment_alpha_007_4
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 10715.143
+        width: 2142.75
+        height: 2142.8572
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5d5fed7295e6d704fa2b26665c767979
+      internalID: -898944930
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SoL_environment_alpha_007_5
+      rect:
+        serializedVersion: 2
+        x: 2142
+        y: 10715.143
+        width: 2142.75
+        height: 2142.8572
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 58e538875d59f2843bf9f37022b0179e
+      internalID: 561239401
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SoL_environment_alpha_007_6
+      rect:
+        serializedVersion: 2
+        x: 4284
+        y: 10715.143
+        width: 2142.75
+        height: 2142.8572
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 931e4b80175c64f4db030a154455c61b
+      internalID: -1338911583
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SoL_environment_alpha_007_7
+      rect:
+        serializedVersion: 2
+        x: 6426
+        y: 10715.143
+        width: 2142.75
+        height: 2142.8572
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 46b6f73224e143b4a9ec3b78f5569eaf
+      internalID: -1396133973
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SoL_environment_alpha_007_8
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 8573.143
+        width: 2142.75
+        height: 2142.8572
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8254e1ea817e7c14e9016e1e72e22f7b
+      internalID: -2137172271
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SoL_environment_alpha_007_9
+      rect:
+        serializedVersion: 2
+        x: 2142
+        y: 8573.143
+        width: 2142.75
+        height: 2142.8572
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 897e716a2b4f8834f96fde53b508cc49
+      internalID: -1579143262
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SoL_environment_alpha_007_10
+      rect:
+        serializedVersion: 2
+        x: 4284
+        y: 8573.143
+        width: 2142.75
+        height: 2142.8572
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: df1bd557fbe0e3c4a80506966ef0447e
+      internalID: -1133547214
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SoL_environment_alpha_007_11
+      rect:
+        serializedVersion: 2
+        x: 6426
+        y: 8573.143
+        width: 2142.75
+        height: 2142.8572
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3642f5fe7fb0fbf4c807b7d0447d930d
+      internalID: 1213684552
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SoL_environment_alpha_007_12
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 6431.1426
+        width: 2142.75
+        height: 2142.8572
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0dbaa129af962e14d94d26ae2599aac7
+      internalID: -2071434719
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SoL_environment_alpha_007_13
+      rect:
+        serializedVersion: 2
+        x: 2142
+        y: 6431.1426
+        width: 2142.75
+        height: 2142.8572
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a5ef8d08e9eb6fa47877dc36f67ea2e5
+      internalID: -1572158288
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SoL_environment_alpha_007_14
+      rect:
+        serializedVersion: 2
+        x: 4284
+        y: 6431.1426
+        width: 2142.75
+        height: 2142.8572
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a4e6b99d4028ed643af556167bc86c1c
+      internalID: 1129177854
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SoL_environment_alpha_007_15
+      rect:
+        serializedVersion: 2
+        x: 6426
+        y: 6431.1426
+        width: 2142.75
+        height: 2142.8572
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: af78dbc892b93764693241ab7082785d
+      internalID: -99169870
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SoL_environment_alpha_007_16
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 4289.1426
+        width: 2142.75
+        height: 2142.8572
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d0dfb3ac2c5f68741be4c0f1d009e46d
+      internalID: -2022888885
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SoL_environment_alpha_007_17
+      rect:
+        serializedVersion: 2
+        x: 2142
+        y: 4289.1426
+        width: 2142.75
+        height: 2142.8572
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 273d56f17ff655a4bb746b0e433008c7
+      internalID: -1441545586
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SoL_environment_alpha_007_18
+      rect:
+        serializedVersion: 2
+        x: 4284
+        y: 4289.1426
+        width: 2142.75
+        height: 2142.8572
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 59c7e96615017f94c8aecdd3ebce6303
+      internalID: -1432317726
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SoL_environment_alpha_007_19
+      rect:
+        serializedVersion: 2
+        x: 6426
+        y: 4289.1426
+        width: 2142.75
+        height: 2142.8572
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 330b91a27d5c48d468565327589f8fbe
+      internalID: 343862027
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SoL_environment_alpha_007_20
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2147.1428
+        width: 2142.75
+        height: 2142.8572
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c1ae405414c8fbc4796a0e9a3efe20d0
+      internalID: 442505765
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SoL_environment_alpha_007_21
+      rect:
+        serializedVersion: 2
+        x: 2142
+        y: 2147.1428
+        width: 2142.75
+        height: 2142.8572
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 310c303f78281a942b86cec4144be0d0
+      internalID: 1990695131
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SoL_environment_alpha_007_22
+      rect:
+        serializedVersion: 2
+        x: 4284
+        y: 2147.1428
+        width: 2142.75
+        height: 2142.8572
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1b8fb257764c2d34a931a02b89547edc
+      internalID: -1501283664
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SoL_environment_alpha_007_23
+      rect:
+        serializedVersion: 2
+        x: 6426
+        y: 2147.1428
+        width: 2142.75
+        height: 2142.8572
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ba1a18d6b9a765f4fa588d2c1d28588e
+      internalID: -585246882
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SoL_environment_alpha_007_24
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 5.1428223
+        width: 2142.75
+        height: 2142.8572
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7f004963d9fdfac4fa43dfdec1d33299
+      internalID: 1411934945
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SoL_environment_alpha_007_25
+      rect:
+        serializedVersion: 2
+        x: 2142
+        y: 5.1428223
+        width: 2142.75
+        height: 2142.8572
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 58696e1dc6ea5ec42ac5062976fd9219
+      internalID: 179983240
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SoL_environment_alpha_007_26
+      rect:
+        serializedVersion: 2
+        x: 4284
+        y: 5.1428223
+        width: 2142.75
+        height: 2142.8572
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: da24f81a055d9144b8061926290d4c72
+      internalID: 78963044
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      SoL_environment_alpha_007_0: -454200983
+      SoL_environment_alpha_007_1: 650211156
+      SoL_environment_alpha_007_10: -1133547214
+      SoL_environment_alpha_007_11: 1213684552
+      SoL_environment_alpha_007_12: -2071434719
+      SoL_environment_alpha_007_13: -1572158288
+      SoL_environment_alpha_007_14: 1129177854
+      SoL_environment_alpha_007_15: -99169870
+      SoL_environment_alpha_007_16: -2022888885
+      SoL_environment_alpha_007_17: -1441545586
+      SoL_environment_alpha_007_18: -1432317726
+      SoL_environment_alpha_007_19: 343862027
+      SoL_environment_alpha_007_2: 1048599191
+      SoL_environment_alpha_007_20: 442505765
+      SoL_environment_alpha_007_21: 1990695131
+      SoL_environment_alpha_007_22: -1501283664
+      SoL_environment_alpha_007_23: -585246882
+      SoL_environment_alpha_007_24: 1411934945
+      SoL_environment_alpha_007_25: 179983240
+      SoL_environment_alpha_007_26: 78963044
+      SoL_environment_alpha_007_3: -898556075
+      SoL_environment_alpha_007_4: -898944930
+      SoL_environment_alpha_007_5: 561239401
+      SoL_environment_alpha_007_6: -1338911583
+      SoL_environment_alpha_007_7: -1396133973
+      SoL_environment_alpha_007_8: -2137172271
+      SoL_environment_alpha_007_9: -1579143262
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
