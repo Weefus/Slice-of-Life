@@ -23,10 +23,10 @@ public class FollowPlayer : MonoBehaviour
     }
     private void LateUpdate()
     {
-        //New Position the camera will move towards
-        Vector3 newPos = new Vector3(player.transform.position.x + xOffset, player.transform.position.y + yOffset, -10f);
-        //The camera moving to the new position
-        transform.position = Vector3.Slerp(transform.position, newPos, speed * Time.deltaTime);
+         //New Position the camera will move towards
+         Vector3 newPos = new Vector3(player.transform.position.x + xOffset, player.transform.position.y + yOffset, zOffset);
+         //The camera moving to the new position
+         transform.position = Vector3.Slerp(transform.position, newPos, speed * Time.deltaTime);
     }
 
     //Old 
