@@ -14,7 +14,13 @@ public class LightEntryState : MeleeBaseState
         duration = 1.0f;
         multInput = duration * 2;
         animator.SetTrigger("Attack" + attackIndex);
-            //Debug.Log("Player Attack" + attackIndex + "fired!");
+        light1 = true;
+       /*
+        Debug.Log(light1);
+        Debug.Log(light2);
+        Debug.Log(heavy1);
+        Debug.Log(heavy2);
+       */
     }
      public override void OnUpdate(AttackType currentAttack)
      {

@@ -19,9 +19,12 @@ public class MeleeBaseState : State
     protected float attackWindow;
     //Float to stop spamikng
     protected float multInput;
-
-    // These Are the variables that are the modern
-   // public AttackType currentAttack = AttackType.none;
+    //Attack Checking Variables 
+    protected bool light1;
+    protected bool light2;
+    protected bool heavy1;
+    protected bool heavy2;
+ 
 
     // The cached hit collider component of this attack
     protected Collider2D hitCollider;

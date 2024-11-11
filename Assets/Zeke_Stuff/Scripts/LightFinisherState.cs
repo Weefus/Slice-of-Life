@@ -28,5 +28,9 @@ public class LightFinisherState : MeleeBaseState
     {
         base.OnExit();
         attackWindow = 0;
+        light1 = false;
+        light2 = false;
+        heavy1 = false;
+        heavy2 = false;
     }
 }

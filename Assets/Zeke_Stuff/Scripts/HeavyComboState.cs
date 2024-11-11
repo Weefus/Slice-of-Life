@@ -13,7 +13,14 @@ public class HeavyComboState : MeleeBaseState
         duration = 1.5f;
         multInput = duration * 2;
         animator.SetTrigger("Attack" + attackIndex);
-      //  Debug.Log("Player Attack" + attackIndex + "fired!");
+        //  Debug.Log("Player Attack" + attackIndex + "fired!");
+        heavy2 = true;
+       /*
+        Debug.Log(light1);
+        Debug.Log(light2);
+        Debug.Log(heavy1);
+        Debug.Log(heavy2);
+       */
     }
     public override void OnUpdate(AttackType currentAttack)
     {
@@ -26,9 +33,12 @@ public class HeavyComboState : MeleeBaseState
             {
                 stateMachine.SetNextState(new HeavyFinisherState());
 
-            } else if (currentAttack == AttackType.light)
+            } else if (currentAttack == AttackType.light )
             {
                 stateMachine.SetNextState(new LightFinisherState());
+            } else if (currentAttack == AttackType.heavy && light1)
+            {
+                stateMachine.SetNextState(new LHHFinisherState());
             }
             else if (fixedtime > duration * 2)
             {

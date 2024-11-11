@@ -14,7 +14,14 @@ public class HeavyEntryState : MeleeBaseState
         duration = 1.5f;
         multInput = 1.0f;
         animator.SetTrigger("Attack" + attackIndex);
-      //  Debug.Log("Player Attack" + attackIndex + "fired!");
+        //  Debug.Log("Player Attack" + attackIndex + "fired!");
+        heavy1 = true;
+      /*
+        Debug.Log(light1);
+        Debug.Log(light2);
+        Debug.Log(heavy1);
+        Debug.Log(heavy2);
+      */
     }
     public override void OnUpdate(AttackType currentAttack)
     {
