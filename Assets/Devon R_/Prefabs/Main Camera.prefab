@@ -155,6 +155,7 @@ MonoBehaviour:
   speed: 2.5
   xOffset: 5
   yOffset: 2
+  zOffset: -10
   player: {fileID: 0}
 --- !u!61 &7240293912376320088
 BoxCollider2D:
