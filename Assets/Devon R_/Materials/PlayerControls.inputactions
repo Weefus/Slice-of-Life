@@ -270,48 +270,28 @@
             ]
         },
         {
-            "name": "Combos",
-            "id": "cac9de09-5e88-4e89-a783-a135a642c423",
+            "name": "Pause",
+            "id": "eb62eba5-c77d-4580-a71a-0c6ae09a7054",
             "actions": [
                 {
-                    "name": "LightAttack",
+                    "name": "Pause",
                     "type": "Button",
-                    "id": "3ab0efdd-cd45-45b9-9c59-e92bbf01b2c1",
+                    "id": "526cea85-c5c3-4db3-aaf2-8446d2b0fc7a",
                     "expectedControlType": "Button",
                     "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                },
-                {
-                    "name": "HeavyAttack",
-                    "type": "Button",
-                    "id": "cf784efa-f973-4512-b0f0-86be35e7a90f",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "",
+                    "interactions": "Press",
                     "initialStateCheck": false
                 }
             ],
             "bindings": [
                 {
                     "name": "",
-                    "id": "f86940cf-f759-4919-bbc5-dadc3a2f97d0",
-                    "path": "<Mouse>/leftButton",
+                    "id": "3340ff06-a03a-4906-b69f-be7714eb279e",
+                    "path": "<Keyboard>/escape",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "LightAttack",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "637810d2-dc00-4252-9eba-7816dc72ed96",
-                    "path": "<Mouse>/rightButton",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "HeavyAttack",
+                    "action": "Pause",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

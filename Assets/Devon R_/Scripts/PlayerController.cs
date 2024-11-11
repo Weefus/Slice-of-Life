@@ -52,6 +52,7 @@ public class PlayerController : MonoBehaviour
         {
             bossCam = true;
         }
+        
         // myRenderer = GetComponent<SpriteRenderer>();
 
         //mainAnim = GetComponent<Animator>();
@@ -63,15 +64,15 @@ public class PlayerController : MonoBehaviour
         //Bool Moving
         //Bool IsGrounded
 
-        Quaternion rotation = Quaternion.Euler(0, 0, 0);
-        Quaternion flipRotation = Quaternion.Euler(0, 180, 0);
+        //Quaternion rotation = Quaternion.Euler(0, 0, 0);
+        //Quaternion flipRotation = Quaternion.Euler(0, 180, 0);
     }
 
     //you need to add a tag for your ground object for this to work properly
     void OnCollisionEnter2D(Collision2D collision)
     {
         //Checks if the player has reached a grounded state to get a jump back
-        if ((collision.gameObject.tag == "Ground" || collision.gameObject.tag == "Platform") && myRB.velocity.y <= 0)
+        if ((collision.gameObject.CompareTag("Ground") || collision.gameObject.CompareTag("Platform")) && myRB.velocity.y <= 0)
         {
             //Player recovered their jump
             jumped = false;
@@ -81,7 +82,7 @@ public class PlayerController : MonoBehaviour
     void OnCollisionExit2D(Collision2D collision)
     {
         //Makes the player not be able to jump mid-air if they didn't already to get mid-air
-        if(collision.gameObject.tag == "Ground" || collision.gameObject.tag == "Platform")
+        if(collision.gameObject.CompareTag("Ground") || collision.gameObject.CompareTag("Platform"))
         {
             //Player can't jump now
             jumped = true;

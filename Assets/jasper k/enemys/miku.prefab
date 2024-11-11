@@ -14,9 +14,9 @@ GameObject:
   - component: {fileID: 5952459116147531144}
   - component: {fileID: 6072848064370514353}
   - component: {fileID: 3079297330362526297}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: miku
-  m_TagString: Untagged
+  m_TagString: zombie
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

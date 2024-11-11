@@ -49,11 +49,11 @@ public class mikuRun : StateMachineBehaviour
             }
             time = 0f;
         }
-            
+
+
         
 
-
-        animator.GetComponent<Transform>().localScale = new Vector3(-playerDirct, 1, 1);
+        animator.GetComponent<Transform>().localScale = new Vector3(playerDirct, 1, 1);
 
 
 
@@ -62,12 +62,12 @@ public class mikuRun : StateMachineBehaviour
             animator.GetComponent<Transform>().Translate(Vector3.right * speed * Time.deltaTime * playerDirct);
         }
 
-        if (Vector2.Distance(players[closestPlyr].transform.position, rigid.position) <= attackRange)
+        if (Mathf.Abs(players[closestPlyr].transform.position.x - animator.GetComponent<Transform>().transform.position.x) <= attackRange && players[closestPlyr].transform.position.y <= -3.25)
         {
             animator.SetTrigger("leakMeleeT");
             lastAtkSec = 0;
         }
-        else if (lastAtkSec >= 10.0f) {
+        else if (lastAtkSec >= 5.0f) {
             lastAtkSec = 0;
             animator.SetTrigger("rangedT");
             
@@ -80,6 +80,7 @@ public class mikuRun : StateMachineBehaviour
     {
         animator.ResetTrigger("leakMeleeT");
         animator.ResetTrigger("rangedT");
+        time = 0f;
     }
 
     private int getClosestPlayer(Animator animator)

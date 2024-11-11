@@ -11,15 +11,20 @@ public class Player : MonoBehaviour
 
     public float hp = 50;
     public float ult = 50;
-    protected float maxHP = 100;
-    protected float maxUlt = 100;
-    public UI_Update ui;
+    public float maxHP = 100;
+    public float maxUlt = 100;
+    public UI_Update uiSlider;
+    public UI_Update uiText;
     public float spawnX = -2.2f;
     public float spawnY = -1.8f;
+    public string dieScene;
+    public GameOver g;
+    string currentScene;
     void Start()
     {
-        ui.updateHP();
-        ui.updateUlt();
+        uiSlider.updateHP();
+        uiText.updateHP();
+        g.gameObject.SetActive(false);
     }
 
     void Update()
@@ -30,21 +35,23 @@ public class Player : MonoBehaviour
 
     public void die()
     {
-        Destroy(gameObject);
-        Debug.Log("Womp womp");
+        g.gameObject.SetActive(true);
+        Time.timeScale = 0.0f;
     }
 
     public void increaseHP(float h)
     {
         hp += h;
+        currentScene = SceneManager.GetActiveScene().name;
         if (hp > maxHP)
         {
             hp = maxHP;
         }
-        ui.updateHP();
+        uiSlider.updateHP();
+        uiText.updateHP();
     }
 
-    public void increaseUlt(float u)
+    /*public void increaseUlt(float u)
     {
         ult += u;
         if (ult > maxUlt) 
@@ -52,7 +59,7 @@ public class Player : MonoBehaviour
             ult = maxUlt;
         }
         ui.updateUlt();
-    }
+    }*/
 
     public void decreaseHP(float h)
     {
@@ -62,13 +69,14 @@ public class Player : MonoBehaviour
             hp = 0;
             die();
         }
-        ui.updateHP();
+        uiSlider.updateHP();
+        uiText.updateHP();
     }
 
     public void respawn()
     {
-        Scene scene = SceneManager.GetActiveScene();
-        SceneManager.LoadScene(scene.name);
+        SceneManager.LoadScene(currentScene);
+        DontDestroyOnLoad(gameObject);
         Debug.Log("Whoops");
     }
 }
