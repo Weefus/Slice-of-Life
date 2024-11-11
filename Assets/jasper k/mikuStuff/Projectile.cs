@@ -21,6 +21,7 @@ public class Projectile : StateMachineBehaviour
     public float vertBox = 1;
 
     public GameObject note;
+    private GameObject miku;
     private float side;
     private float angleOne = Mathf.PI / 6;
     private float angleTwo = Mathf.PI / 4;
@@ -29,17 +30,10 @@ public class Projectile : StateMachineBehaviour
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         players = GameObject.FindGameObjectsWithTag("Player");
-        closestPlyr = GetClosestPlayer(animator);
         rigid = animator.GetComponent<Rigidbody2D>();
+        miku = GameObject.FindGameObjectWithTag("Miku");
 
-        if (players[closestPlyr].transform.position.x >= 0)
-        {
-            side = 1;
-        }
-        else
-        {
-            side = -1;
-        }
+        side = miku.transform.localScale.x;
 
         Shotgun();
     }
@@ -61,28 +55,5 @@ public class Projectile : StateMachineBehaviour
         Instantiate(note, new Vector3(rigid.position.x + (1.5f * side), rigid.position.y, 0), Quaternion.identity);
         Instantiate(note, new Vector3((rigid.position.x + (Mathf.Cos(angleOne) * 1.5f * side)), Mathf.Sin(angleOne) + rigid.position.y, 0), Quaternion.identity);
         Instantiate(note, new Vector3((rigid.position.x + (Mathf.Cos(angleTwo) * side)), Mathf.Sin(angleTwo) + rigid.position.y, 0), Quaternion.identity);
-    }
-
-    private int GetClosestPlayer(Animator animator)
-    {
-
-        if (players.Length <= 1)
-        {
-            return 0;
-        }
-
-        dist1 = Mathf.Abs(players[1].transform.position.x - animator.GetComponent<Transform>().position.x);
-        dist2 = Mathf.Abs(players[0].transform.position.x - animator.GetComponent<Transform>().position.x);
-
-        if (Mathf.Abs(dist1 - dist2) > greyZone)
-        {
-            if (dist1 > dist2)
-            {
-                return 0;
-            }
-            else return 1;
-        }
-        else { return closestPlyr; }
-
     }
 }

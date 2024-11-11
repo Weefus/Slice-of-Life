@@ -24,7 +24,6 @@ public class EnemySpawner : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log("Hello");
         if (hasSpawned == false && collision.CompareTag("CameraRadius"))
         {
             Instantiate(enemyPrefab, new Vector3(vx, 0.61f, 4.33f), Quaternion.identity);
