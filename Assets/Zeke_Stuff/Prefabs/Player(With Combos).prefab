@@ -376,7 +376,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: 0.54424644}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -387,7 +387,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 1, y: 0.9833808}
   m_EdgeRadius: 0
 --- !u!50 &4026805918201288561
 Rigidbody2D:
@@ -453,6 +453,7 @@ MonoBehaviour:
   isDashing: 0
   dashingPower: 10
   dashingTime: 0.4
+  dashingCooldown: 2
 --- !u!114 &7962113528625470170
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -536,9 +537,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hp: 50
   ult: 50
-  maxHP: 100
-  maxUlt: 100
-  levelNum: 1
+  ui: {fileID: 0}
+  spawnX: -2.2
+  spawnY: -1.8
 --- !u!114 &4730762435024850619
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -554,9 +555,6 @@ MonoBehaviour:
   cam: {fileID: 0}
   jumpForce: 600
   maxSpeed: 10
-  jumped: 0
-  Charsideprof: {fileID: 0}
-  Characteridle: {fileID: 0}
 --- !u!114 &7074931721123141813
 MonoBehaviour:
   m_ObjectHideFlags: 0

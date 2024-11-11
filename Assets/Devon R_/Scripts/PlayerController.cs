@@ -12,12 +12,12 @@ public class PlayerController : MonoBehaviour
     Dash dash;
     FollowPlayer fPlayer;
     public Camera cam;
+    Animator characterAnim;
 
     //Amount of force the jump uses
     public int jumpForce = 600;
     //A public variable to check the dashing state
     private bool isDashing;
-
     //Max speed player can go
     public float maxSpeed;
     //Used to get direction of key input, value of -1 or 1
@@ -26,24 +26,14 @@ public class PlayerController : MonoBehaviour
     private Vector2 direction;
     //if the player is in a boss fight
     private bool bossCam = false;
-
-    //bool facingleft = true;
-    //SpriteRenderer myRenderer;
-    //Animator mainAnim;
-    //Animator idleAnim;
-    //Animator sideAnim;
-
     //Check to see if player has already used their jump/in-air
     private bool jumped = false;
 
-    //bool grounded = true;
-
-    public GameObject Charsideprof;
-    public GameObject Characteridle;
 
     // Use this for initialization
     void Start()
     {
+        characterAnim = GetComponent<Animator>();
         myRB = GetComponent<Rigidbody2D>();
         kb = GetComponent<KnockbackController>();
         dash = GetComponent<Dash>();
@@ -52,20 +42,7 @@ public class PlayerController : MonoBehaviour
         {
             bossCam = true;
         }
-        
-        // myRenderer = GetComponent<SpriteRenderer>();
-
-        //mainAnim = GetComponent<Animator>();
-        //idleAnim = Characteridle.GetComponent<Animator>();
-        //sideAnim = Charsideprof.GetComponent<Animator>();
-
-
-        //Variables needed for Animator for script to work
-        //Bool Moving
-        //Bool IsGrounded
-
-        //Quaternion rotation = Quaternion.Euler(0, 0, 0);
-        //Quaternion flipRotation = Quaternion.Euler(0, 180, 0);
+     
     }
 
     //you need to add a tag for your ground object for this to work properly
@@ -76,6 +53,7 @@ public class PlayerController : MonoBehaviour
         {
             //Player recovered their jump
             jumped = false;
+            characterAnim.SetBool("isJumping", false);
         }
     }
 
@@ -93,6 +71,7 @@ public class PlayerController : MonoBehaviour
     void FixedUpdate()
     {
         isDashing = dash.isDashing;
+        characterAnim.SetBool("isDashing", true);
 
         //Can't move during knockback
         if (kb != null && kb.knockbackTimer > 0)
@@ -110,44 +89,16 @@ public class PlayerController : MonoBehaviour
             return;
         }
         
-        //mainAnim.SetBool("IsGrounded", !jumped);
-        //idleAnim.SetBool("IsGrounded", !jumped);
-        //sideAnim.SetBool("IsGrounded", !jumped);
+     
 
 
 
-        /*if (move > 0 && !facingleft)
-        {
-            Flip();
-        }
-        else if (move < 0 && facingleft)
-        {
-            Flip();
-        }
-        if (move != 0)
-        {
-            mainAnim.SetBool("Moving", true);
-            idleAnim.SetBool("Moving", true);
-            sideAnim.SetBool("Moving", true);
-
-        }
-        else if (move == 0)
-        {
-            mainAnim.SetBool("Moving", false);
-            idleAnim.SetBool("Moving", false);
-            sideAnim.SetBool("Moving", false);
-
-        }*/
+ 
 
         //safety about not moving during dash
         if(!isDashing)
             myRB.velocity = new Vector2(speedMulti * maxSpeed, myRB.velocity.y);
 
-        //mainAnim.SetFloat("MoveSpeed", Mathf.Abs(move));
-
-        //mainAnim.SetFloat("VerticalVelocity", Mathf.Abs(myRB.velocity.y));
-
-        //switchSprite();
 
     }
 
@@ -160,8 +111,9 @@ public class PlayerController : MonoBehaviour
         //Input triggers
         if (value.started)
         {
+            characterAnim.SetBool("isMoving", true);
             //Input to the right
-            if(direction.x == 1)
+            if (direction.x == 1)
             {
                 //speed to the right
                 speedMulti = 1f;
@@ -185,6 +137,7 @@ public class PlayerController : MonoBehaviour
         //Input was released
         else if (value.canceled)
         {
+            characterAnim.SetBool("isMoving", false);
             //player shouldn't move with no input
             speedMulti = 0f;
         }
@@ -197,9 +150,11 @@ public class PlayerController : MonoBehaviour
         if (value.performed && !jumped)
         {
             //Forces the player up like a jump
+            characterAnim.SetBool("isJumping", true);
             gameObject.GetComponent<Rigidbody2D>().AddForce(gameObject.GetComponent<Rigidbody2D>().transform.TransformDirection(Vector3.up) * jumpForce);
             //Player has now used up their jump
             jumped = true;
+            
         }
     }
 
@@ -221,49 +176,5 @@ public class PlayerController : MonoBehaviour
             }
         }
     }
-
-    /*void Flip()
-    {
-        if (!facingleft)
-        {
-            transform.Rotate(0, 180, 0);
-        }
-
-        if (facingleft)
-        {
-            transform.Rotate(0, 180, 0);
-        }
-
-        facingleft = !facingleft;
-
-    }
-
-    /*void switchSprite()
-    {
-
-        bool isMoving = mainAnim.GetBool("Moving");
-        bool isGrounded = mainAnim.GetBool("IsGrounded");
-
-
-        if (!mainAnim.GetBool("Moving") && mainAnim.GetBool("IsGrounded"))
-        {
-
-            Charsideprof.SetActive(false);
-
-            Characteridle.SetActive(true);
-
-
-        }
-        else
-        {
-
-            Characteridle.SetActive(false);
-
-            Charsideprof.SetActive(true);
-
-        }
-
-    }*/
-
 
 }
