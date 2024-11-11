@@ -17163,6 +17163,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player(With Combos)
       objectReference: {fileID: 0}
+    - target: {fileID: 5184942824323944038, guid: c4bbe6cb242e12c42a01b198462789a3, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 5402319458767579750, guid: c4bbe6cb242e12c42a01b198462789a3, type: 3}
       propertyPath: m_LocalPosition.x
       value: -27.25
