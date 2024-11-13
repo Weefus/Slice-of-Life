@@ -28,7 +28,7 @@ public class PlayerController : MonoBehaviour
     private bool bossCam = false;
     //Check to see if player has already used their jump/in-air
     private bool jumped = false;
-    private bool moving = false;
+    public bool moving = false;
 
 
     // Use this for initialization
@@ -98,7 +98,7 @@ public class PlayerController : MonoBehaviour
         {
             if (fPlayer.xOffset < fPlayer.maxXOffset)
             {
-                fPlayer.xOffset += 20 * Time.fixedDeltaTime;
+                fPlayer.xOffset += 15 * Time.fixedDeltaTime;
             }
             else
             {
@@ -109,11 +109,27 @@ public class PlayerController : MonoBehaviour
         {
             if (fPlayer.xOffset > -fPlayer.maxXOffset)
             {
-                fPlayer.xOffset -= 20 * Time.fixedDeltaTime;
+                fPlayer.xOffset -= 15 * Time.fixedDeltaTime;
             }
             else
             {
                 fPlayer.xOffset = -fPlayer.maxXOffset;
+            }
+        }
+
+        if(!bossCam && !moving)
+        {
+            if (fPlayer.xOffset > 0)
+            {
+                fPlayer.xOffset -= 5 * Time.fixedDeltaTime;
+            }
+            else if(fPlayer.xOffset < 0)
+            {
+                fPlayer.xOffset += 5 * Time.fixedDeltaTime;
+            }
+            else if(Mathf.Approximately(fPlayer.xOffset, 0))
+            {
+                fPlayer.xOffset = 0;
             }
         }
     }
