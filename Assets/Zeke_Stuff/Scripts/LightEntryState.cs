@@ -14,7 +14,7 @@ public class LightEntryState : MeleeBaseState
         duration = 1.0f;
         multInput = duration * 2;
         animator.SetTrigger("Attack" + attackIndex);
-        light1 = true;
+  
        /*
         Debug.Log(light1);
         Debug.Log(light2);
@@ -22,10 +22,11 @@ public class LightEntryState : MeleeBaseState
         Debug.Log(heavy2);
        */
     }
-     public override void OnUpdate(AttackType currentAttack)
+     public override void OnUpdate(AttackType currentAttack, Attack1 attack1, Attack2 attack2)
      {
-                base.OnUpdate(currentAttack);
+                base.OnUpdate(currentAttack, attack1, attack2);
 
+        attack1 = Attack1.light;
         
         //Debug.Log(multInput);
        if (multInput > 0) 
@@ -44,11 +45,11 @@ public class LightEntryState : MeleeBaseState
 
              if (currentAttack == AttackType.light)
                 {
-                    stateMachine.SetNextState(new LightComboState());
+                    stateMachine.SetNextState(new LightLightState());
 
             } else if (currentAttack == AttackType.heavy)
             {
-                stateMachine.SetNextState(new HeavyComboState());
+                stateMachine.SetNextState(new LightHeavyState());
             }
             else if (fixedtime > (duration * 2))
             {

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class HeavyComboState : MeleeBaseState
+public class LightHeavyState : MeleeBaseState
 {
     public override void OnEnter(StateMachine stateMachine)
     {
@@ -14,31 +14,26 @@ public class HeavyComboState : MeleeBaseState
         multInput = duration * 2;
         animator.SetTrigger("Attack" + attackIndex);
         //  Debug.Log("Player Attack" + attackIndex + "fired!");
-        heavy2 = true;
-       /*
-        Debug.Log(light1);
-        Debug.Log(light2);
-        Debug.Log(heavy1);
-        Debug.Log(heavy2);
-       */
+
+
     }
-    public override void OnUpdate(AttackType currentAttack)
+    public override void OnUpdate(AttackType currentAttack, Attack1 attack1, Attack2 attack2)
     {
-        base.OnUpdate(currentAttack);
-       
+        base.OnUpdate(currentAttack, attack1, attack2);
+
+        attack2 = Attack2.heavy;
+
         if (fixedtime >= duration)
         {
             //   Debug.Log("fixed time" +fixedtime + "should combo" + shouldCombo );
             if (currentAttack == AttackType.heavy)
             {
-                stateMachine.SetNextState(new HeavyFinisherState());
-
-            } else if (currentAttack == AttackType.light )
-            {
-                stateMachine.SetNextState(new LightFinisherState());
-            } else if (currentAttack == AttackType.heavy && light1)
-            {
                 stateMachine.SetNextState(new LHHFinisherState());
+
+            }
+            else if (currentAttack == AttackType.light)
+            {
+                stateMachine.SetNextState(new LHLFinisherState());
             }
             else if (fixedtime > duration * 2)
             {
@@ -46,7 +41,7 @@ public class HeavyComboState : MeleeBaseState
             }
 
         }
-      
+
 
     }
     public override void OnExit()

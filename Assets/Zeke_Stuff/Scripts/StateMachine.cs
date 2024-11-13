@@ -12,10 +12,14 @@ public class StateMachine : MonoBehaviour
     public State CurrentState { get; private set; }
     private State nextState;
     public State.AttackType currentAttack  {get;  set;}
+    public State.Attack1 attack1 {get; set;}
+    public State.Attack2 attack2 {get; set;}
 
     private void Start()
     {
         currentAttack = State.AttackType.none;
+        attack1 = State.Attack1.none;
+        attack2 = State.Attack2.none;
     }
     // Update is called once per frame
     void Update()
@@ -28,7 +32,7 @@ public class StateMachine : MonoBehaviour
 
         if (CurrentState != null)
            // Debug.Log(currentAttack);
-            CurrentState.OnUpdate(currentAttack);
+            CurrentState.OnUpdate(currentAttack, attack1, attack2);
     }
 
     private void SetState(State _newState)

@@ -19,11 +19,8 @@ public class MeleeBaseState : State
     protected float attackWindow;
     //Float to stop spamikng
     protected float multInput;
-    //Attack Checking Variables 
-    protected bool light1;
-    protected bool light2;
-    protected bool heavy1;
-    protected bool heavy2;
+   
+   
  
 
     // The cached hit collider component of this attack
@@ -45,9 +42,9 @@ public class MeleeBaseState : State
         HitEffectPrefab = GetComponent<ComboCharacter>().Hiteffect;
     }
 
-    public override void OnUpdate(AttackType currentAttack)
+    public override void OnUpdate(AttackType currentAttack, Attack1 attack1, Attack2 attack2)
     {
-        base.OnUpdate( currentAttack);
+        base.OnUpdate( currentAttack, attack1, attack2);
         AttackPressedTimer -= Time.deltaTime;
         attackWindow -= Time.deltaTime;
         // Debug.Log(attackWindow);

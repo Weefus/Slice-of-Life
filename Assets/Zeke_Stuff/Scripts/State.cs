@@ -14,6 +14,19 @@ public abstract class State
         none
 
     }
+    //Attack Checking Variables 
+    public enum Attack1
+    {
+        light,
+        heavy,
+        none
+    }
+    public enum Attack2
+    {
+        light,
+        heavy,
+        none
+    }
 
     public StateMachine stateMachine;
 
@@ -26,7 +39,7 @@ public abstract class State
     }
 
 
-    public virtual void OnUpdate(AttackType currentAttack)
+    public virtual void OnUpdate(AttackType currentAttack, Attack1 attack1, Attack2 attack2)
     {
         time += Time.deltaTime;
         

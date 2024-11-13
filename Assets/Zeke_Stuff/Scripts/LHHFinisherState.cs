@@ -14,11 +14,13 @@ public class LHHFinisherState : MeleeBaseState
         animator.SetTrigger("Attack" + attackIndex);
         // Debug.Log("Player Attack" + attackIndex + "fired!");
     }
-    public override void OnUpdate(AttackType currentAttack)
+    public override void OnUpdate(AttackType currentAttack, Attack1 attack1, Attack2 attack2)
     {
-        base.OnUpdate(currentAttack);
+        base.OnUpdate(currentAttack, attack1, attack2);
         if (fixedtime >= duration)
         {
+            attack1 = Attack1.none;
+            attack2 = Attack2.none;
             stateMachine.SetNextStateToMain();
         }
 
@@ -27,10 +29,7 @@ public class LHHFinisherState : MeleeBaseState
     {
         base.OnExit();
         AttackPressedTimer = 0;
-        light1 = false;
-        light2 = false;
-        heavy1 = false;
-        heavy2 = false;
+       
     }
 }
 
