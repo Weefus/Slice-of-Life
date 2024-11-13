@@ -28,6 +28,7 @@ public class PlayerController : MonoBehaviour
     private bool bossCam = false;
     //Check to see if player has already used their jump/in-air
     private bool jumped = false;
+    public bool moving = false;
 
 
     // Use this for initialization
@@ -89,17 +90,48 @@ public class PlayerController : MonoBehaviour
             return;
         }
         
-     
-
-
-
- 
-
         //safety about not moving during dash
         if(!isDashing)
             myRB.velocity = new Vector2(speedMulti * maxSpeed, myRB.velocity.y);
 
+        if (!bossCam && moving && transform.localScale.x > 0)
+        {
+            if (fPlayer.xOffset < fPlayer.maxXOffset)
+            {
+                fPlayer.xOffset += 15 * Time.fixedDeltaTime;
+            }
+            else
+            {
+                fPlayer.xOffset = fPlayer.maxXOffset;
+            }
+        }
+        else if (!bossCam && moving && transform.localScale.x < 0)
+        {
+            if (fPlayer.xOffset > -fPlayer.maxXOffset)
+            {
+                fPlayer.xOffset -= 15 * Time.fixedDeltaTime;
+            }
+            else
+            {
+                fPlayer.xOffset = -fPlayer.maxXOffset;
+            }
+        }
 
+        if(!bossCam && !moving)
+        {
+            if (fPlayer.xOffset > 0)
+            {
+                fPlayer.xOffset -= 5 * Time.fixedDeltaTime;
+            }
+            else if(fPlayer.xOffset < 0)
+            {
+                fPlayer.xOffset += 5 * Time.fixedDeltaTime;
+            }
+            else if(Mathf.Approximately(fPlayer.xOffset, 0))
+            {
+                fPlayer.xOffset = 0;
+            }
+        }
     }
 
     //Input method for basic movement (asd/arrows/sticks)
@@ -118,8 +150,10 @@ public class PlayerController : MonoBehaviour
                 //speed to the right
                 speedMulti = 1f;
                 //camera moves to the right of the player
-                if(!bossCam)
-                    fPlayer.xOffset = 5f;
+                if (!bossCam)
+                {
+                    moving = true;
+                }
             }
             //Input to the left
             else
@@ -127,8 +161,11 @@ public class PlayerController : MonoBehaviour
                 //speed to the left
                 speedMulti = -1f;
                 //camera moves to the left of the player
-                if(!bossCam)
-                    fPlayer.xOffset = -5f;
+
+                if (!bossCam)
+                {
+                    moving = true;
+                } 
             }
 
             //player flips as the direction changes
@@ -140,6 +177,7 @@ public class PlayerController : MonoBehaviour
             characterAnim.SetBool("isMoving", false);
             //player shouldn't move with no input
             speedMulti = 0f;
+            moving = false;
         }
     }
 
@@ -147,7 +185,7 @@ public class PlayerController : MonoBehaviour
     public void Jump(InputAction.CallbackContext value)
     {
         //Input for jump performed
-        if (value.performed && !jumped)
+        if (value.performed && !jumped && !isDashing)
         {
             //Forces the player up like a jump
             characterAnim.SetBool("isJumping", true);
