@@ -7,6 +7,7 @@ public class FollowPlayer : MonoBehaviour
 {
     //speed of the camera follow
     public float speed = 10f;
+    public float maxXOffset = 0;
     //offest of where the camera is on the x
     public float xOffset = 0f;
     //offest of where the camera is on the y
@@ -15,18 +16,48 @@ public class FollowPlayer : MonoBehaviour
     public float zOffset = 0f;
     //player to follow
     public Player player;
-
-
+    public float deadZone = 5.0f;
+    private Vector3 playerPos;
+    private Vector3 camPos;
+    
     private void Start()
     {
         player = (Player)FindObjectOfType(typeof(Player));
     }
     private void LateUpdate()
     {
-         //New Position the camera will move towards
-         Vector3 newPos = new Vector3(player.transform.position.x + xOffset, player.transform.position.y + yOffset, zOffset);
-         //The camera moving to the new position
-         transform.position = Vector3.Slerp(transform.position, newPos, speed * Time.deltaTime);
+        playerPos = player.transform.position;
+        camPos = transform.position;
+
+        Debug.Log((camPos.x - playerPos.x) - xOffset);
+
+        if (CanMove())
+        {
+            //New Position the camera will move towards
+            Vector3 newPos = new Vector3(playerPos.x + xOffset, playerPos.y + yOffset, zOffset);
+            //The camera moving to the new position
+            transform.position = Vector3.Slerp(camPos, newPos, speed * Time.deltaTime);
+        }
+    }
+
+    private bool CanMove()
+    {
+       if((camPos.x - playerPos.x) - xOffset > deadZone || (camPos.x - playerPos.x) - xOffset < -deadZone)
+       {
+            Debug.Log("X");
+            return true;
+       }
+        else if ((camPos.y - playerPos.y) - yOffset > deadZone || (camPos.y - playerPos.y) - yOffset < -deadZone)
+        {
+             Debug.Log("Y");
+             return true;
+        }
+        else
+        {
+            Debug.Log("stop");
+            return false;
+       }       
+       
     }
 
     //Old 
