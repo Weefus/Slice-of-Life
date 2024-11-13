@@ -16,6 +16,7 @@ public class FollowPlayer : MonoBehaviour
     public float zOffset = 0f;
     //player to follow
     public Player player;
+    private PlayerController cPlayer;
     public float deadZone = 5.0f;
     private Vector3 playerPos;
     private Vector3 camPos;
@@ -23,13 +24,12 @@ public class FollowPlayer : MonoBehaviour
     private void Start()
     {
         player = (Player)FindObjectOfType(typeof(Player));
+        cPlayer = player.GetComponent<PlayerController>();
     }
     private void LateUpdate()
     {
         playerPos = player.transform.position;
         camPos = transform.position;
-
-        Debug.Log((camPos.x - playerPos.x) - xOffset);
 
         if (CanMove())
         {
@@ -44,20 +44,20 @@ public class FollowPlayer : MonoBehaviour
     {
        if((camPos.x - playerPos.x) - xOffset > deadZone || (camPos.x - playerPos.x) - xOffset < -deadZone)
        {
-            Debug.Log("X");
             return true;
        }
-        else if ((camPos.y - playerPos.y) - yOffset > deadZone || (camPos.y - playerPos.y) - yOffset < -deadZone)
-        {
-             Debug.Log("Y");
-             return true;
-        }
-        else
-        {
-            Debug.Log("stop");
-            return false;
+       else if ((camPos.y - playerPos.y) - yOffset > deadZone || (camPos.y - playerPos.y) - yOffset < -deadZone)
+       {
+            return true;
+       }
+       else if (!cPlayer.moving)
+       {
+           return true;
+       }
+       else
+       {
+           return false;
        }       
-       
     }
 
     //Old 
