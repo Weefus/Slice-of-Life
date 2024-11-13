@@ -17,19 +17,19 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/Scene_Level_3.unity
     guid: 44533e2499c048f42ab84097cd849407
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/SOL_Alpha.unity
     guid: 69846a44301223244a675f29f06cb32a
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/SOL_Alpha_2.unity
     guid: 1c6fe3704bbd4f94581082092ecb5c40
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/SOL_Alpha_3.unity
     guid: 092721b0101fa0a448de99033620180b
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/EthanScene2.unity
     guid: ebf0d28fe0da46c4babaa6453f540cf2
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/EthanScene.unity
     guid: d9994815f1fd08e419f2b3ae39e2f6f8
   - enabled: 1
@@ -41,4 +41,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/SOL_miku.unity
     guid: c0574289c4f989a479771ec256ac46d7
+  - enabled: 1
+    path: Assets/Scenes/UI.unity
+    guid: 5ff965e6333d378449b3c1ffcfac0609
   m_configObjects: {}
