@@ -18,10 +18,12 @@ public class zombieMove : MonoBehaviour
     public float speedVariation;
     private Rigidbody2D rigid;
     public bool canMove;
+    public KnockbackController kb;
 
     // Start is called before the first frame update
     void Start()
     {
+        kb = GetComponent<KnockbackController>();
         speed = speedBase + Random.Range(-speedVariation, speedVariation);
         players = GameObject.FindGameObjectsWithTag("Player");
         closestPlyr = getClosestPlayer();
@@ -46,14 +48,10 @@ public class zombieMove : MonoBehaviour
             time = 0f;
         }
 
-
-        
-
         if (rigid.velocity == new Vector2(0,0) && canMove) {
             transform.localScale = new Vector3(-playerDirct, transform.localScale.y, transform.localScale.z);
             transform.Translate(Vector3.right * speed * Time.deltaTime * playerDirct);
         }
-        
     }
 
     private int getClosestPlayer()
