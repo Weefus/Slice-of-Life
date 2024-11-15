@@ -34030,6 +34030,38 @@ PrefabInstance:
       propertyPath: m_Name
       value: Vending Machine
       objectReference: {fileID: 0}
+    - target: {fileID: 1955182327069405511, guid: c2834e55546353e45b6f4838a94df760, type: 3}
+      propertyPath: sr
+      value: 
+      objectReference: {fileID: 1884863673}
+    - target: {fileID: 1955182327069405511, guid: c2834e55546353e45b6f4838a94df760, type: 3}
+      propertyPath: sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 4c33df0149b4562438cae11d256aceb1, type: 3}
+    - target: {fileID: 3726315218911554311, guid: c2834e55546353e45b6f4838a94df760, type: 3}
+      propertyPath: m_Size.x
+      value: 0.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 3726315218911554311, guid: c2834e55546353e45b6f4838a94df760, type: 3}
+      propertyPath: m_Size.y
+      value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 3726315218911554311, guid: c2834e55546353e45b6f4838a94df760, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: ab605779d36d5134a8ba356f53b92f4e, type: 3}
+    - target: {fileID: 3726315218911554311, guid: c2834e55546353e45b6f4838a94df760, type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4185242216478584471, guid: c2834e55546353e45b6f4838a94df760, type: 3}
+      propertyPath: m_SpriteTilingProperty.newSize.x
+      value: 0.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 4185242216478584471, guid: c2834e55546353e45b6f4838a94df760, type: 3}
+      propertyPath: m_SpriteTilingProperty.newSize.y
+      value: 0.8
+      objectReference: {fileID: 0}
     - target: {fileID: 9220183486799679498, guid: c2834e55546353e45b6f4838a94df760, type: 3}
       propertyPath: m_LocalScale.x
       value: 5.191279
@@ -34083,6 +34115,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c2834e55546353e45b6f4838a94df760, type: 3}
+--- !u!212 &1884863673 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 3726315218911554311, guid: c2834e55546353e45b6f4838a94df760, type: 3}
+  m_PrefabInstance: {fileID: 1884863672}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1884956202
 PrefabInstance:
   m_ObjectHideFlags: 0
