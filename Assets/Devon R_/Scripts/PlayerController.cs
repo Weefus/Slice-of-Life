@@ -14,6 +14,7 @@ public class PlayerController : MonoBehaviour
     Camera cam;
     Animator characterAnim;
 
+
     //Amount of force the jump uses
     public int jumpForce = 600;
     //A public variable to check the dashing state
@@ -77,16 +78,7 @@ public class PlayerController : MonoBehaviour
     {
         isDashing = dash.isDashing;
         characterAnim.SetBool("isDashing", true);
-
-        //Can't move during knockback
-        if (kb != null && kb.knockbackTimer > 0)
-        {
-            if (dash.isDashing)
-            {
-                kb.knockbackTimer = 0;
-            }
-            return;
-        }
+        
 
         //Can't move during a dash
         if (isDashing)
@@ -102,6 +94,14 @@ public class PlayerController : MonoBehaviour
         //safety about not moving during dash
         if(!isDashing)
             myRB.velocity = new Vector2(speedMulti * maxSpeed, myRB.velocity.y);
+
+
+        if (kb.knockbackTimer > 0)
+        {
+            myRB.velocity = kb.kbForce - myRB.velocity;
+
+            Debug.Log(myRB.velocity);
+        }
 
         if (!bossCam && moving && transform.localScale.x > 0)
         {

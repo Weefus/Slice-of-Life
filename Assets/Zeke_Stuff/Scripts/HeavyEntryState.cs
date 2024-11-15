@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class HeavyEntryState : MeleeBaseState
@@ -14,11 +15,20 @@ public class HeavyEntryState : MeleeBaseState
         duration = 1.5f;
         multInput = 1.0f;
         animator.SetTrigger("Attack" + attackIndex);
-      //  Debug.Log("Player Attack" + attackIndex + "fired!");
+        //  Debug.Log("Player Attack" + attackIndex + "fired!");
+        
+      /*
+        Debug.Log(light1);
+        Debug.Log(light2);
+        Debug.Log(heavy1);
+        Debug.Log(heavy2);
+      */
     }
-    public override void OnUpdate(AttackType currentAttack)
+    public override void OnUpdate(AttackType currentAttack, Attack1 attack1, Attack2 attack2)
     {
-        base.OnUpdate(currentAttack);
+        base.OnUpdate(currentAttack, attack1, attack2);
+        attack1 = Attack1.heavy;
+
         if (multInput > 0)
         {
             if (currentAttack == AttackType.heavy)
@@ -35,11 +45,11 @@ public class HeavyEntryState : MeleeBaseState
 
             if (currentAttack == AttackType.heavy)
             {
-                stateMachine.SetNextState(new HeavyComboState());
+                stateMachine.SetNextState(new HeavyHeavyState());
 
             } else if (currentAttack == AttackType.light)
             {
-                stateMachine.SetNextState(new LightComboState());
+                stateMachine.SetNextState(new HeavyLightState());
             }
             else if (fixedtime > (duration * 2))
             {

@@ -212,6 +212,8 @@ MonoBehaviour:
   player: {fileID: 0}
   zombClass: {fileID: 3396902734536573614}
   ui: {fileID: 0}
+  invincibleTimer: 0
+  invincible: 0
 --- !u!114 &5014723750417441901
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -226,6 +228,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startTimer: 1
   knockbackTimer: 0
+  kbForce: {x: 0, y: 0}
 --- !u!1001 &3205072815278407743
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -253,6 +256,10 @@ PrefabInstance:
     - target: {fileID: 4557128134269089870, guid: 7498db5d04e010d46b2fb3f606085f75, type: 3}
       propertyPath: m_Layer
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4557128134269089870, guid: 7498db5d04e010d46b2fb3f606085f75, type: 3}
+      propertyPath: m_TagString
+      value: zombie
       objectReference: {fileID: 0}
     - target: {fileID: 5801495660697988211, guid: 7498db5d04e010d46b2fb3f606085f75, type: 3}
       propertyPath: m_LocalScale.x
@@ -335,6 +342,10 @@ PrefabInstance:
     - target: {fileID: 7527384825825118836, guid: fec34bb0cf7cb254aa49e02198e5d7b4, type: 3}
       propertyPath: m_Name
       value: atkDetection
+      objectReference: {fileID: 0}
+    - target: {fileID: 7527384825825118836, guid: fec34bb0cf7cb254aa49e02198e5d7b4, type: 3}
+      propertyPath: m_TagString
+      value: zombie
       objectReference: {fileID: 0}
     - target: {fileID: 8677265227208268011, guid: fec34bb0cf7cb254aa49e02198e5d7b4, type: 3}
       propertyPath: m_LocalScale.y
@@ -469,5 +480,5 @@ MonoBehaviour:
   coll: {fileID: 0}
   dmg: 5
   direction: {x: 0, y: 0, z: 0}
-  force: 7
+  force: 12
   range: 3

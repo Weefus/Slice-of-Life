@@ -5,14 +5,18 @@ using UnityEngine;
 public class VendingMachine : MonoBehaviour
 {
     public GameObject[] pickupPrefab;
+    public SpriteRenderer sr;
+    public Sprite sprite;
     float vx;
     float vy;
+    float vz;
     int rnd;
     bool isEmpty = false;
     void Start()
     {
         vx = transform.position.x;
         vy = transform.position.y;
+        vz = transform.position.z;
     }
 
     void Update()
@@ -26,8 +30,9 @@ public class VendingMachine : MonoBehaviour
         {
             rnd = Random.Range(0, 2);
             Debug.Log(rnd);
-            Instantiate(pickupPrefab[rnd], new Vector3(vx, vy - 1, 0), Quaternion.identity);
+            Instantiate(pickupPrefab[rnd], new Vector3(vx, vy - 1, vz), Quaternion.identity);
             isEmpty = true;
+            sr.sprite = sprite;
         }
     }
 }

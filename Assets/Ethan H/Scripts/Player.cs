@@ -20,6 +20,8 @@ public class Player : MonoBehaviour
     public string dieScene;
     public GameOver g;
     string currentScene;
+    public float score = 20;
+    public bool isDead = false;
     void Start()
     {
         uiSlider.updateHP();
@@ -37,6 +39,8 @@ public class Player : MonoBehaviour
     {
         g.gameObject.SetActive(true);
         Time.timeScale = 0.0f;
+        isDead = true;
+        gameObject.SetActive(false);
     }
 
     public void increaseHP(float h)
@@ -49,6 +53,12 @@ public class Player : MonoBehaviour
         }
         uiSlider.updateHP();
         uiText.updateHP();
+    }
+
+    public void increaseScore(float s)
+    {
+        score += s;
+        uiText.updateScore();
     }
 
     /*public void increaseUlt(float u)
