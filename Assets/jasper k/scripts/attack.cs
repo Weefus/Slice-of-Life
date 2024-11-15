@@ -48,7 +48,7 @@ public class attack : MonoBehaviour
                 if (coll != null)
                 {
 
-                    coll.GetComponent<Player>().hp = coll.GetComponent<Player>().hp - dmg;
+                    coll.GetComponent<Hurtbox>().DealDamage(dmg);
                     canHit = false;
                     direction = (coll.transform.position - transform.position).normalized;
                     Debug.Log(direction);

@@ -6,18 +6,27 @@ using UnityEngine.InputSystem;
 
 public class Pause : MonoBehaviour
 {
-    bool isPaused = false;
+    public bool isPaused = false;
+    Player player;
     public GameObject pause;
     // Start is called before the first frame update
     void Start()
     {
-        
+        player = (Player)FindObjectOfType(typeof(Player));
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        if (pause.activeSelf == true)
+        {
+            Time.timeScale = 0.0f;
+        }
+        else if (player.isDead == false)
+        {
+            Time.timeScale = 1.0f;
+            isPaused = false;
+        }
     }
 
     public void pauseGame(InputAction.CallbackContext value)
@@ -27,13 +36,11 @@ public class Pause : MonoBehaviour
         {
             if (isPaused == false)
             {
-                Time.timeScale = 0.0f;
                 isPaused = true;
                 pause.SetActive(true);
             }
             else
             {
-                Time.timeScale = 1.0f;
                 isPaused = false;
                 pause.SetActive(false);
             }

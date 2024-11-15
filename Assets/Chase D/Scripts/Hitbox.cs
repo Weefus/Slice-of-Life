@@ -35,7 +35,7 @@ public class Hitbox : MonoBehaviour
         Hurtbox h = col.GetComponent<Hurtbox>();
         KnockbackController kb = col.GetComponent<KnockbackController>();
 
-        if (h != null && h != ignore && gameObject.tag != col.tag) //only triggers is a hurtbox exists and does not share the same parent
+        if (h != null && h != ignore && gameObject.tag != col.tag && transform.parent.tag != col.tag) //only triggers is a hurtbox exists and does not share the same parent
         {
             direction = (h.transform.position - transform.position).normalized; //sets direction for the knockback based on the positions of the hitbox and colliding hurtbox
             direction.y += 1f;
