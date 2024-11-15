@@ -39,7 +39,7 @@ public class Preperation : StateMachineBehaviour
             side = -1;
         }
 
-        target = new Vector2(9 * -side, -5);
+        target = new Vector2(18 * -side, rigid.position.y);
     }
 
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
@@ -48,11 +48,11 @@ public class Preperation : StateMachineBehaviour
         Vector2 newPos = Vector2.MoveTowards(rigid.position, target, speed * Time.fixedDeltaTime);
         rigid.MovePosition(newPos);
 
-        if (Mathf.Approximately(Mathf.Round(rigid.position.x), -side * 9))
+        if (Mathf.Approximately(Mathf.Round(rigid.position.x), -side * 16))
         {
             target.y = rigid.position.y;
             animator.GetComponent<Transform>().position = target;
-            animator.GetComponent<Transform>().localScale = new Vector3(side, 1, 1);
+            animator.GetComponent<Transform>().localScale = new Vector3(side, 3, 1);
             animator.SetTrigger("rangedPT");
         }
     }
