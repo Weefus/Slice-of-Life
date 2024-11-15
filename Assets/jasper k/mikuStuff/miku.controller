@@ -469,7 +469,7 @@ AnimatorState:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: rangePrep
-  m_Speed: 1
+  m_Speed: 0.75
   m_CycleOffset: 0
   m_Transitions:
   - {fileID: -1439001578007954537}
@@ -578,7 +578,7 @@ MonoBehaviour:
   time: 0
   interval: 0
   greyZone: 0
-  speed: 12
+  speed: 24
   attackRange: 1.5
   lastAtkSec: 0
   vertBox: 1
