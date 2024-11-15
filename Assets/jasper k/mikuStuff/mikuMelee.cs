@@ -37,7 +37,7 @@ public class mikuMelee : StateMachineBehaviour
         if (coll != null && time >= hitTime && time <= endTime && canHit == true)
         {
             Debug.Log("destroy");
-            coll.GetComponent<Player>().hp = coll.GetComponent<Player>().hp -dmg;
+            coll.GetComponent<Hurtbox>().DealDamage(dmg);
             canHit = false;
             direction = (coll.transform.position - transform.position).normalized; //sets direction for the knockback based on the positions of the hitbox and colliding hurtbox
             direction.y += 1f;
