@@ -38,14 +38,14 @@ public class Hitbox : MonoBehaviour
         if (h != null && h != ignore && gameObject.tag != col.tag) //only triggers is a hurtbox exists and does not share the same parent
         {
             direction = (h.transform.position - transform.position).normalized; //sets direction for the knockback based on the positions of the hitbox and colliding hurtbox
-            direction.y += 1f;
+            direction.y = 0.5f;
+
+            h.DealDamage(damageAmt);
 
             if (kb != null)
             {
                 kb.Knockback(direction * knockbackForce);
             }
-            
-            h.DealDamage(damageAmt);
         }
     }
 }
