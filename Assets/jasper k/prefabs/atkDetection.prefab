@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8677265227208268011}
   - component: {fileID: 6671552963288093854}
+  - component: {fileID: -2060276041478017593}
   m_Layer: 0
   m_Name: atkDetection
   m_TagString: Untagged
@@ -84,3 +85,28 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &-2060276041478017593
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7527384825825118836}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe2f3100cc96cf94f80bea32d07018b7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  canMove: 0
+  time: 0
+  mask:
+    serializedVersion: 2
+    m_Bits: 128
+  startTS: 0.5
+  endTS: 0.75
+  durationS: 1
+  coll: {fileID: 0}
+  dmg: 5
+  direction: {x: 0, y: 0}
+  force: 7
+  range: 1

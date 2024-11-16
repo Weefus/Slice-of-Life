@@ -350,9 +350,9 @@ MonoBehaviour:
   hitTime: 0.1
   endTime: 0.75
   range: 1.5
-  force: 6
+  force: 2000
   loc: {x: 0, y: 0, z: 0}
-  dmg: 1
+  dmg: 7
   mask:
     serializedVersion: 2
     m_Bits: 128

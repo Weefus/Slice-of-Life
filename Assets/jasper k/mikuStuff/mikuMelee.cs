@@ -41,7 +41,7 @@ public class mikuMelee : StateMachineBehaviour
             canHit = false;
             direction = (coll.transform.position - transform.position).normalized; //sets direction for the knockback based on the positions of the hitbox and colliding hurtbox
             direction.y += 1f;
-            coll.GetComponent<KnockbackController>().Knockback(direction * force);
+            coll.GetComponent<KnockbackController>().PlayerKnockback(direction * force);
         }
 
         
