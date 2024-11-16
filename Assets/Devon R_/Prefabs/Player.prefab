@@ -233,9 +233,9 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 10
+  m_SortingOrder: 20
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 0.9056604, g: 0.49982202, b: 0.84038264, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -332,8 +332,7 @@ MonoBehaviour:
   cam: {fileID: 0}
   jumpForce: 500
   maxSpeed: 10
-  Charsideprof: {fileID: 0}
-  Characteridle: {fileID: 0}
+  moving: 0
 --- !u!114 &7175641286490559602
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -428,6 +427,18 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: d3c21ed2-b33a-4df5-8d3b-75d7ed16549a
     m_ActionName: Platform/Fall[/Keyboard/s]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 9e329574-d8f1-42ea-ae76-173b18d5187b
+    m_ActionName: Player/LightAttack[/Mouse/leftButton]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: ac399c95-5deb-4349-ae38-6d14c200d149
+    m_ActionName: Player/HeavyAttack[/Mouse/rightButton]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 526cea85-c5c3-4db3-aaf2-8446d2b0fc7a
+    m_ActionName: Pause/Pause[/Keyboard/escape]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
@@ -449,7 +460,12 @@ MonoBehaviour:
   ult: 50
   maxHP: 100
   maxUlt: 100
-  levelNum: 1
+  uiSlider: {fileID: 0}
+  uiText: {fileID: 0}
+  spawnX: -2.2
+  spawnY: -1.8
+  dieScene: 
+  g: {fileID: 0}
 --- !u!114 &5543934252034687539
 MonoBehaviour:
   m_ObjectHideFlags: 0
