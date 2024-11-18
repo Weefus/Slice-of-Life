@@ -5,8 +5,9 @@ using UnityEngine;
 public class KnockbackController : MonoBehaviour
 {
     Rigidbody2D rb2D;
-    public float startTimer = 1;
+    public float startTimer;
     public float knockbackTimer;
+    public Vector2 kbForce;
 
     void Start()
     {
@@ -19,9 +20,25 @@ public class KnockbackController : MonoBehaviour
         {
             knockbackTimer -= Time.deltaTime;
         }
+
+        if (knockbackTimer < 0)
+        {
+            rb2D.velocity = new Vector2(0f, 0f);
+            knockbackTimer = 0;
+        }
     }
 
-    public void Knockback(Vector3 force)
+    public void PlayerKnockback(Vector2 force)
+    {
+        if (!GetComponent<Hurtbox>().invincible) 
+        {
+            knockbackTimer = startTimer;
+            rb2D.velocity = new Vector2(0f, 0f);
+            kbForce = force;
+        }  
+    }
+
+    public void Knockback(Vector2 force)
     {
         knockbackTimer = startTimer;
         rb2D.velocity = new Vector2(0f, 0f);

@@ -1,9 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
-using Unity.PlasticSCM.Editor.WebApi;
+
 using UnityEngine;
 using UnityEngine.InputSystem;
-using UnityEngine.InputSystem.XR.Haptics;
+
 
 public class MeleeBaseState : State
 {
@@ -19,9 +19,9 @@ public class MeleeBaseState : State
     protected float attackWindow;
     //Float to stop spamikng
     protected float multInput;
-
-    // These Are the variables that are the modern
-   // public AttackType currentAttack = AttackType.none;
+   
+   
+ 
 
     // The cached hit collider component of this attack
     protected Collider2D hitCollider;
@@ -42,9 +42,9 @@ public class MeleeBaseState : State
         HitEffectPrefab = GetComponent<ComboCharacter>().Hiteffect;
     }
 
-    public override void OnUpdate(AttackType currentAttack)
+    public override void OnUpdate(AttackType currentAttack, Attack1 attack1, Attack2 attack2)
     {
-        base.OnUpdate( currentAttack);
+        base.OnUpdate( currentAttack, attack1, attack2);
         AttackPressedTimer -= Time.deltaTime;
         attackWindow -= Time.deltaTime;
         // Debug.Log(attackWindow);

@@ -31,7 +31,7 @@ public class FollowPlayer : MonoBehaviour
         playerPos = player.transform.position;
         camPos = transform.position;
 
-        if (CanMove())
+        if (CanMove() && !this.CompareTag("BossCamera"))
         {
             //New Position the camera will move towards
             Vector3 newPos = new Vector3(playerPos.x + xOffset, playerPos.y + yOffset, zOffset);
