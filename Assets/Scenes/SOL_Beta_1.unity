@@ -6819,7 +6819,7 @@ PrefabInstance:
       objectReference: {fileID: 1304262191}
     - target: {fileID: 4584804558054666795, guid: 04d080101e05b6a45af6edae6c657b5d, type: 3}
       propertyPath: sceneName
-      value: SOL_miku
+      value: SOL_environment_miku
       objectReference: {fileID: 0}
     - target: {fileID: 7150959536996481280, guid: 04d080101e05b6a45af6edae6c657b5d, type: 3}
       propertyPath: m_Name
