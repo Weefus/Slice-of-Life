@@ -34,7 +34,6 @@ public class Player : MonoBehaviour
         
     }
 
-
     public void die()
     {
         g.gameObject.SetActive(true);

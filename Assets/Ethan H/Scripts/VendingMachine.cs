@@ -5,11 +5,12 @@ using UnityEngine;
 public class VendingMachine : MonoBehaviour
 {
     public GameObject[] pickupPrefab;
-    public SpriteRenderer sr;
+    SpriteRenderer sr;
     public Sprite sprite;
     float vx;
     float vy;
     float vz;
+    int hp = 1;
     int rnd;
     bool isEmpty = false;
     void Start()
@@ -29,7 +30,6 @@ public class VendingMachine : MonoBehaviour
         if (collision.CompareTag("Hitbox") && isEmpty == false)
         {
             rnd = Random.Range(0, 2);
-            Debug.Log(rnd);
             Instantiate(pickupPrefab[rnd], new Vector3(vx, vy - 1, vz), Quaternion.identity);
             isEmpty = true;
             sr.sprite = sprite;
