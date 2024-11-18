@@ -350,7 +350,7 @@ MonoBehaviour:
   hitTime: 0.1
   endTime: 0.75
   range: 1.5
-  force: 2000
+  force: 7
   loc: {x: 0, y: 0, z: 0}
   dmg: 7
   mask:
