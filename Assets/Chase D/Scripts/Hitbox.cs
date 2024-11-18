@@ -44,7 +44,7 @@ public class Hitbox : MonoBehaviour
 
             if (kb != null)
             {
-                kb.Knockback(direction * knockbackForce);
+                kb.PlayerKnockback(direction * knockbackForce);
             }
         }
     }
