@@ -48,7 +48,6 @@ public class PlayerController : MonoBehaviour
         {
             bossCam = true;
         }
-        Debug.Log(bossCam);
     }
 
     //you need to add a tag for your ground object for this to work properly
