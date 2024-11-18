@@ -11,8 +11,9 @@ public class PlayerController : MonoBehaviour
     KnockbackController kb;
     Dash dash;
     FollowPlayer fPlayer;
-    public Camera cam;
+    Camera cam;
     Animator characterAnim;
+
 
     //Amount of force the jump uses
     public int jumpForce = 600;
@@ -29,21 +30,24 @@ public class PlayerController : MonoBehaviour
     //Check to see if player has already used their jump/in-air
     private bool jumped = false;
     public bool moving = false;
+    private bool reTurn = false;
+    private float waiting = 0f;
+    private float waitTime = 2f;
 
 
     // Use this for initialization
     void Start()
     {
+        cam = FindAnyObjectByType<Camera>();
         characterAnim = GetComponent<Animator>();
         myRB = GetComponent<Rigidbody2D>();
         kb = GetComponent<KnockbackController>();
         dash = GetComponent<Dash>();
         fPlayer = cam.GetComponent<FollowPlayer>();
-        if (cam.CompareTag("BossCamera") || cam == null)
+        if (GameObject.FindGameObjectWithTag("BossCamera") || cam == null)
         {
             bossCam = true;
         }
-     
     }
 
     //you need to add a tag for your ground object for this to work properly
@@ -73,26 +77,30 @@ public class PlayerController : MonoBehaviour
     {
         isDashing = dash.isDashing;
         characterAnim.SetBool("isDashing", true);
-
-        //Can't move during knockback
-        if (kb != null && kb.knockbackTimer > 0)
-        {
-            if (dash.isDashing)
-            {
-                kb.knockbackTimer = 0;
-            }
-            return;
-        }
+        
 
         //Can't move during a dash
         if (isDashing)
         {
             return;
         }
+
+        if (moving)
+        {
+            reTurn = false;
+        }
         
         //safety about not moving during dash
         if(!isDashing)
             myRB.velocity = new Vector2(speedMulti * maxSpeed, myRB.velocity.y);
+
+
+        if (kb.knockbackTimer > 0)
+        {
+            myRB.velocity = kb.kbForce - myRB.velocity;
+
+            Debug.Log(myRB.velocity);
+        }
 
         if (!bossCam && moving && transform.localScale.x > 0)
         {
@@ -119,17 +127,28 @@ public class PlayerController : MonoBehaviour
 
         if(!bossCam && !moving)
         {
-            if (fPlayer.xOffset > 0)
+            if (!Mathf.Approximately(waiting, waitTime))
+            {
+                waiting += Time.deltaTime;
+            }
+            else
+            {
+                reTurn = true;
+                waiting = 0f;
+            }
+
+            if (fPlayer.xOffset > 0 && reTurn)
             {
                 fPlayer.xOffset -= 5 * Time.fixedDeltaTime;
             }
-            else if(fPlayer.xOffset < 0)
+            else if(fPlayer.xOffset < 0 && reTurn)
             {
                 fPlayer.xOffset += 5 * Time.fixedDeltaTime;
             }
             else if(Mathf.Approximately(fPlayer.xOffset, 0))
             {
                 fPlayer.xOffset = 0;
+                reTurn = false;
             }
         }
     }

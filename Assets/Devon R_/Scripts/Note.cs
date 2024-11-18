@@ -24,7 +24,7 @@ public class Note : MonoBehaviour
             speedMulti = 1;
         }
 
-        angle = Mathf.Acos((Mathf.Abs(rigid.position.x) - 9) / (speedMulti * 1.5f));
+        angle = Mathf.Acos((Mathf.Abs(rigid.position.x) - 18) / (speedMulti * 1.5f));
     }
 
     // Update is called once per frame
@@ -40,7 +40,7 @@ public class Note : MonoBehaviour
         }
         
 
-        if (Mathf.Abs(rigid.position.x) > 10 || rigid.position.y > 20)
+        if (Mathf.Abs(rigid.position.x) > 20 || rigid.position.y > 20)
         {
             Destroy(gameObject);
         }
