@@ -144,11 +144,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7177105763437749660, guid: a1e40c61f38d3d34186678b589dacdfe, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 8.92
+      value: 8.12
       objectReference: {fileID: 0}
     - target: {fileID: 7177105763437749660, guid: a1e40c61f38d3d34186678b589dacdfe, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.57
+      value: 1.22
       objectReference: {fileID: 0}
     - target: {fileID: 7177105763437749660, guid: a1e40c61f38d3d34186678b589dacdfe, type: 3}
       propertyPath: m_LocalPosition.z
@@ -200,11 +200,6 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 1872436989}
   m_SourcePrefab: {fileID: 100100000, guid: a1e40c61f38d3d34186678b589dacdfe, type: 3}
---- !u!20 &380018085 stripped
-Camera:
-  m_CorrespondingSourceObject: {fileID: 6846414620656032797, guid: 5d7766f7b7963fd4ea85d43e5ea93730, type: 3}
-  m_PrefabInstance: {fileID: 759106275}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &619394800
 GameObject:
   m_ObjectHideFlags: 0
@@ -522,6 +517,7 @@ MonoBehaviour:
   player: {fileID: 7365905300880132999}
   zombClass: {fileID: 1872436988}
   ui: {fileID: 0}
+  invincible: 0
 --- !u!114 &1872436988 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3396902734536573614, guid: a1e40c61f38d3d34186678b589dacdfe, type: 3}
@@ -547,6 +543,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startTimer: 1
   knockbackTimer: 0
+  kbForce: {x: 0, y: 0}
 --- !u!1001 &65963356460642282
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -559,10 +556,6 @@ PrefabInstance:
       propertyPath: zombClass
       value: 
       objectReference: {fileID: 1872436988}
-    - target: {fileID: 4730762435024850619, guid: c4bbe6cb242e12c42a01b198462789a3, type: 3}
-      propertyPath: cam
-      value: 
-      objectReference: {fileID: 380018085}
     - target: {fileID: 5184942824323944038, guid: c4bbe6cb242e12c42a01b198462789a3, type: 3}
       propertyPath: m_Name
       value: Player
