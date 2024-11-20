@@ -16021,6 +16021,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 1635954445190351197, guid: c4bbe6cb242e12c42a01b198462789a3, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1635954445190351197, guid: c4bbe6cb242e12c42a01b198462789a3, type: 3}
       propertyPath: m_TagString
       value: Hitbox
       objectReference: {fileID: 0}
