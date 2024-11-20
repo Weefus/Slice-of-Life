@@ -28,15 +28,18 @@ public class FollowPlayer : MonoBehaviour
     }
     private void LateUpdate()
     {
-        playerPos = player.transform.position;
-        camPos = transform.position;
-
-        if (CanMove() && !this.CompareTag("BossCamera"))
+        if (player != null)
         {
-            //New Position the camera will move towards
-            Vector3 newPos = new Vector3(playerPos.x + xOffset, playerPos.y + yOffset, zOffset);
-            //The camera moving to the new position
-            transform.position = Vector3.Slerp(camPos, newPos, speed * Time.deltaTime);
+            playerPos = player.transform.position;
+            camPos = transform.position;
+
+            if (CanMove() && !this.CompareTag("BossCamera"))
+            {
+                //New Position the camera will move towards
+                Vector3 newPos = new Vector3(playerPos.x + xOffset, playerPos.y + yOffset, zOffset);
+                //The camera moving to the new position
+                transform.position = Vector3.Slerp(camPos, newPos, speed * Time.deltaTime);
+            }
         }
     }
 
