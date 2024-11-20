@@ -50,7 +50,7 @@ public class leak : MonoBehaviour
             KnockbackController kb = col.GetComponent<KnockbackController>();
             direction = (h.transform.position - transform.position).normalized; //sets direction for the knockback based on the positions of the hitbox and colliding hurtbox
             direction.y += 1f;
-            kb.Knockback(direction * knockbackForce);
+            kb.PlayerKnockback(direction * knockbackForce);
             h.DealDamage(damageAmt);
         }
         if (col.tag == "Miku")

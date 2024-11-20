@@ -53,7 +53,7 @@ public class attack : MonoBehaviour
                     direction = (coll.transform.position - transform.position).normalized;
                     Debug.Log(direction);
                     direction.y += 1f;
-                    coll.GetComponent<KnockbackController>().Knockback(direction * force);
+                    coll.GetComponent<KnockbackController>().PlayerKnockback(direction * force);
                 }
             }
         }

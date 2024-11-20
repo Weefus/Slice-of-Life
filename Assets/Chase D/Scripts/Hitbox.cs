@@ -32,6 +32,7 @@ public class Hitbox : MonoBehaviour
             return;
         }
 
+        Player player = col.GetComponentInParent<Player>();
         Hurtbox h = col.GetComponent<Hurtbox>();
         KnockbackController kb = col.GetComponent<KnockbackController>();
 
@@ -44,7 +45,13 @@ public class Hitbox : MonoBehaviour
 
             if (kb != null)
             {
-                kb.Knockback(direction * knockbackForce);
+                if (player != null)
+                {
+                    kb.PlayerKnockback(direction * knockbackForce);
+                } else
+                {
+                    kb.Knockback(direction * knockbackForce);
+                }
             }
         }
     }
