@@ -8,9 +8,11 @@ public class KnockbackController : MonoBehaviour
     public float startTimer;
     public float knockbackTimer;
     public Vector2 kbForce;
+    public Hurtbox hb;
 
     void Start()
     {
+        hb = GetComponent<Hurtbox>();
         rb2D = gameObject.GetComponent<Rigidbody2D>();
     }
 
@@ -30,7 +32,7 @@ public class KnockbackController : MonoBehaviour
 
     public void PlayerKnockback(Vector2 force)
     {
-        if (!GetComponent<Hurtbox>().invincible) 
+        if (!hb.invincible) 
         {
             knockbackTimer = startTimer;
             rb2D.velocity = new Vector2(0f, 0f);
