@@ -27,13 +27,13 @@ public class LightEntryState : MeleeBaseState
                 base.OnUpdate(currentAttack, attack1, attack2);
 
         attack1 = Attack1.light;
-        
+
         //Debug.Log(multInput);
-       if (multInput > 0) 
-        { 
-        if (currentAttack == AttackType.light)
+        if (multInput > 0)
+        {
+            if (currentAttack == AttackType.light)
             {
-                stateMachine.SetNextStateToMain();
+                stateMachine.SetNextState(new SpamCooldownState());
             }
         }
      
