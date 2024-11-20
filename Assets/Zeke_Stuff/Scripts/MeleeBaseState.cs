@@ -55,11 +55,7 @@ public class MeleeBaseState : State
             Attack();
         }
 
-        if (currentAttack == State.AttackType.light || Input.GetMouseButtonDown(1))
-        {
-            attackWindow += 5;
-           //Debug.Log("Attacked");
-        }
+
        
        
     }
