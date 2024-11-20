@@ -98,8 +98,6 @@ public class PlayerController : MonoBehaviour
         if (kb.knockbackTimer > 0)
         {
             myRB.velocity = kb.kbForce - myRB.velocity;
-
-            Debug.Log(myRB.velocity);
         }
 
         if (!bossCam && moving && transform.localScale.x > 0)
