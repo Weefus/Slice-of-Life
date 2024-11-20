@@ -14,6 +14,7 @@ public class StateMachine : MonoBehaviour
     public State.AttackType currentAttack  {get;  set;}
     public State.Attack1 attack1 {get; set;}
     public State.Attack2 attack2 {get; set;}
+    private float cooldown;
 
     private void Start()
     {
@@ -24,7 +25,8 @@ public class StateMachine : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-       
+       cooldown -= Time.deltaTime;
+
         if (nextState != null)
         {
             SetState(nextState);
@@ -97,6 +99,16 @@ public class StateMachine : MonoBehaviour
             {
                 mainStateType = new IdleCombatState();
             }
+        }
+    }
+
+    public void SpamCooldown()
+    {
+        Debug.Log(cooldown);
+        cooldown = 0.25f;
+        if (cooldown < 0)
+        {
+            SetNextStateToMain();
         }
     }
     
