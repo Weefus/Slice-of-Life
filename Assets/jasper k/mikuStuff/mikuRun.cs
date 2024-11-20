@@ -14,9 +14,9 @@ public class mikuRun : StateMachineBehaviour
     public float greyZone;
     public float speed;
     private Rigidbody2D rigid;
-    public float attackRange = 1.5f;
-    public float lastAtkSec = 0;
-    public float vertBox = 1;
+    //public float attackRange = 1.5f;
+    //public float lastAtkSec = 0;
+    //public float vertBox = 1;
 
 
 
@@ -34,7 +34,6 @@ public class mikuRun : StateMachineBehaviour
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         time = time + Time.deltaTime;
-        lastAtkSec = lastAtkSec + Time.deltaTime;
         closestPlyr = getClosestPlayer(animator);
 
         if (time > interval)
@@ -60,18 +59,22 @@ public class mikuRun : StateMachineBehaviour
         if (rigid.velocity == new Vector2(0, 0))
         {
             animator.GetComponent<Transform>().Translate(Vector3.right * speed * Time.deltaTime * playerDirct);
+            if (Mathf.Abs(players[closestPlyr].transform.position.x - rigid.GetComponent<Transform>().position.x) < 5) {
+                animator.SetTrigger("end move");
+                animator.SetTrigger("leakMeleeT");
+            }
         }
 
-        if (Mathf.Abs(players[closestPlyr].transform.position.x - animator.GetComponent<Transform>().transform.position.x) <= attackRange && players[closestPlyr].transform.position.y <= -3.25)
-        {
-            animator.SetTrigger("leakMeleeT");
-            lastAtkSec = 0;
-        }
-        else if (lastAtkSec >= 5.0f) {
-            lastAtkSec = 0;
-            animator.SetTrigger("rangedT");
+        //if (Mathf.Abs(players[closestPlyr].transform.position.x - animator.GetComponent<Transform>().transform.position.x) <= attackRange && players[closestPlyr].transform.position.y <= -3.25)
+        //{
+        //    animator.SetTrigger("leakMeleeT");
+        //    lastAtkSec = 0;
+        //}
+        //else if (lastAtkSec >= 5.0f) {
+        //    lastAtkSec = 0;
+        //    animator.SetTrigger("rangedT");
             
-        }
+        //}
 
     }
 

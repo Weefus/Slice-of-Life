@@ -9,48 +9,99 @@ public class mikuMelee : StateMachineBehaviour
     public float hitTime;
     public float endTime;
     private Transform transform;
-    public float range;
-    public int force;
     public Vector3 loc;
-    public float dmg;
-    private Vector3 direction;
-    private bool canHit;
-    public LayerMask mask;
-    private Collider2D coll;
+    public Hitbox hitBox;
+    private bool NotActive;
+    public Hitbox cHitBox;
+    public GameObject[] players;
+    public int closestPlyr = 0;
+    public float playerDirct = 1.0f;
+    public float dist1;
+    public float dist2;
+    public float speed;
+    private Rigidbody2D rigid;
 
 
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        transform = animator.GetComponent<Transform>();
-        canHit = true;
+        time = 0;
+        NotActive = true;
+        players = GameObject.FindGameObjectsWithTag("Player");
+        closestPlyr = getClosestPlayer(animator);
+        rigid = animator.GetComponent<Rigidbody2D>();
     }
 
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
+        time = time + Time.deltaTime;
 
-        time += Time.deltaTime;
-        loc = new Vector3(transform.position.x + (transform.localScale.x * range), transform.position.y, transform.position.z);
-        coll = Physics2D.OverlapCircle(loc, range, mask);
-
-        if (coll != null && time >= hitTime && time <= endTime && canHit == true)
-        {
-            Debug.Log("destroy");
-            coll.GetComponent<Hurtbox>().DealDamage(dmg);
-            canHit = false;
-            direction = (coll.transform.position - transform.position).normalized; //sets direction for the knockback based on the positions of the hitbox and colliding hurtbox
-            direction.y += 1f;
-            coll.GetComponent<KnockbackController>().PlayerKnockback(direction * force);
+        if (time > hitTime && NotActive) {
+            
+            cHitBox = Instantiate(hitBox, (animator.transform.position + (1 * animator.transform.localScale)), hitBox.transform.rotation, animator.transform);
+            NotActive = false;
         }
 
-        
+        if (time > endTime) {
+            Destroy(cHitBox);
+        }
+
+        if (time > hitTime) {
+            if (players[closestPlyr].transform.position.x > animator.GetComponent<Transform>().position.x)
+            {
+                playerDirct = 1.0f;
+            }
+            else
+            {
+                playerDirct = -1.0f;
+            }
+            animator.GetComponent<Transform>().localScale = new Vector3(playerDirct, animator.GetComponent<Transform>().localScale.y, animator.GetComponent<Transform>().localScale.z);
+
+            if (rigid.velocity == new Vector2(0, 0))
+            {
+                animator.GetComponent<Transform>().Translate(Vector3.right * speed * Time.deltaTime * playerDirct);
+                if (Mathf.Abs(players[closestPlyr].transform.position.x - rigid.GetComponent<Transform>().position.x) < 5)
+                {
+                    
+                }
+            }
+
+
+        }
+
+
+
+
+
+
     }
 
     // OnStateExit is called when a transition ends and the state machine finishes evaluating this state
     override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        
-        time = 0;
+        time = 0f;
+
+    }
+
+
+    private int getClosestPlayer(Animator animator)
+    {
+
+
+        if (players.Length <= 1)
+        {
+            return 0;
+        }
+
+        dist1 = Mathf.Abs(players[1].transform.position.x - animator.GetComponent<Transform>().position.x);
+        dist2 = Mathf.Abs(players[0].transform.position.x - animator.GetComponent<Transform>().position.x);
+
+
+        if (dist1 > dist2)
+        {
+            return 0;
+        }
+        else { return 1; }
     }
 }

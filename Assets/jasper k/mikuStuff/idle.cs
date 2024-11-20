@@ -35,7 +35,10 @@ public class idle : StateMachineBehaviour
     // OnStateExit is called when a transition ends and the state machine finishes evaluating this state
     override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
+        //for each attack add its trigger to a string array if the closer player is within a area that generaly represents 
+        //the attack affected area
 
+        //get a random element from the previously created array and set the triger for that element/attack
     }
 
     private int getClosestPlayer(Animator animator)
