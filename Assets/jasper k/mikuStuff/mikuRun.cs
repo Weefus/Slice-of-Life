@@ -14,6 +14,9 @@ public class mikuRun : StateMachineBehaviour
     public float greyZone;
     public float speed;
     private Rigidbody2D rigid;
+    public float meleeRange;
+    public float rangedRange;
+    private float dist;
     //public float attackRange = 1.5f;
     //public float lastAtkSec = 0;
     //public float vertBox = 1;
@@ -84,6 +87,24 @@ public class mikuRun : StateMachineBehaviour
         animator.ResetTrigger("leakMeleeT");
         animator.ResetTrigger("rangedT");
         time = 0f;
+        List<string> attacks = new List<string>();
+        dist = players[closestPlyr].transform.position.x - rigid.transform.position.x;
+        if ((dist <= meleeRange && dist >= 0) || (dist >= -meleeRange && dist <= 0))
+        {
+            attacks.Add("leakMeleeT");
+        }
+        if ((dist <= rangedRange && dist >= 0) || (dist >= -rangedRange && dist <= 0))
+        {
+            attacks.Add("rangedT");
+        }
+        if (attacks.Count == 0)
+        {
+            animator.SetTrigger("move");
+        }
+        else
+        {
+            animator.SetTrigger(attacks[Random.Range(0, attacks.Count)]);
+        }
     }
 
     private int getClosestPlayer(Animator animator)

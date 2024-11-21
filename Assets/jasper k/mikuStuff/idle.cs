@@ -12,6 +12,9 @@ public class idle : StateMachineBehaviour
     public float interval;
     public float greyZone;
     private Rigidbody2D rigid;
+    public float meleeRange;
+    private float dist;
+    public float rangedRange;
     
 
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
@@ -20,6 +23,7 @@ public class idle : StateMachineBehaviour
         players = GameObject.FindGameObjectsWithTag("Player");
         closestPlyr = getClosestPlayer(animator);
         rigid = animator.GetComponent<Rigidbody2D>();
+        
     }
 
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
@@ -36,6 +40,23 @@ public class idle : StateMachineBehaviour
     override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         //for each attack add its trigger to a string array if the closer player is within a area that generaly represents 
+        List<string> attacks = new List<string>();
+        dist = players[closestPlyr].transform.position.x - rigid.transform.position.x;
+        if ((dist <= meleeRange && dist >= 0) || (dist >= -meleeRange && dist <= 0)) {
+            attacks.Add("leakMeleeT");
+        }
+        if ((dist <= rangedRange && dist >= 0) || (dist >= -rangedRange && dist <= 0))
+        {
+            attacks.Add("rangedT");
+        }
+        if (attacks.Count == 0) {
+            animator.SetTrigger("move");
+        }
+        else {
+            animator.SetTrigger(attacks[Random.Range(0,attacks.Count) ] );
+        }
+
+
         //the attack affected area
 
         //get a random element from the previously created array and set the triger for that element/attack

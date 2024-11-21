@@ -20,6 +20,8 @@ public class mikuMelee : StateMachineBehaviour
     public float dist2;
     public float speed;
     private Rigidbody2D rigid;
+    public float range;
+    private float newLoc;
 
 
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
@@ -30,6 +32,15 @@ public class mikuMelee : StateMachineBehaviour
         players = GameObject.FindGameObjectsWithTag("Player");
         closestPlyr = getClosestPlayer(animator);
         rigid = animator.GetComponent<Rigidbody2D>();
+        if (players[closestPlyr].transform.position.x > animator.GetComponent<Transform>().position.x)
+        {
+            playerDirct = 1.0f;
+        }
+        else
+        {
+            playerDirct = -1.0f;
+        }
+        newLoc = rigid.transform.position.x + (range * playerDirct);
     }
 
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
@@ -37,9 +48,9 @@ public class mikuMelee : StateMachineBehaviour
     {
         time = time + Time.deltaTime;
 
-        if (time > hitTime && NotActive) {
+        if (time < endTime && time > hitTime && NotActive) {
             
-            cHitBox = Instantiate(hitBox, (animator.transform.position + (1 * animator.transform.localScale)), hitBox.transform.rotation, animator.transform);
+            cHitBox = Instantiate(hitBox, new Vector3(animator.transform.position.x + (1 * animator.transform.localScale.x), animator.transform.position.y, animator.transform.position.z), hitBox.transform.rotation, animator.transform);
             NotActive = false;
         }
 
@@ -47,24 +58,14 @@ public class mikuMelee : StateMachineBehaviour
             Destroy(cHitBox);
         }
 
-        if (time > hitTime) {
-            if (players[closestPlyr].transform.position.x > animator.GetComponent<Transform>().position.x)
-            {
-                playerDirct = 1.0f;
-            }
-            else
-            {
-                playerDirct = -1.0f;
-            }
-            animator.GetComponent<Transform>().localScale = new Vector3(playerDirct, animator.GetComponent<Transform>().localScale.y, animator.GetComponent<Transform>().localScale.z);
+        if (time > hitTime && !Mathf.Approximately(rigid.transform.position.x, newLoc)) {
+            
+            
 
             if (rigid.velocity == new Vector2(0, 0))
             {
                 animator.GetComponent<Transform>().Translate(Vector3.right * speed * Time.deltaTime * playerDirct);
-                if (Mathf.Abs(players[closestPlyr].transform.position.x - rigid.GetComponent<Transform>().position.x) < 5)
-                {
-                    
-                }
+                
             }
 
 
@@ -81,6 +82,16 @@ public class mikuMelee : StateMachineBehaviour
     override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         time = 0f;
+
+        if (players[closestPlyr].transform.position.x > animator.GetComponent<Transform>().position.x)
+        {
+            playerDirct = 1.0f;
+        }
+        else
+        {
+            playerDirct = -1.0f;
+        }
+        animator.GetComponent<Transform>().localScale = new Vector3(playerDirct, animator.GetComponent<Transform>().localScale.y, animator.GetComponent<Transform>().localScale.z);
 
     }
 
