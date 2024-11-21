@@ -10,11 +10,13 @@ public class basicZombClass : MonoBehaviour
     public float atkStartUp;
     public float atkEnd;
     public float atkCd;
+    public float maxHP;
 
     // Start is called before the first frame update
     void Start()
     {
         player = (Player)FindObjectOfType(typeof(Player));
+        maxHP = hp;
     }
 
     private void Update()
