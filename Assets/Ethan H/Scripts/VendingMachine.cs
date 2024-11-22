@@ -10,7 +10,6 @@ public class VendingMachine : MonoBehaviour
     float vx;
     float vy;
     float vz;
-    int hp = 1;
     int rnd;
     bool isEmpty = false;
     void Start()

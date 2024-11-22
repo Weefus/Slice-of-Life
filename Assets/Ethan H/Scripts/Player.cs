@@ -23,16 +23,33 @@ public class Player : MonoBehaviour
     string currentScene;
     public float score = 20;
     public bool isDead = false;
+    public float stamina = 0.0f;
+    private Dash dash;
     void Start()
     {
         uiSlider.updateHP();
         uiText.updateHP();
         g.gameObject.SetActive(false);
+        dash = GetComponent<Dash>();
     }
 
     void Update()
     {
-        
+        stamina += 0.0086f;
+
+        if (stamina >= 1)
+        {
+            dash.canDash = true;
+        }
+        else
+        {
+            dash.canDash = false;
+        }
+
+        if (dash.isDashing == true)
+        {
+            stamina = 0;
+        }
     }
 
     public void die()

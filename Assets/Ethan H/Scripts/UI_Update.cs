@@ -25,14 +25,14 @@ public class UI_Update : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        
     }
 
     public void updateHP()
     {
         hpBar.maxValue = player.maxHP;
         hpBar.value = player.hp;
-        hpText.text = "HP: " + (player.hp);
+        hpText.text = "" + player.hp;
     }
 
     public void updateScore()
