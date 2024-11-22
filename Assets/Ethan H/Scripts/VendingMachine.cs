@@ -5,7 +5,7 @@ using UnityEngine;
 public class VendingMachine : MonoBehaviour
 {
     public GameObject[] pickupPrefab;
-    SpriteRenderer sr;
+    public SpriteRenderer sr;
     public Sprite sprite;
     float vx;
     float vy;

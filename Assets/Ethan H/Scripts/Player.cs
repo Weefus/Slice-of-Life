@@ -15,6 +15,7 @@ public class Player : MonoBehaviour
     public float maxUlt = 100;
     public UI_Update uiSlider;
     public UI_Update uiText;
+    public UI_Update ultText;
     public float spawnX = -2.2f;
     public float spawnY = -1.8f;
     public string dieScene;
@@ -60,15 +61,15 @@ public class Player : MonoBehaviour
         uiText.updateScore();
     }
 
-    /*public void increaseUlt(float u)
+    public void increaseUlt(float u)
     {
         ult += u;
         if (ult > maxUlt) 
         {
             ult = maxUlt;
         }
-        ui.updateUlt();
-    }*/
+        ultText.updateUlt();
+    }
 
     public void decreaseHP(float h)
     {

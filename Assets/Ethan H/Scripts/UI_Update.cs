@@ -18,7 +18,7 @@ public class UI_Update : MonoBehaviour
         player = (Player)FindObjectOfType(typeof(Player));
         Debug.Log(player.name);
         updateHP();
-        //updateUlt();
+        updateUlt();
         updateScore();
     }
 
@@ -41,8 +41,8 @@ public class UI_Update : MonoBehaviour
         scoreText.text = "Score: \n" + player.score;
     }
 
-   /* public void updateUlt()
+   public void updateUlt()
     {
-        ultText.text = "ULT: " + (player.ult);
-    }*/
+        ultText.text = (player.ult) + "%";
+    }
 }
