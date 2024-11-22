@@ -10,19 +10,14 @@ public class HeavyEntryState : MeleeBaseState
         base.OnEnter(stateMachine);
 
         // attack
-        attackWindow = 10;
+        attackWindow = 0.75f;
         attackIndex = 4;
         duration = 1.5f;
         multInput = 1.0f;
         animator.SetTrigger("Attack" + attackIndex);
         //  Debug.Log("Player Attack" + attackIndex + "fired!");
         
-      /*
-        Debug.Log(light1);
-        Debug.Log(light2);
-        Debug.Log(heavy1);
-        Debug.Log(heavy2);
-      */
+   
     }
     public override void OnUpdate(AttackType currentAttack, Attack1 attack1, Attack2 attack2)
     {
@@ -33,7 +28,9 @@ public class HeavyEntryState : MeleeBaseState
         {
             if (currentAttack == AttackType.heavy)
             {
-                stateMachine.SetNextStateToMain();
+                stateMachine.SetNextState(new SpamCooldownState());
+
+
             }
         }
 

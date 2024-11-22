@@ -19,8 +19,7 @@ public class LHLFinisherState : MeleeBaseState
         base.OnUpdate(currentAttack, attack1, attack2);
         if (fixedtime >= duration)
         {
-            attack1 = Attack1.none;
-            attack2 = Attack2.none;
+          
             stateMachine.SetNextStateToMain();
         }
 

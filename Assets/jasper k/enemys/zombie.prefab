@@ -181,6 +181,7 @@ MonoBehaviour:
   greyZone: 2
   speedVariation: 2
   canMove: 0
+  kb: {fileID: 0}
 --- !u!114 &3396902734536573614
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -194,6 +195,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hp: 10
+  player: {fileID: 0}
   atkStartUp: 20
   atkEnd: 20
   atkCd: 10
@@ -212,7 +214,6 @@ MonoBehaviour:
   player: {fileID: 0}
   zombClass: {fileID: 3396902734536573614}
   ui: {fileID: 0}
-  invincibleTimer: 0
   invincible: 0
 --- !u!114 &5014723750417441901
 MonoBehaviour:
@@ -398,9 +399,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 7527384825825118836, guid: fec34bb0cf7cb254aa49e02198e5d7b4, type: 3}
       insertIndex: -1
       addedObject: {fileID: 4431552089015497448}
-    - targetCorrespondingSourceObject: {fileID: 7527384825825118836, guid: fec34bb0cf7cb254aa49e02198e5d7b4, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 6234188190505358789}
   m_SourcePrefab: {fileID: 100100000, guid: fec34bb0cf7cb254aa49e02198e5d7b4, type: 3}
 --- !u!4 &4822540290773011719 stripped
 Transform:
@@ -457,28 +455,3 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!114 &6234188190505358789
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5976391647266152344}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe2f3100cc96cf94f80bea32d07018b7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  canMove: 0
-  time: 0
-  mask:
-    serializedVersion: 2
-    m_Bits: 128
-  startTS: 0.5
-  endTS: 0.75
-  durationS: 1
-  coll: {fileID: 0}
-  dmg: 5
-  direction: {x: 0, y: 0, z: 0}
-  force: 12
-  range: 3
