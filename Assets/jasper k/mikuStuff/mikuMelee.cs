@@ -93,6 +93,8 @@ public class mikuMelee : StateMachineBehaviour
         }
         animator.GetComponent<Transform>().localScale = new Vector3(playerDirct, animator.GetComponent<Transform>().localScale.y, animator.GetComponent<Transform>().localScale.z);
 
+
+
     }
 
 

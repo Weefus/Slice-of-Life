@@ -31,8 +31,12 @@ public class idle : StateMachineBehaviour
     {
         
         closestPlyr = getClosestPlayer(animator);
+        Debug.Log(animator.GetComponent<basicZombClass>().hp);
+        Debug.Log(animator.GetComponent<basicZombClass>().maxHP * .5);
+        Debug.Log("endset");
         if (animator.GetComponent<basicZombClass>().hp <= (animator.GetComponent<basicZombClass>().maxHP * .5)) {
             animator.SetTrigger("50%<");
+            Debug.Log("trigger");
         }
     }
 
