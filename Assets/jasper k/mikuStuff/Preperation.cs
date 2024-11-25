@@ -33,10 +33,12 @@ public class Preperation : StateMachineBehaviour
         if (players[closestPlyr].transform.position.x >= 0)
         {
             side = 1;
+           
         }
         else
         {
             side = -1;
+            
         }
 
         target = new Vector2(18 * -side, rigid.position.y);
@@ -47,6 +49,7 @@ public class Preperation : StateMachineBehaviour
     {
         Vector2 newPos = Vector2.MoveTowards(rigid.position, target, speed * Time.fixedDeltaTime);
         rigid.MovePosition(newPos);
+        
 
         if (Mathf.Approximately(Mathf.Round(rigid.position.x), -side * 16))
         {
