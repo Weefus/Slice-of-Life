@@ -8,6 +8,7 @@ public class HeavyFinisherState : MeleeBaseState
     {
         base.OnEnter(stateMachine);
 
+        stateMachine.isFinisher = true;
         // attack
         attackIndex = 6;
         duration = 1.5f;

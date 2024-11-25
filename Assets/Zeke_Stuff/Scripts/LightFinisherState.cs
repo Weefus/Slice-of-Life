@@ -8,6 +8,7 @@ public class LightFinisherState : MeleeBaseState
     {
         base.OnEnter(stateMachine);
 
+        stateMachine.isFinisher = true;
         // attack
         attackIndex = 3;
         duration = 1.5f;
