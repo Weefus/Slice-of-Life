@@ -15507,6 +15507,10 @@ PrefabInstance:
       propertyPath: m_ActionEvents.Array.data[6].m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 686077461}
+    - target: {fileID: 7962113528625470170, guid: c4bbe6cb242e12c42a01b198462789a3, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 1304262191}
     - target: {fileID: 8089955248204145208, guid: c4bbe6cb242e12c42a01b198462789a3, type: 3}
       propertyPath: g
       value: 
@@ -15523,6 +15527,10 @@ PrefabInstance:
       propertyPath: uiText
       value: 
       objectReference: {fileID: 954165182}
+    - target: {fileID: 8089955248204145208, guid: c4bbe6cb242e12c42a01b198462789a3, type: 3}
+      propertyPath: ultText
+      value: 
+      objectReference: {fileID: 1628991239}
     - target: {fileID: 8089955248204145208, guid: c4bbe6cb242e12c42a01b198462789a3, type: 3}
       propertyPath: uiSlider
       value: 
@@ -31977,6 +31985,17 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1628991239 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5575381804816738587, guid: 2e59356c6021074418d561bbe6fef63e, type: 3}
+  m_PrefabInstance: {fileID: 9073552571825891150}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f96fe2fba0193144aaf2167c402864cd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1630430790
 GameObject:
   m_ObjectHideFlags: 0

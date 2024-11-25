@@ -10,7 +10,7 @@ public class Player : MonoBehaviour
 {
 
     public float hp = 50;
-    public float ult = 50;
+    public float ult = 0;
     public float maxHP = 100;
     public float maxUlt = 100;
     public UI_Update uiSlider;
