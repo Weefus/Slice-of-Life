@@ -67,7 +67,7 @@ public class attack : MonoBehaviour
     {
         
         if (col.tag == "Player") { 
-            Debug.Log("triggered");
+            
             isAtking = true;
             canMove=false;
             transform.parent.GetComponent<zombieMove>().canMove = false;
