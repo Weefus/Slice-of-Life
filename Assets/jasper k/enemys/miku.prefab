@@ -177,6 +177,7 @@ MonoBehaviour:
   player: {fileID: 0}
   zombClass: {fileID: 0}
   ui: {fileID: 0}
+  invincible: 0
 --- !u!114 &3079297330362526297
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -189,10 +190,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1e8865fe4e84985428b737eee662ad62, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hp: 200
+  hp: 50
+  player: {fileID: 0}
   atkStartUp: 0
   atkEnd: 0
   atkCd: 0
+  maxHP: 0
 --- !u!95 &5706981448708608788
 Animator:
   serializedVersion: 5

@@ -50,9 +50,12 @@ public class attack : MonoBehaviour
 
                     coll.GetComponent<Hurtbox>().DealDamage(dmg);
                     canHit = false;
-                    direction = (coll.transform.position - transform.position).normalized;
-                    Debug.Log(direction);
+                    direction = (coll.transform.position - transform.parent.position).normalized;
+                    //Debug.Log(direction);
+                    
+                    
                     direction.y += 1f;
+                    
                     coll.GetComponent<KnockbackController>().PlayerKnockback(direction * force);
                 }
             }

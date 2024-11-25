@@ -29,7 +29,6 @@ public class VendingMachine : MonoBehaviour
         if (collision.CompareTag("Hitbox") && isEmpty == false)
         {
             rnd = Random.Range(0, 2);
-            Debug.Log(rnd);
             Instantiate(pickupPrefab[rnd], new Vector3(vx, vy - 1, vz), Quaternion.identity);
             isEmpty = true;
             sr.sprite = sprite;

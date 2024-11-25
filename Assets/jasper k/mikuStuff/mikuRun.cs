@@ -14,9 +14,12 @@ public class mikuRun : StateMachineBehaviour
     public float greyZone;
     public float speed;
     private Rigidbody2D rigid;
-    public float attackRange = 1.5f;
-    public float lastAtkSec = 0;
-    public float vertBox = 1;
+    public float meleeRange;
+    public float rangedRange;
+    private float dist;
+    //public float attackRange = 1.5f;
+    //public float lastAtkSec = 0;
+    //public float vertBox = 1;
 
 
 
@@ -34,7 +37,6 @@ public class mikuRun : StateMachineBehaviour
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         time = time + Time.deltaTime;
-        lastAtkSec = lastAtkSec + Time.deltaTime;
         closestPlyr = getClosestPlayer(animator);
 
         if (time > interval)
@@ -60,18 +62,22 @@ public class mikuRun : StateMachineBehaviour
         if (rigid.velocity == new Vector2(0, 0))
         {
             animator.GetComponent<Transform>().Translate(Vector3.right * speed * Time.deltaTime * playerDirct);
+            if (Mathf.Abs(players[closestPlyr].transform.position.x - rigid.GetComponent<Transform>().position.x) < 5) {
+                animator.SetTrigger("end move");
+                animator.SetTrigger("leakMeleeT");
+            }
         }
 
-        if (Mathf.Abs(players[closestPlyr].transform.position.x - animator.GetComponent<Transform>().transform.position.x) <= attackRange && players[closestPlyr].transform.position.y <= -3.25)
-        {
-            animator.SetTrigger("leakMeleeT");
-            lastAtkSec = 0;
-        }
-        else if (lastAtkSec >= 5.0f) {
-            lastAtkSec = 0;
-            animator.SetTrigger("rangedT");
+        //if (Mathf.Abs(players[closestPlyr].transform.position.x - animator.GetComponent<Transform>().transform.position.x) <= attackRange && players[closestPlyr].transform.position.y <= -3.25)
+        //{
+        //    animator.SetTrigger("leakMeleeT");
+        //    lastAtkSec = 0;
+        //}
+        //else if (lastAtkSec >= 5.0f) {
+        //    lastAtkSec = 0;
+        //    animator.SetTrigger("rangedT");
             
-        }
+        //}
 
     }
 
@@ -81,6 +87,24 @@ public class mikuRun : StateMachineBehaviour
         animator.ResetTrigger("leakMeleeT");
         animator.ResetTrigger("rangedT");
         time = 0f;
+        List<string> attacks = new List<string>();
+        dist = players[closestPlyr].transform.position.x - rigid.transform.position.x;
+        if ((dist <= meleeRange && dist >= 0) || (dist >= -meleeRange && dist <= 0))
+        {
+            attacks.Add("leakMeleeT");
+        }
+        if ((dist <= rangedRange && dist >= 0) || (dist >= -rangedRange && dist <= 0))
+        {
+            attacks.Add("rangedT");
+        }
+        if (attacks.Count == 0)
+        {
+            animator.SetTrigger("move");
+        }
+        else
+        {
+            animator.SetTrigger(attacks[Random.Range(0, attacks.Count)]);
+        }
     }
 
     private int getClosestPlayer(Animator animator)
