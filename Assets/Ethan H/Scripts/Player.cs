@@ -33,9 +33,9 @@ public class Player : MonoBehaviour
         dash = GetComponent<Dash>();
     }
 
-    void Update()
+    void FixedUpdate()
     {
-        stamina += 0.0086f;
+        stamina += 0.015f;
 
         if (stamina >= 1)
         {
