@@ -9,6 +9,7 @@ public class StateMachine : MonoBehaviour
 
     private State mainStateType;
 
+    public bool isFinisher;
     public State CurrentState { get; private set; }
     private State nextState;
     public State.AttackType currentAttack  {get;  set;}

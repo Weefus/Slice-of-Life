@@ -8,6 +8,7 @@ public class LHHFinisherState : MeleeBaseState
     {
         base.OnEnter(stateMachine);
 
+        stateMachine.isFinisher = true;
         // attack
         attackIndex = 9;
         duration = 1.5f;
