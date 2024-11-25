@@ -451,8 +451,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   canDash: 1
   isDashing: 0
-  dashingPower: 60
-  dashingTime: 0.1
+  dashingPower: 30
+  dashingTime: 0.3
   dashingCooldown: 2
 --- !u!114 &7962113528625470170
 MonoBehaviour:
@@ -467,6 +467,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   customName: Combat
+  isFinisher: 0
+  player: {fileID: 8089955248204145208}
 --- !u!114 &5363429375983022862
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -492,6 +494,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 60d684084b4b0f34a82b03b90ec1702d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 8089955248204145208}
   hitbox: {fileID: 3520447872817966924}
   Hiteffect: {fileID: 223707860897336037}
 --- !u!114 &4562325896689541980
@@ -522,9 +525,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae0c1588dd42d214881b490926f2375e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startTimer: 1
+  startTimer: 0.3
   knockbackTimer: 0
   kbForce: {x: 0, y: 0}
+  hb: {fileID: 0}
 --- !u!114 &8089955248204145208
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -543,12 +547,14 @@ MonoBehaviour:
   maxUlt: 100
   uiSlider: {fileID: 0}
   uiText: {fileID: 0}
+  ultText: {fileID: 0}
   spawnX: -2.2
   spawnY: -1.8
   dieScene: SOL_Beta_GameOver
   g: {fileID: 0}
   score: 20
   isDead: 0
+  stamina: 0
 --- !u!114 &4730762435024850619
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -725,6 +731,22 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 526cea85-c5c3-4db3-aaf2-8446d2b0fc7a
     m_ActionName: Pause/Pause[/Keyboard/escape]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 6581413960180136922}
+        m_TargetAssemblyTypeName: ComboCharacter, Assembly-CSharp
+        m_MethodName: Ultimate
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: da82f7b6-7dad-45e8-94ae-1118c6e73c11
+    m_ActionName: Player/Ultimate[/Keyboard/e]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
