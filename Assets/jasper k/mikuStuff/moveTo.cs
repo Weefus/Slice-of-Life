@@ -16,9 +16,9 @@ public class moveTo : StateMachineBehaviour
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        direction = (target - animator.GetComponent<Transform>().position).normalized;
+        
         animator.GetComponent<Rigidbody2D>().gravityScale = 0;
-
+        
 
 
     }
@@ -26,8 +26,10 @@ public class moveTo : StateMachineBehaviour
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
+        Vector3 position = animator.GetComponent<Transform>().position;
+        direction = (target - animator.GetComponent<Transform>().position).normalized;
         animator.GetComponent<Transform>().position = animator.GetComponent<Transform>().position + (direction * speed * Time.deltaTime);
-        if (Mathf.Approximately(target.x, animator.GetComponent<Transform>().position.x) && Mathf.Approximately(target.y, animator.GetComponent<Transform>().position.y));
+        if (target.x + 1 >= position.x && target.x - 1 <= position.x && target.y + 1 > position.y && target.y - 1 < position.y)
         {
             animator.SetTrigger("next");
         }
