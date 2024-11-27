@@ -18,7 +18,7 @@ public class moveTo : StateMachineBehaviour
     {
         
         animator.GetComponent<Rigidbody2D>().gravityScale = 0;
-        Debug.Log(direction);
+        
 
 
     }
