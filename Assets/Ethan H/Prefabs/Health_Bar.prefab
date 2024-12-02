@@ -155,14 +155,14 @@ RectTransform:
   m_GameObject: {fileID: 5455687666342246340}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 2.1668, y: 2.1668, z: 2.1668}
+  m_LocalScale: {x: 1.628796, y: 1.628796, z: 1.628796}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 623590699075017497}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -50.1, y: -35.8}
+  m_AnchoredPosition: {x: -88.1, y: -1.5}
   m_SizeDelta: {x: 18.2668, y: 13.8519}
   m_Pivot: {x: 0.5360759, y: 0.4999993}
 --- !u!222 &5718717708128327756
@@ -276,6 +276,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hpText: {fileID: 7791909963297619312}
   ultText: {fileID: 0}
+  scoreText: {fileID: 0}
   player: {fileID: 0}
   hpBar: {fileID: 8088132901437783270}
 --- !u!1 &6146881647004288937
@@ -456,6 +457,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hpText: {fileID: 7791909963297619312}
   ultText: {fileID: 0}
+  scoreText: {fileID: 0}
   player: {fileID: 0}
   hpBar: {fileID: 5106240258176562035}
 --- !u!1 &7398758694840148452
@@ -485,7 +487,7 @@ RectTransform:
   m_GameObject: {fileID: 7398758694840148452}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.18485051, y: 0.18485051, z: 0.18485051}
+  m_LocalScale: {x: 0.21971332, y: 0.21971332, z: 0.21971332}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 623590699075017497}
