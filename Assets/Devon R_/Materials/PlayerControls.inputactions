@@ -49,15 +49,6 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
-                },
-                {
-                    "name": "Ultimate",
-                    "type": "Button",
-                    "id": "da82f7b6-7dad-45e8-94ae-1118c6e73c11",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -217,56 +208,12 @@
                 },
                 {
                     "name": "",
-                    "id": "a702366d-4c8f-4917-8adb-e457d541a08c",
-                    "path": "<Gamepad>/buttonWest",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "LightAttack",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
                     "id": "064a2109-2a21-44bb-adff-3e73e51cd378",
                     "path": "<Mouse>/rightButton",
                     "interactions": "Press",
                     "processors": "",
                     "groups": "",
                     "action": "HeavyAttack",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "b674d7d5-cbbf-4b7e-a279-3309d8425531",
-                    "path": "<Gamepad>/buttonNorth",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "HeavyAttack",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "4b0d13a8-8ca7-40e2-b540-870d0898a1d0",
-                    "path": "<Keyboard>/e",
-                    "interactions": "Press",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Ultimate",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "13e05283-a815-458a-8bc7-890d8042b64c",
-                    "path": "<Gamepad>/rightTrigger",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Ultimate",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
@@ -323,39 +270,48 @@
             ]
         },
         {
-            "name": "Pause",
-            "id": "eb62eba5-c77d-4580-a71a-0c6ae09a7054",
+            "name": "Combos",
+            "id": "cac9de09-5e88-4e89-a783-a135a642c423",
             "actions": [
                 {
-                    "name": "Pause",
+                    "name": "LightAttack",
                     "type": "Button",
-                    "id": "526cea85-c5c3-4db3-aaf2-8446d2b0fc7a",
+                    "id": "3ab0efdd-cd45-45b9-9c59-e92bbf01b2c1",
                     "expectedControlType": "Button",
                     "processors": "",
-                    "interactions": "Press",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "HeavyAttack",
+                    "type": "Button",
+                    "id": "cf784efa-f973-4512-b0f0-86be35e7a90f",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
                     "initialStateCheck": false
                 }
             ],
             "bindings": [
                 {
                     "name": "",
-                    "id": "3340ff06-a03a-4906-b69f-be7714eb279e",
-                    "path": "<Keyboard>/escape",
+                    "id": "f86940cf-f759-4919-bbc5-dadc3a2f97d0",
+                    "path": "<Mouse>/leftButton",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Pause",
+                    "action": "LightAttack",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
                 {
                     "name": "",
-                    "id": "1fc59b73-e59b-4328-a694-071122e00270",
-                    "path": "<Gamepad>/start",
+                    "id": "637810d2-dc00-4252-9eba-7816dc72ed96",
+                    "path": "<Mouse>/rightButton",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Pause",
+                    "action": "HeavyAttack",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

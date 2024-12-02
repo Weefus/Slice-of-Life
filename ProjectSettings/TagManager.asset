@@ -7,11 +7,9 @@ TagManager:
   - Ground
   - Platform
   - Wall
-  - BossCamera
-  - Miku
-  - CameraRadius
   - Hitbox
-  - zombie
+  - CameraRadius
+  - Zombie
   layers:
   - Default
   - TransparentFX
@@ -20,8 +18,8 @@ TagManager:
   - Water
   - UI
   - zombies
-  - player
-  - lazer
+  - 
+  - 
   - 
   - 
   - 

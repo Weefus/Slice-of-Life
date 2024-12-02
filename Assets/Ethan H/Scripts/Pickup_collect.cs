@@ -30,7 +30,7 @@ public class Pickup_collect : MonoBehaviour
             {
                 player = (Player)collision.GetComponent("Player");
                 player.increaseHP(healingValue);
-                //player.increaseUlt(ultValue);
+                player.increaseUlt(ultValue);
             }
         }
 

@@ -11,14 +11,13 @@ public class PlayerController : MonoBehaviour
     KnockbackController kb;
     Dash dash;
     FollowPlayer fPlayer;
-    Camera cam;
-    Animator characterAnim;
-
+    public Camera cam;
 
     //Amount of force the jump uses
     public int jumpForce = 600;
     //A public variable to check the dashing state
     private bool isDashing;
+
     //Max speed player can go
     public float maxSpeed;
     //Used to get direction of key input, value of -1 or 1
@@ -27,49 +26,62 @@ public class PlayerController : MonoBehaviour
     private Vector2 direction;
     //if the player is in a boss fight
     private bool bossCam = false;
+
+    //bool facingleft = true;
+    //SpriteRenderer myRenderer;
+    //Animator mainAnim;
+    //Animator idleAnim;
+    //Animator sideAnim;
+
     //Check to see if player has already used their jump/in-air
     private bool jumped = false;
-    //Ckeck to see if the player is moving
-    public bool moving = false;
-    //Check for the camera to start to return to center
-    private bool reTurn = false;
-    //Variable to increment towards the waitTime
-    private float waiting = 0f;
-    //Max wait time till camera moves
-    private float waitTime = 2f;
 
+    //bool grounded = true;
+
+    public GameObject Charsideprof;
+    public GameObject Characteridle;
 
     // Use this for initialization
     void Start()
     {
-        cam = FindAnyObjectByType<Camera>();
-        characterAnim = GetComponent<Animator>();
         myRB = GetComponent<Rigidbody2D>();
         kb = GetComponent<KnockbackController>();
         dash = GetComponent<Dash>();
         fPlayer = cam.GetComponent<FollowPlayer>();
-        if (GameObject.FindGameObjectWithTag("BossCamera") || cam == null)
+        if (cam.CompareTag("BossCamera") || cam == null)
         {
             bossCam = true;
         }
+        // myRenderer = GetComponent<SpriteRenderer>();
+
+        //mainAnim = GetComponent<Animator>();
+        //idleAnim = Characteridle.GetComponent<Animator>();
+        //sideAnim = Charsideprof.GetComponent<Animator>();
+
+
+        //Variables needed for Animator for script to work
+        //Bool Moving
+        //Bool IsGrounded
+
+        Quaternion rotation = Quaternion.Euler(0, 0, 0);
+        Quaternion flipRotation = Quaternion.Euler(0, 180, 0);
     }
 
     //you need to add a tag for your ground object for this to work properly
     void OnCollisionEnter2D(Collision2D collision)
     {
         //Checks if the player has reached a grounded state to get a jump back
-        if ((collision.gameObject.CompareTag("Ground") || collision.gameObject.CompareTag("Platform")) && myRB.velocity.y <= 0)
+        if ((collision.gameObject.tag == "Ground" || collision.gameObject.tag == "Platform") && myRB.velocity.y <= 0)
         {
             //Player recovered their jump
             jumped = false;
-            characterAnim.SetBool("isJumping", false);
         }
     }
 
     void OnCollisionExit2D(Collision2D collision)
     {
         //Makes the player not be able to jump mid-air if they didn't already to get mid-air
-        if(collision.gameObject.CompareTag("Ground") || collision.gameObject.CompareTag("Platform"))
+        if(collision.gameObject.tag == "Ground" || collision.gameObject.tag == "Platform")
         {
             //Player can't jump now
             jumped = true;
@@ -80,91 +92,62 @@ public class PlayerController : MonoBehaviour
     void FixedUpdate()
     {
         isDashing = dash.isDashing;
-        characterAnim.SetBool("isDashing", true);
-        
+
+        //Can't move during knockback
+        if (kb != null && kb.knockbackTimer > 0)
+        {
+            if (dash.isDashing)
+            {
+                kb.knockbackTimer = 0;
+            }
+            return;
+        }
 
         //Can't move during a dash
         if (isDashing)
         {
             return;
         }
-
-        if (moving)
-        {
-            reTurn = false;
-        }
         
+        //mainAnim.SetBool("IsGrounded", !jumped);
+        //idleAnim.SetBool("IsGrounded", !jumped);
+        //sideAnim.SetBool("IsGrounded", !jumped);
+
+
+
+        /*if (move > 0 && !facingleft)
+        {
+            Flip();
+        }
+        else if (move < 0 && facingleft)
+        {
+            Flip();
+        }
+        if (move != 0)
+        {
+            mainAnim.SetBool("Moving", true);
+            idleAnim.SetBool("Moving", true);
+            sideAnim.SetBool("Moving", true);
+
+        }
+        else if (move == 0)
+        {
+            mainAnim.SetBool("Moving", false);
+            idleAnim.SetBool("Moving", false);
+            sideAnim.SetBool("Moving", false);
+
+        }*/
+
         //safety about not moving during dash
         if(!isDashing)
             myRB.velocity = new Vector2(speedMulti * maxSpeed, myRB.velocity.y);
 
+        //mainAnim.SetFloat("MoveSpeed", Mathf.Abs(move));
 
-        if (kb.knockbackTimer > 0)
-        {
-            myRB.velocity = kb.kbForce - myRB.velocity;
-        }
+        //mainAnim.SetFloat("VerticalVelocity", Mathf.Abs(myRB.velocity.y));
 
-        //Lets the offest on the camera move in the direction of the player over time
-        if (!bossCam && moving && transform.localScale.x > 0)
-        {
-            if (fPlayer.xOffset < fPlayer.maxXOffset)
-            {
-                //increases offset
-                fPlayer.xOffset += 15 * Time.fixedDeltaTime;
-            }
-            else
-            {
-                //caps the offset
-                fPlayer.xOffset = fPlayer.maxXOffset;
-            }
-        }
-        //Lets the offest on the camera move in the direction of the player over time
-        else if (!bossCam && moving && transform.localScale.x < 0)
-        {
-            if (fPlayer.xOffset > -fPlayer.maxXOffset)
-            {
-                //decreases offset
-                fPlayer.xOffset -= 15 * Time.fixedDeltaTime;
-            }
-            else
-            {
-                //caps the offset
-                fPlayer.xOffset = -fPlayer.maxXOffset;
-            }
-        }
+        //switchSprite();
 
-        //When the player is standing still
-        if(!bossCam && !moving)
-        {
-            //The wait function for the camera to move when the player is still
-            if (!Mathf.Approximately(waiting, waitTime))
-            {
-                waiting += Time.deltaTime;
-            }
-            //camera can return to the center
-            else
-            {
-                reTurn = true;
-                waiting = 0f;
-            }
-
-            //return slowly from the right
-            if (fPlayer.xOffset > 0 && reTurn)
-            {
-                fPlayer.xOffset -= 5 * Time.fixedDeltaTime;
-            }
-            //return slowly from the left
-            else if(fPlayer.xOffset < 0 && reTurn)
-            {
-                fPlayer.xOffset += 5 * Time.fixedDeltaTime;
-            }
-            //fixes the offset to zero when it should be center
-            else if(Mathf.Approximately(fPlayer.xOffset, 0))
-            {
-                fPlayer.xOffset = 0;
-                reTurn = false;
-            }
-        }
     }
 
     //Input method for basic movement (asd/arrows/sticks)
@@ -176,28 +159,23 @@ public class PlayerController : MonoBehaviour
         //Input triggers
         if (value.started)
         {
-            characterAnim.SetBool("isMoving", true);
             //Input to the right
-            if (direction.x == 1)
+            if(direction.x == 1)
             {
                 //speed to the right
                 speedMulti = 1f;
-
-                if (!bossCam)
-                {
-                    moving = true;
-                }
+                //camera moves to the right of the player
+                if(!bossCam)
+                    fPlayer.xOffset = 5f;
             }
             //Input to the left
             else
             {
                 //speed to the left
                 speedMulti = -1f;
-
-                if (!bossCam)
-                {
-                    moving = true;
-                } 
+                //camera moves to the left of the player
+                if(!bossCam)
+                    fPlayer.xOffset = -5f;
             }
 
             //player flips as the direction changes
@@ -206,10 +184,8 @@ public class PlayerController : MonoBehaviour
         //Input was released
         else if (value.canceled)
         {
-            characterAnim.SetBool("isMoving", false);
             //player shouldn't move with no input
             speedMulti = 0f;
-            moving = false;
         }
     }
 
@@ -217,14 +193,12 @@ public class PlayerController : MonoBehaviour
     public void Jump(InputAction.CallbackContext value)
     {
         //Input for jump performed
-        if (value.performed && !jumped && !isDashing)
+        if (value.performed && !jumped)
         {
             //Forces the player up like a jump
-            characterAnim.SetBool("isJumping", true);
             gameObject.GetComponent<Rigidbody2D>().AddForce(gameObject.GetComponent<Rigidbody2D>().transform.TransformDirection(Vector3.up) * jumpForce);
             //Player has now used up their jump
             jumped = true;
-            
         }
     }
 
@@ -234,9 +208,61 @@ public class PlayerController : MonoBehaviour
         //Input for dash performed
         if (value.performed && dash.canDash)
         {
-            //Player dashes the way they are facing
-            StartCoroutine(dash.dashDuration(myRB.transform.localScale.x));
+            //Dash to the right if no direction
+            if (direction == null || direction.x == 0)
+            {
+                StartCoroutine(dash.dashDuration(1f));
+            }
+            //Dashes in the direction of input otherwise
+            else
+            {
+                StartCoroutine(dash.dashDuration(direction.x));
+            }
         }
     }
+
+    /*void Flip()
+    {
+        if (!facingleft)
+        {
+            transform.Rotate(0, 180, 0);
+        }
+
+        if (facingleft)
+        {
+            transform.Rotate(0, 180, 0);
+        }
+
+        facingleft = !facingleft;
+
+    }
+
+    /*void switchSprite()
+    {
+
+        bool isMoving = mainAnim.GetBool("Moving");
+        bool isGrounded = mainAnim.GetBool("IsGrounded");
+
+
+        if (!mainAnim.GetBool("Moving") && mainAnim.GetBool("IsGrounded"))
+        {
+
+            Charsideprof.SetActive(false);
+
+            Characteridle.SetActive(true);
+
+
+        }
+        else
+        {
+
+            Characteridle.SetActive(false);
+
+            Charsideprof.SetActive(true);
+
+        }
+
+    }*/
+
 
 }

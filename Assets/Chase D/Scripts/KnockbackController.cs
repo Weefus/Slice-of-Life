@@ -5,14 +5,11 @@ using UnityEngine;
 public class KnockbackController : MonoBehaviour
 {
     Rigidbody2D rb2D;
-    public float startTimer;
+    public float startTimer = 1;
     public float knockbackTimer;
-    public Vector2 kbForce;
-    public Hurtbox hb;
 
     void Start()
     {
-        hb = GetComponent<Hurtbox>();
         rb2D = gameObject.GetComponent<Rigidbody2D>();
     }
 
@@ -22,25 +19,9 @@ public class KnockbackController : MonoBehaviour
         {
             knockbackTimer -= Time.deltaTime;
         }
-
-        if (knockbackTimer < 0)
-        {
-            rb2D.velocity = new Vector2(0f, 0f);
-            knockbackTimer = 0;
-        }
     }
 
-    public void PlayerKnockback(Vector2 force)
-    {
-        if (!hb.invincible) 
-        {
-            knockbackTimer = startTimer;
-            rb2D.velocity = new Vector2(0f, 0f);
-            kbForce = force;
-        }  
-    }
-
-    public void Knockback(Vector2 force)
+    public void Knockback(Vector3 force)
     {
         knockbackTimer = startTimer;
         rb2D.velocity = new Vector2(0f, 0f);

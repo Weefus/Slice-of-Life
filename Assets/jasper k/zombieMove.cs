@@ -5,30 +5,26 @@ using UnityEngine;
 
 public class zombieMove : MonoBehaviour
 {
-    private GameObject[] players;
-    private float playerDirct = 1.0f;
+    public GameObject[] players;
+    public float playerDirct = 1.0f;
     public float speedBase;
-    private int closestPlyr = 0;
-    private float dist1;
-    private float dist2;
-    private float time = 0;
+    public int closestPlyr = 0;
+    public float dist1;
+    public float dist2;
+    public float time = 0;
     public float interval;
     public float greyZone;
-    private float speed;
+    public float speed;
     public float speedVariation;
     private Rigidbody2D rigid;
-    public bool canMove;
-    public KnockbackController kb;
 
     // Start is called before the first frame update
     void Start()
     {
-        kb = GetComponent<KnockbackController>();
         speed = speedBase + Random.Range(-speedVariation, speedVariation);
         players = GameObject.FindGameObjectsWithTag("Player");
         closestPlyr = getClosestPlayer();
         rigid = gameObject.GetComponent<Rigidbody2D>();
-        canMove = true;
     }
 
     // Update is called once per frame
@@ -48,10 +44,13 @@ public class zombieMove : MonoBehaviour
             time = 0f;
         }
 
-        if (rigid.velocity == new Vector2(0,0) && canMove) {
-            transform.localScale = new Vector3(-playerDirct, transform.localScale.y, transform.localScale.z);
+
+        transform.localScale = new Vector3(-playerDirct, 1, 1);
+
+        if (rigid.velocity == new Vector2(0,0)) {
             transform.Translate(Vector3.right * speed * Time.deltaTime * playerDirct);
         }
+        
     }
 
     private int getClosestPlayer()

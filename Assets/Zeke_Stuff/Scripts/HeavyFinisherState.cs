@@ -8,20 +8,17 @@ public class HeavyFinisherState : MeleeBaseState
     {
         base.OnEnter(stateMachine);
 
-        stateMachine.isFinisher = true;
         // attack
         attackIndex = 6;
-        duration = 1.25f;
+        duration = 1.5f;
         animator.SetTrigger("Attack" + attackIndex);
        // Debug.Log("Player Attack" + attackIndex + "fired!");
     }
-    public override void OnUpdate(AttackType currentAttack, Attack1 attack1, Attack2 attack2)
+    public override void OnUpdate(AttackType currentAttack)
     {
-        base.OnUpdate(currentAttack, attack1, attack2);
+        base.OnUpdate(currentAttack);
         if (fixedtime >= duration)
         {
-            attack1 = Attack1.none;
-            attack2 = Attack2.none;
             stateMachine.SetNextStateToMain();
         }
 
@@ -30,6 +27,5 @@ public class HeavyFinisherState : MeleeBaseState
     {
         base.OnExit();
         AttackPressedTimer = 0;
-      
     }
 }

@@ -11,9 +11,7 @@ public class ComboCharacter : MonoBehaviour
     private StateMachine meleeStateMachine;
 
     private float maxCool = 1.0f;
-    private bool ultPress;
     private float counter;
-    public Player player;
 
     [SerializeField] public Collider2D hitbox;
     [SerializeField] public GameObject Hiteffect;
@@ -44,10 +42,6 @@ public class ComboCharacter : MonoBehaviour
                 meleeStateMachine.SetNextState(new HeavyEntryState());
             currentAttack = State.AttackType.none;
             }
-            if (ultPress && player.ult == player.maxUlt)
-        {
-            meleeStateMachine.SetNextState(new UltimateState());
-        }
         
     }
 
@@ -77,18 +71,6 @@ public class ComboCharacter : MonoBehaviour
         {
             currentAttack = State.AttackType.none;
             Debug.Log("Stopped");
-        }
-
-    }
-    public void Ultimate(InputAction.CallbackContext value)
-    {
-        if (value.phase.Equals(InputActionPhase.Performed))
-        {
-          ultPress = true;
-        }
-        else if (value.phase.Equals(InputActionPhase.Canceled))
-        {
-            ultPress   =  false;
         }
 
     }

@@ -7,7 +7,7 @@ public class ElevatorScript : MonoBehaviour
 {
     public GameObject elev;
     bool isAscending = false;
-    public float yEnd;
+    float yEnd = 100;
     float speed = 3;
     public GameObject door1;
     public GameObject door2;
@@ -26,11 +26,6 @@ public class ElevatorScript : MonoBehaviour
             {
                 isAscending = false;
             }
-            if (isAscending == false && elev.transform.position.y >= yEnd)
-            {
-                door1.transform.position = new Vector3(door1.transform.position.x, -2f, door1.transform.position.z);
-                door2.transform.position = new Vector3(door2.transform.position.x, -2f, door1.transform.position.z);
-            }
         }
     }
 
@@ -40,10 +35,11 @@ public class ElevatorScript : MonoBehaviour
         {
             if (isAscending == false)
             {
-                isAscending = true;
-                door1.transform.position = new Vector3(door1.transform.position.x, 2f, door1.transform.position.z);
-                door2.transform.position = new Vector3(door2.transform.position.x, 2f, door1.transform.position.z);
+                door1.transform.position = new Vector3(door1.transform.position.x, 2f, 0);
+                door2.transform.position = new Vector3(door2.transform.position.x, 2f, 0);
             }
+            isAscending = true;
+            Debug.Log("Hi squidward");
         }
     }
 }
