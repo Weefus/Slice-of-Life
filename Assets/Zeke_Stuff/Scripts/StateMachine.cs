@@ -9,11 +9,13 @@ public class StateMachine : MonoBehaviour
 
     private State mainStateType;
 
+    public bool isFinisher;
     public State CurrentState { get; private set; }
     private State nextState;
     public State.AttackType currentAttack  {get;  set;}
     public State.Attack1 attack1 {get; set;}
     public State.Attack2 attack2 {get; set;}
+    public Player player;
     private float cooldown;
 
     private void Start()
@@ -21,6 +23,7 @@ public class StateMachine : MonoBehaviour
         currentAttack = State.AttackType.none;
         attack1 = State.Attack1.none;
         attack2 = State.Attack2.none;
+        player = (Player)FindObjectOfType(typeof(Player));
     }
     // Update is called once per frame
     void Update()
@@ -35,6 +38,12 @@ public class StateMachine : MonoBehaviour
         if (CurrentState != null)
            // Debug.Log(currentAttack);
             CurrentState.OnUpdate(currentAttack, attack1, attack2);
+
+        if (isFinisher == true)
+        {
+            player.increaseUlt(10.0f);
+            isFinisher = false;
+        }
     }
 
     private void SetState(State _newState)

@@ -25,11 +25,14 @@ public class LevelChange : MonoBehaviour
 
     public void OnTriggerEnter2D(Collider2D collision)
     {
+        Debug.Log("collided");
         if (collision.CompareTag("Player"))
         {
             SceneManager.LoadScene(sceneName);
             DontDestroyOnLoad(p);
+            Debug.Log("Scene switched");
             p.transform.position = new Vector3(p.spawnX, p.spawnY, 0);
+
         }
     }
 }
