@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class HeavyFinisherState : MeleeBaseState
+public class UltimateState : MeleeBaseState
 {
     public override void OnEnter(StateMachine stateMachine)
     {
@@ -10,18 +10,19 @@ public class HeavyFinisherState : MeleeBaseState
 
         stateMachine.isFinisher = true;
         // attack
-        attackIndex = 6;
-        duration = 1.25f;
+        attackIndex = 10;
+        duration = 1.75f;
         animator.SetTrigger("Attack" + attackIndex);
-       // Debug.Log("Player Attack" + attackIndex + "fired!");
+        //  Debug.Log("Player Attack" + attackIndex + "fired!");
     }
     public override void OnUpdate(AttackType currentAttack, Attack1 attack1, Attack2 attack2)
     {
         base.OnUpdate(currentAttack, attack1, attack2);
         if (fixedtime >= duration)
         {
-            attack1 = Attack1.none;
-            attack2 = Attack2.none;
+            //Debug.Log(fixedtime);
+            
+            stateMachine.player.decreaseUlt(100);
             stateMachine.SetNextStateToMain();
         }
 
@@ -29,7 +30,7 @@ public class HeavyFinisherState : MeleeBaseState
     public override void OnExit()
     {
         base.OnExit();
-        AttackPressedTimer = 0;
-      
+        attackWindow = 0;
+
     }
 }

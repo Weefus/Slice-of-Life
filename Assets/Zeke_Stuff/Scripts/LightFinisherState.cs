@@ -11,7 +11,7 @@ public class LightFinisherState : MeleeBaseState
         stateMachine.isFinisher = true;
         // attack
         attackIndex = 3;
-        duration = 1.5f;
+        duration = 1.0f;
         animator.SetTrigger("Attack" + attackIndex);
       //  Debug.Log("Player Attack" + attackIndex + "fired!");
     }
