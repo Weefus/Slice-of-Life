@@ -26,7 +26,7 @@ public class OneWayPlatform : MonoBehaviour
     //Waits to return platform to original state
     IEnumerator Wait()
     {
-        yield return new WaitForSeconds(0.3f);
+        yield return new WaitForSeconds(1f);
 
         //original platform collision arc
         platform.surfaceArc = 180f;

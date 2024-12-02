@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: -8307593894973732363}
   - component: {fileID: 4135199827192578936}
   - component: {fileID: 2785763155770218386}
-  - component: {fileID: -7407609085322139134}
   m_Layer: 0
   m_Name: Note
   m_TagString: Miku
@@ -33,7 +32,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.75, y: 0.75, z: 0.75}
   m_ConstrainProportionsScale: 1
-  m_Children: []
+  m_Children:
+  - {fileID: 2810986860936563858}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &7727325291619125082
@@ -163,20 +163,137 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 10
---- !u!114 &-7407609085322139134
-MonoBehaviour:
+--- !u!1001 &8611353323183120609
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 2910091201351934250}
+    m_Modifications:
+    - target: {fileID: 1977322299923650895, guid: 7498db5d04e010d46b2fb3f606085f75, type: 3}
+      propertyPath: m_Color.a
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1977322299923650895, guid: 7498db5d04e010d46b2fb3f606085f75, type: 3}
+      propertyPath: m_Color.b
+      value: 0.21960786
+      objectReference: {fileID: 0}
+    - target: {fileID: 1977322299923650895, guid: 7498db5d04e010d46b2fb3f606085f75, type: 3}
+      propertyPath: m_Color.g
+      value: 0.21960786
+      objectReference: {fileID: 0}
+    - target: {fileID: 1977322299923650895, guid: 7498db5d04e010d46b2fb3f606085f75, type: 3}
+      propertyPath: m_Color.r
+      value: 0.21960786
+      objectReference: {fileID: 0}
+    - target: {fileID: 4557128134269089870, guid: 7498db5d04e010d46b2fb3f606085f75, type: 3}
+      propertyPath: m_Name
+      value: noTouch
+      objectReference: {fileID: 0}
+    - target: {fileID: 5801495660697988211, guid: 7498db5d04e010d46b2fb3f606085f75, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5801495660697988211, guid: 7498db5d04e010d46b2fb3f606085f75, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5801495660697988211, guid: 7498db5d04e010d46b2fb3f606085f75, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5801495660697988211, guid: 7498db5d04e010d46b2fb3f606085f75, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5801495660697988211, guid: 7498db5d04e010d46b2fb3f606085f75, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5801495660697988211, guid: 7498db5d04e010d46b2fb3f606085f75, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5801495660697988211, guid: 7498db5d04e010d46b2fb3f606085f75, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5801495660697988211, guid: 7498db5d04e010d46b2fb3f606085f75, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5801495660697988211, guid: 7498db5d04e010d46b2fb3f606085f75, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5801495660697988211, guid: 7498db5d04e010d46b2fb3f606085f75, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5801495660697988211, guid: 7498db5d04e010d46b2fb3f606085f75, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5801495660697988211, guid: 7498db5d04e010d46b2fb3f606085f75, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5801495660697988211, guid: 7498db5d04e010d46b2fb3f606085f75, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 382562972731157009, guid: 7498db5d04e010d46b2fb3f606085f75, type: 3}
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 4557128134269089870, guid: 7498db5d04e010d46b2fb3f606085f75, type: 3}
+      insertIndex: 2
+      addedObject: {fileID: 2789326701040965868}
+  m_SourcePrefab: {fileID: 100100000, guid: 7498db5d04e010d46b2fb3f606085f75, type: 3}
+--- !u!4 &2810986860936563858 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5801495660697988211, guid: 7498db5d04e010d46b2fb3f606085f75, type: 3}
+  m_PrefabInstance: {fileID: 8611353323183120609}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &5242057871331006639 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4557128134269089870, guid: 7498db5d04e010d46b2fb3f606085f75, type: 3}
+  m_PrefabInstance: {fileID: 8611353323183120609}
+  m_PrefabAsset: {fileID: 0}
+--- !u!58 &2789326701040965868
+CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2461548820665670647}
+  m_GameObject: {fileID: 5242057871331006639}
   m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 63adb77a86d24094aa65bad9ffea9204, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _state: 0
-  ignore: {fileID: 0}
-  damageAmt: 3
-  knockbackForce: 5
-  direction: {x: 0, y: 0, z: 0}
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.5
