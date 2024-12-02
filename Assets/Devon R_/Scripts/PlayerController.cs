@@ -234,16 +234,8 @@ public class PlayerController : MonoBehaviour
         //Input for dash performed
         if (value.performed && dash.canDash)
         {
-            //Dash to the right if no direction
-            if (direction == null || direction.x == 0)
-            {
-                StartCoroutine(dash.dashDuration(1f));
-            }
-            //Dashes in the direction of input otherwise
-            else
-            {
-                StartCoroutine(dash.dashDuration(direction.x));
-            }
+            //Player dashes the way they are facing
+            StartCoroutine(dash.dashDuration(myRB.transform.localScale.x));
         }
     }
 
