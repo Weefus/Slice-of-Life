@@ -88,6 +88,18 @@ public class Player : MonoBehaviour
         ultText.updateUlt();
     }
 
+    public void decreaseUlt(float u)
+    {
+        ult -= u;
+        if (ult < 0)
+        {
+            ult = 0;
+        }
+        ultText.updateUlt();
+    }
+
+
+
     public void decreaseHP(float h)
     {
         hp -= h;
