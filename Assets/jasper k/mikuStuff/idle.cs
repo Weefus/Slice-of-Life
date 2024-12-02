@@ -15,7 +15,10 @@ public class idle : StateMachineBehaviour
     public float meleeRange;
     private float dist;
     public float rangedRange;
-    
+    public bool secondP;
+    public int waveDelay;
+    private string storage;
+
 
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
@@ -53,11 +56,19 @@ public class idle : StateMachineBehaviour
         {
             attacks.Add("rangedT");
         }
+        if (secondP && animator.GetComponent<atkControler>().actionCount >= waveDelay) {
+            attacks.Add("wave");
+        }
         if (attacks.Count == 0) {
             animator.SetTrigger("move");
         }
         else {
-            animator.SetTrigger(attacks[Random.Range(0,attacks.Count) ] );
+            storage = attacks[Random.Range(0, attacks.Count)];
+            if (!(storage.Equals("wave")))
+            {
+                animator.GetComponent<atkControler>().act();
+            }
+            animator.SetTrigger(storage);
         }
 
 
