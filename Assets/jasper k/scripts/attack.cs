@@ -50,9 +50,12 @@ public class attack : MonoBehaviour
 
                     coll.GetComponent<Hurtbox>().DealDamage(dmg);
                     canHit = false;
-                    direction = (coll.transform.position - transform.position).normalized;
-                    Debug.Log(direction);
+                    direction = (coll.transform.position - transform.parent.position).normalized;
+                    //Debug.Log(direction);
+                    
+                    
                     direction.y += 1f;
+                    
                     coll.GetComponent<KnockbackController>().PlayerKnockback(direction * force);
                 }
             }
@@ -64,7 +67,7 @@ public class attack : MonoBehaviour
     {
         
         if (col.tag == "Player") { 
-            Debug.Log("triggered");
+            
             isAtking = true;
             canMove=false;
             transform.parent.GetComponent<zombieMove>().canMove = false;
