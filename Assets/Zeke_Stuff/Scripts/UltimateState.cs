@@ -11,7 +11,7 @@ public class UltimateState : MeleeBaseState
         stateMachine.isFinisher = true;
         // attack
         attackIndex = 10;
-        duration = 3f;
+        duration = 1.75f;
         animator.SetTrigger("Attack" + attackIndex);
         //  Debug.Log("Player Attack" + attackIndex + "fired!");
     }

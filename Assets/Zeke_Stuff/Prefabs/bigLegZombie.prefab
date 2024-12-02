@@ -280,9 +280,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hp: 20
   player: {fileID: 0}
-  atkStartUp: 0
-  atkEnd: 0
-  atkCd: 0
+  atkStartUp: 0.75
+  atkEnd: 1.5
+  atkCd: 5
   maxHP: 0
 --- !u!114 &4075648503088014252
 MonoBehaviour:
