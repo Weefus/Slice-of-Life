@@ -10,7 +10,7 @@ public class HeavyLightState : MeleeBaseState
 
         // attack
         attackIndex = 2;
-        duration = 1.5f;
+        duration = 0.5f;
         multInput = duration * 2;
         animator.SetTrigger("Attack" + attackIndex);
         //  Debug.Log("Player Attack" + attackIndex + "fired!");

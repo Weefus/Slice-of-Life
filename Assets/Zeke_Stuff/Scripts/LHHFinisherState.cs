@@ -8,9 +8,10 @@ public class LHHFinisherState : MeleeBaseState
     {
         base.OnEnter(stateMachine);
 
+        stateMachine.isFinisher = true;
         // attack
         attackIndex = 9;
-        duration = 1.5f;
+        duration = 1.0f;
         animator.SetTrigger("Attack" + attackIndex);
         // Debug.Log("Player Attack" + attackIndex + "fired!");
     }
