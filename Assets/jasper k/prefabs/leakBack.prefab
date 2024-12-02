@@ -163,10 +163,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   time: 0
   returnTime: 1
-  speed: 6
+  speed: 12
   flight: -1
   damageAmt: 3
   knockbackForce: 5
   direction: {x: 0, y: 0, z: 0}
   locInital: {x: 0, y: 0, z: 0}
-  dircetion: -1
+  directionX: 0

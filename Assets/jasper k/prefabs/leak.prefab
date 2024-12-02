@@ -163,7 +163,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   time: 0
   returnTime: 1
-  speed: 6
+  speed: 12
   flight: 1
   damageAmt: 3
   knockbackForce: 5
