@@ -51,17 +51,30 @@ public class Preperation : StateMachineBehaviour
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        //Miku moving towards the target position
-        Vector2 newPos = Vector2.MoveTowards(rigid.position, target, speed * Time.fixedDeltaTime);
-        //Updating position
-        rigid.MovePosition(newPos);
-
+        //Makes sure Miku doesn't teleport to the other side
+        if(Mathf.Abs(rigid.position.x) != 18)
+        {
+            //Miku moving towards the target position
+            Vector2 newPos = Vector2.MoveTowards(rigid.position, target, speed * Time.fixedDeltaTime);
+            //Updating position
+            rigid.MovePosition(newPos);
+        }
+        
         //If miku is close to the position move on to the next stage
         if (Mathf.Approximately(Mathf.Round(rigid.position.x), side * 16) || Mathf.Abs(rigid.position.x) >= 16)
         {
             //Make up the distance that miku didn't make
             target.y = rigid.position.y;
-            animator.GetComponent<Transform>().position = target;
+
+            if(Mathf.Abs(rigid.position.x) != 18)
+            {
+                animator.GetComponent<Transform>().position = target;
+            }
+            else
+            {
+                side = -1 * animator.transform.localScale.x;
+            }
+
             //Turns Miku around to get ready to fire
             animator.GetComponent<Transform>().localScale = new Vector3(-side, 3, 1);
             //Updates trigger
