@@ -18,21 +18,21 @@ public class UI_Update : MonoBehaviour
         player = (Player)FindObjectOfType(typeof(Player));
         Debug.Log(player.name);
         updateHP();
-        //updateUlt();
+        updateUlt();
         updateScore();
     }
 
     // Update is called once per frame
     void Update()
     {
-
+        
     }
 
     public void updateHP()
     {
         hpBar.maxValue = player.maxHP;
         hpBar.value = player.hp;
-        hpText.text = "HP: " + (player.hp);
+        hpText.text = "" + player.hp;
     }
 
     public void updateScore()
@@ -41,8 +41,8 @@ public class UI_Update : MonoBehaviour
         scoreText.text = "Score: \n" + player.score;
     }
 
-   /* public void updateUlt()
+   public void updateUlt()
     {
-        ultText.text = "ULT: " + (player.ult);
-    }*/
+        ultText.text = (player.ult) + "%";
+    }
 }

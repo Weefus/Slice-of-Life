@@ -10,7 +10,7 @@ public class LightLightState : MeleeBaseState
         
         // attack
         attackIndex = 2;
-        duration = 1.0f;
+        duration = 0.75f;
         multInput = duration * 2;
         animator.SetTrigger("Attack" + attackIndex);
 
