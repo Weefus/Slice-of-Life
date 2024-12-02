@@ -35,6 +35,8 @@ public class Projectile2 : StateMachineBehaviour
         miku = GameObject.FindGameObjectWithTag("Miku");
 
         side = miku.transform.localScale.x;
+
+        //Takes away Miku's gravity to stay floating
         originalGravity = rigid.gravityScale;
         rigid.gravityScale = 0;
     }
@@ -42,6 +44,7 @@ public class Projectile2 : StateMachineBehaviour
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {   
+        //Lets Miku move upwards for a interval
         if(time > travelTime)
         {
             rigid.velocity = Vector3.zero;
@@ -51,8 +54,10 @@ public class Projectile2 : StateMachineBehaviour
             rigid.velocity = new Vector3(0, 0.75f, 0);
         }
 
+        //Decides what height the notes should be
         int ranNote = Random.Range(0,3);
 
+        //Spawns the selected note after the attack cooldown is past
         if (attackTime > noteInterval)
         {
             if (ranNote == 1)
@@ -68,9 +73,11 @@ public class Projectile2 : StateMachineBehaviour
                 Instantiate(note, new Vector3(rigid.position.x + (1.5f * side), 5, 0), Quaternion.identity);
             }
 
+            //resets the cooldown of the attack
             attackTime = 0;
         }
 
+        //Increments the time for both moving and attacks
         time += Time.deltaTime;
         attackTime += Time.deltaTime;
     }
@@ -78,6 +85,7 @@ public class Projectile2 : StateMachineBehaviour
     // OnStateExit is called when a transition ends and the state machine finishes evaluating this state
     override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
+        //Gives Miku gravity again
         rigid.gravityScale = originalGravity;
     }
 }

@@ -35,12 +35,14 @@ public class Projectile : StateMachineBehaviour
 
         side = miku.transform.localScale.x;
 
+        //Method to spawn the projectiles
         Shotgun();
     }
 
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {   
+        //Makes sure Miku doesn't move through the attack
         rigid.velocity = Vector3.zero;
     }
 
@@ -52,6 +54,7 @@ public class Projectile : StateMachineBehaviour
 
     private void Shotgun()
     {
+        //Spawns the three notes in an arc around Miku
         Instantiate(note, new Vector3(rigid.position.x + (1.5f * side), rigid.position.y, 0), Quaternion.identity);
         Instantiate(note, new Vector3((rigid.position.x + (Mathf.Cos(angleOne) * 1.5f * side)), Mathf.Sin(angleOne) + rigid.position.y, 0), Quaternion.identity);
         Instantiate(note, new Vector3((rigid.position.x + (Mathf.Cos(angleTwo) * side)), Mathf.Sin(angleTwo) + rigid.position.y, 0), Quaternion.identity);
