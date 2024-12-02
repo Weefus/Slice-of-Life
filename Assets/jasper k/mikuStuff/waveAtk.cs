@@ -7,6 +7,7 @@ public class waveAtk : StateMachineBehaviour
 
     public GameObject wave;
     public GameObject cWave;
+    private bool canAtk;
     private float time;
     public float atkStartTime;
     public float atkEndTime;
@@ -15,15 +16,18 @@ public class waveAtk : StateMachineBehaviour
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         time = 0;
+        canAtk = true;
+        animator.GetComponent<atkControler>().reset();
     }
 
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         time = time + Time.deltaTime;
-        if (time > atkStartTime && time < atkEndTime)
+        if (time > atkStartTime && time < atkEndTime && canAtk)
         {
             cWave = Instantiate(wave, new Vector3(0, 1.5f, 0), wave.transform.rotation);
+            canAtk = false;
         }
         if (time > atkEndTime) {
             Destroy(cWave);

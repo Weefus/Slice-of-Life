@@ -17,6 +17,7 @@ public class idle : StateMachineBehaviour
     public float rangedRange;
     public bool secondP;
     public int waveDelay;
+    private string storage;
 
 
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
@@ -62,7 +63,12 @@ public class idle : StateMachineBehaviour
             animator.SetTrigger("move");
         }
         else {
-            animator.SetTrigger(attacks[Random.Range(0,attacks.Count) ] );
+            storage = attacks[Random.Range(0, attacks.Count)];
+            if (!(storage.Equals("wave")))
+            {
+                animator.GetComponent<atkControler>().act();
+            }
+            animator.SetTrigger(storage);
         }
 
 

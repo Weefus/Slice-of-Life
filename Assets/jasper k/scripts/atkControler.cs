@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class atkControler : MonoBehaviour
 {
-    public int actionCount;
+    public int actionCount = 0;
 
     // Start is called before the first frame update
     void Start()
     {
-        actionCount = 0;
+        
     }
 
     // Update is called once per frame
