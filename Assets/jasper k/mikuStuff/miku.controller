@@ -438,6 +438,8 @@ MonoBehaviour:
   greyZone: 0
   meleeRange: 25
   rangedRange: 40
+  secondP: 1
+  waveDelay: 10
 --- !u!114 &-2192248370730961305
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -719,7 +721,8 @@ AnimatorState:
   m_CycleOffset: 0
   m_Transitions:
   - {fileID: 2210385408187248173}
-  m_StateMachineBehaviours: []
+  m_StateMachineBehaviours:
+  - {fileID: 2569670997914164533}
   m_Position: {x: 50, y: 50, z: 0}
   m_IKOnFeet: 0
   m_WriteDefaultValues: 1
@@ -1086,6 +1089,18 @@ AnimatorState:
   m_MirrorParameter: 
   m_CycleOffsetParameter: 
   m_TimeParameter: 
+--- !u!114 &2569670997914164533
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4991a5c44603f5b4883295786d2766de, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1101 &3222855851432402483
 AnimatorStateTransition:
   m_ObjectHideFlags: 1
@@ -1179,6 +1194,8 @@ MonoBehaviour:
   greyZone: 1
   meleeRange: 25
   rangedRange: 40
+  secondP: 0
+  waveDelay: 0
 --- !u!1101 &3746701384034079923
 AnimatorStateTransition:
   m_ObjectHideFlags: 1
