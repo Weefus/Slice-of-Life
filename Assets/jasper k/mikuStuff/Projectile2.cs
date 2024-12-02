@@ -20,9 +20,11 @@ public class Projectile2 : StateMachineBehaviour
     public float vertBox = 1;
 
     public GameObject note;
+    public float noteInterval = 0.5f;
     private GameObject miku;
     private float side;
     private float travelTime = 3f;
+    private float attackTime;
     private float originalGravity;
 
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
@@ -49,22 +51,28 @@ public class Projectile2 : StateMachineBehaviour
             rigid.velocity = new Vector3(0, 0.75f, 0);
         }
 
-        int ranNote = Random.Range(1,3);
+        int ranNote = Random.Range(0,3);
 
-        if(ranNote == 1)
+        if (attackTime > noteInterval)
         {
-            Instantiate(note, new Vector3(rigid.position.x + (1.5f * side), 1, 0), Quaternion.identity);
-        }
-        else if(ranNote == 2)
-        {
-            Instantiate(note, new Vector3(rigid.position.x + (1.5f * side), 3, 0), Quaternion.identity);
-        }
-        else
-        {
-            Instantiate(note, new Vector3(rigid.position.x + (1.5f * side), 5, 0), Quaternion.identity);
+            if (ranNote == 1)
+            {
+                Instantiate(note, new Vector3(rigid.position.x + (1.5f * side), 1, 0), Quaternion.identity);
+            }
+            else if (ranNote == 2)
+            {
+                Instantiate(note, new Vector3(rigid.position.x + (1.5f * side), 3, 0), Quaternion.identity);
+            }
+            else
+            {
+                Instantiate(note, new Vector3(rigid.position.x + (1.5f * side), 5, 0), Quaternion.identity);
+            }
+
+            attackTime = 0;
         }
 
         time += Time.deltaTime;
+        attackTime += Time.deltaTime;
     }
 
     // OnStateExit is called when a transition ends and the state machine finishes evaluating this state

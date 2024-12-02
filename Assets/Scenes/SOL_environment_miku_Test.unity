@@ -187,6 +187,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4562325896689541980, guid: c4bbe6cb242e12c42a01b198462789a3, type: 3}
+      propertyPath: zombClass
+      value: 
+      objectReference: {fileID: 902587223}
     - target: {fileID: 5184942824323944038, guid: c4bbe6cb242e12c42a01b198462789a3, type: 3}
       propertyPath: m_Name
       value: Player(With Combos)
@@ -4182,6 +4186,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0ac71ae099aa4c942a07d6115ddb8a04, type: 3}
+--- !u!114 &902587223 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3079297330362526297, guid: 759562b1aa912814a85c6d0420306cbd, type: 3}
+  m_PrefabInstance: {fileID: 415555402}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e8865fe4e84985428b737eee662ad62, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &923366110
 GameObject:
   m_ObjectHideFlags: 0
