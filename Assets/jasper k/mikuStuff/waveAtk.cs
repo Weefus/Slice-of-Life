@@ -24,14 +24,12 @@ public class waveAtk : StateMachineBehaviour
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         time = time + Time.deltaTime;
-        if (time > atkStartTime && time < atkEndTime && canAtk)
+        if (canAtk)
         {
-            cWave = Instantiate(wave, new Vector3(0, 1.5f, 0), wave.transform.rotation);
+            cWave = Instantiate(wave, new Vector3(0, -2.5f, 4), wave.transform.rotation);
             canAtk = false;
         }
-        if (time > atkEndTime) {
-            Destroy(cWave);
-        }
+        
     }
 
     // OnStateExit is called when a transition ends and the state machine finishes evaluating this state
