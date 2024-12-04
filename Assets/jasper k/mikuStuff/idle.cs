@@ -15,7 +15,11 @@ public class idle : StateMachineBehaviour
     public float meleeRange;
     private float dist;
     public float rangedRange;
-    
+    public bool secondP;
+    public int waveDelay;
+    private string storage;
+    public int holoDelay;
+
 
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
@@ -38,27 +42,55 @@ public class idle : StateMachineBehaviour
             animator.SetTrigger("50%<");
             Debug.Log("trigger");
         }
+
+        if (animator.GetComponent<basicZombClass>().hp <= 0) {
+            animator.SetTrigger("0Hp");
+        }
     }
 
     // OnStateExit is called when a transition ends and the state machine finishes evaluating this state
     override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        //for each attack add its trigger to a string array if the closer player is within a area that generaly represents 
-        List<string> attacks = new List<string>();
-        dist = players[closestPlyr].transform.position.x - rigid.transform.position.x;
-        if ((dist <= meleeRange && dist >= 0) || (dist >= -meleeRange && dist <= 0)) {
-            attacks.Add("leakMeleeT");
+        if (animator.GetComponent<basicZombClass>().hp > 0)
+        {//for each attack add its trigger to a string array if the closer player is within a area that generaly represents 
+            List<string> attacks = new List<string>();
+            dist = players[closestPlyr].transform.position.x - rigid.transform.position.x;
+            Debug.Log(dist);
+            if ((dist <= meleeRange && dist >= 0) || (dist >= -meleeRange && dist <= 0))
+            {
+                attacks.Add("leakMeleeT");
+            }
+            if ((dist <= rangedRange && dist >= 0) || (dist >= -rangedRange && dist <= 0))
+            {
+                attacks.Add("rangedT");
+            }
+            if (secondP && animator.GetComponent<atkControler>().actionCount >= waveDelay)
+            {
+                attacks.Add("wave");
+            }
+            if (secondP && animator.GetComponent<atkControler>().actionsAfterHolo >= holoDelay)
+            {
+                attacks.Add("holo");
+            }
+            if (attacks.Count == 0)
+            {
+                animator.SetTrigger("move");
+            }
+            else
+            {
+                storage = attacks[Random.Range(0, attacks.Count)];
+                if (!(storage.Equals("wave")))
+                {
+                    animator.GetComponent<atkControler>().act();
+                }
+                if (!(storage.Equals("holo")))
+                {
+                    animator.GetComponent<atkControler>().actHolo();
+                }
+                animator.SetTrigger(storage);
+            }
         }
-        if ((dist <= rangedRange && dist >= 0) || (dist >= -rangedRange && dist <= 0))
-        {
-            attacks.Add("rangedT");
-        }
-        if (attacks.Count == 0) {
-            animator.SetTrigger("move");
-        }
-        else {
-            animator.SetTrigger(attacks[Random.Range(0,attacks.Count) ] );
-        }
+        else { }
 
 
         //the attack affected area
