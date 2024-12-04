@@ -46,7 +46,7 @@ public class ZomProjectileAttack : MonoBehaviour
         if (cooldown < 0)
         {
             canMove = false;
-            Instantiate(zomProj);
+            Instantiate(zomProj, this.transform.position, this.transform.rotation);
             
            cooldown = fixedCooldown;
             canMove = true;
