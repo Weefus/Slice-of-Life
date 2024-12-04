@@ -32,7 +32,7 @@ public class ZomProjectileAttack : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+       
         cooldown -= Time.deltaTime;
 
         if (time >= durationS)
@@ -45,27 +45,14 @@ public class ZomProjectileAttack : MonoBehaviour
 
         if (cooldown < 0)
         {
-            isAtking = true;
-            canMove= false;
-           
+            canMove = false;
+            Instantiate(zomProj);
+            
+           cooldown = fixedCooldown;
+            canMove = true;
         }
 
-        if (isAtking)
-        {
-            time = time + Time.deltaTime;
-
-            if (startTS < time && time < endTS && canHit)
-            {
-
-                Instantiate(zomProj);
-
-                
-            }
-            isAtking=false;
-            cooldown = fixedCooldown;
-
-        }
-        else { time = 0; }
+  
     }
 
     

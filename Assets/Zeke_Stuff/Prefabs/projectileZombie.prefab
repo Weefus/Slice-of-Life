@@ -258,4 +258,4 @@ MonoBehaviour:
   range: 0
   cooldown: 5
   fixedCooldown: 5
-  zomProj: {fileID: 0}
+  zomProj: {fileID: 6528992685104418002, guid: eab685635bf0eaf4497ea0c50e86c0b7, type: 3}

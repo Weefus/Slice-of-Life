@@ -5,19 +5,19 @@ using UnityEngine;
 public class ZomProjTrack : MonoBehaviour
 {
     private GameObject player;
-    private float speed = 3.0f;
+    private float speed = 1.5f;
     public Collider2D coll;
     private float timer = 15f;
     private float damage = 5;
     private float playerDirct;
-    
+    private Rigidbody2D rigid;
 
 
     // Start is called before the first frame update
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
-
+        rigid = this.GetComponent<Rigidbody2D>();
     }
 
     // Update is called once per frame
@@ -34,8 +34,8 @@ public class ZomProjTrack : MonoBehaviour
             {
                 playerDirct = -1.0f;
             }
-            transform.Translate(Vector3.right * speed  * playerDirct);
-            transform.Translate(Vector3.up * speed * playerDirct);
+             Vector2 missleDirection = (player.transform.position - this.transform.position).normalized;
+            rigid.AddForce(missleDirection * speed);
         }
         else if (timer < 0) 
         {
@@ -44,12 +44,12 @@ public class ZomProjTrack : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D col)
     {
-
-        if (col.tag == "Player")
+        Debug.Log(col.tag);
+        if (col.CompareTag("Player"))
         {
             coll.GetComponent<Hurtbox>().DealDamage(damage);
-            
-            Destroy(gameObject);
+            Debug.Log("Hit");
+            Destroy(this);
         }
     }
 }
