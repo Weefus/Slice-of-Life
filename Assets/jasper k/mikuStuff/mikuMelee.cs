@@ -22,6 +22,7 @@ public class mikuMelee : StateMachineBehaviour
     private Rigidbody2D rigid;
     public float range;
     private float newLoc;
+    private float distTraveled;
 
 
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
@@ -41,6 +42,8 @@ public class mikuMelee : StateMachineBehaviour
             playerDirct = -1.0f;
         }
         newLoc = rigid.transform.position.x + (range * playerDirct);
+        animator.GetComponent<Transform>().localScale = new Vector3(playerDirct, animator.GetComponent<Transform>().localScale.y, animator.GetComponent<Transform>().localScale.z);
+        distTraveled = 0;
     }
 
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
@@ -58,14 +61,14 @@ public class mikuMelee : StateMachineBehaviour
             Destroy(cHitBox);
         }
 
-        if (time > hitTime && !Mathf.Approximately(rigid.transform.position.x, newLoc)) {
+        if (time > hitTime && distTraveled < range) {
             
             
 
             if (rigid.velocity == new Vector2(0, 0))
             {
                 animator.GetComponent<Transform>().Translate(Vector3.right * speed * Time.deltaTime * playerDirct);
-                
+                distTraveled = distTraveled + speed * Time.deltaTime;
             }
 
 

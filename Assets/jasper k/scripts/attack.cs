@@ -17,6 +17,7 @@ public class attack : MonoBehaviour
     public Vector3 direction;
     public int force;
     public float range;
+    public GameObject attackParticle;
 
     // Start is called before the first frame update
     void Start()
@@ -47,7 +48,7 @@ public class attack : MonoBehaviour
 
                 if (coll != null)
                 {
-
+                    Instantiate(attackParticle, coll.transform.position, coll.transform.rotation);
                     coll.GetComponent<Hurtbox>().DealDamage(dmg);
                     canHit = false;
                     direction = (coll.transform.position - transform.parent.position).normalized;
