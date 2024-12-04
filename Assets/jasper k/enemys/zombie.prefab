@@ -194,7 +194,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1e8865fe4e84985428b737eee662ad62, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hp: 10
+  hp: 5
   player: {fileID: 0}
   atkStartUp: 20
   atkEnd: 20
@@ -334,6 +334,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 7177105763437749660}
     m_Modifications:
+    - target: {fileID: -2060276041478017593, guid: fec34bb0cf7cb254aa49e02198e5d7b4, type: 3}
+      propertyPath: force
+      value: 20
+      objectReference: {fileID: 0}
     - target: {fileID: -2060276041478017593, guid: fec34bb0cf7cb254aa49e02198e5d7b4, type: 3}
       propertyPath: attackParticle
       value: 
