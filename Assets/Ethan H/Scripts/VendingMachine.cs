@@ -12,7 +12,6 @@ public class VendingMachine : MonoBehaviour
     float vz;
     int rnd;
     bool isEmpty = false;
-   
 
 
     public float shakeDuration = 0.5f; 

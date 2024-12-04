@@ -144,6 +144,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   elev: {fileID: 8792846349853702760}
+  yEnd: 0
   door1: {fileID: 2047201288436568951}
   door2: {fileID: 2379912961656619435}
 --- !u!1 &8792846349853702760
@@ -171,7 +172,7 @@ Transform:
   m_GameObject: {fileID: 8792846349853702760}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 23.34, y: -2.03, z: -0.084973045}
+  m_LocalPosition: {x: 23.34, y: -2.03, z: -1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:

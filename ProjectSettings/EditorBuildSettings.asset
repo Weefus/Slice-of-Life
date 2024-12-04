@@ -47,4 +47,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/SOL_environment_miku.unity
     guid: 418e4d98a1efaaa40bc18cd58de920d5
+  - enabled: 1
+    path: Assets/Scenes/Release_Level_1.unity
+    guid: c73fe356c64520e4988643ed29879912
   m_configObjects: {}
