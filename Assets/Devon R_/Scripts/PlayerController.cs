@@ -29,9 +29,13 @@ public class PlayerController : MonoBehaviour
     private bool bossCam = false;
     //Check to see if player has already used their jump/in-air
     private bool jumped = false;
+    //Ckeck to see if the player is moving
     public bool moving = false;
+    //Check for the camera to start to return to center
     private bool reTurn = false;
+    //Variable to increment towards the waitTime
     private float waiting = 0f;
+    //Max wait time till camera moves
     private float waitTime = 2f;
 
 
@@ -100,49 +104,61 @@ public class PlayerController : MonoBehaviour
             myRB.velocity = kb.kbForce - myRB.velocity;
         }
 
+        //Lets the offest on the camera move in the direction of the player over time
         if (!bossCam && moving && transform.localScale.x > 0)
         {
             if (fPlayer.xOffset < fPlayer.maxXOffset)
             {
+                //increases offset
                 fPlayer.xOffset += 15 * Time.fixedDeltaTime;
             }
             else
             {
+                //caps the offset
                 fPlayer.xOffset = fPlayer.maxXOffset;
             }
         }
+        //Lets the offest on the camera move in the direction of the player over time
         else if (!bossCam && moving && transform.localScale.x < 0)
         {
             if (fPlayer.xOffset > -fPlayer.maxXOffset)
             {
+                //decreases offset
                 fPlayer.xOffset -= 15 * Time.fixedDeltaTime;
             }
             else
             {
+                //caps the offset
                 fPlayer.xOffset = -fPlayer.maxXOffset;
             }
         }
 
+        //When the player is standing still
         if(!bossCam && !moving)
         {
+            //The wait function for the camera to move when the player is still
             if (!Mathf.Approximately(waiting, waitTime))
             {
                 waiting += Time.deltaTime;
             }
+            //camera can return to the center
             else
             {
                 reTurn = true;
                 waiting = 0f;
             }
 
+            //return slowly from the right
             if (fPlayer.xOffset > 0 && reTurn)
             {
                 fPlayer.xOffset -= 5 * Time.fixedDeltaTime;
             }
+            //return slowly from the left
             else if(fPlayer.xOffset < 0 && reTurn)
             {
                 fPlayer.xOffset += 5 * Time.fixedDeltaTime;
             }
+            //fixes the offset to zero when it should be center
             else if(Mathf.Approximately(fPlayer.xOffset, 0))
             {
                 fPlayer.xOffset = 0;
@@ -166,7 +182,7 @@ public class PlayerController : MonoBehaviour
             {
                 //speed to the right
                 speedMulti = 1f;
-                //camera moves to the right of the player
+
                 if (!bossCam)
                 {
                     moving = true;
@@ -177,7 +193,6 @@ public class PlayerController : MonoBehaviour
             {
                 //speed to the left
                 speedMulti = -1f;
-                //camera moves to the left of the player
 
                 if (!bossCam)
                 {
@@ -219,16 +234,8 @@ public class PlayerController : MonoBehaviour
         //Input for dash performed
         if (value.performed && dash.canDash)
         {
-            //Dash to the right if no direction
-            if (direction == null || direction.x == 0)
-            {
-                StartCoroutine(dash.dashDuration(1f));
-            }
-            //Dashes in the direction of input otherwise
-            else
-            {
-                StartCoroutine(dash.dashDuration(direction.x));
-            }
+            //Player dashes the way they are facing
+            StartCoroutine(dash.dashDuration(myRB.transform.localScale.x));
         }
     }
 

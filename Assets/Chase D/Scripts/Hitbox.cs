@@ -12,6 +12,7 @@ public class Hitbox : MonoBehaviour
     public float damageAmt = 3;
     public float knockbackForce = 5;
     public Vector3 direction;
+    public GameObject hitParticle;
 
     //states for the hitbox
     public enum ColliderState
@@ -42,6 +43,7 @@ public class Hitbox : MonoBehaviour
             direction.y = 0.5f;
 
             h.DealDamage(damageAmt);
+            //Instantiate(hitParticle, col.transform.position, col.transform.rotation);
 
             if (kb != null)
             {
@@ -50,7 +52,7 @@ public class Hitbox : MonoBehaviour
                     kb.PlayerKnockback(direction * knockbackForce);
                 } else
                 {
-                    kb.PlayerKnockback(direction * knockbackForce);
+                    kb.Knockback(direction * knockbackForce);
                 }
             }
         }

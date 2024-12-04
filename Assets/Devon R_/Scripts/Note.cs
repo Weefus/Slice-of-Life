@@ -24,12 +24,14 @@ public class Note : MonoBehaviour
             speedMulti = 1;
         }
 
+        //Gets the angle of the note's initial position
         angle = Mathf.Acos((Mathf.Abs(rigid.position.x) - 18) / (speedMulti * 1.5f));
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
+        //Continues on the angle towards which side miku was facing
         if(speedMulti == 1)
         {
             rigid.velocity = new Vector2(speed * speedMulti * -Mathf.Cos(angle), speed * speedMulti * Mathf.Sin(angle));
@@ -39,7 +41,7 @@ public class Note : MonoBehaviour
             rigid.velocity = new Vector2(speed * speedMulti * Mathf.Cos(angle), speed * speedMulti * -Mathf.Sin(angle));
         }
         
-
+        //If the note goes out side of the arena, it's destroyed
         if (Mathf.Abs(rigid.position.x) > 20 || rigid.position.y > 20)
         {
             Destroy(gameObject);

@@ -10,6 +10,8 @@ public class Pickup_collect : MonoBehaviour
     Player player;
     public int healingValue;
     public int ultValue;
+    public GameObject collParticle;
+    ParticlePlayer healParticle;
 
     void Start()
     {
@@ -23,8 +25,11 @@ public class Pickup_collect : MonoBehaviour
 
     public void OnTriggerEnter2D(Collider2D collision)
     {
+        healParticle = collision.GetComponent<ParticlePlayer>(); //gets the player's particle player
 
         if (collision.CompareTag("Player")) {
+            Instantiate(collParticle, transform.position, transform.rotation);
+            //healParticle.PlayHealEffect();
             Destroy(gameObject);
             if(collision.GetComponent("Player") != null)
             {

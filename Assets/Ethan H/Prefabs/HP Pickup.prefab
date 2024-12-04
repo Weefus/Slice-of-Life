@@ -137,6 +137,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   healingValue: 25
   ultValue: 0
+  collParticle: {fileID: 2087904991445383580, guid: eeac26b1d20c3d44bbfcce7b1ea62c20, type: 3}
 --- !u!50 &-3880389037304113688
 Rigidbody2D:
   serializedVersion: 4

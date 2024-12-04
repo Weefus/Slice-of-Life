@@ -37,7 +37,7 @@ public class Hurtbox : MonoBehaviour
     {
         if (player != null && !invincible)
         {
-            invincibleTimer = 3;
+            invincibleTimer = 1;
 
             ui = (UI_Update)FindObjectOfType(typeof(UI_Update));
             player.decreaseHP(damageAmt);
