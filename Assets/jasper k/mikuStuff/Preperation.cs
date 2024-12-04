@@ -76,7 +76,7 @@ public class Preperation : StateMachineBehaviour
             }
 
             //Turns Miku around to get ready to fire
-            animator.GetComponent<Transform>().localScale = new Vector3(-side, 3, 1);
+            animator.GetComponent<Transform>().localScale = new Vector3(-side, 1, 1);
             //Updates trigger
             animator.SetTrigger("rangedPT");
         }
