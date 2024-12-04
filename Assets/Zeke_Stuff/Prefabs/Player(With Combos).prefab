@@ -99,7 +99,7 @@ GameObject:
   - component: {fileID: 7327757142545391097}
   m_Layer: 0
   m_Name: hitbox
-  m_TagString: Untagged
+  m_TagString: Hitbox
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -268,7 +268,7 @@ GameObject:
   - component: {fileID: 8089955248204145208}
   - component: {fileID: 4730762435024850619}
   - component: {fileID: 7074931721123141813}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Player(With Combos)
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -286,7 +286,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0.27, y: -0.44, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 7879376413776933812}
   - {fileID: 5801289853671120286}
@@ -334,7 +334,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 10
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 0.9056604, g: 0.49982202, b: 0.84038264, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -376,7 +376,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0.36446506, y: 1.6665678}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -387,7 +387,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 0.895867, y: 2.8809137}
   m_EdgeRadius: 0
 --- !u!50 &4026805918201288561
 Rigidbody2D:
@@ -451,8 +451,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   canDash: 1
   isDashing: 0
-  dashingPower: 10
-  dashingTime: 0.4
+  dashingPower: 30
+  dashingTime: 0.3
+  dashingCooldown: 2
 --- !u!114 &7962113528625470170
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -466,6 +467,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   customName: Combat
+  isFinisher: 0
+  player: {fileID: 8089955248204145208}
 --- !u!114 &5363429375983022862
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -491,6 +494,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 60d684084b4b0f34a82b03b90ec1702d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 8089955248204145208}
   hitbox: {fileID: 3520447872817966924}
   Hiteffect: {fileID: 223707860897336037}
 --- !u!114 &4562325896689541980
@@ -508,6 +512,7 @@ MonoBehaviour:
   player: {fileID: 8089955248204145208}
   zombClass: {fileID: 0}
   ui: {fileID: 0}
+  invincible: 0
 --- !u!114 &6995880410025975929
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -520,8 +525,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae0c1588dd42d214881b490926f2375e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startTimer: 1
+  startTimer: 0.3
   knockbackTimer: 0
+  kbForce: {x: 0, y: 0}
+  hb: {fileID: 0}
 --- !u!114 &8089955248204145208
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -538,7 +545,16 @@ MonoBehaviour:
   ult: 50
   maxHP: 100
   maxUlt: 100
-  levelNum: 1
+  uiSlider: {fileID: 0}
+  uiText: {fileID: 0}
+  ultText: {fileID: 0}
+  spawnX: -2.2
+  spawnY: -1.8
+  dieScene: SOL_Beta_GameOver
+  g: {fileID: 0}
+  score: 20
+  isDead: 0
+  stamina: 0
 --- !u!114 &4730762435024850619
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -551,12 +567,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 10748f1b9bd6f1143b8ff39433b266cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cam: {fileID: 0}
   jumpForce: 600
   maxSpeed: 10
-  jumped: 0
-  Charsideprof: {fileID: 0}
-  Characteridle: {fileID: 0}
+  moving: 0
 --- !u!114 &7074931721123141813
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -703,13 +716,37 @@ MonoBehaviour:
     m_ActionId: ac399c95-5deb-4349-ae38-6d14c200d149
     m_ActionName: Player/HeavyAttack[/Mouse/rightButton]
   - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: 3ab0efdd-cd45-45b9-9c59-e92bbf01b2c1
-    m_ActionName: Combos/LightAttack[/Mouse/leftButton]
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: Pause, Assembly-CSharp
+        m_MethodName: pauseGame
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 526cea85-c5c3-4db3-aaf2-8446d2b0fc7a
+    m_ActionName: Pause/Pause[/Keyboard/escape]
   - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: cf784efa-f973-4512-b0f0-86be35e7a90f
-    m_ActionName: Combos/HeavyAttack[/Mouse/rightButton]
+      m_Calls:
+      - m_Target: {fileID: 6581413960180136922}
+        m_TargetAssemblyTypeName: ComboCharacter, Assembly-CSharp
+        m_MethodName: Ultimate
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: da82f7b6-7dad-45e8-94ae-1118c6e73c11
+    m_ActionName: Player/Ultimate[/Keyboard/e]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
