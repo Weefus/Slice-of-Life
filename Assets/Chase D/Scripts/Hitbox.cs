@@ -43,7 +43,7 @@ public class Hitbox : MonoBehaviour
             direction.y = 0.5f;
 
             h.DealDamage(damageAmt);
-            Instantiate(hitParticle, col.transform.position, col.transform.rotation);
+            //Instantiate(hitParticle, col.transform.position, col.transform.rotation);
 
             if (kb != null)
             {
