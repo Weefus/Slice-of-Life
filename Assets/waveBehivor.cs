@@ -27,9 +27,11 @@ public class waveBehivor : MonoBehaviour
             yDirection = -1;
         }
 
-        if (transform.position.y <= target) { 
-        transform.Translate(transform.up * speed * Time.deltaTime * yDirection);
+        if (transform.position.y >= target) {
+            transform.position = new Vector3(transform.position.x, target, transform.position.z);
         }
+        transform.Translate(transform.up * speed * Time.deltaTime * yDirection);
+        
 
         if (transform.position.y <= destroyPoint) {
             Destroy(gameObject);
