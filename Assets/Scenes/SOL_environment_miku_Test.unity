@@ -1818,8 +1818,16 @@ PrefabInstance:
       value: miku
       objectReference: {fileID: 0}
     - target: {fileID: 4235053005747316828, guid: 759562b1aa912814a85c6d0420306cbd, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4235053005747316828, guid: 759562b1aa912814a85c6d0420306cbd, type: 3}
       propertyPath: m_LocalScale.y
-      value: 3
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4235053005747316828, guid: 759562b1aa912814a85c6d0420306cbd, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4235053005747316828, guid: 759562b1aa912814a85c6d0420306cbd, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1827,7 +1835,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4235053005747316828, guid: 759562b1aa912814a85c6d0420306cbd, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.7
+      value: 4.37
       objectReference: {fileID: 0}
     - target: {fileID: 4235053005747316828, guid: 759562b1aa912814a85c6d0420306cbd, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1862,12 +1870,60 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4450306431729404020, guid: 759562b1aa912814a85c6d0420306cbd, type: 3}
+      propertyPath: m_FlipX
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4450306431729404020, guid: 759562b1aa912814a85c6d0420306cbd, type: 3}
+      propertyPath: m_Color.a
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4450306431729404020, guid: 759562b1aa912814a85c6d0420306cbd, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4450306431729404020, guid: 759562b1aa912814a85c6d0420306cbd, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4450306431729404020, guid: 759562b1aa912814a85c6d0420306cbd, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4450306431729404020, guid: 759562b1aa912814a85c6d0420306cbd, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4450306431729404020, guid: 759562b1aa912814a85c6d0420306cbd, type: 3}
       propertyPath: m_SortingOrder
       value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 5952459116147531144, guid: 759562b1aa912814a85c6d0420306cbd, type: 3}
+      propertyPath: m_Size.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5952459116147531144, guid: 759562b1aa912814a85c6d0420306cbd, type: 3}
+      propertyPath: m_Size.y
+      value: 2.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5952459116147531144, guid: 759562b1aa912814a85c6d0420306cbd, type: 3}
+      propertyPath: m_Offset.y
+      value: -1.1
       objectReference: {fileID: 0}
     - target: {fileID: 6072848064370514353, guid: 759562b1aa912814a85c6d0420306cbd, type: 3}
       propertyPath: player
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 7180401689434620965, guid: 759562b1aa912814a85c6d0420306cbd, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.808313
+      objectReference: {fileID: 0}
+    - target: {fileID: 7180401689434620965, guid: 759562b1aa912814a85c6d0420306cbd, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.808313
+      objectReference: {fileID: 0}
+    - target: {fileID: 7180401689434620965, guid: 759562b1aa912814a85c6d0420306cbd, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.73483
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -6621,6 +6677,10 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 526cea85-c5c3-4db3-aaf2-8446d2b0fc7a
     m_ActionName: Pause/Pause[/Keyboard/escape]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: da82f7b6-7dad-45e8-94ae-1118c6e73c11
+    m_ActionName: Player/Ultimate[/Keyboard/e]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Pause
