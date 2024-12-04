@@ -30,32 +30,54 @@ public class Preperation : StateMachineBehaviour
         closestPlyr = GetClosestPlayer(animator);
         rigid = animator.GetComponent<Rigidbody2D>();
 
+        //Gets closest player to miku and determines what side the attack should be towards
         if (players[closestPlyr].transform.position.x >= 0)
         {
+            //player is on the right side or at zero
             side = 1;
            
         }
         else
         {
+            //player is on the left side
             side = -1;
             
         }
 
+        //Target position that miku will move towards
         target = new Vector2(18 * side, rigid.position.y);
     }
 
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        Vector2 newPos = Vector2.MoveTowards(rigid.position, target, speed * Time.fixedDeltaTime);
-        rigid.MovePosition(newPos);
+        //Makes sure Miku doesn't teleport to the other side
+        if(Mathf.Abs(rigid.position.x) != 18)
+        {
+            //Miku moving towards the target position
+            Vector2 newPos = Vector2.MoveTowards(rigid.position, target, speed * Time.fixedDeltaTime);
+            //Updating position
+            rigid.MovePosition(newPos);
+        }
         
-
+        //If miku is close to the position move on to the next stage
         if (Mathf.Approximately(Mathf.Round(rigid.position.x), side * 16) || Mathf.Abs(rigid.position.x) >= 16)
         {
+            //Make up the distance that miku didn't make
             target.y = rigid.position.y;
-            animator.GetComponent<Transform>().position = target;
+
+            if(Mathf.Abs(rigid.position.x) != 18)
+            {
+                animator.GetComponent<Transform>().position = target;
+            }
+            else
+            {
+                side = -1 * animator.transform.localScale.x;
+            }
+
+            //Turns Miku around to get ready to fire
             animator.GetComponent<Transform>().localScale = new Vector3(-side, 3, 1);
+            //Updates trigger
             animator.SetTrigger("rangedPT");
         }
     }
@@ -63,9 +85,11 @@ public class Preperation : StateMachineBehaviour
     // OnStateExit is called when a transition ends and the state machine finishes evaluating this state
     override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
+        //Updates triiger
         animator.ResetTrigger("rangedPT");
     }
 
+    //Gets the closest player to Miku
     private int GetClosestPlayer(Animator animator)
     {
 
