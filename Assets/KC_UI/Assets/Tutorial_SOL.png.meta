@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 961312314ee94f545bf61f12329bdea8
+guid: 4d7de04903a2c8a4896239ae4202c09c
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -34,7 +34,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 0
+    filterMode: 1
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -48,7 +48,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 45
+  spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -72,7 +72,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 0
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -110,337 +110,358 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Zombie-With-One-Arm-Sprite_0
+      name: Tutorial_SOL_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 256
-        width: 128
-        height: 128
+        y: 2659
+        width: 2477
+        height: 543
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 02dde052c30c22c48ac0da3cfe8d805e
-      internalID: -1083595621
+      spriteID: 955a7dad7b3bb4b44a5752eb1876123d
+      internalID: 1294783831
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Zombie-With-One-Arm-Sprite_1
+      name: Tutorial_SOL_2
       rect:
         serializedVersion: 2
-        x: 128
-        y: 256
-        width: 128
-        height: 128
+        x: 2782
+        y: 2522
+        width: 663
+        height: 811
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6ec41483de375d547aa67aca46b61cc5
-      internalID: -194048988
+      spriteID: 202e5bc57147b0f49aaa892552e5f932
+      internalID: -879701083
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Zombie-With-One-Arm-Sprite_2
+      name: Tutorial_SOL_3
       rect:
         serializedVersion: 2
-        x: 256
-        y: 256
-        width: 128
-        height: 128
+        x: 3847
+        y: 2522
+        width: 661
+        height: 813
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e2e0641043b65364d9bd9994b24eeff4
-      internalID: 1326010768
+      spriteID: 338c828b41645a04eb70e5938dd149b9
+      internalID: -294754019
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Zombie-With-One-Arm-Sprite_3
+      name: Tutorial_SOL_4
       rect:
         serializedVersion: 2
-        x: 384
-        y: 256
-        width: 128
-        height: 128
+        x: 4701
+        y: 2522
+        width: 1321
+        height: 817
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9f4db5961d35e7b439b23954eed2c008
-      internalID: -1477102875
+      spriteID: a8a363aef99581944af570f7a57fe640
+      internalID: -2048659741
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Zombie-With-One-Arm-Sprite_4
+      name: Tutorial_SOL_5
       rect:
         serializedVersion: 2
-        x: 512
-        y: 256
-        width: 128
-        height: 128
+        x: 6184
+        y: 2520
+        width: 954
+        height: 830
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4d43bf8f032122b438cc502f2e7c4be6
-      internalID: -2081888807
+      spriteID: 22145235cfbed84498eedac4efa4e081
+      internalID: 1840078885
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Zombie-With-One-Arm-Sprite_5
+      name: Tutorial_SOL_6
       rect:
         serializedVersion: 2
-        x: 640
-        y: 256
-        width: 128
-        height: 128
+        x: 7279
+        y: 2737
+        width: 495
+        height: 356
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c3a30d04a544e28478da8279b949276e
-      internalID: -2125455074
+      spriteID: 47d18a230a5cdc74386643dfb4af6a8b
+      internalID: -253096640
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Zombie-With-One-Arm-Sprite_6
+      name: Tutorial_SOL_8
       rect:
         serializedVersion: 2
-        x: 768
-        y: 256
-        width: 128
-        height: 128
+        x: 184
+        y: 1799
+        width: 1230
+        height: 446
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d3cd033f5574987409524c3badd70a4d
-      internalID: 1551122822
+      spriteID: e6dad1d0fc8e30541bd58e6d9ebd5f20
+      internalID: 1112826061
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Zombie-With-One-Arm-Sprite_7
+      name: Tutorial_SOL_12
       rect:
         serializedVersion: 2
-        x: 0
-        y: 128
-        width: 128
-        height: 128
+        x: 1756
+        y: 1833
+        width: 936
+        height: 411
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 525c1cfe710ac0c4190f179ac41302bf
-      internalID: -902072977
+      spriteID: 2d0c3c4935e4ff341bad8e192f46e1ab
+      internalID: 716279926
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Zombie-With-One-Arm-Sprite_8
+      name: Tutorial_SOL_16
       rect:
         serializedVersion: 2
-        x: 128
-        y: 128
-        width: 128
-        height: 128
+        x: 2919
+        y: 1816
+        width: 1158
+        height: 428
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8ceea4f7906608f40ae131615e4d7533
-      internalID: -1624965812
+      spriteID: a3b95b1693c2e1443b4dbb3eab69208b
+      internalID: -472009482
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Zombie-With-One-Arm-Sprite_9
+      name: Tutorial_SOL_21
       rect:
         serializedVersion: 2
-        x: 256
-        y: 128
-        width: 128
-        height: 128
+        x: 4265
+        y: 1754
+        width: 1397
+        height: 491
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 73f09cfe431b40a44aa6f57512773eda
-      internalID: -545658166
+      spriteID: 552bda25e83b5c049aa0888afb75ebc1
+      internalID: -1344713459
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Zombie-With-One-Arm-Sprite_10
+      name: Tutorial_SOL_23
       rect:
         serializedVersion: 2
-        x: 384
-        y: 128
-        width: 128
-        height: 128
+        x: 5871
+        y: 1811
+        width: 1829
+        height: 439
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 31d3bdd3b256ff641b54b2562ff7619a
-      internalID: 1939788555
+      spriteID: 6c302eba98cc8d143b5303165ad5f87c
+      internalID: -1433197459
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Zombie-With-One-Arm-Sprite_11
+      name: Tutorial_SOL_35
       rect:
         serializedVersion: 2
-        x: 0
+        x: 205
+        y: 925
+        width: 1044
+        height: 459
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 843ef9878ff2f384ea795ffcec2c5a90
+      internalID: -599816600
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tutorial_SOL_38
+      rect:
+        serializedVersion: 2
+        x: 1964
+        y: 989
+        width: 296
+        height: 429
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 97d3d2bb1c2db2644bfc7b64dc528977
+      internalID: 2069513197
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tutorial_SOL_39
+      rect:
+        serializedVersion: 2
+        x: 3255
+        y: 985
+        width: 250
+        height: 433
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e5d27449741960b47905fe83cee0c3a9
+      internalID: -624523458
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tutorial_SOL_41
+      rect:
+        serializedVersion: 2
+        x: 135
+        y: 27
+        width: 1097
+        height: 457
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fe657a6e962ddef49850958d48636b05
+      internalID: 1925033547
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tutorial_SOL_45
+      rect:
+        serializedVersion: 2
+        x: 1732
+        y: 33
+        width: 1045
+        height: 500
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 279bdf5042e0d56498ad3b9bb9f7e7f7
+      internalID: 8587016
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tutorial_SOL_48
+      rect:
+        serializedVersion: 2
+        x: 4725
         y: 0
-        width: 128
-        height: 128
+        width: 2572
+        height: 1686
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1aca67baf72635e4ea673df4ddf4a9c3
-      internalID: 1523604457
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Zombie-With-One-Arm-Sprite_12
-      rect:
-        serializedVersion: 2
-        x: 128
-        y: 0
-        width: 128
-        height: 128
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 4b5f1444fbad649448ba1d482fd1f357
-      internalID: -262451859
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Zombie-With-One-Arm-Sprite_13
-      rect:
-        serializedVersion: 2
-        x: 256
-        y: 0
-        width: 128
-        height: 128
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: bb1ecf18883f59e47bf33c1739acf249
-      internalID: 1041594783
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Zombie-With-One-Arm-Sprite_14
-      rect:
-        serializedVersion: 2
-        x: 384
-        y: 0
-        width: 128
-        height: 128
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: d36c2b1037b6e1e4cb59acf095621069
-      internalID: 294193055
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Zombie-With-One-Arm-Sprite_15
-      rect:
-        serializedVersion: 2
-        x: 512
-        y: 0
-        width: 128
-        height: 128
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: f091d336b56b774469f52eaeaa8d2f74
-      internalID: 2052382076
+      spriteID: 13aed39930eddc1409843bb5ea2f532d
+      internalID: 1109347408
       vertices: []
       indices: 
       edges: []
@@ -456,22 +477,57 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Zombie-With-One-Arm-Sprite_0: -1083595621
-      Zombie-With-One-Arm-Sprite_1: -194048988
-      Zombie-With-One-Arm-Sprite_10: 1939788555
-      Zombie-With-One-Arm-Sprite_11: 1523604457
-      Zombie-With-One-Arm-Sprite_12: -262451859
-      Zombie-With-One-Arm-Sprite_13: 1041594783
-      Zombie-With-One-Arm-Sprite_14: 294193055
-      Zombie-With-One-Arm-Sprite_15: 2052382076
-      Zombie-With-One-Arm-Sprite_2: 1326010768
-      Zombie-With-One-Arm-Sprite_3: -1477102875
-      Zombie-With-One-Arm-Sprite_4: -2081888807
-      Zombie-With-One-Arm-Sprite_5: -2125455074
-      Zombie-With-One-Arm-Sprite_6: 1551122822
-      Zombie-With-One-Arm-Sprite_7: -902072977
-      Zombie-With-One-Arm-Sprite_8: -1624965812
-      Zombie-With-One-Arm-Sprite_9: -545658166
+      Tutorial_SOL_0: 1294783831
+      Tutorial_SOL_1: 1055104240
+      Tutorial_SOL_10: -1919567255
+      Tutorial_SOL_11: 635787618
+      Tutorial_SOL_12: 716279926
+      Tutorial_SOL_13: 1570630362
+      Tutorial_SOL_14: 1616619347
+      Tutorial_SOL_15: -472488244
+      Tutorial_SOL_16: -472009482
+      Tutorial_SOL_17: -900348241
+      Tutorial_SOL_18: 1036281727
+      Tutorial_SOL_19: -695157339
+      Tutorial_SOL_2: -879701083
+      Tutorial_SOL_20: -1460532816
+      Tutorial_SOL_21: -1344713459
+      Tutorial_SOL_22: -1390521050
+      Tutorial_SOL_23: -1433197459
+      Tutorial_SOL_24: 2045724480
+      Tutorial_SOL_25: -1084747117
+      Tutorial_SOL_26: 1282744022
+      Tutorial_SOL_27: -335593366
+      Tutorial_SOL_28: 426685078
+      Tutorial_SOL_29: 1738902133
+      Tutorial_SOL_3: -294754019
+      Tutorial_SOL_30: 113550566
+      Tutorial_SOL_31: 1437083883
+      Tutorial_SOL_32: -1743333747
+      Tutorial_SOL_33: 100205489
+      Tutorial_SOL_34: 312120448
+      Tutorial_SOL_35: -599816600
+      Tutorial_SOL_36: -2135598806
+      Tutorial_SOL_37: 1853960025
+      Tutorial_SOL_38: 2069513197
+      Tutorial_SOL_39: -624523458
+      Tutorial_SOL_4: -2048659741
+      Tutorial_SOL_40: -722185238
+      Tutorial_SOL_41: 1925033547
+      Tutorial_SOL_42: 1679445700
+      Tutorial_SOL_43: 1657664968
+      Tutorial_SOL_44: 1931166215
+      Tutorial_SOL_45: 8587016
+      Tutorial_SOL_46: 245254419
+      Tutorial_SOL_47: -2131451021
+      Tutorial_SOL_48: 1109347408
+      Tutorial_SOL_49: -39113643
+      Tutorial_SOL_5: 1840078885
+      Tutorial_SOL_50: -1198684792
+      Tutorial_SOL_6: -253096640
+      Tutorial_SOL_7: 1512086099
+      Tutorial_SOL_8: 1112826061
+      Tutorial_SOL_9: 897173085
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
