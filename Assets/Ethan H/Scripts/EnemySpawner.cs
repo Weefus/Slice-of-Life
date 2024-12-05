@@ -26,7 +26,7 @@ public class EnemySpawner : MonoBehaviour
     {
         if (hasSpawned == false && collision.CompareTag("CameraRadius"))
         {
-            Instantiate(enemyPrefab, new Vector3(vx, 0.61f, 4.33f), Quaternion.identity);
+            Instantiate(enemyPrefab, new Vector3(vx, vy, 4.33f), Quaternion.identity);
             hasSpawned = true;
         }
     }

@@ -87,6 +87,7 @@ public class Player : MonoBehaviour
         }
         ultText.updateUlt();
     }
+
     public void decreaseUlt(float u)
     {
         ult -= u;
@@ -96,6 +97,8 @@ public class Player : MonoBehaviour
         }
         ultText.updateUlt();
     }
+
+
 
     public void decreaseHP(float h)
     {

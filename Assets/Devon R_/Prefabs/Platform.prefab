@@ -30,7 +30,7 @@ Transform:
   m_GameObject: {fileID: 1894859629945242317}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 8.91, y: -2.6, z: 0}
+  m_LocalPosition: {x: 8.91, y: -2.6, z: -1}
   m_LocalScale: {x: 8.510448, y: 0.4361, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -219,6 +219,22 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: d3c21ed2-b33a-4df5-8d3b-75d7ed16549a
     m_ActionName: Platform/Fall[/Keyboard/s]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 9e329574-d8f1-42ea-ae76-173b18d5187b
+    m_ActionName: Player/LightAttack[/Mouse/leftButton]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: ac399c95-5deb-4349-ae38-6d14c200d149
+    m_ActionName: Player/HeavyAttack[/Mouse/rightButton]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: da82f7b6-7dad-45e8-94ae-1118c6e73c11
+    m_ActionName: Player/Ultimate[/Keyboard/e]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 526cea85-c5c3-4db3-aaf2-8446d2b0fc7a
+    m_ActionName: Pause/Pause[/Keyboard/escape]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Platform
