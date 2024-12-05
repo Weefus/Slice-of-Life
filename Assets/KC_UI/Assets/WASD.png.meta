@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 259fbae9f8b14e54bafcaeb00280c7e4
+guid: dbca53b62bf272546b8007692a0d73f9
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -43,7 +43,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -108,7 +108,91 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: WASD_0
+      rect:
+        serializedVersion: 2
+        x: 15
+        y: 1007
+        width: 430
+        height: 357
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: daf58ab03bb84af4694398ef1ef1d831
+      internalID: -1175678667
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WASD_1
+      rect:
+        serializedVersion: 2
+        x: 1294
+        y: 1050
+        width: 340
+        height: 362
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 44f13493be18a4f48b7769f50cd19afc
+      internalID: -1456339089
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WASD_2
+      rect:
+        serializedVersion: 2
+        x: 77
+        y: 183
+        width: 211
+        height: 364
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f5b947052c484a44ba26aef959e2494e
+      internalID: -1134990229
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WASD_3
+      rect:
+        serializedVersion: 2
+        x: 1367
+        y: 100
+        width: 314
+        height: 357
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 597041dce58ed4647859d8dbfb62065e
+      internalID: -364126837
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -119,7 +203,11 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      WASD_0: -1175678667
+      WASD_1: -1456339089
+      WASD_2: -1134990229
+      WASD_3: -364126837
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
