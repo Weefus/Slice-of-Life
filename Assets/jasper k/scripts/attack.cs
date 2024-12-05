@@ -39,11 +39,11 @@ public class attack : MonoBehaviour
 
         if (isAtking)
         {
+            
             time = time + Time.deltaTime;
-
+            
             if (startTS < time && time < endTS && canHit)
             {
-
                 coll = Physics2D.OverlapCircle(transform.position, range/2, mask);
 
                 if (coll != null)
@@ -67,7 +67,7 @@ public class attack : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D col)
     {
         
-        if (col.tag == "Player") { 
+        if (col.tag == "Player") {
             
             isAtking = true;
             canMove=false;
