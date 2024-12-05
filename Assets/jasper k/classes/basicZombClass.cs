@@ -11,6 +11,7 @@ public class basicZombClass : MonoBehaviour
     public float atkEnd;
     public float atkCd;
     public float maxHP;
+    Animator animator;
 
     // Start is called before the first frame update
     void Start()
@@ -23,6 +24,7 @@ public class basicZombClass : MonoBehaviour
     {
         if (hp <= 0)
         {
+            animator.Play("Zombie with One Arm Death");
             Destroy(gameObject);
             player.increaseScore(50);
         }
