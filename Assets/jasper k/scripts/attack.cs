@@ -18,10 +18,14 @@ public class attack : MonoBehaviour
     public int force;
     public float range;
     public GameObject attackParticle;
+    Animator animator;
+    basicZombClass zomb;
 
     // Start is called before the first frame update
     void Start()
     {
+        zomb = GetComponentInParent<basicZombClass>();
+        animator = GetComponentInParent<Animator>();
         isAtking = false;
         canMove = true;
         canHit = true;
@@ -30,6 +34,11 @@ public class attack : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (zomb.hp <= 0)
+        {
+            return;
+        }
+
         if (time >= durationS) {
             isAtking = false;
             canMove = true;
@@ -39,7 +48,8 @@ public class attack : MonoBehaviour
 
         if (isAtking)
         {
-            
+            animator.SetTrigger("attack");
+
             time = time + Time.deltaTime;
             
             if (startTS < time && time < endTS && canHit)
@@ -60,6 +70,8 @@ public class attack : MonoBehaviour
                     coll.GetComponent<KnockbackController>().PlayerKnockback(direction * force);
                 }
             }
+
+            animator.SetTrigger("walk");
         }
         else { time = 0; }
     }

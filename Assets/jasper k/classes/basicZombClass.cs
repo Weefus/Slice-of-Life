@@ -12,10 +12,12 @@ public class basicZombClass : MonoBehaviour
     public float atkCd;
     public float maxHP;
     Animator animator;
+    private float despawnTime = 5;
 
     // Start is called before the first frame update
     void Start()
     {
+        animator = GetComponent<Animator>();
         player = (Player)FindObjectOfType(typeof(Player));
         maxHP = hp;
     }
@@ -24,10 +26,15 @@ public class basicZombClass : MonoBehaviour
     {
         if (hp <= 0)
         {
-            animator.Play("Zombie with One Arm Death");
-            Destroy(gameObject);
-            player.increaseScore(50);
+            animator.SetTrigger("die");
+
+            despawnTime -= Time.deltaTime;
+
+            if (despawnTime <= 0)
+            {
+                Destroy(gameObject);
+                player.increaseScore(50);
+            }
         }
     }
-
 }
