@@ -14548,7 +14548,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2057532438}
   - component: {fileID: 2057532439}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: SOL_environment_miku_backround_003
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14914,8 +14914,16 @@ PrefabInstance:
       value: Main Camera
       objectReference: {fileID: 0}
     - target: {fileID: 2683476132847117722, guid: 5d7766f7b7963fd4ea85d43e5ea93730, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 2683476132847117722, guid: 5d7766f7b7963fd4ea85d43e5ea93730, type: 3}
       propertyPath: m_TagString
       value: BossCamera
+      objectReference: {fileID: 0}
+    - target: {fileID: 2910188265016423656, guid: 5d7766f7b7963fd4ea85d43e5ea93730, type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 5929309582457566993, guid: 5d7766f7b7963fd4ea85d43e5ea93730, type: 3}
       propertyPath: yOffset
