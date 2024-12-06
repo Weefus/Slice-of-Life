@@ -4,13 +4,15 @@ using UnityEngine;
 
 public class mikuThrow : StateMachineBehaviour
 {
-    public GameObject leakf;
+    public leak leakf;
     public GameObject leakb;
     public Vector3 loc;
     private Transform transform;
     private float time;
     public float startT;
     private bool hasThrown;
+    public float dmg;
+    public leak leek;
 
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
@@ -32,7 +34,8 @@ public class mikuThrow : StateMachineBehaviour
         if (time > startT && !hasThrown) {
             loc = new Vector3(transform.position.x + (transform.localScale.x * 1.5f), transform.position.y, 0);
 
-            Instantiate(leakf, loc, leakf.transform.rotation);
+            leek = Instantiate(leakf, loc, leakf.transform.rotation);
+            leek.damageAmt = dmg;
             hasThrown = true;
         }
     }

@@ -23,6 +23,7 @@ public class mikuMelee : StateMachineBehaviour
     public float range;
     private float newLoc;
     private float distTraveled;
+    public float dmg;
 
 
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
@@ -56,6 +57,7 @@ public class mikuMelee : StateMachineBehaviour
             cHitBox = Instantiate(hitBox, new Vector3(animator.transform.position.x + (1 * animator.transform.localScale.x), animator.transform.position.y, animator.transform.position.z), hitBox.transform.rotation, animator.transform);
             NotActive = false;
             cHitBox.GetComponent<duration>().endtime = this.endTime;
+            cHitBox.damageAmt = dmg;
         }
 
         if (time > endTime) {

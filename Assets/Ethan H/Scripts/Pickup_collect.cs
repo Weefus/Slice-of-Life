@@ -29,7 +29,7 @@ public class Pickup_collect : MonoBehaviour
 
         if (collision.CompareTag("Player")) {
             Instantiate(collParticle, transform.position, transform.rotation);
-            //healParticle.PlayHealEffect();
+            healParticle.PlayHealEffect();
             Destroy(gameObject);
             if(collision.GetComponent("Player") != null)
             {
