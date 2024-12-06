@@ -44,6 +44,7 @@ public class KnockbackController : MonoBehaviour
     {
         knockbackTimer = startTimer;
         rb2D.velocity = new Vector2(0f, 0f);
+        //Debug.Log(force);
         rb2D.velocity = force;
     }
 }
