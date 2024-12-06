@@ -170,7 +170,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: fde43de6294d4354eb3df53d9cd06c8c, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.3
+  m_Volume: 0.1
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -384,7 +384,7 @@ RectTransform:
   m_GameObject: {fileID: 111446535}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.4243, y: 1.4243, z: 1.4243}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 352222583}
@@ -896,14 +896,14 @@ RectTransform:
   m_GameObject: {fileID: 263088717}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.2929, y: 0.2929, z: 0.2929}
+  m_LocalScale: {x: 0.44304052, y: 0.44304052, z: 0.44304052}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 558992777}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 81.3, y: -0.5}
+  m_AnchoredPosition: {x: 125.270004, y: -0.5378686}
   m_SizeDelta: {x: 139.663, y: 122.21}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &263088719
@@ -971,14 +971,14 @@ RectTransform:
   m_GameObject: {fileID: 288386842}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.3123, y: 1.3123, z: 1.3123}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1107999752}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -0.000015258789, y: 5.3059006}
+  m_AnchoredPosition: {x: -7, y: 5.3059006}
   m_SizeDelta: {x: -107.2172, y: -10.6119}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &288386844
@@ -1192,8 +1192,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -9}
-  m_SizeDelta: {x: 232.935, y: 52.216}
+  m_AnchoredPosition: {x: -2.959, y: -18.451}
+  m_SizeDelta: {x: 328.854, y: 73.693}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &352222584
 MonoBehaviour:
@@ -1412,14 +1412,14 @@ RectTransform:
   m_GameObject: {fileID: 364994743}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.7847475, y: 0.60365194, z: 0.60365194}
+  m_LocalScale: {x: 1.5292374, y: 1.1763365, z: 1.1763365}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2062631438}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -3.1, y: 3}
+  m_AnchoredPosition: {x: -3, y: 6}
   m_SizeDelta: {x: 15.95, y: -0.425}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &364994745
@@ -1692,14 +1692,14 @@ RectTransform:
   m_GameObject: {fileID: 510242835}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.5126, y: 1.5126, z: 1.5126}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 558992777}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -3.5, y: 2.5}
+  m_AnchoredPosition: {x: -3, y: 4}
   m_SizeDelta: {x: -101.5307, y: -6.5133}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &510242837
@@ -1873,8 +1873,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.000005722046, y: 47.92399}
-  m_SizeDelta: {x: 232.935, y: 52.216}
+  m_AnchoredPosition: {x: -2.959, y: 61.885}
+  m_SizeDelta: {x: 328.854, y: 73.693}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &558992778
 MonoBehaviour:
@@ -3543,8 +3543,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -11, y: 135}
-  m_SizeDelta: {x: 539.459, y: 166.444}
+  m_AnchoredPosition: {x: -18, y: 173}
+  m_SizeDelta: {x: 735.188, y: 226.834}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1068396651
 MonoBehaviour:
@@ -3711,8 +3711,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.000005722046, y: -65.69501}
-  m_SizeDelta: {x: 232.935, y: 52.216}
+  m_AnchoredPosition: {x: -2.959, y: -98.466}
+  m_SizeDelta: {x: 328.854, y: 73.693}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1107999753
 MonoBehaviour:
@@ -3925,12 +3925,15 @@ MonoBehaviour:
   m_text: "Artists:\r\nK \u201CKC\u201D Caron\nClaire Motzko \nSpencer Scott \nRay
     Kotula \n\nProgrammers:\r\nChase Denoo\nEthan Hershberger \nJasper Knutson\nDevon
     Russin\nZeke Wagner \n\nBeta Testers:\nName\nName\n\nSpecial Thanks:\r\nProf.
-    Scott Turner\nPesto the penguin\nJerma985\nHatsune Miku\n\nSound:\nButton Press
-    Sound Effect: \n Rusu Gabriel from Pixabay\r\nOther UI sounds:\nMoodmode from
-    Pixabay\r\n\nMusic:\n\u201CDowntown Girl\u201D \nKahyoot_Music pixabay\r\n\n\u201CNeon
-    Night \n-Japanese City Pop Music Track\u201D\n GioeleFazzeri pixabay\r\n\n\u201CMelodic
-    Techno #03 Extended Version\n- Moogify\u201D Zen_Man Pixabay\r\n\n\u201CDance
-    with me -City Pop & Funk Type Beat\u201D\n-Dayz Musiq Soundcloud\r\n\n\n"
+    Scott Turner\nJerma985\nHatsune Miku\n\nSound:\nButton Press Sound Effect: \n
+    Rusu Gabriel from Pixabay\r\nOther UI sounds:\nMoodmode from Pixabay\r\n\nMusic:\n\u201CDowntown
+    Girl\u201D \nKahyoot_Music pixabay\r\n\n\u201CNeon Night \n-Japanese City Pop
+    Music Track\u201D\n GioeleFazzeri pixabay\r\n\n\u201CMelodic Techno #03 Extended
+    Version\n- Moogify\u201D Zen_Man Pixabay\r\n\n\u201CDance with me -City Pop &
+    Funk Type Beat\u201D\n-Dayz Musiq Soundcloud\r\n\n \"Zombies\" feat. Hatsune
+    Miku\r\n- DECO*27\n\nSounds from Zapsplat.com\r:\nZombie noises\r\nSoda noise\r\nsparkle
+    noise\r\n\nMore sound effects:\nShine 9- BenKirb Pixabay\r\nShine 7- Benkirb
+    Pixabay\r\n\n\n\n"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: ce41e45daebef394b9479119a8841ea6, type: 2}
   m_sharedMaterial: {fileID: -1900099243898312566, guid: ce41e45daebef394b9479119a8841ea6, type: 2}
@@ -4524,8 +4527,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 61, y: -77}
-  m_SizeDelta: {x: 232.072, y: 232.072}
+  m_AnchoredPosition: {x: 62.161, y: -109.84}
+  m_SizeDelta: {x: 314.919, y: 331.128}
   m_Pivot: {x: 0.4736481, y: 0.5}
 --- !u!1 &1608782467
 GameObject:
@@ -4704,14 +4707,14 @@ RectTransform:
   m_GameObject: {fileID: 1831902451}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.29879, y: 0.29879, z: 0.29879}
+  m_LocalScale: {x: 0.39210212, y: 0.39210212, z: 0.39210212}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1107999752}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 81.904, y: 1.881}
+  m_AnchoredPosition: {x: 100.48006, y: 0.81138}
   m_SizeDelta: {x: 135.573, y: 131.05}
   m_Pivot: {x: 0.5634683, y: 0.57929116}
 --- !u!114 &1831902453
@@ -4863,14 +4866,14 @@ RectTransform:
   m_GameObject: {fileID: 1872380931}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.34004, y: 0.34004, z: 0.34004}
+  m_LocalScale: {x: 0.48431894, y: 0.48431894, z: 0.48431894}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 352222583}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 81.626, y: 2.4}
+  m_AnchoredPosition: {x: 120.97, y: 2.1454}
   m_SizeDelta: {x: 126.937, y: 124.19}
   m_Pivot: {x: 0.49999994, y: 0.5}
 --- !u!114 &1872380933
@@ -5512,10 +5515,10 @@ RectTransform:
   - {fileID: 364994744}
   m_Father: {fileID: 1529418669}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 258.022, y: -100.945}
-  m_SizeDelta: {x: 79.74, y: 29.924}
+  m_AnchorMin: {x: 1, y: 0}
+  m_AnchorMax: {x: 1, y: 0}
+  m_AnchoredPosition: {x: 247, y: 0.19000244}
+  m_SizeDelta: {x: 162.53302, y: 60.994003}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2062631439
 MonoBehaviour:

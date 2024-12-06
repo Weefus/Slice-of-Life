@@ -99,7 +99,7 @@ AnimatorState:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: idle 0
-  m_Speed: 0.33333334
+  m_Speed: 0.5
   m_CycleOffset: 0
   m_Transitions:
   - {fileID: -8801613971078989461}
@@ -114,7 +114,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 9e40370113e3d5d4387ff3d1a31b29de, type: 2}
+  m_Motion: {fileID: 7400000, guid: f728ffa14e773fc49aa37a284da0287d, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -423,7 +423,7 @@ MonoBehaviour:
   leakf: {fileID: 7225933855199300712, guid: fd7a84223c009cf429ca1f7eb34abf73, type: 3}
   leakb: {fileID: 7225933855199300712, guid: 0e7f8baef980d3a4bac543952bc87780, type: 3}
   loc: {x: 0, y: 0, z: 0}
-  startT: 0
+  startT: 0.2
 --- !u!114 &-2233099101559093777
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1375,7 +1375,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: bd4d85388dcf66c4eb705d8391416bee, type: 2}
+  m_Motion: {fileID: 7400000, guid: 9e40370113e3d5d4387ff3d1a31b29de, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -1695,7 +1695,7 @@ AnimatorState:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: moveing
-  m_Speed: 2
+  m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
   - {fileID: 3507079045655661312}
