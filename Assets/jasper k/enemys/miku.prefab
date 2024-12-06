@@ -230,6 +230,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 71735cceaf59b8a4c8178e17bcc3fffd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  actionCount: 0
+  actionsAfterHolo: 0
 --- !u!1001 &3685884978031372374
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -238,6 +240,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 4235053005747316828}
     m_Modifications:
+    - target: {fileID: 1977322299923650895, guid: 7498db5d04e010d46b2fb3f606085f75, type: 3}
+      propertyPath: m_Color.a
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4557128134269089870, guid: 7498db5d04e010d46b2fb3f606085f75, type: 3}
       propertyPath: m_Name
       value: noTouch

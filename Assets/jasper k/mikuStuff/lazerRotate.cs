@@ -19,7 +19,10 @@ public class lazerRotate : MonoBehaviour
         players = GameObject.FindGameObjectsWithTag("Player");
         closestPlyr = getClosestPlayer();
         target = players[closestPlyr];
-        transform.LookAt(target.transform);
+        transform.LookAt(target.transform, Vector3.up);
+        if (target.transform.position.x > transform.position.x) {
+            speed = speed * -1;
+        }
         
     }
 
