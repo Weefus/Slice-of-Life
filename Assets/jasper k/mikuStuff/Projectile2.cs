@@ -62,15 +62,15 @@ public class Projectile2 : StateMachineBehaviour
         {
             if (ranNote == 1)
             {
-                Instantiate(note, new Vector3(rigid.position.x + (1.5f * side), 1, 0), Quaternion.identity);
+                Instantiate(note, new Vector3(rigid.position.x + (1.5f * side), 2, 0), Quaternion.identity);
             }
             else if (ranNote == 2)
             {
-                Instantiate(note, new Vector3(rigid.position.x + (1.5f * side), 3, 0), Quaternion.identity);
+                Instantiate(note, new Vector3(rigid.position.x + (1.5f * side), 4, 0), Quaternion.identity);
             }
             else
             {
-                Instantiate(note, new Vector3(rigid.position.x + (1.5f * side), 5, 0), Quaternion.identity);
+                Instantiate(note, new Vector3(rigid.position.x + (1.5f * side), 6, 0), Quaternion.identity);
             }
 
             //resets the cooldown of the attack
@@ -80,6 +80,12 @@ public class Projectile2 : StateMachineBehaviour
         //Increments the time for both moving and attacks
         time += Time.deltaTime;
         attackTime += Time.deltaTime;
+
+        Debug.Log(time);
+        if (time > 15.0f)
+        {
+            animator.SetTrigger("endRange");
+        }
     }
 
     // OnStateExit is called when a transition ends and the state machine finishes evaluating this state
@@ -87,5 +93,7 @@ public class Projectile2 : StateMachineBehaviour
     {
         //Gives Miku gravity again
         rigid.gravityScale = originalGravity;
+        time = 0;
+        attackTime = 0;
     }
 }

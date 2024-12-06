@@ -148,7 +148,7 @@ MonoBehaviour:
   yDirection: 0
   time: 0
   returnTime: 9
-  target: 1.5
+  target: 1
 --- !u!1001 &3740114655956054765
 PrefabInstance:
   m_ObjectHideFlags: 0
