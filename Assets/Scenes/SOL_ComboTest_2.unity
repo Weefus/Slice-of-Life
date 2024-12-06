@@ -381,10 +381,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 4562325896689541980, guid: c4bbe6cb242e12c42a01b198462789a3, type: 3}
-      propertyPath: invincible
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 5184942824323944038, guid: c4bbe6cb242e12c42a01b198462789a3, type: 3}
       propertyPath: m_Name
       value: Player(With Combos)

@@ -547,7 +547,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 672795327bb1f0c47b1aea01942db2a7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hp: 50
+  hp: 100
   ult: 50
   maxHP: 100
   maxUlt: 100
@@ -575,6 +575,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   jumpForce: 600
   maxSpeed: 10
+  jumped: 0
   moving: 0
 --- !u!114 &7074931721123141813
 MonoBehaviour:
@@ -772,7 +773,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   heal: {fileID: 6685271424950129374}
   dash: {fileID: 434663031049620622}
+  ultReady: {fileID: 0}
   dashScript: {fileID: 3376143408054181311}
+  player: {fileID: 0}
 --- !u!1 &6838451158581794790
 GameObject:
   m_ObjectHideFlags: 0
