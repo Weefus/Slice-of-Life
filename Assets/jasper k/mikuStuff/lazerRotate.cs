@@ -38,7 +38,8 @@ public class lazerRotate : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D col)
     {
-        if (gameObject.tag != col.tag && col.tag != "Miku")
+        Debug.Log(col.tag + "lazer");
+        if (gameObject.tag != col.tag && col.tag != "Miku" && col.tag != "BossCamera")
         {
 
             Debug.Log("hit something");
