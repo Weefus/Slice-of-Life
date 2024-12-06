@@ -11,6 +11,7 @@ public class ZomProjTrack : MonoBehaviour
     private float damage = 5;
     private float playerDirct;
     private Rigidbody2D rigid;
+    public TeamComponent team;
 
 
     // Start is called before the first frame update
@@ -44,12 +45,12 @@ public class ZomProjTrack : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D col)
     {
-        Debug.Log(col.tag);
+        
         if (col.CompareTag("Player"))
         {
-            coll.GetComponent<Hurtbox>().DealDamage(damage);
+            
             Debug.Log("Hit");
-            Destroy(this);
+            Destroy(gameObject);
         }
     }
 }
