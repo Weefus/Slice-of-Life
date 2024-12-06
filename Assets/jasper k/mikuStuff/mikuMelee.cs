@@ -55,6 +55,7 @@ public class mikuMelee : StateMachineBehaviour
             
             cHitBox = Instantiate(hitBox, new Vector3(animator.transform.position.x + (1 * animator.transform.localScale.x), animator.transform.position.y, animator.transform.position.z), hitBox.transform.rotation, animator.transform);
             NotActive = false;
+            cHitBox.GetComponent<duration>().endtime = this.endTime;
         }
 
         if (time > endTime) {
