@@ -19,10 +19,11 @@ public class zombieMove : MonoBehaviour
     private Rigidbody2D rigid;
     public bool canMove;
     public KnockbackController kb;
-
+    basicZombClass zomb;
     // Start is called before the first frame update
     void Start()
     {
+        zomb = GetComponent<basicZombClass>();
         kb = GetComponent<KnockbackController>();
         speed = speedBase + Random.Range(-speedVariation, speedVariation);
         players = GameObject.FindGameObjectsWithTag("Player");
@@ -34,6 +35,11 @@ public class zombieMove : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (zomb.hp <= 0)
+        {
+            return;
+        }
+
         time = time + Time.deltaTime;
         closestPlyr = getClosestPlayer();
 

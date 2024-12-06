@@ -718,6 +718,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 9220183486799679498, guid: c2834e55546353e45b6f4838a94df760, type: 3}
   m_PrefabInstance: {fileID: 1881985818}
   m_PrefabAsset: {fileID: 0}
+--- !u!198 &285352810 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 4941794877330317507, guid: c4bbe6cb242e12c42a01b198462789a3, type: 3}
+  m_PrefabInstance: {fileID: 726516278}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &292422870 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5829480101548650625, guid: 70fe58173d1783449abd54a190ccfd19, type: 3}
@@ -1877,6 +1882,10 @@ PrefabInstance:
       propertyPath: dashingPower
       value: 30
       objectReference: {fileID: 0}
+    - target: {fileID: 4237763978273189414, guid: c4bbe6cb242e12c42a01b198462789a3, type: 3}
+      propertyPath: ultReady
+      value: 
+      objectReference: {fileID: 285352810}
     - target: {fileID: 4562325896689541980, guid: c4bbe6cb242e12c42a01b198462789a3, type: 3}
       propertyPath: ui
       value: 
@@ -5941,11 +5950,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7578568342867240741, guid: 2e59356c6021074418d561bbe6fef63e, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -24.799988
+      value: -24.800049
       objectReference: {fileID: 0}
     - target: {fileID: 7578568342867240741, guid: 2e59356c6021074418d561bbe6fef63e, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -2.2999763
+      value: -2.2999878
       objectReference: {fileID: 0}
     - target: {fileID: 8550699704093730150, guid: 2e59356c6021074418d561bbe6fef63e, type: 3}
       propertyPath: m_AnchorMax.x
