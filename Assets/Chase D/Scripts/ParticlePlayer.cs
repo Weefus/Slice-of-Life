@@ -6,12 +6,15 @@ public class ParticlePlayer : MonoBehaviour
 {
     public ParticleSystem heal;
     public ParticleSystem dash;
+    public ParticleSystem ultReady;
     public Dash dashScript;
+    public Player player;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        dashScript = GetComponent<Dash>();
+        player = GetComponent<Player>();
     }
 
     // Update is called once per frame
@@ -25,6 +28,16 @@ public class ParticlePlayer : MonoBehaviour
         } else
         {
             dashEmission.enabled = false;
+        }
+
+        var ultEmission = ultReady.emission;
+
+        if (player.ult == 100)
+        {
+            ultEmission.enabled = true;
+        } else
+        {
+            ultEmission.enabled = false;
         }
     }
 
