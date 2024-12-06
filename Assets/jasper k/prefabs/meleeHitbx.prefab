@@ -101,7 +101,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _state: 0
   ignore: {fileID: 0}
-  damageAmt: 10
+  damageAmt: 5
   knockbackForce: 8
   direction: {x: 0, y: 0, z: 0}
   hitParticle: {fileID: 0}
@@ -162,3 +162,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6214c98103e9be248bb1b80f565f5e86, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  endtime: 0
