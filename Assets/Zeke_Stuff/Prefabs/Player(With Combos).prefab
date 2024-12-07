@@ -773,7 +773,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   heal: {fileID: 6685271424950129374}
   dash: {fileID: 434663031049620622}
-  ultReady: {fileID: 0}
+  ultReady: {fileID: 4941794877330317507}
   dashScript: {fileID: 3376143408054181311}
   player: {fileID: 0}
 --- !u!1 &6838451158581794790
@@ -1075,6 +1075,11 @@ PrefabInstance:
 --- !u!4 &628847311879313940 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2955622669221222356, guid: 378de86f1ac5313488e685bfee287707, type: 3}
+  m_PrefabInstance: {fileID: 2431493428970999232}
+  m_PrefabAsset: {fileID: 0}
+--- !u!198 &4941794877330317507 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 7289830425145191683, guid: 378de86f1ac5313488e685bfee287707, type: 3}
   m_PrefabInstance: {fileID: 2431493428970999232}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &4361573062790275115

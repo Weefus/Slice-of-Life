@@ -34,9 +34,9 @@ public class idle : StateMachineBehaviour
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         
-        closestPlyr = getClosestPlayer(animator);
-        Debug.Log(animator.GetComponent<basicZombClass>().hp);
-        Debug.Log(animator.GetComponent<basicZombClass>().maxHP * .5);
+        //closestPlyr = getClosestPlayer(animator);
+        //Debug.Log(animator.GetComponent<basicZombClass>().hp);
+        //Debug.Log(animator.GetComponent<basicZombClass>().maxHP * .5);
         Debug.Log("endset");
         if (animator.GetComponent<basicZombClass>().hp <= (animator.GetComponent<basicZombClass>().maxHP * .5)) {
             animator.SetTrigger("50%<");
