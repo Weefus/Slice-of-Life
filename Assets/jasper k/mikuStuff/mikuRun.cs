@@ -36,6 +36,11 @@ public class mikuRun : StateMachineBehaviour
     //OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
+        if (animator.GetComponent<basicZombClass>().hp <= (animator.GetComponent<basicZombClass>().maxHP * .5))
+        {
+            animator.SetTrigger("50%<");
+            Debug.Log("trigger");
+        }
         time = time + Time.deltaTime;
         closestPlyr = getClosestPlayer(animator);
 
