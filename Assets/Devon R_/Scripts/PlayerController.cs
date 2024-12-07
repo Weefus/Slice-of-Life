@@ -28,7 +28,7 @@ public class PlayerController : MonoBehaviour
     //if the player is in a boss fight
     private bool bossCam = false;
     //Check to see if player has already used their jump/in-air
-    private bool jumped = false;
+    [SerializeField] private bool jumped = false;
     //Ckeck to see if the player is moving
     public bool moving = false;
     //Check for the camera to start to return to center
@@ -57,6 +57,7 @@ public class PlayerController : MonoBehaviour
     //you need to add a tag for your ground object for this to work properly
     void OnCollisionEnter2D(Collision2D collision)
     {
+        
         //Checks if the player has reached a grounded state to get a jump back
         if ((collision.gameObject.CompareTag("Ground") || collision.gameObject.CompareTag("Platform")) && myRB.velocity.y <= 0)
         {
