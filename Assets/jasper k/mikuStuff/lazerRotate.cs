@@ -19,7 +19,10 @@ public class lazerRotate : MonoBehaviour
         players = GameObject.FindGameObjectsWithTag("Player");
         closestPlyr = getClosestPlayer();
         target = players[closestPlyr];
-        transform.LookAt(target.transform);
+        transform.LookAt(target.transform, Vector3.up);
+        if (target.transform.position.x > transform.position.x) {
+            speed = speed * -1;
+        }
         
     }
 
@@ -35,7 +38,8 @@ public class lazerRotate : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D col)
     {
-        if (gameObject.tag != col.tag && col.tag != "Miku")
+        Debug.Log(col.tag + "lazer");
+        if (gameObject.tag != col.tag && col.tag != "Miku" && col.tag != "BossCamera")
         {
 
             Debug.Log("hit something");

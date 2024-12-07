@@ -43,7 +43,7 @@ public class Hitbox : MonoBehaviour
             direction.y = 0.5f;
 
             h.DealDamage(damageAmt);
-            //Instantiate(hitParticle, col.transform.position, col.transform.rotation);
+            Instantiate(hitParticle, col.transform.position, col.transform.rotation);
 
             if (kb != null)
             {
@@ -52,6 +52,7 @@ public class Hitbox : MonoBehaviour
                     kb.PlayerKnockback(direction * knockbackForce);
                 } else
                 {
+                    //Debug.Log(direction);
                     kb.Knockback(direction * knockbackForce);
                 }
             }
