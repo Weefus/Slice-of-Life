@@ -11,8 +11,11 @@ public class basicZombClass : MonoBehaviour
     public float atkEnd;
     public float atkCd;
     public float maxHP;
+<<<<<<< Updated upstream
     Animator animator;
     private float despawnTime = 5;
+=======
+>>>>>>> Stashed changes
 
     // Start is called before the first frame update
     void Start()
@@ -26,6 +29,7 @@ public class basicZombClass : MonoBehaviour
     {
         if (hp <= 0)
         {
+<<<<<<< Updated upstream
             animator.SetTrigger("die");
 
             despawnTime -= Time.deltaTime;
@@ -35,6 +39,10 @@ public class basicZombClass : MonoBehaviour
                 Destroy(gameObject);
                 player.increaseScore(50);
             }
+=======
+            Destroy(gameObject);
+            player.increaseScore(50);
+>>>>>>> Stashed changes
         }
     }
 }
