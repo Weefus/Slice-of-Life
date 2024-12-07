@@ -5777,6 +5777,14 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d92fd34a75f3bfc4092534fdc58a47e0, type: 3}
+<<<<<<< HEAD
+=======
+--- !u!4 &229851048 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5362870856215955276, guid: 20fd556d683270644b32710499bac3e1, type: 3}
+  m_PrefabInstance: {fileID: 220236121}
+  m_PrefabAsset: {fileID: 0}
+>>>>>>> parent of b534b32 (added obstacles to tutorial scene)
 --- !u!1001 &231519798
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -53018,6 +53026,9 @@ SceneRoots:
   - {fileID: 1500128980}
 <<<<<<< Updated upstream
   - {fileID: 1357433826}
+<<<<<<< HEAD
 =======
   - {fileID: 1707688929}
 >>>>>>> Stashed changes
+=======
+>>>>>>> parent of b534b32 (added obstacles to tutorial scene)
