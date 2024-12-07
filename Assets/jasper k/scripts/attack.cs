@@ -18,13 +18,9 @@ public class attack : MonoBehaviour
     public int force;
     public float range;
     public GameObject attackParticle;
-<<<<<<< Updated upstream
     Animator animator;
     basicZombClass zomb;
 
-=======
-    
->>>>>>> Stashed changes
     // Start is called before the first frame update
     void Start()
     {
@@ -33,7 +29,6 @@ public class attack : MonoBehaviour
         isAtking = false;
         canMove = true;
         canHit = true;
-       
     }
 
     // Update is called once per frame
@@ -53,20 +48,16 @@ public class attack : MonoBehaviour
 
         if (isAtking)
         {
-<<<<<<< Updated upstream
             animator.SetTrigger("attack");
 
-=======
-            Animator anim = this.GetComponent<Animator>();
->>>>>>> Stashed changes
             time = time + Time.deltaTime;
             
             if (startTS < time && time < endTS && canHit)
             {
-                coll = Physics2D.OverlapCircle(transform.position, range / 2, mask);
+                coll = Physics2D.OverlapCircle(transform.position, range/2, mask);
+
                 if (coll != null)
                 {
-                    anim.Play("Zombie with One Arm Attack");
                     Instantiate(attackParticle, coll.transform.position, coll.transform.rotation);
                     coll.GetComponent<Hurtbox>().DealDamage(dmg);
                     canHit = false;
