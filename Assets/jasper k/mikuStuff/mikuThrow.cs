@@ -30,6 +30,11 @@ public class mikuThrow : StateMachineBehaviour
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         time = time + Time.deltaTime;
+        if (animator.GetComponent<basicZombClass>().hp <= (animator.GetComponent<basicZombClass>().maxHP * .5))
+        {
+            animator.SetTrigger("50%<");
+            Debug.Log("trigger");
+        }
 
         if (time > startT && !hasThrown) {
             loc = new Vector3(transform.position.x + (transform.localScale.x * 1.5f), transform.position.y, 0);
@@ -38,6 +43,7 @@ public class mikuThrow : StateMachineBehaviour
             leek.damageAmt = dmg;
             hasThrown = true;
         }
+        
     }
 
     // OnStateExit is called when a transition ends and the state machine finishes evaluating this state

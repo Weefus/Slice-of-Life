@@ -55,7 +55,7 @@ public class zombieMove : MonoBehaviour
         }
 
         if (rigid.velocity == new Vector2(0,0) && canMove) {
-            transform.localScale = new Vector3(-playerDirct, transform.localScale.y, transform.localScale.z);
+            transform.localScale = new Vector3(-playerDirct * 2.2f, transform.localScale.y, transform.localScale.z);
             transform.Translate(Vector3.right * speed * Time.deltaTime * playerDirct);
         }
     }
