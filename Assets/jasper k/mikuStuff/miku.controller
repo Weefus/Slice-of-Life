@@ -249,6 +249,31 @@ AnimatorState:
   m_MirrorParameter: 
   m_CycleOffsetParameter: 
   m_TimeParameter: 
+--- !u!1101 &-7270642202478547004
+AnimatorStateTransition:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  m_Conditions:
+  - m_ConditionMode: 1
+    m_ConditionEvent: 0 HP
+    m_EventTreshold: 0
+  m_DstStateMachine: {fileID: 0}
+  m_DstState: {fileID: 5244983481463651117}
+  m_Solo: 0
+  m_Mute: 0
+  m_IsExit: 0
+  serializedVersion: 3
+  m_TransitionDuration: 0.25
+  m_TransitionOffset: 0
+  m_ExitTime: 0.39999998
+  m_HasExitTime: 1
+  m_HasFixedDuration: 1
+  m_InterruptionSource: 0
+  m_OrderedInterruption: 1
+  m_CanTransitionToSelf: 1
 --- !u!1102 &-6616795301011180043
 AnimatorState:
   serializedVersion: 6
@@ -420,10 +445,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 31721cd82d11f0b4187e5cd756af041c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  leakf: {fileID: 7225933855199300712, guid: fd7a84223c009cf429ca1f7eb34abf73, type: 3}
+  leakf: {fileID: 0}
   leakb: {fileID: 7225933855199300712, guid: 0e7f8baef980d3a4bac543952bc87780, type: 3}
   loc: {x: 0, y: 0, z: 0}
   startT: 0.2
+  dmg: 0
+  leek: {fileID: 0}
 --- !u!114 &-2233099101559093777
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -846,6 +873,7 @@ MonoBehaviour:
   dist2: 0
   speed: 17
   range: 25
+  dmg: 0
 --- !u!1102 &954129176234185595
 AnimatorState:
   serializedVersion: 6
@@ -966,6 +994,7 @@ AnimatorState:
   - {fileID: 975012159059059773}
   - {fileID: 6829991068300380381}
   - {fileID: 3949426635318588335}
+  - {fileID: -7270642202478547004}
   m_StateMachineBehaviours:
   - {fileID: -1523367369537574718}
   m_Position: {x: 50, y: 50, z: 0}

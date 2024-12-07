@@ -26,14 +26,20 @@ public class basicZombClass : MonoBehaviour
     {
         if (hp <= 0)
         {
-            animator.SetTrigger("die");
-
-            despawnTime -= Time.deltaTime;
-
-            if (despawnTime <= 0)
+            if (gameObject.CompareTag("Miku"))
             {
-                Destroy(gameObject);
-                player.increaseScore(50);
+                animator.SetTrigger("0 HP");
+            } else
+            {
+                animator.SetTrigger("die");
+
+                despawnTime -= Time.deltaTime;
+
+                if (despawnTime <= 0)
+                {
+                    Destroy(gameObject);
+                    player.increaseScore(50);
+                }
             }
         }
     }

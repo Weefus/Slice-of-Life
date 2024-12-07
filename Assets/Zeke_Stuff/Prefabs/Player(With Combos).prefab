@@ -573,8 +573,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 10748f1b9bd6f1143b8ff39433b266cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jumpForce: 600
+  jumpForce: 700
   maxSpeed: 10
+  jumped: 0
   moving: 0
 --- !u!114 &7074931721123141813
 MonoBehaviour:
@@ -772,7 +773,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   heal: {fileID: 6685271424950129374}
   dash: {fileID: 434663031049620622}
+  ultReady: {fileID: 0}
   dashScript: {fileID: 3376143408054181311}
+  player: {fileID: 0}
 --- !u!1 &6838451158581794790
 GameObject:
   m_ObjectHideFlags: 0
@@ -1156,26 +1159,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Hearts_Healing
       objectReference: {fileID: 0}
-    - target: {fileID: 2139125171231565874, guid: eeac26b1d20c3d44bbfcce7b1ea62c20, type: 3}
-      propertyPath: looping
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2139125171231565874, guid: eeac26b1d20c3d44bbfcce7b1ea62c20, type: 3}
-      propertyPath: lengthInSec
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2139125171231565874, guid: eeac26b1d20c3d44bbfcce7b1ea62c20, type: 3}
-      propertyPath: playOnAwake
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2139125171231565874, guid: eeac26b1d20c3d44bbfcce7b1ea62c20, type: 3}
-      propertyPath: moveWithTransform
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2139125171231565874, guid: eeac26b1d20c3d44bbfcce7b1ea62c20, type: 3}
-      propertyPath: EmissionModule.enabled
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 3306527406429509005, guid: eeac26b1d20c3d44bbfcce7b1ea62c20, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.34
@@ -1215,10 +1198,6 @@ PrefabInstance:
     - target: {fileID: 3306527406429509005, guid: eeac26b1d20c3d44bbfcce7b1ea62c20, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5594605796547592976, guid: eeac26b1d20c3d44bbfcce7b1ea62c20, type: 3}
-      propertyPath: m_SortingOrder
-      value: 11
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
