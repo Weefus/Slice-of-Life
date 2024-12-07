@@ -26,6 +26,7 @@ public class Preperation : StateMachineBehaviour
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
+        
         players = GameObject.FindGameObjectsWithTag("Player");
         closestPlyr = GetClosestPlayer(animator);
         rigid = animator.GetComponent<Rigidbody2D>();
@@ -51,8 +52,13 @@ public class Preperation : StateMachineBehaviour
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
+        if (animator.GetComponent<basicZombClass>().hp <= (animator.GetComponent<basicZombClass>().maxHP * .5))
+        {
+            animator.SetTrigger("50%<");
+            Debug.Log("trigger");
+        }
         //Makes sure Miku doesn't teleport to the other side
-        if(Mathf.Abs(rigid.position.x) != 18)
+        if (Mathf.Abs(rigid.position.x) != 18)
         {
             //Miku moving towards the target position
             Vector2 newPos = Vector2.MoveTowards(rigid.position, target, speed * Time.fixedDeltaTime);
