@@ -69,7 +69,7 @@ public class PlayerController : MonoBehaviour
     void OnCollisionExit2D(Collision2D collision)
     {
         //Makes the player not be able to jump mid-air if they didn't already to get mid-air
-        if(collision.gameObject.CompareTag("Ground") || collision.gameObject.CompareTag("Platform") && myRB.velocity.y != 0)
+        if(collision.gameObject.CompareTag("Ground") || collision.gameObject.CompareTag("Platform") && myRB.velocity.y <= 0)
         {
             //Player can't jump now
             jumped = true;
