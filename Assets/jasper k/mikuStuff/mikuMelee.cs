@@ -51,6 +51,11 @@ public class mikuMelee : StateMachineBehaviour
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         time = time + Time.deltaTime;
+        if (animator.GetComponent<basicZombClass>().hp <= (animator.GetComponent<basicZombClass>().maxHP * .5))
+        {
+            animator.SetTrigger("50%<");
+            Debug.Log("trigger");
+        }
 
         if (time < endTime && time > hitTime && NotActive) {
             

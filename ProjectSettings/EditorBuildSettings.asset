@@ -45,9 +45,12 @@ EditorBuildSettings:
     path: Assets/Scenes/SOL_Beta_GameOver.unity
     guid: 9e182cab562a7e34b902bc44d02b70b8
   - enabled: 1
-    path: Assets/Scenes/SOL_environment_miku.unity
+    path: Assets/Scenes/SOL_environment_miku_Test_Nope.unity
     guid: 418e4d98a1efaaa40bc18cd58de920d5
   - enabled: 1
     path: Assets/Scenes/Release_Level_1.unity
     guid: c73fe356c64520e4988643ed29879912
+  - enabled: 1
+    path: Assets/Scenes/Release_Level_Tutorial.unity
+    guid: 063430198a9a5b8428a6c6f863f2092e
   m_configObjects: {}
