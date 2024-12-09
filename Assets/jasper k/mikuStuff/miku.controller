@@ -475,7 +475,7 @@ MonoBehaviour:
   leakb: {fileID: 7225933855199300712, guid: 0e7f8baef980d3a4bac543952bc87780, type: 3}
   loc: {x: 0, y: 0, z: 0}
   startT: 0.2
-  dmg: 0
+  dmg: 3
   leek: {fileID: 0}
 --- !u!114 &-2233099101559093777
 MonoBehaviour:
@@ -925,7 +925,7 @@ MonoBehaviour:
   dist2: 0
   speed: 17
   range: 25
-  dmg: 0
+  dmg: 7
 --- !u!1102 &954129176234185595
 AnimatorState:
   serializedVersion: 6
