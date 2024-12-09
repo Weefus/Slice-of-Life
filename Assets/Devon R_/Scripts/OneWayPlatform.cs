@@ -27,11 +27,14 @@ public class OneWayPlatform : MonoBehaviour
     IEnumerator Wait()
     {
         BoxCollider2D boxCollider = gameObject.GetComponent<BoxCollider2D>();
-        BoxCollider2D playerCollider = coll.GetComponent<BoxCollider2D>();
+        if (coll != null)
+        {
+            BoxCollider2D playerCollider = coll.GetComponent<BoxCollider2D>();
 
-        Physics2D.IgnoreCollision(playerCollider, boxCollider);
-        yield return new WaitForSeconds(1f);
-        Physics2D.IgnoreCollision(playerCollider, boxCollider, false);
+            Physics2D.IgnoreCollision(playerCollider, boxCollider);
+            yield return new WaitForSeconds(1f);
+            Physics2D.IgnoreCollision(playerCollider, boxCollider, false);
+        }
     }
 
     //Input for when the player presses down
