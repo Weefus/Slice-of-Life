@@ -390,6 +390,8 @@ MonoBehaviour:
   customName: Combat
   isFinisher: 0
   player: {fileID: 8089955248204145208}
+  finisherParticles: {fileID: 0}
+  buildupParticles: {fileID: 2929823364390391777, guid: 8e26850e64372a84fb0d2789889ef007, type: 3}
 --- !u!114 &5363429375983022862
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -688,6 +690,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   heal: {fileID: 6685271424950129374}
   dash: {fileID: 434663031049620622}
+  dashTwo: {fileID: 0}
   ultReady: {fileID: 4941794877330317507}
   dashScript: {fileID: 3376143408054181311}
   player: {fileID: 0}
