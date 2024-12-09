@@ -6,7 +6,9 @@ public class ParticlePlayer : MonoBehaviour
 {
     public ParticleSystem heal;
     public ParticleSystem dash;
+    public ParticleSystem dashTwo;
     public ParticleSystem ultReady;
+  
     public Dash dashScript;
     public Player player;
 
@@ -21,13 +23,16 @@ public class ParticlePlayer : MonoBehaviour
     void Update()
     {
         var dashEmission = dash.emission;
+        var dashTwoEmission = dashTwo.emission;
 
         if (dashScript.isDashing) //toggles emission for the dash particles
         {
             dashEmission.enabled = true;
+            dashTwoEmission.enabled = true; 
         } else
         {
             dashEmission.enabled = false;
+            dashTwoEmission.enabled = false;
         }
 
         var ultEmission = ultReady.emission;
