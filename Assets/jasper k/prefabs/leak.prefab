@@ -167,7 +167,7 @@ MonoBehaviour:
   speed: 12
   flight: 1
   damageAmt: 3
-  knockbackForce: 5
+  knockbackForce: 10
   direction: {x: 0, y: 0, z: 0}
   locInital: {x: 0, y: 0, z: 0}
   directionX: 0
