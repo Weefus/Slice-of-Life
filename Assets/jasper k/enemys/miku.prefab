@@ -244,6 +244,10 @@ PrefabInstance:
       propertyPath: m_Color.a
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3519521779393122077, guid: 7498db5d04e010d46b2fb3f606085f75, type: 3}
+      propertyPath: hitParticle
+      value: 
+      objectReference: {fileID: 1927509476959190383, guid: 116644923c39edf4c900fba7bfc8ae95, type: 3}
     - target: {fileID: 4557128134269089870, guid: 7498db5d04e010d46b2fb3f606085f75, type: 3}
       propertyPath: m_Name
       value: noTouch
