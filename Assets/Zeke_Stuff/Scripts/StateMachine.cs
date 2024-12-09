@@ -18,6 +18,7 @@ public class StateMachine : MonoBehaviour
     public Player player;
     private float cooldown;
     public GameObject finisherParticles;
+    public GameObject buildupParticles;
 
     private void Start()
     {
@@ -124,5 +125,9 @@ public class StateMachine : MonoBehaviour
     public GameObject getFinisherParticles()
     {
         return finisherParticles;
+    }
+    public GameObject getBuildupParticles()
+    {
+        return buildupParticles;
     }
 }
