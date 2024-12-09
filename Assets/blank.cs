@@ -13,6 +13,10 @@ public class blank : StateMachineBehaviour
             animator.SetTrigger("50%<");
             Debug.Log("trigger");
         }
+        if (animator.GetComponent<basicZombClass>().hp <= 0)
+        {
+            animator.SetTrigger("0Hp");
+        }
     }
 
     // OnStateExit is called when a transition ends and the state machine finishes evaluating this state
