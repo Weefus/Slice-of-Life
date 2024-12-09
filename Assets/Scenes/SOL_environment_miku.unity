@@ -973,11 +973,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2816254500531922138, guid: 2e59356c6021074418d561bbe6fef63e, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 100.4
+      value: 100.3999
       objectReference: {fileID: 0}
     - target: {fileID: 2816254500531922138, guid: 2e59356c6021074418d561bbe6fef63e, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -42.7
+      value: -42.700012
       objectReference: {fileID: 0}
     - target: {fileID: 3060232815632646291, guid: 2e59356c6021074418d561bbe6fef63e, type: 3}
       propertyPath: m_Name
@@ -1078,6 +1078,14 @@ PrefabInstance:
     - target: {fileID: 7578568342867240741, guid: 2e59356c6021074418d561bbe6fef63e, type: 3}
       propertyPath: m_LocalScale.y
       value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 8012843005892892979, guid: 2e59356c6021074418d561bbe6fef63e, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[4].m_Target
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8012843005892892979, guid: 2e59356c6021074418d561bbe6fef63e, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[5].m_Target
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 8041049174434899475, guid: 2e59356c6021074418d561bbe6fef63e, type: 3}
       propertyPath: m_fontColor.b
@@ -11379,10 +11387,6 @@ PrefabInstance:
       propertyPath: ui
       value: 
       objectReference: {fileID: 1296965246}
-    - target: {fileID: 4730762435024850619, guid: c4bbe6cb242e12c42a01b198462789a3, type: 3}
-      propertyPath: jumpForce
-      value: 700
-      objectReference: {fileID: 0}
     - target: {fileID: 5184942824323944038, guid: c4bbe6cb242e12c42a01b198462789a3, type: 3}
       propertyPath: m_Name
       value: Player(With Combos)
