@@ -48,8 +48,6 @@ public class attack : MonoBehaviour
 
         if (isAtking)
         {
-            animator.SetTrigger("attack");
-
             time = time + Time.deltaTime;
             
             if (startTS < time && time < endTS && canHit)
@@ -70,8 +68,6 @@ public class attack : MonoBehaviour
                     coll.GetComponent<KnockbackController>().PlayerKnockback(direction * force);
                 }
             }
-
-            animator.SetTrigger("walk");
         }
         else { time = 0; }
     }
@@ -80,7 +76,7 @@ public class attack : MonoBehaviour
     {
         
         if (col.tag == "Player") {
-            
+            animator.SetTrigger("attack");
             isAtking = true;
             canMove=false;
             transform.parent.GetComponent<zombieMove>().canMove = false;
