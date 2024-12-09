@@ -17252,6 +17252,10 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 1304262191}
+    - target: {fileID: 7962113528625470170, guid: c4bbe6cb242e12c42a01b198462789a3, type: 3}
+      propertyPath: finisherParticles
+      value: 
+      objectReference: {fileID: 1274058297942735963, guid: 9553c817f3a09fc47b5867b27969208c, type: 3}
     - target: {fileID: 8089955248204145208, guid: c4bbe6cb242e12c42a01b198462789a3, type: 3}
       propertyPath: g
       value: 
@@ -17277,7 +17281,8 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1671518758}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 6838451158581794790, guid: c4bbe6cb242e12c42a01b198462789a3, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c4bbe6cb242e12c42a01b198462789a3, type: 3}

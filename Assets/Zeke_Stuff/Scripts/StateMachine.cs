@@ -17,6 +17,7 @@ public class StateMachine : MonoBehaviour
     public State.Attack2 attack2 {get; set;}
     public Player player;
     private float cooldown;
+    public GameObject finisherParticles;
 
     private void Start()
     {
@@ -120,5 +121,8 @@ public class StateMachine : MonoBehaviour
             SetNextStateToMain();
         }
     }
-    
+    public GameObject getFinisherParticles()
+    {
+        return finisherParticles;
+    }
 }

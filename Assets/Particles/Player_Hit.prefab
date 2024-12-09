@@ -41,14 +41,14 @@ ParticleSystem:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6526311503573945034}
   serializedVersion: 8
-  lengthInSec: 1
+  lengthInSec: 0.7
   simulationSpeed: 1
   stopAction: 2
   cullingMode: 0
   ringBufferMode: 0
   ringBufferLoopRange: {x: 0, y: 1}
   emitterVelocityMode: 1
-  looping: 0
+  looping: 1
   prewarm: 0
   playOnAwake: 1
   useUnscaledTime: 0
@@ -116,7 +116,7 @@ ParticleSystem:
     startLifetime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0.5
+      scalar: 0.12
       minScalar: 5
       maxCurve:
         serializedVersion: 2
@@ -169,7 +169,7 @@ ParticleSystem:
     startSpeed:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 5
+      scalar: 0
       minScalar: 10
       maxCurve:
         serializedVersion: 2
@@ -226,17 +226,17 @@ ParticleSystem:
       maxColor: {r: 1, g: 0, b: 0.36111116, a: 1}
       maxGradient:
         serializedVersion: 2
-        key0: {r: 1, g: 0, b: 0.6252341, a: 1}
-        key1: {r: 1, g: 1, b: 1, a: 1}
-        key2: {r: 0, g: 0, b: 0, a: 0}
+        key0: {r: 1, g: 0.4198113, b: 0.87696743, a: 1}
+        key1: {r: 1, g: 0.7311321, b: 0.8945994, a: 1}
+        key2: {r: 1, g: 0.7311321, b: 0.8945994, a: 0}
         key3: {r: 0, g: 0, b: 0, a: 0}
         key4: {r: 0, g: 0, b: 0, a: 0}
         key5: {r: 0, g: 0, b: 0, a: 0}
         key6: {r: 0, g: 0, b: 0, a: 0}
         key7: {r: 0, g: 0, b: 0, a: 0}
         ctime0: 0
-        ctime1: 65535
-        ctime2: 0
+        ctime1: 30647
+        ctime2: 30647
         ctime3: 0
         ctime4: 0
         ctime5: 0
@@ -286,7 +286,7 @@ ParticleSystem:
         m_NumAlphaKeys: 2
     startSize:
       serializedVersion: 2
-      minMaxState: 3
+      minMaxState: 0
       scalar: 1
       minScalar: 0.1
       maxCurve:
@@ -339,7 +339,7 @@ ParticleSystem:
         m_RotationOrder: 4
     startSizeY:
       serializedVersion: 2
-      minMaxState: 3
+      minMaxState: 0
       scalar: 1
       minScalar: 1
       maxCurve:
@@ -392,7 +392,7 @@ ParticleSystem:
         m_RotationOrder: 4
     startSizeZ:
       serializedVersion: 2
-      minMaxState: 3
+      minMaxState: 0
       scalar: 1
       minScalar: 1
       maxCurve:
@@ -552,7 +552,7 @@ ParticleSystem:
     startRotation:
       serializedVersion: 2
       minMaxState: 3
-      scalar: 1.5707963
+      scalar: 0
       minScalar: 0
       maxCurve:
         serializedVersion: 2
@@ -980,8 +980,8 @@ ParticleSystem:
       countCurve:
         serializedVersion: 2
         minMaxState: 3
-        scalar: 30
-        minScalar: 10
+        scalar: 1
+        minScalar: 1
         maxCurve:
           serializedVersion: 2
           m_Curve:
@@ -1045,7 +1045,7 @@ ParticleSystem:
         m_Curve:
         - serializedVersion: 3
           time: 0
-          value: 0.009010315
+          value: 0
           inSlope: 0
           outSlope: 0
           tangentMode: 0
@@ -1053,17 +1053,35 @@ ParticleSystem:
           inWeight: 0.33333334
           outWeight: 0.33333334
         - serializedVersion: 3
-          time: 0.036871076
+          time: 0.23506805
           value: 1
-          inSlope: 1.167819
-          outSlope: 1.167819
+          inSlope: 0.17316678
+          outSlope: 0.17316678
           tangentMode: 0
           weightedMode: 0
           inWeight: 0.33333334
+          outWeight: 0.51864517
+        - serializedVersion: 3
+          time: 0.46395314
+          value: 1
+          inSlope: 0.04331673
+          outSlope: 0.04331673
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0.40128055
           outWeight: 0.33333334
         - serializedVersion: 3
-          time: 0.9718628
-          value: 0
+          time: 0.90438974
+          value: 1
+          inSlope: -0.12054132
+          outSlope: -0.12054132
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0.33333334
+          outWeight: 0.70404965
+        - serializedVersion: 3
+          time: 1
+          value: 0.008
           inSlope: 1
           outSlope: 1
           tangentMode: 0
@@ -4844,7 +4862,7 @@ ParticleSystemRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: b9d4f45b617154f479b15aae66893723, type: 2}
+  - {fileID: 2100000, guid: f49cb9ed80873ed469b0207636ed3fd6, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
