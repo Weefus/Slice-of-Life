@@ -7,12 +7,13 @@ public class UltimateState : MeleeBaseState
     public override void OnEnter(StateMachine stateMachine)
     {
         base.OnEnter(stateMachine);
-
-        stateMachine.isFinisher = true;
+        
+    stateMachine.isFinisher = true;
         // attack
         attackIndex = 10;
-        duration = 1.75f;
+        duration = 1.25f;
         animator.SetTrigger("Attack" + attackIndex);
+        
         //  Debug.Log("Player Attack" + attackIndex + "fired!");
     }
     public override void OnUpdate(AttackType currentAttack, Attack1 attack1, Attack2 attack2)
