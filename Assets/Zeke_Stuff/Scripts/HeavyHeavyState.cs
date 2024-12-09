@@ -32,7 +32,7 @@ public class HeavyHeavyState : MeleeBaseState
 
             } else if (currentAttack == AttackType.light)
             {
-                stateMachine.SetNextState(new LHLFinisherState());
+                stateMachine.SetNextState(new LightFinisherState());
          }
             else if (fixedtime > duration * 2)
             {

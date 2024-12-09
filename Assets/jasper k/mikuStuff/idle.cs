@@ -34,13 +34,13 @@ public class idle : StateMachineBehaviour
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         
-        closestPlyr = getClosestPlayer(animator);
-        Debug.Log(animator.GetComponent<basicZombClass>().hp);
-        Debug.Log(animator.GetComponent<basicZombClass>().maxHP * .5);
+        //closestPlyr = getClosestPlayer(animator);
+        //Debug.Log(animator.GetComponent<basicZombClass>().hp);
+        //Debug.Log(animator.GetComponent<basicZombClass>().maxHP * .5);
         Debug.Log("endset");
         if (animator.GetComponent<basicZombClass>().hp <= (animator.GetComponent<basicZombClass>().maxHP * .5)) {
             animator.SetTrigger("50%<");
-            Debug.Log("trigger");
+            
         }
 
         if (animator.GetComponent<basicZombClass>().hp <= 0) {
@@ -55,7 +55,7 @@ public class idle : StateMachineBehaviour
         {//for each attack add its trigger to a string array if the closer player is within a area that generaly represents 
             List<string> attacks = new List<string>();
             dist = players[closestPlyr].transform.position.x - rigid.transform.position.x;
-            Debug.Log(dist);
+            
             if ((dist <= meleeRange && dist >= 0) || (dist >= -meleeRange && dist <= 0))
             {
                 attacks.Add("leakMeleeT");

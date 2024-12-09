@@ -58,7 +58,6 @@ public class mikuMelee : StateMachineBehaviour
         }
 
         if (time < endTime && time > hitTime && NotActive) {
-            
             cHitBox = Instantiate(hitBox, new Vector3(animator.transform.position.x + (1 * animator.transform.localScale.x), animator.transform.position.y, animator.transform.position.z), hitBox.transform.rotation, animator.transform);
             NotActive = false;
             cHitBox.GetComponent<duration>().endtime = this.endTime;
@@ -70,8 +69,6 @@ public class mikuMelee : StateMachineBehaviour
         }
 
         if (time > hitTime && distTraveled < range) {
-            
-            
 
             if (rigid.velocity == new Vector2(0, 0))
             {
@@ -81,12 +78,7 @@ public class mikuMelee : StateMachineBehaviour
 
 
         }
-
-
-
-
-
-
+        
     }
 
     // OnStateExit is called when a transition ends and the state machine finishes evaluating this state
