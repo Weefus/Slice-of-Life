@@ -39,7 +39,7 @@ public class mikuRun : StateMachineBehaviour
         if (animator.GetComponent<basicZombClass>().hp <= (animator.GetComponent<basicZombClass>().maxHP * .5))
         {
             animator.SetTrigger("50%<");
-            Debug.Log("trigger");
+            
         }
         time = time + Time.deltaTime;
         closestPlyr = getClosestPlayer(animator);
