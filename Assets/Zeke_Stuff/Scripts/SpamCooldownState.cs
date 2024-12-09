@@ -11,7 +11,7 @@ public class SpamCooldownState : MeleeBaseState
         // attack
 
       
-        duration = 1.0f;
+        duration = 0.3f;
         multInput = duration * 2;
        
 
