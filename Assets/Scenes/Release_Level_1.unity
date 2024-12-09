@@ -18486,6 +18486,10 @@ PrefabInstance:
       propertyPath: m_ActionEvents.Array.data[6].m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 686077461}
+    - target: {fileID: 7962113528625470170, guid: c4bbe6cb242e12c42a01b198462789a3, type: 3}
+      propertyPath: finisherParticles
+      value: 
+      objectReference: {fileID: 1274058297942735963, guid: 9553c817f3a09fc47b5867b27969208c, type: 3}
     - target: {fileID: 8089955248204145208, guid: c4bbe6cb242e12c42a01b198462789a3, type: 3}
       propertyPath: g
       value: 

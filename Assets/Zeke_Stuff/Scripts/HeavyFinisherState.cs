@@ -29,6 +29,16 @@ public class HeavyFinisherState : MeleeBaseState
             // Optionally destroy the effect after a duration
             GameObject.Destroy(effectInstance, duration);
         }
+
+        GameObject buildupPrefab = stateMachine.getBuildupParticles();
+        if (buildupPrefab != null && playerTransform != null)
+        {
+
+            GameObject effectInstance = GameObject.Instantiate(buildupPrefab, effectPosition, Quaternion.identity);
+            effectInstance.transform.SetParent(playerTransform);
+
+            GameObject.Destroy(effectInstance, duration);
+        }
     }
 
     public override void OnUpdate(AttackType currentAttack, Attack1 attack1, Attack2 attack2)
