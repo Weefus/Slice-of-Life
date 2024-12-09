@@ -20,9 +20,11 @@ public class zombieMove : MonoBehaviour
     public bool canMove;
     public KnockbackController kb;
     basicZombClass zomb;
+    Animator animator;
     // Start is called before the first frame update
     void Start()
     {
+        animator = GetComponent<Animator>();
         zomb = GetComponent<basicZombClass>();
         kb = GetComponent<KnockbackController>();
         speed = speedBase + Random.Range(-speedVariation, speedVariation);
@@ -55,7 +57,8 @@ public class zombieMove : MonoBehaviour
         }
 
         if (rigid.velocity == new Vector2(0,0) && canMove) {
-            transform.localScale = new Vector3(-playerDirct * 2.2f, transform.localScale.y, transform.localScale.z);
+            animator.SetTrigger("walk");
+            transform.localScale = new Vector3(playerDirct * 2.2f, transform.localScale.y, transform.localScale.z);
             transform.Translate(Vector3.right * speed * Time.deltaTime * playerDirct);
         }
     }
