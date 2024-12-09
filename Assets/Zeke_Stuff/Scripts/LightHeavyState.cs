@@ -28,12 +28,12 @@ public class LightHeavyState : MeleeBaseState
             //   Debug.Log("fixed time" +fixedtime + "should combo" + shouldCombo );
             if (currentAttack == AttackType.heavy)
             {
-                stateMachine.SetNextState(new LHHFinisherState());
+                stateMachine.SetNextState(new HeavyFinisherState());
 
             }
             else if (currentAttack == AttackType.light)
             {
-                stateMachine.SetNextState(new LHLFinisherState());
+                stateMachine.SetNextState(new LightFinisherState());
             }
             else if (fixedtime > duration * 2)
             {
