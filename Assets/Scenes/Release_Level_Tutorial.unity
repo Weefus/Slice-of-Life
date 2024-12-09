@@ -17265,6 +17265,14 @@ PrefabInstance:
       propertyPath: dashingPower
       value: 30
       objectReference: {fileID: 0}
+    - target: {fileID: 4237763978273189414, guid: c4bbe6cb242e12c42a01b198462789a3, type: 3}
+      propertyPath: dashTwo
+      value: 
+      objectReference: {fileID: 572397969259875290, guid: d196dab39613272498c41586a86e7757, type: 3}
+    - target: {fileID: 4237763978273189414, guid: c4bbe6cb242e12c42a01b198462789a3, type: 3}
+      propertyPath: ultReady
+      value: 
+      objectReference: {fileID: 2818937531622380332, guid: 832c9a0b2869f2047bd0624ed84c9621, type: 3}
     - target: {fileID: 4562325896689541980, guid: c4bbe6cb242e12c42a01b198462789a3, type: 3}
       propertyPath: ui
       value: 
@@ -33936,6 +33944,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4584804558054666795, guid: 04d080101e05b6a45af6edae6c657b5d, type: 3}
+      propertyPath: p
+      value: 
+      objectReference: {fileID: 1304262191}
     - target: {fileID: 4584804558054666795, guid: 04d080101e05b6a45af6edae6c657b5d, type: 3}
       propertyPath: sceneName
       value: Release_Level_1
