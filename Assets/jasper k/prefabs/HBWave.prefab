@@ -148,3 +148,4 @@ MonoBehaviour:
   damageAmt: 3
   knockbackForce: 20
   direction: {x: 0, y: 0, z: 0}
+  hitParticle: {fileID: 1927509476959190383, guid: 116644923c39edf4c900fba7bfc8ae95, type: 3}

@@ -104,7 +104,7 @@ MonoBehaviour:
   damageAmt: 5
   knockbackForce: 8
   direction: {x: 0, y: 0, z: 0}
-  hitParticle: {fileID: 0}
+  hitParticle: {fileID: 1927509476959190383, guid: 116644923c39edf4c900fba7bfc8ae95, type: 3}
 --- !u!61 &422946220211406473
 BoxCollider2D:
   m_ObjectHideFlags: 0
