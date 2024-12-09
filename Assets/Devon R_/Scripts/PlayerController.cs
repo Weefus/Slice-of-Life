@@ -57,6 +57,7 @@ public class PlayerController : MonoBehaviour
     //you need to add a tag for your ground object for this to work properly
     void OnCollisionEnter2D(Collision2D collision)
     {
+        
         //Checks if the player has reached a grounded state to get a jump back
         if ((collision.gameObject.CompareTag("Ground") || collision.gameObject.CompareTag("Platform")) && myRB.velocity.y <= 0)
         {

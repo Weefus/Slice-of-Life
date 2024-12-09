@@ -33,7 +33,7 @@ public class mikuThrow : StateMachineBehaviour
         if (animator.GetComponent<basicZombClass>().hp <= (animator.GetComponent<basicZombClass>().maxHP * .5))
         {
             animator.SetTrigger("50%<");
-            Debug.Log("trigger");
+            
         }
 
         if (time > startT && !hasThrown) {
