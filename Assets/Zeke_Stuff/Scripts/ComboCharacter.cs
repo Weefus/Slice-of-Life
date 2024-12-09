@@ -57,11 +57,11 @@ public class ComboCharacter : MonoBehaviour
         {
             counter = maxCool;
             currentAttack = State.AttackType.light;
-            Debug.Log("Clicked");
+           // Debug.Log("Clicked");
         } else if (value.phase.Equals(InputActionPhase.Canceled))
         {
             currentAttack = State.AttackType.none;
-            Debug.Log("Stopped");
+           // Debug.Log("Stopped");
         }
         
     }
@@ -71,12 +71,12 @@ public class ComboCharacter : MonoBehaviour
         {
             counter = maxCool;
             currentAttack = State.AttackType.heavy;
-            Debug.Log("Clicked");
+            //Debug.Log("Clicked");
         }
         else if (value.phase.Equals(InputActionPhase.Canceled))
         {
             currentAttack = State.AttackType.none;
-            Debug.Log("Stopped");
+           // Debug.Log("Stopped");
         }
 
     }
