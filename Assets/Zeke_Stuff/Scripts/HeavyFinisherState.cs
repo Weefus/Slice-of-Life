@@ -12,7 +12,7 @@ public class HeavyFinisherState : MeleeBaseState
         stateMachine.isFinisher = true;
         // attack
         attackIndex = 6;
-        duration = 1.25f;
+        duration = 1.0f;
         animator.SetTrigger("Attack" + attackIndex);
         // Debug.Log("Player Attack" + attackIndex + "fired!");
 
