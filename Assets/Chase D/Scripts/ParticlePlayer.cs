@@ -28,11 +28,11 @@ public class ParticlePlayer : MonoBehaviour
         if (dashScript.isDashing) //toggles emission for the dash particles
         {
             dashEmission.enabled = true;
-            //dashTwoEmission.enabled = true; 
+            dashTwoEmission.enabled = true; 
         } else
         {
             dashEmission.enabled = false;
-            //dashTwoEmission.enabled = false;
+            dashTwoEmission.enabled = false;
         }
 
        var ultEmission = ultReady.emission;
@@ -42,7 +42,7 @@ public class ParticlePlayer : MonoBehaviour
             ultEmission.enabled = true;
         } else
         {
-            //ultEmission.enabled = false;
+            ultEmission.enabled = false;
         }
     }
 
