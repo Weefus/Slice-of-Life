@@ -18675,6 +18675,30 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6685271424950129374, guid: c4bbe6cb242e12c42a01b198462789a3, type: 3}
+      propertyPath: InitialModule.startColor.maxColor.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6685271424950129374, guid: c4bbe6cb242e12c42a01b198462789a3, type: 3}
+      propertyPath: InitialModule.startColor.maxColor.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6685271424950129374, guid: c4bbe6cb242e12c42a01b198462789a3, type: 3}
+      propertyPath: InitialModule.startColor.maxColor.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6685271424950129374, guid: c4bbe6cb242e12c42a01b198462789a3, type: 3}
+      propertyPath: InitialModule.startColor.minColor.b
+      value: 0.8678892
+      objectReference: {fileID: 0}
+    - target: {fileID: 6685271424950129374, guid: c4bbe6cb242e12c42a01b198462789a3, type: 3}
+      propertyPath: InitialModule.startColor.minColor.g
+      value: 0.07075471
+      objectReference: {fileID: 0}
+    - target: {fileID: 6685271424950129374, guid: c4bbe6cb242e12c42a01b198462789a3, type: 3}
+      propertyPath: InitialModule.startColor.minColor.r
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7074931721123141813, guid: c4bbe6cb242e12c42a01b198462789a3, type: 3}
       propertyPath: m_Camera
       value: 
@@ -18683,6 +18707,10 @@ PrefabInstance:
       propertyPath: m_ActionEvents.Array.data[6].m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 686077461}
+    - target: {fileID: 7962113528625470170, guid: c4bbe6cb242e12c42a01b198462789a3, type: 3}
+      propertyPath: finisherParticles
+      value: 
+      objectReference: {fileID: 1274058297942735963, guid: 9553c817f3a09fc47b5867b27969208c, type: 3}
     - target: {fileID: 8089955248204145208, guid: c4bbe6cb242e12c42a01b198462789a3, type: 3}
       propertyPath: g
       value: 
@@ -18700,7 +18728,9 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1671518758}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 6838451158581794790, guid: c4bbe6cb242e12c42a01b198462789a3, type: 3}
+    - {fileID: 4783275748299694878, guid: c4bbe6cb242e12c42a01b198462789a3, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c4bbe6cb242e12c42a01b198462789a3, type: 3}

@@ -12,8 +12,8 @@ public class HeavyEntryState : MeleeBaseState
         // attack
         attackWindow = 0.75f;
         attackIndex = 4;
-        duration = 0.75f;
-        multInput = 1.25f;
+        duration = 0.65f;
+        multInput = 1.0f;
         animator.SetTrigger("Attack" + attackIndex);
         //  Debug.Log("Player Attack" + attackIndex + "fired!");
         

@@ -4,18 +4,31 @@ using UnityEngine;
 
 public class HeavyHeavyState : MeleeBaseState
 {
+
+    private Transform playerTransform;
     public override void OnEnter(StateMachine stateMachine)
     {
         base.OnEnter(stateMachine);
 
         // attack
         attackIndex = 5;
-        duration = 0.75f;
+        duration = 0.65f;
         multInput = duration * 2;
         animator.SetTrigger("Attack" + attackIndex);
         //  Debug.Log("Player Attack" + attackIndex + "fired!");
-            
-   
+        playerTransform = stateMachine.transform;
+        Vector3 effectPosition = playerTransform.position;
+        effectPosition.y += 2.0f;
+
+        GameObject buildupPrefab = stateMachine.getBuildupParticles();
+        if (buildupPrefab != null && playerTransform != null)
+        {
+
+            GameObject effectInstance = GameObject.Instantiate(buildupPrefab, effectPosition, Quaternion.identity);
+            effectInstance.transform.SetParent(playerTransform);
+
+            GameObject.Destroy(effectInstance, duration);
+        }
     }
     public override void OnUpdate(AttackType currentAttack, Attack1 attack1, Attack2 attack2)
     {
