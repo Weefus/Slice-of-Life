@@ -6114,6 +6114,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: miku
       objectReference: {fileID: 0}
+    - target: {fileID: 3079297330362526297, guid: 759562b1aa912814a85c6d0420306cbd, type: 3}
+      propertyPath: hp
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 4235053005747316828, guid: 759562b1aa912814a85c6d0420306cbd, type: 3}
       propertyPath: m_LocalPosition.x
       value: 3.19
