@@ -18,7 +18,7 @@ GameObject:
   - component: {fileID: 7165264799245244528}
   - component: {fileID: -1717286532967826026}
   m_Layer: 6
-  m_Name: zombie
+  m_Name: zombie_no_arms
   m_TagString: zombie
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -191,7 +191,7 @@ Animator:
   m_GameObject: {fileID: 6836569182353402695}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: f39c0567c936ec241bc2a10d2470bc86, type: 2}
+  m_Controller: {fileID: 9100000, guid: 53c5f96b801e01a4b8c79a2ff2610767, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -243,7 +243,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 11
-  m_Sprite: {fileID: -2023475973, guid: bf1c0629cd80efa458eeb25f7b245cac, type: 3}
+  m_Sprite: {fileID: 1454836627, guid: f3407e6aa4b77ed438aa4aa29f52d560, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -358,7 +358,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -2060276041478017593, guid: fec34bb0cf7cb254aa49e02198e5d7b4, type: 3}
       propertyPath: force
-      value: 20
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: -2060276041478017593, guid: fec34bb0cf7cb254aa49e02198e5d7b4, type: 3}
       propertyPath: canMove
@@ -491,7 +491,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: -0.27}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -502,5 +502,5 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 1, y: 1.39}
   m_EdgeRadius: 0

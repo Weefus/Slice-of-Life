@@ -32,7 +32,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Zombie with One Arm Death
+  m_Name: Zombie with No Arm Death
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions: []
@@ -45,7 +45,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 53c72143356a56a45a4c4913a5a82cf8, type: 2}
+  m_Motion: {fileID: 7400000, guid: 571c5ca530f3241499591291cdc5a14c, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -83,7 +83,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Zombie with One Arm Walk
+  m_Name: Zombie with No Arm Walk
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
@@ -98,7 +98,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: e5f1b3847e706344dbb39d01013862d0, type: 2}
+  m_Motion: {fileID: 7400000, guid: 0bd674631cbc85544899f6ae7828c54e, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -200,7 +200,7 @@ AnimatorController:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Zombie with One Arm
+  m_Name: Zombie with No Arm
   serializedVersion: 5
   m_AnimatorParameters:
   - m_Name: die
@@ -241,7 +241,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Zombie with One Arm Attack
+  m_Name: Zombie with No Arm Attack
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
@@ -256,7 +256,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: bab135c2c60c0744aa580ba47d6ad5c3, type: 2}
+  m_Motion: {fileID: 7400000, guid: ddd529dacf0b29c4a9396f9c1cba9ed2, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 

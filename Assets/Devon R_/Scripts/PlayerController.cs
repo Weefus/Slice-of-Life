@@ -102,7 +102,7 @@ public class PlayerController : MonoBehaviour
 
         if (kb.knockbackTimer > 0)
         {
-            myRB.velocity = kb.kbForce - myRB.velocity;
+            myRB.velocity = new Vector2(kb.kbForce.x, kb.kbForce.y);
         }
 
         //Lets the offest on the camera move in the direction of the player over time
