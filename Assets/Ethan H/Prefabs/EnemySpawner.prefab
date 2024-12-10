@@ -144,7 +144,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ebda864585dd844295bf49d82138a5a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyPrefab: {fileID: 3396902734536573614, guid: a1e40c61f38d3d34186678b589dacdfe, type: 3}
+  enemyPrefabs:
+  - {fileID: 3396902734536573614, guid: a1e40c61f38d3d34186678b589dacdfe, type: 3}
+  - {fileID: 3396902734536573614, guid: 48436448bcfe13e418ad2401c6e3df5c, type: 3}
 --- !u!50 &3457822445611366982
 Rigidbody2D:
   serializedVersion: 4
