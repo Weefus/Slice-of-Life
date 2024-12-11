@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+
 
 public class basicZombClass : MonoBehaviour
 {
@@ -29,6 +31,11 @@ public class basicZombClass : MonoBehaviour
             animator.SetTrigger("die");
 
             despawnTime -= Time.deltaTime;
+
+            if (gameObject.CompareTag("Miku"))
+            {
+                SceneManager.LoadScene("Win_Screen");
+            }
 
             if (despawnTime <= 0)
             {

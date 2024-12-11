@@ -35,7 +35,11 @@ public class KnockbackController : MonoBehaviour
         if (!hb.invincible) 
         {
             knockbackTimer = startTimer;
-            rb2D.velocity = new Vector2(0f, 0f);
+            if (force.y < 0)
+            {
+                force.y = 1;
+            }
+            rb2D.velocity += new Vector2(5f, 5f);
             kbForce = force;
         }  
     }
