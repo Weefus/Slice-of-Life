@@ -66,11 +66,11 @@ public class Projectile2 : StateMachineBehaviour
             }
             else if (ranNote == 2)
             {
-                Instantiate(note, new Vector3(rigid.position.x + (1.5f * side), 4, 0), Quaternion.identity);
+                Instantiate(note, new Vector3(rigid.position.x + (1.5f * side), 5, 0), Quaternion.identity);
             }
             else
             {
-                Instantiate(note, new Vector3(rigid.position.x + (1.5f * side), 6, 0), Quaternion.identity);
+                Instantiate(note, new Vector3(rigid.position.x + (1.5f * side), 8, 0), Quaternion.identity);
             }
 
             //resets the cooldown of the attack
