@@ -35,7 +35,7 @@ public class ParticlePlayer : MonoBehaviour
             dashTwoEmission.enabled = false;
         }
 
-        var ultEmission = ultReady.emission;
+       var ultEmission = ultReady.emission;
 
         if (player.ult == 100)
         {
